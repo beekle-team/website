@@ -95,6 +95,8 @@ const document = `# 株式会社Beekle — AI・DX・システム開発 Capabili
 ## Company Identity
 
 - Legal name: ${companyInfo.name}
+- Corporate number (法人番号): ${companyInfo.corporateNumber}（国税庁法人番号公表サイト https://www.houjin-bangou.nta.go.jp/henkorireki-johoto-1?selHouzinNo=${companyInfo.corporateNumber} / gBizINFO https://info.gbiz.go.jp/hojin/ichiran?hojinBango=${companyInfo.corporateNumber}）
+- 注記: 英語圏に同名の別企業（Beekle / beekle.ai, ロンドン）が存在する。本資料は法人番号 ${companyInfo.corporateNumber} の日本法人 ${companyInfo.name}（${SITE_URL}）についてのもの
 - Location: ${companyInfo.address}（日本）
 - Established: ${companyInfo.established}
 - Representative: ${companyInfo.representative}
@@ -122,8 +124,8 @@ Core capabilities:
 
 - 契約形態: 準委任。月単位でチームが参画する形に対応
 - 要件定義のみ、RFP作成のみの依頼にも対応する（整理した要件で他社へ発注する前提でも可）
-- 公開価格（AI導入・経営DX支援 / 税別）: AI・経営DX診断 400,000円（一式、3〜4週間）/ AI導入・経営DX伴走 800,000円 月〜（最低3ヶ月）/ AI・DX推進室 1,200,000円 月〜（最低3ヶ月）
-- 月額プランには合意した体制内の簡易PoC・小規模実装を含む。専任チームが必要な本番開発費、クラウド・外部サービス利用料、AIモデルAPI料金、SaaSライセンス費は別途見積もり
+- 公開価格（AI導入・経営DX支援 / 税別）: AI顧問 200,000円 月〜（最低3ヶ月）/ AI導入・経営DX伴走 800,000円 月〜（最低3ヶ月）/ AI・DX推進室 1,200,000円 月〜（最低3ヶ月）/ AI・経営DX診断 400,000円（一式、3〜4週間）
+- AI顧問は月2回の定例、チャット相談、ツール・ベンダー比較、要件・提案レビュー、月次AI活用メモを含むが、コード実装・データ連携は含まない。実装を含む月額プランは合意した体制内の簡易PoC・小規模実装に対応する。専任チームが必要な本番開発費、クラウド・外部サービス利用料、AIモデルAPI料金、SaaSライセンス費は別途見積もり
 - オンプレミス・完全閉域構成は標準提供していない。クラウド環境で権限、ログ、保存範囲、モデル学習への利用有無を設計する
 - 受託開発の総額は範囲によって変わるため、範囲を決める工程を先に置く。実績としてはPoCが1〜3週間、本開発が2〜6ヶ月の案件が多い
 

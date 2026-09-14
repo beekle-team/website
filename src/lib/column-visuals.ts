@@ -529,15 +529,18 @@ function buildBridgeCta(source: string): string {
 function buildCtaCard(opts: {
   href: string;
   download?: string;
+  /** 外部サイトへのリンク。別タブで開き、rel を付ける */
+  external?: boolean;
   source: string;
   ctaId: string;
   title: string;
   body: string;
   label: string;
 }): string {
-  const { href, download, source, ctaId, title, body, label } = opts;
+  const { href, download, external, source, ctaId, title, body, label } = opts;
   const downloadAttr = download ? ` download="${download}"` : '';
-  return `<a class="cv-card cv-card-cta" href="${href}"${downloadAttr} data-cta-source="${source}" data-cta-id="${ctaId}">
+  const externalAttr = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+  return `<a class="cv-card cv-card-cta" href="${href}"${downloadAttr}${externalAttr} data-cta-source="${source}" data-cta-id="${ctaId}">
   <span class="cv-card-header cv-header-primary">${title}</span>
   <span class="cv-card-body">
     <span class="cv-cta-lead">${body}</span>
@@ -978,6 +981,48 @@ function buildServiceBridge(source: string, key: string, bridge: ServiceBridge):
   });
 }
 
+// コラム → PM on Rails（自社プロダクト, pmonrails.com）へのブリッジ。マーカーは {{PM_ON_RAILS_BRIDGE}}。
+// 対象はエンジニア／テックリードが読む実装寄りクラスタ（Gherkin・仕様駆動開発・AI駆動開発）だけ。
+// 記事末の主CTAは /contact のまま、本文中に1記事1本まで（.claude/rules/cro-strategy.md）。
+// 遷移先はウェイトリスト（KPI=登録数）。pmonrails.com 側の計測に乗るよう UTM で識別する。
+// scripts/lib/technical-cluster-cta.mjs のテキストリンク版と同じ UTM 規約。
+const PM_ON_RAILS_BRIDGE_MARKER = 'PM_ON_RAILS_BRIDGE';
+
+export function buildPmOnRailsWaitlistUrl(source: string): string {
+  const params = new URLSearchParams({
+    utm_source: 'beekle.jp',
+    utm_medium: 'column',
+    utm_campaign: 'technical_cluster',
+    utm_content: source.replace(/^column-/, ''),
+  });
+  return `https://pmonrails.com/waitlist?${params.toString()}`;
+}
+
+function buildPmOnRailsBridge(source: string): string {
+  return buildCtaCard({
+    href: buildPmOnRailsWaitlistUrl(source).replaceAll('&', '&amp;'),
+    external: true,
+    source,
+    ctaId: 'bridge-pm-on-rails',
+    title: 'PM on Rails｜要求からGherkin、実装、動作確認までをつなぐ',
+    body: '実案件でGherkinや受入条件を全部手書きしてレビューするのが大変だったので、Beekleが自社で作り、実際の開発で使っている開発管理システムです。要求をユーザーストーリーとGherkinに整理し、決まっていない点は質問に戻し、確定した仕様をAIエージェントの実装と動作確認につなげます。現在はベータ版で、一般公開に向けてウェイティングリストを受け付けています。',
+    label: 'ウェイティングリストに登録する',
+  });
+}
+
+// project-management カテゴリ用。記事末の主CTAが PM on Rails なので、本文側でも
+// 「エンジニアはこれを使っておけば安心、発注側も開発側がこれを使っていれば安心」を1ブロックで揃える
+// （ユーザー判断 2026-09-12）。ブリッジカードを内包するので pmonrails.com への導線はこの1本。
+const PM_ON_RAILS_ASSURANCE_MARKER = 'PM_ON_RAILS_ASSURANCE';
+
+function buildPmOnRailsAssurance(source: string): string {
+  return `<h3>エンジニアがPM on Railsを使っておけば、この進め方はそのまま回る</h3>
+<p><strong>PM on Rails</strong>は、Beekleが自社の開発で使うために作った、要件と開発作業の管理システムです。議事録や文字起こしから要求を整理し、FMで採否を決め、採用した要求をユーザーストーリーとGherkinに具体化し、開発作業と動作確認に関連付けるところまでを、一つの場所で管理します。</p>
+<p>エンジニアにとっては、これを使っておけば、仕様と作業の対応を手で探し直す必要がなくなります。決まっていない点は質問として発注側へ戻り、作業はどのシナリオを実現するものかが決まった状態で始まり、動作確認の結果はそのシナリオに残ります。要件が変わっても、影響するシナリオ・作業・テストをたどれます。</p>
+<p>発注側にとっても、開発側がPM on Railsで管理していれば安心できる材料になります。打ち合わせで話したことがどの要求として記録され、どう判定され、どこまで動作確認が終わったかが記録に残るからです。「言ったはずのことが入っていない」「作ったのに思っていたものと違う」を、実装後ではなく要求や仕様の段階で見つけられます。</p>
+${buildPmOnRailsBridge(source)}`;
+}
+
 function buildConsultCta(source: string, cta: ConsultCta): string {
   return buildCtaCard({
     href: `${cta.hrefBase ?? '/contact'}?source=${encodeURIComponent(source)}&intent=${encodeURIComponent(cta.intent)}`,
@@ -1104,6 +1149,22 @@ export function renderColumnVisuals(html: string, ctx?: ColumnVisualContext): st
       const visual = buildServiceBridge(ctx.source, key, bridge);
       const wrapped = new RegExp(`<p>\\s*\\{\\{${key}\\}\\}\\s*</p>`, 'g');
       const bare = new RegExp(`\\{\\{${key}\\}\\}`, 'g');
+      result = result.replace(wrapped, visual).replace(bare, visual);
+    }
+
+    // コラム → PM on Rails ブリッジ（{{PM_ON_RAILS_BRIDGE}}）
+    {
+      const visual = buildPmOnRailsBridge(ctx.source);
+      const wrapped = new RegExp(`<p>\\s*\\{\\{${PM_ON_RAILS_BRIDGE_MARKER}\\}\\}\\s*</p>`, 'g');
+      const bare = new RegExp(`\\{\\{${PM_ON_RAILS_BRIDGE_MARKER}\\}\\}`, 'g');
+      result = result.replace(wrapped, visual).replace(bare, visual);
+    }
+
+    // project-management 向けの本文ブロック（{{PM_ON_RAILS_ASSURANCE}}）
+    {
+      const visual = buildPmOnRailsAssurance(ctx.source);
+      const wrapped = new RegExp(`<p>\\s*\\{\\{${PM_ON_RAILS_ASSURANCE_MARKER}\\}\\}\\s*</p>`, 'g');
+      const bare = new RegExp(`\\{\\{${PM_ON_RAILS_ASSURANCE_MARKER}\\}\\}`, 'g');
       result = result.replace(wrapped, visual).replace(bare, visual);
     }
 

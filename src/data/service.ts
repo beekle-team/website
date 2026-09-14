@@ -1,4 +1,6 @@
 import type { ServiceDetail } from '@/types/service';
+import { industryServices } from './industry-services';
+import { serviceModelCases } from './service-model-cases';
 
 export const services: ServiceDetail[] = [
   {
@@ -855,6 +857,7 @@ export const services: ServiceDetail[] = [
           },
         ],
       },
+      { ...serviceModelCases['ai-development'], placement: 'middle' },
     ],
     relatedColumns: [
       {
@@ -869,8 +872,8 @@ export const services: ServiceDetail[] = [
       },
       {
         slug: 'ai-era-development-flow',
-        title: 'AI受託開発・生成AI開発の流れと進め方｜PoCからプロトタイプ・本番化までの全工程',
-        description: '受託開発のフェーズごとに発注側がやることを整理した実務ガイド。',
+        title: '生成AI開発で一番成功率が高い開発パターン',
+        description: '確実なところは先にデモにし、不確実なところだけ検証する進め方。',
       },
       {
         slug: 'ai-poc-to-production',
@@ -1084,6 +1087,7 @@ export const services: ServiceDetail[] = [
           'さらにオーダーメイドのデータベース設計により、文書の種類（規程・マニュアル・議事録）ごとに最適な検索方法を使い分けます。規程なら条項単位で検索し、議事録なら議題単位で検索する、といった業務に合った精度を実現します。',
         ],
       },
+      serviceModelCases['internal-document-ai-search'],
     ],
     relatedColumns: [
       {
@@ -1550,6 +1554,7 @@ export const services: ServiceDetail[] = [
           'ただし万能ではありません。回答精度が100%にならない以上、間違えたときのフォローが必要です。確信度の低い回答を検知して自動で有人に引き継ぐ、回答に根拠文書を併記して利用者が自分で確認できるようにする、といった「間違える前提の設計」が、実際に現場で使われるチャットボットには不可欠です。',
         ],
       },
+      serviceModelCases['ai-chatbot-development'],
     ],
     relatedColumns: [
       {
@@ -1564,8 +1569,8 @@ export const services: ServiceDetail[] = [
       },
       {
         slug: 'ai-era-development-flow',
-        title: 'AI受託開発・生成AI開発の流れと進め方｜PoCからプロトタイプ・本番化までの全工程',
-        description: '受託開発のフェーズごとに発注側がやることを整理した実務ガイド。',
+        title: '生成AI開発で一番成功率が高い開発パターン',
+        description: '確実なところは先にデモにし、不確実なところだけ検証する進め方。',
       },
       {
         slug: 'ai-development-cost-guide',
@@ -1755,6 +1760,7 @@ export const services: ServiceDetail[] = [
           'ただし万能ではありません。図面やグラフの構造的な読み取り、極端に画質の悪い原本、手書きの崩し字などは精度が下がります。PoCの段階で実際の帳票サンプルを使って「どこまで読めるか」を検証し、苦手な箇所は人間確認で補う設計を標準としています。',
         ],
       },
+      serviceModelCases['ocr-ai-development'],
     ],
     relatedColumns: [
       {
@@ -1774,8 +1780,8 @@ export const services: ServiceDetail[] = [
       },
       {
         slug: 'ai-era-development-flow',
-        title: 'AI受託開発・生成AI開発の流れと進め方｜PoCからプロトタイプ・本番化までの全工程',
-        description: '受託開発のフェーズごとに発注側がやることを整理した実務ガイド。',
+        title: '生成AI開発で一番成功率が高い開発パターン',
+        description: '確実なところは先にデモにし、不確実なところだけ検証する進め方。',
       },
     ],
   },
@@ -1928,7 +1934,7 @@ export const services: ServiceDetail[] = [
       {
         question: '既存のシステムを改修する必要はありますか？',
         answer:
-          '基本的に既存システムの改修は不要です。MCPサーバーやAPI連携で外部からアクセスする設計のため、既存システムをそのまま使いながらAIエージェントを追加できます。ただしAPIが公開されていないシステムについては、連携方法の検討が必要です。',
+          'APIや認証方式を利用できる場合、既存画面の大規模な改修を避けながら外部連携できることがあります。ただし、連携先の仕様、ネットワーク、権限、監査要件によっては、既存システム側の改修が必要です。',
       },
     ],
     additionalSections: [
@@ -1941,6 +1947,7 @@ export const services: ServiceDetail[] = [
           '複数のシステムをまたいで業務を完遂するために、MCP（Model Context Protocol）という仕組みで各システムと安全に接続します。既存システムを改修する必要はなく、外部からAPI経由でアクセスする設計です。ただし、AIが自律的に動く以上、暴走リスクへの対策が必須です。金額の大きな処理や外部送信には人間の承認を挟み、全操作を記録する監査ログを標準で組み込みます。',
         ],
       },
+      serviceModelCases['ai-agent-development'],
     ],
     relatedColumns: [
       {
@@ -1960,8 +1967,8 @@ export const services: ServiceDetail[] = [
       },
       {
         slug: 'ai-era-development-flow',
-        title: 'AI受託開発・生成AI開発の流れと進め方｜PoCからプロトタイプ・本番化までの全工程',
-        description: '受託開発のフェーズごとに発注側がやることを整理した実務ガイド。',
+        title: '生成AI開発で一番成功率が高い開発パターン',
+        description: '確実なところは先にデモにし、不確実なところだけ検証する進め方。',
       },
     ],
   },
@@ -2207,10 +2214,28 @@ export const services: ServiceDetail[] = [
         title: 'PoCから本開発への地続きの移行',
         description:
           '検証で得た学びと作ったものを、本開発にそのまま引き継ぎます。検証フェーズと本開発を同じチームが担当するため、作り直しの無駄を抑え、スムーズに本番化できます。',
-        results: ['学びを本開発に引き継げる', '作り直しの無駄がない', '同じチームが本番まで見る'],
+        results: [
+          '学びを本開発に引き継げる',
+          '作り直しを最小限にできる',
+          '同じチームが本番まで見る',
+        ],
       },
     ],
     caseStudies: [
+      {
+        title: '生成AIに任せられない商材で、1週間で動く推薦エンジンのPoCを作った案件',
+        challenge:
+          '推薦文をAIに自由に書かせられない前提があり、候補をまとめてLLMに渡して並べさせる一般的な作り方が最初から使えませんでした。',
+        solution:
+          'LLMの担当を入口（自然文を条件に構造化する）と出口（理由を言語化する）だけに限定し、検索と並べ替えはBM25とベクトル検索のRRF統合＋自前のスコア関数で決定論的に実装しました。',
+        whyUs:
+          'AIに何をさせないかを先に決めてから設計するので、「AIにお任せ」で済ませられない事情があっても、動くものと説明できる根拠が同時に手に入ります。並べ替えの根拠はスコアの内訳として数値で残り、精度は評価ハーネスで測れる状態にしてあります。',
+        results: [
+          '相談から1週間で動くPoC',
+          '検索・並べ替えは10ms未満',
+          '推薦理由をスコアの内訳で説明',
+        ],
+      },
       {
         title: '心理学モデルを組み込んだHR AIエージェントの開発',
         challenge:
@@ -2513,7 +2538,8 @@ export const services: ServiceDetail[] = [
       },
       {
         title: 'プロトタイプで要件を固めてからRFP化',
-        description: '動くもので要件を確かめてから書くので、発注したあとに前提が覆りません。',
+        description:
+          '動くもので要件を確かめてから書くので、発注したあとの認識のズレと手戻りを減らせます。新しい事実で要件が変わることはありますが、どこに影響するかを追える形で残します。',
       },
     ],
     benefits: [
@@ -2603,4 +2629,5 @@ export const services: ServiceDetail[] = [
       },
     ],
   },
+  ...industryServices,
 ];

@@ -21,6 +21,25 @@ const serviceItems = [
   { label: 'CDP構築・顧客データ基盤開発', href: '/services/cdp-development' },
 ];
 
+// 業種・業務別ソリューション（2026-09 追加）。技術名でなく「誰の何を解決するか」で並べる。
+const industryItems = [
+  { label: '業種・業務別ソリューション一覧', href: '/solutions' },
+  { label: '営業組織 | 営業データを育成に戻す', href: '/services/sales-data-coaching' },
+  {
+    label: '製造業 | 型番・仕様・適合の検索',
+    href: '/services/manufacturing-parts-knowledge-search',
+  },
+  {
+    label: '自動車・航空 | 技術マニュアル検索',
+    href: '/services/technical-manual-knowledge-search',
+  },
+  { label: '情シス | 社内問い合わせのAI一次対応', href: '/services/internal-it-helpdesk-ai' },
+  {
+    label: '経理・管理 | 帳票の確認・照合・登録',
+    href: '/services/document-processing-automation',
+  },
+];
+
 const knowledgeItems = [
   { label: 'コラム（発注者向け）', href: '/column' },
   { label: 'ブログ（雑記）', href: '/blog' },
@@ -44,6 +63,7 @@ const mobileSections: { heading: string; items: { label: string; href: string }[
   { heading: '課題から探す', items: problemItems },
   { heading: '進め方', items: methodItems },
   { heading: 'サービス', items: serviceItems },
+  { heading: '業種・業務別', items: industryItems },
   { heading: '判断材料', items: knowledgeItems },
   { heading: '会社情報', items: aboutItems },
 ];
@@ -59,11 +79,11 @@ function Dropdown({
     <li className="group relative">
       <button
         type="button"
-        className="inline-flex cursor-pointer items-baseline gap-1 text-sm font-medium text-neutral-600 transition-colors hover:text-accent-600"
+        className="peer inline-flex cursor-pointer items-baseline gap-1 text-sm font-medium text-neutral-600 transition-colors hover:text-accent-600 [&:focus-visible>svg]:rotate-180"
       >
         {label}
         <svg
-          className="h-2.5 w-2.5 transition-transform group-hover:rotate-180 group-focus-within:rotate-180"
+          className="h-2.5 w-2.5 transition-transform group-hover:rotate-180"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -72,7 +92,10 @@ function Dropdown({
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-      <div className="invisible absolute left-0 top-full z-50 w-72 pt-2 opacity-0 transition-opacity group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+      {/* マウスは hover、キーボードは トリガーの focus-visible とパネル内の focus-within で開く。
+          group-focus-within にすると、クリックでボタンにフォーカスが残ったとき、
+          カーソルを離してもパネルが開いたままになる（2026-09-06 のバグ報告の原因）。 */}
+      <div className="invisible absolute left-0 top-full z-50 w-72 pt-2 opacity-0 transition-opacity focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100 peer-focus-visible:visible peer-focus-visible:opacity-100">
         <div className="rounded-lg border border-neutral-200 bg-white py-2">
           {items.map((item) => (
             <a
@@ -189,6 +212,7 @@ export function Header() {
           <Dropdown label="課題別" items={problemItems} />
           <Dropdown label="進め方" items={methodItems} />
           <Dropdown label="サービス" items={serviceItems} />
+          <Dropdown label="業種・業務別" items={industryItems} />
           <li>
             <a
               href="/case-studies"

@@ -7,9 +7,11 @@
       ".astro/**",
       ".vscode/**",
       ".wrangler/**",
+      ".tmp/**",
       "*.generated.*",
       "src/data/column-embeddings.json",
-      "docs/marketing/data/**"
+      "docs/marketing/data/**",
+      "claudedocs/backups/**"
     ]
   },
   "organizeImports": {
@@ -44,7 +46,6 @@
     "lineWidth": 100,
     "ignore": [".astro", "dist/**", "node_modules/**", "*.generated.*"]
   },
-
   "javascript": {
     "formatter": {
       "quoteStyle": "single",

@@ -7,6 +7,30 @@
 - ツール同士のリンク（story-builder → scope-manager 等）はツール利用中のユーザー向けなので残してよい。
 - 「ノウハウ系記事→ツール誘導」という旧方針（下記の2026-05-03版）は**廃止**。
 
+## 例外: 自社プロダクト PM on Rails（pmonrails.com）だけは送客してよい（2026-09-02 決定）
+
+上の禁止は **無料ツール `/tools/*`** が対象。`pmonrails.com`（自社プロダクト、別ドメイン、KPIはウェイトリスト登録）は対象外とする。`/tools/*` の扱いは据え置きで変えない。
+
+理由: 禁止の根拠は「ツールが問い合わせを食っていた」こと。PM on Rails は問い合わせと競合する無料ツールではなく、Beekleの技術的裏づけそのもので、記事から送っても主動線を削らない。
+
+**守る条件（これを外すと `/tools/*` と同じ失敗になる）**
+
+- **記事末の主CTAは常に `/contact`。** PM on Rails は本文中の文脈リンクか、専用ブリッジのみ。`column-cta-mapping.ts` の primary を書き換えない。
+  - **例外（2026-09-12 ユーザー決定）**: 仕様・要件定義ノウハウで読者がエンジニアの記事（`column-cta-mapping.ts` の SLUG_CTA 仕様クラスタ = gherkin-bdd-introduction / spec-driven-development / ai-development-dor-gherkin / user-story-template-examples / ai-agent-gherkin-evidence）と、**project-management カテゴリ全体**（同日、ユーザー判断「買い手クエリじゃない」。MAPPING のカテゴリ既定で PM on Rails、SLUG_CTA の買い手向け上書きは撤去。**how-to-write-rfp だけは例外**で、RFP 系クエリの AI 引用権威＝買い手経路なので記事末の RFP 相談を残し、本文へのブロック投入もしない）は、記事末の主CTAを PM on Rails ウェイトリスト（外部・別タブ・`utm_content=<slug>`、`data-cta-id=pm-on-rails-waitlist`）、副CTAを協業相談にする。ナレッジ全体ではない。RAG/GraphRAG 系の knowledge は従来どおり相談。発注者向けの要件定義記事（vs-requests / process / template / how-to-write-rfp / scenario-test-cost-reduction）は買い手リードの源泉なので変えない。要件定義系はカテゴリが project-management なので上のとおり PM on Rails 側（requirements-definition-template / vs-requests / process / complete-guide を含む。how-to-write-rfp は除く）。本文側は `{{PM_ON_RAILS_ASSURANCE}}`（h3＋「エンジニアはこれを使っておけば安心、発注側も開発側がこれを使っていれば安心」の3段落＋ブリッジカード。`src/lib/column-visuals.ts`）を各記事の末尾側に1本置く。投入は `scripts/insert-pm-on-rails-assurance.mjs`（dry-run 既定、`--apply --backup-dir` 必須。既に pmonrails 導線がある記事は飛ばし、末尾の相談マーカー {{CONTACT_CTA}} 等はこのブロックに置き換える。コード先→CMS後）。カテゴリ移動は `scripts/move-columns-to-knowledge.mjs`。
+- **1記事1本まで。** 本文中に何本も置かない。
+- **出す記事を限定する。** 仕様駆動開発・AI駆動開発・要件定義の実装寄りクラスタ（読者＝エンジニア／テックリード）だけ。費用・発注・ベンダー選定など買い手クラスタには出さない（あちらの主動線は相談のまま）。
+- ブリッジを新マーカーで実装する場合は、**コード先 → MicroCMS後**の順序を守る（[[microcms]]）。
+- **実装済み（2026-09-12）**: `{{PM_ON_RAILS_BRIDGE}}`（`src/lib/column-visuals.ts`）。カード型CTAで `https://pmonrails.com/waitlist?utm_source=beekle.jp&utm_medium=column&utm_campaign=technical_cluster&utm_content=<slug>` へ別タブ遷移、`data-cta-id="bridge-pm-on-rails"` で cta_click 計測。投入は `scripts/insert-pm-on-rails-bridge.mjs`（dry-run既定、`--apply --backup-dir` 必須、pmonrails.com への導線が1記事1本になることをスクリプト側で固定）。対象6記事: gherkin-bdd-introduction / user-story-template-examples / requirements-definition-template / ai-agent-gherkin-evidence（カード）、spec-driven-development / ai-development-dor-gherkin（地の文リンクの href を UTM 化のみ）。買い手クラスタ（scenario-test-cost-reduction, project-management-complete-guide, ai-driven-development）には入れない。
+
+## 仕様駆動開発クラスタの位置づけ（2026-09-02）
+
+ラッコ実測で `仕様駆動開発` 3,600/月（難易度36）、`仕様駆動開発とは` 590、`仕様駆動開発ツール` 110、`AI 仕様駆動開発` 110。周辺は claude code / codex / cursor / github copilot と結びついたロングテールが直近1年で大量に出現している伸長カテゴリ。一方 `ai開発 タスク管理` `ai駆動開発 プロジェクト管理` `ai開発 品質管理` は実測ゼロで、製品カテゴリ語には需要がない。
+
+このクラスタの読者はエンジニアで、[[content-strategy-goals]] の分類では C セグメント（純エンジニア＝受託ではCV0）に当たる。**それでも書く**のは、PM on Rails にとってはこの層が対象読者であり、KPIが受託の問い合わせ件数ではないため。受託のKPIで評価して「CV0だから無駄」と判断しないこと。
+
+- このクラスタのKPI: AI検索での引用（Clarity AI Citations）、`pmonrails.com` への送客、ウェイトリスト登録。
+- 2026-09-02時点で、コラム145本のうち「仕様駆動開発」に言及した記事は **0本**。
+
 ## 経緯（2026-07-27）
 
 記事末CTA（`src/lib/column-cta-mapping.ts` → `[...slug].astro`）は全128記事で `/contact` に向いていて正しかった。問題は**本文中**で、26記事に `/tools/*` リンクが計108本あり、うち8記事は本文中のCV点がゼロでツールリンクしか無かった。AI引用が最も多い買い手クラスタほど比率が壊れていた（project-management-complete-guide はツール12本 vs 本文CTA1本、requirements-definition-complete-guide は6本 vs 1本）。20記事で「本文中に最初に現れるアクション導線がツール」＝記事末CTAに到達する前にツールへ抜けていた。
