@@ -1,0 +1,37 @@
+name: Column Natural Japanese Migration
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/column-natural-japanese-migration.yml
+      - scripts/patch-column-natural-japanese-20260915.mjs
+      - scripts/patch-column-natural-japanese-batch2-20260915.mjs
+
+permissions:
+  contents: read
+
+jobs:
+  migrate:
+    if: "startsWith(github.event.head_commit.message, 'content: apply natural Japanese column cleanup')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Preflight column patches
+        run: |
+          bun scripts/patch-column-natural-japanese-20260915.mjs
+          bun scripts/patch-column-natural-japanese-batch2-20260915.mjs
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+      - name: Apply and verify column patches
+        run: |
+          bun scripts/patch-column-natural-japanese-20260915.mjs --apply
+          bun scripts/patch-column-natural-japanese-batch2-20260915.mjs --apply
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
