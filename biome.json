@@ -36,7 +36,9 @@
       "node_modules/**",
       "*.generated.*",
       "src/lib/requirements-content-upgrades.js",
-      "scripts/rewrite-requirements-content-2026-08-19.mjs"
+      "scripts/rewrite-requirements-content-2026-08-19.mjs",
+      "scripts/audit-natural-japanese-full.mjs",
+      "scripts/audit-natural-japanese-lp-entries.mjs"
     ]
   },
   "formatter": {
@@ -44,7 +46,14 @@
     "indentStyle": "space",
     "indentWidth": 2,
     "lineWidth": 100,
-    "ignore": [".astro", "dist/**", "node_modules/**", "*.generated.*"]
+    "ignore": [
+      ".astro",
+      "dist/**",
+      "node_modules/**",
+      "*.generated.*",
+      "scripts/audit-natural-japanese-full.mjs",
+      "scripts/audit-natural-japanese-lp-entries.mjs"
+    ]
   },
   "javascript": {
     "formatter": {
