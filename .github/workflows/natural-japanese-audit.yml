@@ -1,0 +1,40 @@
+name: Natural Japanese Full Audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/audit-natural-japanese-full.mjs
+      - scripts/audit-natural-japanese-lp-entries.mjs
+      - .github/workflows/natural-japanese-audit.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+      - run: bun install --frozen-lockfile
+      - name: Audit all columns and LP source copy
+        run: bun scripts/audit-natural-japanese-full.mjs
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+      - name: Audit every dynamic service and situation LP
+        run: bun scripts/audit-natural-japanese-lp-entries.mjs
+      - name: Persist audit reports
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .ops/natural-japanese-audit.json .ops/natural-japanese-lp-entries.json
+          git diff --cached --quiet || git commit -m "chore: record natural Japanese full audit"
+          git push origin HEAD:main
