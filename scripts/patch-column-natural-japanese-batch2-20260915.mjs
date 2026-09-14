@@ -6,6 +6,7 @@ const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY,
 });
 
+// biome-ignore format: replacement pairs are intentionally expanded for reviewability
 const patches = {
   'ai-era-development-flow': [
     [
