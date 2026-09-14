@@ -70,6 +70,33 @@ const errorNotifier = defineMiddleware(async (context, next) => {
   }
 });
 
+// キャッシュヒットでも参照元制限を通す。Referer は偽装・省略できるため認証の代わりにはしない。
+const referrerGuard = defineMiddleware(async (context, next) => {
+  const referer = context.request.headers.get('referer');
+  if (!referer) return next();
+
+  let referrerUrl: URL;
+  try {
+    referrerUrl = new URL(referer);
+  } catch {
+    // 不正な Referer だけを理由に通常アクセスを遮断しない。
+    return next();
+  }
+
+  if (referrerUrl.protocol !== 'http:' && referrerUrl.protocol !== 'https:') return next();
+
+  const hostname = referrerUrl.hostname.toLowerCase().replace(/\.$/, '');
+  if (hostname !== 'sales-crowd.jp' && !hostname.endsWith('.sales-crowd.jp')) return next();
+
+  return new Response('Forbidden', {
+    status: 403,
+    headers: {
+      'content-type': 'text/plain; charset=utf-8',
+      'cache-control': 'no-store',
+    },
+  });
+});
+
 const edgeCache = defineMiddleware(async (context, next) => {
   const { request } = context;
   const url = new URL(request.url);
@@ -135,4 +162,4 @@ const edgeCache = defineMiddleware(async (context, next) => {
   return outgoing;
 });
 
-export const onRequest = sequence(errorNotifier, edgeCache);
+export const onRequest = sequence(errorNotifier, referrerGuard, edgeCache);
