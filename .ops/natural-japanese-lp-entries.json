@@ -1,0 +1,386 @@
+{
+  "generatedAt": "2026-09-14T23:57:34.918Z",
+  "summary": {
+    "serviceTotal": 16,
+    "serviceFlagged": 6,
+    "situationTotal": 8,
+    "situationFlagged": 0,
+    "totalEntries": 24,
+    "flaggedEntries": 6
+  },
+  "entries": [
+    {
+      "kind": "service",
+      "id": "ai-development",
+      "url": "/services/ai-development",
+      "title": "生成AI受託開発",
+      "strings": 260,
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "path": "$.service.caseStudies[8].whyUs",
+              "value": "固定ルールで縛らず、AIに任せる範囲と人が見る範囲を切り分けます。完全自動化を急がないぶん、現場が使い始められる精度で立ち上がります。",
+              "hits": [
+                "完全自動"
+              ]
+            },
+            {
+              "path": "$.service.additionalSections[1].cards[2].description",
+              "value": "完全自動化を目指すのではなく、AIの判定結果を人間が最終確認する導線を最初から組み込みます。導入初期の信頼を担保しながら、ログを蓄積して段階的に自動化を広げる戦略がPoC止まりを防ぎます。",
+              "hits": [
+                "完全自動"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "repeated-jargon",
+          "severity": 1,
+          "count": 3,
+          "samples": [
+            {
+              "path": "$.service.longDescription",
+              "value": "資料探し、問い合わせ対応、書類の転記、複数システムをまたぐ確認作業など、手間がかかっている業務に生成AIを組み込む受託開発を提供します。どの業務から始めるか、何をもって使えると判断するかを整理し、社内で使える状態への改善、運用まで一気通貫でサポートします。"
+            },
+            {
+              "path": "$.service.faq[2].answer",
+              "value": "RAG（Retrieval-Augmented Generation、検索拡張生成）は、社内文書やFAQを検索した結果をLLMに与えて回答させる手法です。社外秘データを学習させずに、最新の自社情報を活用した回答を生成できます。Embeddingモデル選定、ベクトルDB（Milvus / pgvector等）構築、グラフDB（Neo4j）によるGraphRAG、Reranking、評価設計まで一気通貫で対応します。"
+            },
+            {
+              "path": "$.service.additionalSections[0].subtitle",
+              "value": "ヒアリングから運用改善まで、6フェーズで一気通貫"
+            }
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "kind": "service",
+      "id": "cdp-development",
+      "url": "/services/cdp-development",
+      "title": "CDP構築・顧客データ基盤開発",
+      "strings": 120,
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            {
+              "path": "$.service.relatedColumns[0].title",
+              "value": "中小企業こそデータドリブン経営に切り替えるべき理由｜クラウド時代の現実解",
+              "hits": [
+                "現実解"
+              ]
+            },
+            {
+              "path": "$.service.relatedColumns[1].description",
+              "value": "CDPが経営にもたらす本質的価値、MA/CRM/DMPとの違い、自社に向くかの判断軸を整理。",
+              "hits": [
+                "本質的"
+              ]
+            },
+            {
+              "path": "$.service.relatedColumns[2].title",
+              "value": "CDP構築の費用と期間の目安｜中小企業から中堅企業までの現実解",
+              "hits": [
+                "現実解"
+              ]
+            },
+            {
+              "path": "$.service.relatedColumns[6].title",
+              "value": "需要予測で在庫コストを最適化｜サプライチェーンとデータ活用の現実解",
+              "hits": [
+                "現実解"
+              ]
+            }
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "kind": "service",
+      "id": "ocr-ai-development",
+      "url": "/services/ocr-ai-development",
+      "title": "OCR・帳票読み取りAI開発",
+      "strings": 163,
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "path": "$.service.caseStudies[2].whyUs",
+              "value": "手書きは完全自動化を狙うと事故ります。どこを人が見るかを決めた設計にしているので、精度が100%でなくても業務を止めずに回せます。",
+              "hits": [
+                "完全自動"
+              ]
+            },
+            {
+              "path": "$.service.additionalSections[0].paragraphs[2]",
+              "value": "ただし万能ではありません。図面やグラフの構造的な読み取り、極端に画質の悪い原本、手書きの崩し字などは精度が下がります。PoCの段階で実際の帳票サンプルを使って「どこまで読めるか」を検証し、苦手な箇所は人間確認で補う設計を標準としています。",
+              "hits": [
+                "万能"
+              ]
+            }
+          ]
+        }
+      ],
+      "score": 6
+    },
+    {
+      "kind": "service",
+      "id": "web-mobile-development",
+      "url": "/services/web-mobile-development",
+      "title": "Web・モバイルアプリ開発",
+      "strings": 100,
+      "findings": [
+        {
+          "type": "repeated-jargon",
+          "severity": 1,
+          "count": 5,
+          "samples": [
+            {
+              "path": "$.service.seoTitle",
+              "value": "Web・モバイルアプリ開発｜要件定義からAI駆動開発・運用まで一気通貫"
+            },
+            {
+              "path": "$.service.seoDescription",
+              "value": "BeekleのWebアプリ・モバイルアプリ受託開発。自社開発のPM基盤「PM on Rails」で要求を実装可能な仕様へ構造化し、AIエージェントで高速に実装。要件定義からデザイン・実装・運用まで一気通貫でサポートし、動くプロトタイプを先に作るゼロスタートにも対応します。"
+            },
+            {
+              "path": "$.service.longDescription",
+              "value": "そもそも解決したい課題は何なのか、という要件定義から、実装、サービスを継続的に発展させる運用フェーズまで一気通貫でサポートします。Beekleでは、自社開発のPM基盤「PM on Rails」で要求をユーザーストーリー・受入条件・開発タスクへ構造化し、その仕様をAIエージェントへつないで実装。動くものを確認しながら要件を更新する短いサイクルで開発を進めます。マーケティングに精通したメンバーも在籍しており、集客支援とアプリケーション開発をセットで支援することも可能です。"
+            },
+            {
+              "path": "$.service.caseStudies[2].title",
+              "value": "要件定義から一気通貫で進めた倉庫AI DX"
+            },
+            {
+              "path": "$.service.caseStudies[2].solution",
+              "value": "As-Is/To-Beの整理から受け入れ基準の定義、設計、実装までを一気通貫で進め、スキャンや実機端末に対応する倉庫システムを構築しました。"
+            }
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "kind": "service",
+      "id": "ai-chatbot-development",
+      "url": "/services/ai-chatbot-development",
+      "title": "AIチャットボット開発",
+      "strings": 163,
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            {
+              "path": "$.service.additionalSections[0].paragraphs[2]",
+              "value": "ただし万能ではありません。回答精度が100%にならない以上、間違えたときのフォローが必要です。確信度の低い回答を検知して自動で有人に引き継ぐ、回答に根拠文書を併記して利用者が自分で確認できるようにする、といった「間違える前提の設計」が、実際に現場で使われるチャットボットには不可欠です。",
+              "hits": [
+                "万能"
+              ]
+            }
+          ]
+        }
+      ],
+      "score": 3
+    },
+    {
+      "kind": "service",
+      "id": "internal-document-ai-search",
+      "url": "/services/internal-document-ai-search",
+      "title": "社内文書AI検索システム開発",
+      "strings": 145,
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            {
+              "path": "$.service.solutions[1].description",
+              "value": "回答には必ず参照元の文書名・セクション・ページ番号を併記します。検索対象に該当文書がない場合は「該当する文書が見つかりません」と回答し、推測で答えない設計を徹底します。",
+              "hits": [
+                "徹底"
+              ]
+            }
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "kind": "situation",
+      "id": "ai-adoption",
+      "url": "/situations/ai-adoption",
+      "title": "AI導入を、流行ではなく業務単位で判断する。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "ai-agent-development",
+      "url": "/services/ai-agent-development",
+      "title": "AIエージェント開発",
+      "strings": 145,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "business-systemization",
+      "url": "/situations/business-systemization",
+      "title": "属人業務を、現場で使えるシステム要件へ。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "customer-data-foundation",
+      "url": "/situations/customer-data-foundation",
+      "title": "顧客データを、施策判断に使える状態へ。",
+      "strings": 62,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "document-processing-automation",
+      "url": "/services/document-processing-automation",
+      "title": "帳票を読むだけで終わらせず、確認・照合・登録まで自動化する",
+      "strings": 113,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "internal-document-search",
+      "url": "/situations/internal-document-search",
+      "title": "社内資料検索を、答えと根拠で判断できる形へ。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "internal-it-helpdesk-ai",
+      "url": "/services/internal-it-helpdesk-ai",
+      "title": "情シスに何度も来る社内問い合わせを減らす",
+      "strings": 114,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "legacy-system-modernization",
+      "url": "/situations/legacy-system-modernization",
+      "title": "古いシステムを、必要な機能だけ次へ移す。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "manufacturing-parts-knowledge-search",
+      "url": "/services/manufacturing-parts-knowledge-search",
+      "title": "製造業の型番・仕様・適合情報を、探せる知識に変える",
+      "strings": 117,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "mvp-poc-development",
+      "url": "/services/mvp-poc-development",
+      "title": "MVP・PoC・プロトタイプ開発",
+      "strings": 111,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "rag-system-development",
+      "url": "/services/rag-system-development",
+      "title": "RAGシステム構築",
+      "strings": 171,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "requirements-definition-support",
+      "url": "/services/requirements-definition-support",
+      "title": "要件定義から伴走するシステム開発",
+      "strings": 140,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "requirements-unclear",
+      "url": "/situations/requirements-unclear",
+      "title": "要件が固まらない相談を、発注判断に使える材料へ。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "rfp-creation-support",
+      "url": "/services/rfp-creation-support",
+      "title": "RFP作成・発注準備支援",
+      "strings": 94,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "sales-data-coaching",
+      "url": "/services/sales-data-coaching",
+      "title": "営業データを営業育成に使える仕組みにする",
+      "strings": 117,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation-hub",
+      "id": "situations",
+      "url": "/situations",
+      "title": "相談が始まる場面",
+      "strings": 2,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "situation",
+      "id": "stalled-project",
+      "url": "/situations/stalled-project",
+      "title": "止まった開発を、再開できる単位へ分解する。",
+      "strings": 63,
+      "findings": [],
+      "score": 0
+    },
+    {
+      "kind": "service",
+      "id": "technical-manual-knowledge-search",
+      "url": "/services/technical-manual-knowledge-search",
+      "title": "自動車・航空の大量マニュアルから、必要な手順と根拠を探せるようにする",
+      "strings": 117,
+      "findings": [],
+      "score": 0
+    }
+  ]
+}

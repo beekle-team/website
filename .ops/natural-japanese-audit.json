@@ -1,0 +1,7459 @@
+{
+  "generatedAt": "2026-09-14T23:57:34.867Z",
+  "source": "published beekle.jp pages",
+  "summary": {
+    "columnsTotal": 142,
+    "columnsFlagged": 142,
+    "columnsClean": 0,
+    "lpFilesTotal": 40,
+    "lpFilesFlagged": 6,
+    "lpFilesClean": 34
+  },
+  "columns": [
+    {
+      "id": "bigquery-cdp-guide",
+      "url": "https://beekle.jp/column/bigquery-cdp-guide",
+      "section": "column",
+      "title": "BigQueryをCDPの土台にする判断｜既製CDPとの違い・費用・体制を中堅企業向けに整理",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "圧倒的"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "本質的な",
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. BigQueryでCDPを作ると本当に安いのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQuery CDPが向くのはどんな企業ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQuery CDPが向かないのはどんな場合ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 既製CDPとBigQuery自社開発はどう比較すればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "CDPに必要な機能",
+              "BigQuery単体",
+              "追加で必要なもの",
+              "データ収集（複数システムからの取り込み）",
+              "×"
+            ],
+            [
+              "大量データの保管",
+              "○",
+              "BigQuery 標準機能",
+              "顧客IDの統合（名寄せ）",
+              "△（SQLで実装可、ロジックは自作）",
+              "独自SQL設計／dbt 等のSQL運用ツール",
+              "セグメント作成（マーケ向け画面）",
+              "×"
+            ],
+            [
+              "追加層",
+              "選択肢",
+              "年額目安",
+              "データ取り込み",
+              "Fivetran／trocco／自前バッチ",
+              "100万〜400万円",
+              "SQL運用ツール",
+              "dbt Cloud／自前運用",
+              "0万〜300万円",
+              "セグメント・ダッシュボード",
+              "Looker／自社開発UI",
+              "200万〜800万円",
+              "広告／MA連携（Reverse ETL）",
+              "Census／Hightouch",
+              "200万〜600万円",
+              "同意管理",
+              "OneTrust等／自社実装",
+              "100万〜400万円"
+            ],
+            [
+              "判断軸",
+              "BigQuery CDP",
+              "既製CDP（Treasure Data等）",
+              "立ち上がりの速さ",
+              "遅い（4〜10か月）",
+              "速い（2〜5か月）",
+              "マーケが直接使う画面",
+              "自分で作る／買う必要あり",
+              "製品に標準搭載",
+              "独自ロジックの自由度",
+              "非常に高い",
+              "製品仕様の範囲",
+              "運用に必要なエンジニア",
+              "2〜4名",
+              "0.5〜1名",
+              "3年合計コスト（顧客100万件想定）",
+              "2,800万〜10,900万円",
+              "3,600万〜16,100万円",
+              "ベンダーサポート",
+              "Google Cloud のサポートのみ",
+              "製品ベンダー＋実装パートナー",
+              "顧客10倍にスケールしたとき",
+              "従量課金で線形に増える",
+              "利用料が大きく跳ねる傾向"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 30
+    },
+    {
+      "id": "bigquery-pricing-guide",
+      "url": "https://beekle.jp/column/bigquery-pricing-guide",
+      "section": "column",
+      "title": "BigQuery 料金を発注検討時に正しく見積もる｜中堅企業の月額目安と請求暴発を防ぐ条件",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            "圧倒的",
+            "絶対に"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 中堅企業がBigQueryを使うと月額いくらが目安ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQueryの請求が想定の3倍に暴発するのはなぜですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQuery導入時に最初から入れるべき予算管理設定は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQueryは月3万円からとありますが、それが総コストですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "料金は大きく次の3軸で計算されます。",
+              "課金軸",
+              "何にかかるか",
+              "単価の目安（東京リージョン）",
+              "データ保管料",
+              "BigQuery に置いているデータ容量×期間",
+              "1GB あたり月3〜6円",
+              "クエリ実行料",
+              "SQL を実行したときに処理するデータ量",
+              "1TB（処理量）あたり約1,000円",
+              "取り込み・転送料",
+              "外部からデータを流し込む量・経路",
+              "標準取り込みは無料、リアルタイムは別途課金"
+            ],
+            [
+              "区分",
+              "従量課金",
+              "固定料金（Enterprise エディション等）",
+              "料金体系",
+              "使った分だけ払う",
+              "処理能力（スロット）を月単位で予約",
+              "向くケース",
+              "月のクエリ料金が変動的、まだ規模が読めない",
+              "月のクエリ料金が安定的、月20万円以上を継続消費",
+              "導入のしやすさ",
+              "すぐ始められる",
+              "処理能力の見積もりが必要"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 29
+    },
+    {
+      "id": "bigquery-explained",
+      "url": "https://beekle.jp/column/bigquery-explained",
+      "section": "column",
+      "title": "BigQueryとは｜データ基盤を発注検討する情シス・経営層が押さえる判断軸",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "万能"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. BigQueryでできないこと・向かないことは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQueryは中堅企業で月額いくらかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQueryを導入するのに何が必要ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BigQueryはどう始めるのがよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "項目",
+              "料金体系",
+              "中堅企業の月額目安",
+              "データ保管料",
+              "容量×月単価",
+              "1万〜5万円",
+              "クエリ実行料",
+              "処理したデータ量に応じて課金",
+              "3万〜20万円",
+              "リアルタイム取り込み",
+              "使わなければゼロ",
+              "0〜数万円"
+            ],
+            [
+              "選択肢",
+              "強み",
+              "主な利用シーン",
+              "BigQuery（Google）",
+              "GA4 連携が無料、SQLで柔軟、運用がほぼ不要",
+              "マーケ分析、CDP土台",
+              "Snowflake",
+              "マルチクラウド対応、性能が安定",
+              "大規模・グローバル企業",
+              "Amazon Redshift",
+              "AWS環境との親和性",
+              "すでにAWS中心の企業",
+              "社内データベース（PostgreSQL等）",
+              "運用の自由度",
+              "小規模・閉域環境"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 27
+    },
+    {
+      "id": "ai-agent-build-guide",
+      "url": "https://beekle.jp/column/ai-agent-build-guide",
+      "section": "column",
+      "title": "AIエージェントの作り方｜設計・実装・運用の全フェーズを発注者視点で整理",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず失敗"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. AIエージェントの構築費用と期間はどれくらいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェントと業務システムの連携はどう実装しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェントの運用で失敗しないために何を設計しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェント開発の発注先には何を確認すべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "AIエージェント自体の概要は AIエージェントとは を参照してください。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "項目",
+              "例",
+              "入力",
+              "「営業担当の名前と案件名」",
+              "出力"
+            ],
+            [
+              "応答時間",
+              "「指示から完成まで5分以内」",
+              "失敗時の挙動"
+            ],
+            [
+              "用途",
+              "推奨",
+              "理由",
+              "複雑な推論・コード生成",
+              "Claude Sonnet系 / GPT-4o",
+              "長文理解と論理性に強い",
+              "大量バッチ処理（要約・分類）"
+            ],
+            [
+              "低コストで高速",
+              "業務システム連携が前提",
+              "Claude",
+              "MCP対応が早い、ツール呼び出し精度"
+            ],
+            [
+              "業務影響",
+              "推奨フロー",
+              "大（顧客向け回答、契約変更等）",
+              "AI下書き → 人間100%レビュー → 送信",
+              "中（社内向け要約、提案書ドラフト等）",
+              "AI下書き → 担当者の使用判断",
+              "小（情報収集レポート等）",
+              "AI完全自走、結果をSlackに投稿"
+            ]
+          ]
+        }
+      ],
+      "score": 26
+    },
+    {
+      "id": "cdp-failure-patterns",
+      "url": "https://beekle.jp/column/cdp-failure-patterns",
+      "section": "column",
+      "title": "CDP導入で失敗する5パターンと回避策｜「箱は作ったが使われない」を防ぐ",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            "徹底",
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. データドリブン経営を掲げると、なぜCDPが塩漬けになるのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDP導入でデータ品質はなぜ問題になりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPをマーケ部門に使ってもらうにはどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPの予算は初年度だけ見ればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "根本原因",
+              "処方箋",
+              "経営課題でなく技術起点で設計されている"
+            ],
+            [
+              "データ品質が分析の前提を満たしていない",
+              "分析前に必ず品質確認のステップを入れる",
+              "情シス部門 vs マーケ部門の縦割り構造",
+              "共同オーナー制で進める",
+              "初期構築費用しか議論されない",
+              "3〜5年の総コスト・運用体制を経営層と最初に握る"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 26
+    },
+    {
+      "id": "cdp-product-comparison",
+      "url": "https://beekle.jp/column/cdp-product-comparison",
+      "section": "column",
+      "title": "CDP比較ガイド｜Treasure Data・Salesforce CDP・自社開発、自社に合うのはどれか",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "圧倒的"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. Treasure Data・Salesforce CDP・自社開発の年間コストはどれくらい違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. どのCDPを選ぶかは何で決まりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 自社開発のCDPが向くのはどんなケースですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPの選定にはどれくらい時間がかかりますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "機能領域",
+              "Treasure Data",
+              "Salesforce CDP",
+              "自社開発",
+              "データ収集（標準コネクタ）",
+              "豊富、国内ツール対応に強い"
+            ],
+            [
+              "顧客IDの統合・名寄せ",
+              "標準機能あり、設定で対応",
+              "標準機能あり、業界別データモデルあり",
+              "自前で実装、柔軟だが工数大",
+              "セグメント作成画面",
+              "マーケ向けの操作画面あり",
+              "マーケ向けの操作画面あり、画面操作で完結",
+              "分析ツールとの併用前提、SQL知識が必要",
+              "連携先（出力先）コネクタ",
+              "標準で50以上",
+              "標準で多数、Salesforce連携が強い",
+              "すべて自前実装、ただし柔軟",
+              "リアルタイム処理",
+              "製品により対応",
+              "Real-Time CDPで対応",
+              "実装次第、高度なリアルタイム基盤が必要",
+              "同意管理連携",
+              "標準コネクタあり",
+              "同意管理機能を内蔵",
+              "外部ツールを別途連携",
+              "独自業務ロジック",
+              "ある程度可能、製品仕様の範囲内",
+              "Salesforce周辺製品との組み合わせに依存",
+              "完全自由"
+            ],
+            [
+              "区分",
+              "Treasure Data",
+              "Salesforce CDP",
+              "自社開発",
+              "必要な専任エンジニア",
+              "0.5〜1名",
+              "0.5〜1名（Salesforce認定者）",
+              "2〜4名",
+              "マーケ部門の運用ハードル",
+              "中（画面で概ね操作可能）"
+            ],
+            [
+              "高（SQL・分析ツール必須）",
+              "ベンダーサポート",
+              "国内サポート充実",
+              "グローバルサポート、日本語対応あり",
+              "無し（自分たちで運用）",
+              "新機能・改善",
+              "ベンダーがアップデート",
+              "ベンダーがアップデート",
+              "自分たちで開発"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 26
+    },
+    {
+      "id": "kintone-illusion-trap",
+      "url": "https://beekle.jp/column/kintone-illusion-trap",
+      "section": "column",
+      "title": "「kintoneでなんとかなる」と言う社長判断の落とし穴｜3年後に必ず後悔する3つのこと",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. もう生成AI開発の方がkintoneより安くて早いと断定できる根拠は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社長がkintoneでなんとかなると発言する裏には、何があるのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. kintoneブラックボックスとは具体的に何のことですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. すでにkintoneで運用している業務は、いつ別システムへの移行を判断すべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 26
+    },
+    {
+      "id": "vendor-decision-meeting",
+      "url": "https://beekle.jp/column/vendor-decision-meeting",
+      "section": "column",
+      "title": "ベンダーに「決裁者プレゼンへの同席」を頼むのが最強の交渉カードである理由",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 6,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 7,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 26
+    },
+    {
+      "id": "ai-agent-explained",
+      "url": "https://beekle.jp/column/ai-agent-explained",
+      "section": "column",
+      "title": "AIエージェントとは？発注検討者が知るべき判断軸｜できること・費用・導入条件",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "万能",
+            "完全自動"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. AIエージェントとRAGはどう違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェントは業務で何ができますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェントは何でもできる魔法ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIエージェント導入の費用感と進め方はどうなりますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "区分",
+              "典型的な動き",
+              "使う場面",
+              "ChatGPT等のチャット型AI",
+              "1問1答。AIは聞かれたことに答えるだけ",
+              "文章作成、要約、相談",
+              "RAG（社内資料を読むAI）",
+              "1問1答 + 社内資料を検索して根拠付き回答",
+              "社内FAQ、ナレッジ参照",
+              "AIエージェント",
+              "目的達成までの複数ステップを自分で実行",
+              "調査・実行・報告までを一気通貫で任せる"
+            ],
+            [
+              "区分",
+              "中堅企業の目安",
+              "初期構築（1ユースケース）",
+              "350万〜1,050万円",
+              "月額運用（AI利用料 + 連携先API利用料）",
+              "月15万〜60万円（利用頻度による）",
+              "運用保守・改善",
+              "月10万〜30万円"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 25
+    },
+    {
+      "id": "cdp-explained",
+      "url": "https://beekle.jp/column/cdp-explained",
+      "section": "column",
+      "title": "CDPとは何か｜発注検討者のための基本と「ベンダー提案を読み解く」ための知識",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 8,
+          "samples": [
+            "本質的",
+            "徹底",
+            "現実解"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. CDPとMA・CRM・DMP・DWHはどう違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPは大企業でないと導入できませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPを入れれば経営判断は変わりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDPより先に別のものが必要なケースはありますか？",
+              "count": 2
+            },
+            {
+              "sample": "どんな経営課題を解きたいかが先にあり、その課題を解くためにCDPで顧客データを統合する、という順序を踏めて初めて投資が回収できます。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "システム",
+              "主な役割",
+              "顧客の対象",
+              "CDP（顧客データ基盤）",
+              "データを集めて統合し、活用しやすい形に",
+              "個人の顧客（実名ベース・匿名ベース両方）",
+              "MA（マーケティングオートメーション）",
+              "セグメントに対するメール配信・スコアリング",
+              "主に既存顧客・見込み客",
+              "CRM（顧客関係管理）",
+              "営業活動・案件管理",
+              "商談中の見込み客・既存顧客",
+              "DMP（データマネジメントプラットフォーム）",
+              "主に広告ターゲティング向けのデータ集約",
+              "匿名の閲覧者ベース",
+              "DWH（データウェアハウス）",
+              "大量データを保管して分析",
+              "顧客データに限らない汎用"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 25
+    },
+    {
+      "id": "cdp-cost-and-period",
+      "url": "https://beekle.jp/column/cdp-cost-and-period",
+      "section": "column",
+      "title": "CDP導入費用の相場｜SaaS型 月数千円〜自社構築 数千万円、規模別に比較",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. CDPの見積もりで見落とされがちな追加費用は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. CDP費用はなぜ3年合計で見るべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "どれだけデータが汚いかが費用を決める最大の要因です。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "項目",
+              "中小企業の目安",
+              "備考",
+              "インフラ費用（月額）",
+              "5,000〜10,000円",
+              "BigQueryなどクラウドDWH、データ量次第",
+              "初期構築・要件定義（一括）",
+              "数十万〜200万円",
+              "元データのクレンジングが必要かで大きく変動",
+              "運用支援（月額）",
+              "10〜30万円",
+              "外部伴走パートナーの場合の目安"
+            ],
+            [
+              "項目",
+              "中堅企業の目安",
+              "備考",
+              "初期構築費用（実装パートナー費）",
+              "800万〜3,000万円",
+              "つなぐデータの数で大きく変動",
+              "年間利用料（月額制）",
+              "600万〜3,000万円",
+              "顧客数・処理件数に応じた従量制",
+              "運用保守（年額）",
+              "300万〜1,200万円",
+              "セグメント追加・データ連携保守",
+              "追加トレーニング・コンサル",
+              "100万〜500万円",
+              "マーケ部門の活用支援"
+            ],
+            [
+              "項目",
+              "中堅企業の目安",
+              "備考",
+              "初期構築費用（要件定義〜MVP）",
+              "1,500万〜5,000万円",
+              "スコープ次第で大きく変動",
+              "クラウド費用（年額）",
+              "200万〜1,500万円",
+              "使用量に応じた従量制",
+              "運用保守（年額）",
+              "600万〜2,400万円",
+              "専任エンジニア1〜3名相当",
+              "機能拡張（年額）",
+              "500万〜2,000万円",
+              "新規データソース追加・新機能"
+            ],
+            [
+              "フェーズ",
+              "中小企業（クラウドDWH）",
+              "月額制サービス型",
+              "自社開発型",
+              "要件定義・データ棚卸し",
+              "2週間〜1か月",
+              "1〜2か月",
+              "2〜3か月",
+              "初期実装（最初のリリース）",
+              "1〜2か月",
+              "3〜5か月",
+              "5〜8か月",
+              "連携拡張・本番運用開始",
+              "1〜2か月",
+              "2〜4か月",
+              "3〜6か月",
+              "合計（初期構築〜本番）",
+              "2〜5か月",
+              "6〜11か月",
+              "10〜17か月"
+            ],
+            [
+              "区分",
+              "中小企業（クラウドDWH）",
+              "月額制サービス型 中堅",
+              "自社開発型 中堅",
+              "初年度",
+              "50万〜400万円",
+              "1,800万〜7,700万円",
+              "2,800万〜10,900万円",
+              "2年目",
+              "100万〜400万円",
+              "900万〜4,200万円",
+              "1,300万〜5,900万円",
+              "3年目",
+              "100万〜400万円",
+              "900万〜4,200万円",
+              "1,300万〜5,900万円",
+              "3年合計",
+              "250万〜1,200万円",
+              "3,600万〜16,100万円",
+              "5,400万〜22,700万円"
+            ]
+          ]
+        }
+      ],
+      "score": 23
+    },
+    {
+      "id": "avoid-unused-system",
+      "url": "https://beekle.jp/column/avoid-unused-system",
+      "section": "column",
+      "title": "「作ったのに使われないシステム」を防ぐ要件絞り込み術｜FM法とユーザー視点",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "網羅的",
+            "徹底"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q2. ローンチ後に使われていないことに気づいたらどうすべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. PoC（概念実証）と本番システムでは何が違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q4. 要件を絞り込むと、ステークホルダーから機能不足と言われませんか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 22
+    },
+    {
+      "id": "llm-api-system-design",
+      "url": "https://beekle.jp/column/llm-api-system-design",
+      "section": "column",
+      "title": "業務システムに生成AIを組み込むときの設計上の勘所｜情シス・発注担当者の視点",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 業務システムに生成AIを組み込むとき、最初から考えるべきことは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIのもっともらしい嘘は業務システムでどう抑えますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIの利用料が暴発するのを防ぐにはどうしますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 業務利用で監査ログには何を保存すべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "場面",
+              "応答時間の目安",
+              "短文の分類・抽出",
+              "1〜3秒",
+              "通常のQ&A応答",
+              "3〜8秒",
+              "長文の要約・複雑な推論",
+              "10〜30秒",
+              "文字を1文字ずつ表示する形式の完了まで",
+              "30〜60秒"
+            ],
+            [
+              "項目",
+              "用途",
+              "ユーザーID／部門",
+              "利用統計、不正利用の検知",
+              "タイムスタンプ",
+              "監査ログ",
+              "質問内容と回答内容",
+              "問題発生時の調査",
+              "使用した生成AIのバージョン",
+              "品質劣化時の原因調査",
+              "処理にかかった文字数",
+              "利用料の按分",
+              "参照した社内資料のID",
+              "機密情報漏洩の調査、出典確認",
+              "ユーザー評価（👍 / 👎）",
+              "品質改善の手がかり",
+              "応答時間",
+              "システム性能の監視"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 22
+    },
+    {
+      "id": "ai-requirements-definition",
+      "url": "https://beekle.jp/column/ai-requirements-definition",
+      "section": "column",
+      "title": "要件定義にAIは使えるのか？発注側が知るべき活用法と限界",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "圧倒的",
+            "劇的"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 要件定義にAIを使うとコストは下がりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIに要件を書かせるときのプロンプトのコツは？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 発注側にAIの知識がなくても活用できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIで生成した要件をそのまま開発会社に渡しても大丈夫ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 20
+    },
+    {
+      "id": "graphrag-knowledge-search",
+      "url": "https://beekle.jp/knowledge/graphrag-knowledge-search",
+      "section": "knowledge",
+      "title": "GraphRAGとは？ベクトルRAGとの違いと、根拠付き回答を実現する実装",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 6,
+          "samples": [
+            {
+              "sample": "Q. ベクトルRAGとGraphRAGはどう使い分けますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. GraphRAGを導入するとハルシネーションは減りますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内文書が少なくてもGraphRAGは効果がありますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. GraphRAGの構築にはどれくらいの開発が必要ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIの回答が正しいか、担当者が後から確認できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. いまベクトルRAGを使っていて精度が頭打ちです。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "観点",
+              "ベクトルRAG",
+              "GraphRAG",
+              "探し方",
+              "意味が近い文章を個別に探す",
+              "情報のつながり（関係）をたどる",
+              "関係をたどる問い",
+              "苦手（点の答えになる）",
+              "得意（AとBの関係を追える）",
+              "横断・全体像",
+              "数件の文書に限られがち",
+              "複数文書をまたいで俯瞰できる",
+              "回答の根拠",
+              "「似ていたから」程度",
+              "たどった経路を根拠として示せる",
+              "回答の傾向",
+              "冗長になりがち",
+              "つながりで絞れて簡潔",
+              "向くフェーズ",
+              "早く安く始めたい初期",
+              "誤りが許されず、関係をたどる本番"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 20
+    },
+    {
+      "id": "llm-selection-strategy",
+      "url": "https://beekle.jp/column/llm-selection-strategy",
+      "section": "column",
+      "title": "生成AIをどう選び、どう契約するか｜1社固定 vs 複数モデル使い分けの戦略",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q2. OpenRouter と AWS Bedrock の違いは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 1社固定と複数モデル使い分けはどちらが良いですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q4. モデルが廃止されたとき、移行コストはいくらかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q5. 御社のデータが学習に使われない契約をどう確保しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q6. PoC開発の段階でどのモデルを試すべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            [
+              "観点",
+              "OpenRouter",
+              "AWS Bedrock",
+              "提供会社",
+              "独立系の中継サービス",
+              "AWS（Amazon）",
+              "契約のしやすさ",
+              "クレジットカード即契約、企業契約も可能"
+            ],
+            [
+              "新モデルの追加スピード",
+              "非常に速い（出た直後に使えることが多い）",
+              "AWS の対応待ち（数週間〜数か月）",
+              "請求",
+              "OpenRouter から1本",
+              "AWS の月次請求にまとまる",
+              "セキュリティ・コンプライアンス認証",
+              "サービス独自",
+              "AWS の認証（SOC、HIPAA等）が活用可能",
+              "データの保管場所",
+              "OpenRouter のリージョンに準拠",
+              "AWS のリージョン内で完結"
+            ],
+            [
+              "御社の状況",
+              "推奨",
+              "1〜2年は1つの生成AIで運用、規模も限定的",
+              "1社直接契約"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 20
+    },
+    {
+      "id": "common-mistakes",
+      "url": "https://beekle.jp/column/common-mistakes",
+      "section": "column",
+      "title": "システム開発の失敗事例5選｜原因と発注側ができる対策",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "劇的"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "本質的な",
+            "徹底"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. プロトタイプを作る費用は余計にかかりませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. エンジニアが未完成のものを見せたがりません。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 19
+    },
+    {
+      "id": "dx-josys-as-is-bpo-guide",
+      "url": "https://beekle.jp/column/dx-josys-as-is-bpo-guide",
+      "section": "column",
+      "title": "DXの進め方｜業務プロセス見直しとAs-Is/To-Beから始める実践ガイド",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "徹底"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 7,
+          "samples": [
+            {
+              "sample": "Q. As-Is／To-Beを可視化するのに、どんなツールを使えばよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 経営層が描いたToBeをそのまま実装してよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. DXの要件が膨らみすぎないようにするにはどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIで開発が速くなるなら、要件定義は短くてもよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Beekleにご相談ください Beekleでは、AI活用や業務システム開発について、作るものの整理、費用感、進め方まで一緒に確認します。",
+              "count": 2
+            },
+            {
+              "sample": "まだ曖昧な段階でも、最初に何を決めればよいかから相談できます。",
+              "count": 2
+            },
+            {
+              "sample": "詳しくは 生成AI駆動開発（AIファースト開発）とは を参照してください。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 19
+    },
+    {
+      "id": "generative-ai-system-development",
+      "url": "https://beekle.jp/column/generative-ai-system-development",
+      "section": "column",
+      "title": "生成AI×システム開発｜発注側が知るべき開発プロセスの変化と新しい選び方",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "劇的"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 生成AI開発の費用は従来のシステム開発より安くなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内に技術者がいなくても生成AI開発は発注できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 開発途中で生成AIのモデルが変わったらどうなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI開発の発注で最低限準備すべきものは何ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "まず、開発プロセスの違いを表で押さえましょう。",
+              "比較項目",
+              "ウォーターフォール型",
+              "アジャイル型",
+              "生成AI駆動型",
+              "要件の決め方",
+              "最初に全量を確定",
+              "優先順位をつけて段階的に",
+              "仮説ベースで小さく検証",
+              "開発の進め方",
+              "設計→実装→テスト→納品",
+              "2週間単位で反復",
+              "試作→評価→調整を高速反復",
+              "品質の判定基準",
+              "仕様通りに動くか",
+              "ユーザーが使えるか",
+              "回答精度・業務適合率",
+              "納品物の位置づけ",
+              "完成品",
+              "動くソフトウェア",
+              "改善し続ける前提のシステム",
+              "費用の構造",
+              "一括見積もり",
+              "月額＋スプリント単位",
+              "段階発注＋従量の利用料",
+              "完了の定義",
+              "検収完了",
+              "リリースごとに判断",
+              "精度目標の達成＋運用安定"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 19
+    },
+    {
+      "id": "ai-agent-capability-upgrade",
+      "url": "https://beekle.jp/knowledge/ai-agent-capability-upgrade",
+      "section": "knowledge",
+      "title": "AIエージェントの機能を実務レベルに上げる方法｜「賢いのに使えない」を解決する5つの勘所",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. GraphRAGを入れればAIエージェントになりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. うちはまずベクトル検索のRAGで十分でしょうか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 監査やコンプライアンスに耐えるAIエージェントにできますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内データをAIエージェントに覚えさせると、情報漏洩しませんか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "観点",
+              "GraphRAG",
+              "ナレッジグラフエージェント",
+              "位置づけ",
+              "検索の手法（部品）",
+              "システム全体（部品を束ねる）",
+              "おもな仕事",
+              "関係をたどって根拠付きで答える",
+              "段取りを組み、複数ステップで実務を進める",
+              "記憶",
+              "基本その場限り（覚えない）",
+              "持続記憶を持ち、発見を書き戻す",
+              "グラフの使い方",
+              "回答づくりのときに参照する",
+              "記憶・検索・事実確認のよりどころにする",
+              "動きの流れ",
+              "質問 → 検索 → 回答（単発）"
+            ],
+            [
+              "両者の関係",
+              "エージェントの一部品",
+              "GraphRAGを内側に含む上位概念"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 18
+    },
+    {
+      "id": "engineer-communication",
+      "url": "https://beekle.jp/column/engineer-communication",
+      "section": "column",
+      "title": "エンジニアとのコミュニケーション基礎｜6ステップパイプラインで会話する",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. ユーザーストーリーはどのくらい細かく書けばいいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. エンジニアとの定例会議はどのくらいの頻度が適切ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 18
+    },
+    {
+      "id": "how-to-build-knowledge-graph-agent",
+      "url": "https://beekle.jp/knowledge/how-to-build-knowledge-graph-agent",
+      "section": "knowledge",
+      "title": "ナレッジグラフエージェントの作り方｜設計・検索・検証・運用の実装ガイド",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. ナレッジグラフエージェントはVPSで運用できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 既存のRAGチャットボットから移行できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内データをグラフ化して、情報漏洩しませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 構築にはどれくらいの開発規模が必要ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "層",
+              "役割",
+              "実装の例",
+              "データ源",
+              "既存の文書・データベース・議事録など",
+              "PDF、Wiki、チャット、業務DB、文字起こし",
+              "グラフ・オントロジー層",
+              "要素と関係を「型」で持つ持続記憶",
+              "Neo4j（ノードと意味づけした関係）",
+              "検索・根拠確認インターフェース",
+              "問いに応じて複数経路で取り出し、統合・検証する",
+              "ベクトルDB＋全文＋グラフ探索、リランク、RRF",
+              "エージェント本体",
+              "計画し、道具を使い、記録する"
+            ],
+            [
+              "戦略",
+              "取り出すもの",
+              "得意な問い",
+              "グラフクエリ（Cypher）",
+              "型に沿った関係を直接たどる",
+              "「AとBの関係は?」など構造がはっきりした問い",
+              "ハイブリッド",
+              "ベクトル（意味の近さ）＋全文（キーワード一致）",
+              "言い換え・表記揺れを含む問い",
+              "グラフ拡張",
+              "ヒットしたノードの周辺関係を広げる",
+              "複数文書をまたぐ横断的な問い",
+              "GraphRAG",
+              "関係のかたまり（コミュニティ）の要約",
+              "全体像・傾向をつかむ問い"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 18
+    },
+    {
+      "id": "system-development-cost-breakdown",
+      "url": "https://beekle.jp/column/system-development-cost-breakdown",
+      "section": "column",
+      "title": "システム開発費用の内訳｜見積書のどこを見れば妥当性がわかるか",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "徹底"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 7,
+          "samples": [
+            {
+              "sample": "Q. 中規模システムのフェーズ別費用の標準比率はどれくらいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 見積書を受け取ったら、何を確認すればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "AI・RAG開発費用でよくある質問 Q. RAGや社内文書検索AIの費用は、何で大きく変わりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI開発の見積もりで、後から増えやすい費用は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIのAPI利用料は開発費に含まれますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 費用を抑えてAI/RAG開発を始めるにはどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "この見積もりで進めて大丈夫か確認する 金額が高いのか安いのか、あとから増えそうな費用がないか不安な場合は、見積書や作りたい内容をもとに確認します。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "フェーズ",
+              "比率",
+              "主な作業",
+              "要件定義",
+              "10〜15%",
+              "ヒアリング、業務分析、要件文書化",
+              "基本設計",
+              "15〜20%",
+              "画面設計、機能仕様、DB設計",
+              "詳細設計",
+              "10〜15%",
+              "内部設計、APIインタフェース定義",
+              "実装（開発）",
+              "30〜40%",
+              "プログラミング、コードレビュー",
+              "テスト",
+              "15〜20%",
+              "単体・結合・受入テスト",
+              "リリース・運用準備",
+              "5〜10%",
+              "デプロイ、ドキュメント、移行",
+              "プロジェクト管理",
+              "10〜15%（横断）",
+              "PM、進捗管理、リスク管理"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 18
+    },
+    {
+      "id": "dx-failure-patterns",
+      "url": "https://beekle.jp/column/dx-failure-patterns",
+      "section": "column",
+      "title": "DX・システム開発で失敗する典型5パターン｜発注前に潰すチェックリスト",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 要件膨張（やりたいことが全部入りになる）を止めるにはどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 現場担当者は要件定義のどの段階から参加させるべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. リリース後にDXの効果はどれくらいかを答えられるためには、何を準備しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. リリースはゴールではないとは具体的にどういうことですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "dx-josys-ai-era-requirements",
+      "url": "https://beekle.jp/column/dx-josys-ai-era-requirements",
+      "section": "column",
+      "title": "AI時代こそ要件定義｜情シスが押さえるべき「BPO見て費用対効果から逆算する」発注術",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. AI時代に情シスが優先的に投資すべき要件定義フェーズは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 最初に動くものをAIで作って、見ながら要件を決める進め方は有効ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI時代の情シスに求められるスキルは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI時代に外部の受託開発会社と協働する場合、何を依頼すればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "これは使われないシステムを高速で量産する確実な方法になります。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "dx-josys-bpo-review",
+      "url": "https://beekle.jp/column/dx-josys-bpo-review",
+      "section": "column",
+      "title": "情シスがDX案件で最初にやるBPO（業務プロセス）見直しの進め方",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 6,
+          "samples": [
+            {
+              "sample": "Q. 業務プロセス（BPO）に問題があるサインは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BPO見直しは具体的にどう進めればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 悪い業務プロセスをシステム化する事故とは具体的にどんな事例ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. BPO見直しの結果、本当にシステム化が必要な範囲はどれくらいになりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Beekleにご相談ください Beekleでは、AI活用や業務システム開発について、作るものの整理、費用感、進め方まで一緒に確認します。",
+              "count": 2
+            },
+            {
+              "sample": "まだ曖昧な段階でも、最初に何を決めればよいかから相談できます。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "dx-josys-tobe-redesign",
+      "url": "https://beekle.jp/column/dx-josys-tobe-redesign",
+      "section": "column",
+      "title": "情シスが客先のToBeを見直す判断軸｜製造業DX案件のAs-Is書き直し再設計プロセス",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 情シスがToBe案を受け取ったとき、どの観点でチェックすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ToBe案を部分修正で済ますべきか、As-Isから書き直すべきかは、どう判断しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ToBeを書き直すと、プロジェクト全体の納期が延びませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ToBe再設計を主導できる人とは、具体的にどんな人ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "genai-system-infrastructure",
+      "url": "https://beekle.jp/column/genai-system-infrastructure",
+      "section": "column",
+      "title": "生成AIシステムのインフラはVPSで十分か｜中小企業がLaravel＋Pythonで安く早く作る構成",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "万能"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. なぜLaravelとPythonを分けるのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. クラウドとVPS、結局どちらが安いですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 将来大きくなったらVPSから移行できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内の機密データが外部のLLMに送られたり、学習に使われたりしませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. いきなり本番を作らず、まず小さく試して費用を確かめられますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "graphrag-data-extraction",
+      "url": "https://beekle.jp/knowledge/graphrag-data-extraction",
+      "section": "knowledge",
+      "title": "GraphRAGの精度はデータ抽出で決まる｜PDF・LLM抽出の限界と、人手で埋める工程",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            "万能"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. データ抽出はLLMに任せれば済むのではないですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 抽出の精度はどうやって確かめればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "legacy-doubling-cost",
+      "url": "https://beekle.jp/column/legacy-doubling-cost",
+      "section": "column",
+      "title": "「動いてるから触らないで」が3年後に倍のコストになる理由｜段階的リプレイスの進め方",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 9,
+          "samples": [
+            "時限爆弾"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "quote-comparison-checklist",
+      "url": "https://beekle.jp/column/quote-comparison-checklist",
+      "section": "column",
+      "title": "失敗しない見積もり比較チェックリスト｜複数社の見積書を正しく比べる13項目",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 見積もりを比較する前に、各社へ揃えて伝えるべき条件は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 見積書はどの観点で点数化すればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. テスト工数やPM費用は、見積もりのどれくらいが適切ですか？",
+              "count": 2
+            },
+            {
+              "sample": "この見積もりで進めて大丈夫か確認する 金額が高いのか安いのか、あとから増えそうな費用がないか不安な場合は、見積書や作りたい内容をもとに確認します。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "観点",
+              "A社",
+              "B社",
+              "C社",
+              "1. フェーズ別内訳",
+              "◎",
+              "○",
+              "△",
+              "2. 工数明記",
+              "◎",
+              "○",
+              "×",
+              "3. 単価開示",
+              "○",
+              "○",
+              "△",
+              "4. PM費用",
+              "◎",
+              "△",
+              "△",
+              "5. テスト工数比率",
+              "◎",
+              "○",
+              "×",
+              "6. 変更ルール",
+              "◎",
+              "○",
+              "△",
+              "7. インフラ費",
+              "◎",
+              "○",
+              "△",
+              "8. 保守方針",
+              "◎",
+              "○",
+              "×",
+              "9. 体制/メンバー",
+              "◎",
+              "○",
+              "△",
+              "10. 開発手法",
+              "◎",
+              "○",
+              "△",
+              "11. 類似実績",
+              "◎",
+              "○",
+              "△",
+              "12. 前提・制約",
+              "◎",
+              "△",
+              "×",
+              "13. 回答品質",
+              "◎",
+              "○",
+              "△"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 17
+    },
+    {
+      "id": "ai-driven-development",
+      "url": "https://beekle.jp/column/ai-driven-development",
+      "section": "column",
+      "title": "生成AI駆動開発（AIファースト開発）とは｜中堅企業のシステム開発はこう変わる",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. AIが書くなら開発費は大幅に安くなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI駆動開発で発注側に求められることは何が変わりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI駆動開発の落とし穴は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI駆動開発を採用する受託会社はどう選びますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "工程",
+              "従来の開発",
+              "生成AI駆動開発",
+              "仕様の整理",
+              "エンジニアが設計書を読む",
+              "エンジニアが生成AIに仕様を伝え、AIが理解する",
+              "コード作成",
+              "エンジニアが1行ずつ書く",
+              "AIが機能単位で書き、エンジニアがレビュー・修正",
+              "テスト",
+              "エンジニアが手動で書く",
+              "AIがテストコードも併せて生成",
+              "バグ修正",
+              "エンジニアがログを読み解く",
+              "AIがログとコードを見て修正案を提示",
+              "ドキュメント",
+              "後回しになりがち",
+              "AIが自動生成"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "ai-knowledge-chatbot-accuracy",
+      "url": "https://beekle.jp/knowledge/ai-knowledge-chatbot-accuracy",
+      "section": "knowledge",
+      "title": "社内ナレッジAIの精度を上げる作り方｜RAGチャットボットの限界とナレッジグラフエージェント設計",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 社内の資料が数百件ありますが、すべて取り込む必要がありますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 動画の文字起こしデータはそのまま使えますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内データをグラフ化すると、外部に漏れませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 情報が見つかりませんでしたが多い場合はどうすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "データの種類",
+              "前処理のポイント",
+              "注意点",
+              "PDF資料"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "ai-poc-to-production",
+      "url": "https://beekle.jp/column/ai-poc-to-production",
+      "section": "column",
+      "title": "検証で終わる生成AIプロジェクトの共通点と、本番化に進める条件",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q2. PoC開発・MVP開発で終わらないために発注側が事前に決めるべきことは？",
+              "count": 2
+            },
+            {
+              "sample": "Q4. MVP開発・PoC開発・プロトタイプ開発の違いは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q5. 検証で動いたのに本番で動かないのはよくある？",
+              "count": 2
+            },
+            {
+              "sample": "Q6. アジャイル開発で生成AIを段階的に本番化する具体例は？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "項目",
+              "内容",
+              "必須／推奨",
+              "業務課題の言語化",
+              "解くべき業務課題が定量的に説明できる",
+              "必須",
+              "成功基準の数値化",
+              "本番化判断に直結する数値KPIがある",
+              "必須",
+              "業務オーナーの参加",
+              "業務側に本番化を担う想定の責任者がいる",
+              "必須",
+              "本番化予算の見込み",
+              "成功時の本番化予算が経営層で共有されている",
+              "必須",
+              "テストデータの作成可能性",
+              "業務担当者とテストデータを作る合意がある",
+              "必須",
+              "運用主管の見込み",
+              "本番化後の運用主管部署が想定されている",
+              "推奨",
+              "既存システム連携",
+              "連携対象システムと、その関係者の見込み",
+              "推奨",
+              "セキュリティ要件",
+              "機密データの取り扱い方針が決まっている",
+              "推奨"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "failure-prevention-for-clients",
+      "url": "https://beekle.jp/column/failure-prevention-for-clients",
+      "section": "column",
+      "title": "システム開発プロジェクトの失敗事例から学ぶ発注側の対策",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "徹底"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. エンジニアの言っていることが理解できず、進捗が把握できません。",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 丸投げするとどうして失敗するのですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "ga4-bigquery-integration",
+      "url": "https://beekle.jp/column/ga4-bigquery-integration",
+      "section": "column",
+      "title": "GA4×BigQuery連携を発注検討するための基礎知識｜活用パターン・費用感・進め方",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. GA4とBigQueryの連携にはいくらかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. GA4×BigQueryで具体的に何が見えるようになりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. マーケ担当がSQLを書けなくても活用できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. GA4×BigQueryはどう始めればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "判断が遅れるほど分析できる過去データが減ります。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "knowledge-management-guide",
+      "url": "https://beekle.jp/column/knowledge-management-guide",
+      "section": "column",
+      "title": "ナレッジマネジメントとは？意味・SECIモデル・手法とツール、AIでの実現まで",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "圧倒的"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. 暗黙知はAIで自動的に形式知にできますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ナレッジマネジメントが失敗する一番の原因は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 中堅企業でも社内ナレッジAIは導入できますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "プロセス",
+              "変換の向き",
+              "内容",
+              "共同化（Socialization）",
+              "暗黙知 → 暗黙知"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "what-is-rag",
+      "url": "https://beekle.jp/column/what-is-rag",
+      "section": "column",
+      "title": "RAGとは？意味・仕組みを図解でわかりやすく｜生成AIに社内情報を答えさせる方法",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 7,
+          "samples": [
+            {
+              "sample": "Q. RAGとファインチューニングは何が違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内の機密データをRAGで使っても安全ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. RAGの導入にはどれくらい費用がかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "RAG導入前によくある質問 Q. 社内文書検索AIを作るなら、必ずRAGが必要ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. RAGを導入すればハルシネーションはなくなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. RAGとGraphRAGはどう使い分ければよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. RAG導入で最初に決めるべきことは何ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "種類",
+              "探し方",
+              "得意な質問",
+              "ベクトルRAG",
+              "意味の近さで文書を探す",
+              "言い換え・表記揺れを含む単発の質問",
+              "ハイブリッド",
+              "意味検索とキーワード検索を組み合わせる",
+              "固有名詞や型番の正確さも要る質問",
+              "GraphRAG",
+              "情報を関係でつないでたどる",
+              "関係をたどる・数える・根拠を示す質問"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 16
+    },
+    {
+      "id": "ai-chatbot-comparison",
+      "url": "https://beekle.jp/column/ai-chatbot-comparison",
+      "section": "column",
+      "title": "AIチャットボットの比較｜シナリオ型・FAQ検索・文書RAG・GraphRAGの違いと選び方",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. FAQ検索型と文書RAG型はどう違いますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. GraphRAGはどんなときに必要ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 導入済みのチャットボットが使われていません。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "方式",
+              "仕組み",
+              "得意な質問",
+              "限界",
+              "向く用途",
+              "シナリオ型",
+              "事前に作った分岐フローに沿って選択肢で誘導",
+              "手続き案内、定型の一問一答",
+              "想定外の聞き方に弱い、分岐保守が重い",
+              "問い合わせの種類が少なく手順が決まった窓口",
+              "FAQ検索型",
+              "質問文とFAQを意味の近さで照合し該当回答を返す",
+              "言い回しの揺れがある単発の質問"
+            ],
+            [
+              "型番と部品の対応、原因と対処、条件が連鎖する質問",
+              "構築の手間が大きい、データ整備の設計が必要",
+              "製品や契約が複雑で、関係をたどる回答が必要な現場"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "communication-complete-guide",
+      "url": "https://beekle.jp/column/communication-complete-guide",
+      "section": "column",
+      "title": "エンジニアとのコミュニケーション完全ガイド｜経営者の協働術",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "劇的",
+            "最強"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "徹底的に"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "how-to-write-rfp",
+      "url": "https://beekle.jp/column/how-to-write-rfp",
+      "section": "column",
+      "title": "RFPの書き方｜何を書けばベンダーに伝わるか？10項目と9つの落とし穴",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. RAG開発のRFPで、対象文書はどこまで細かく書くべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI/RAG開発の提案を比較するとき、何を評価基準にすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. RFPを出す前にPoCをした方がよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "評価項目",
+              "重み",
+              "主な観点",
+              "機能適合度",
+              "25",
+              "必須機能の充足度、業務シナリオへの整合",
+              "非機能適合度",
+              "15",
+              "性能・可用性・セキュリティ要件の充足",
+              "実績・経験",
+              "15",
+              "類似業界・類似規模での導入実績、PM経験",
+              "プロジェクト体制",
+              "15"
+            ],
+            [
+              "価格",
+              "20",
+              "初期費用、運用費用、内訳の妥当性",
+              "運用・保守品質",
+              "10",
+              "SLA、サポート対応時間、ナレッジ移管"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "progress-check-points",
+      "url": "https://beekle.jp/column/progress-check-points",
+      "section": "column",
+      "title": "経営者のためのシステム開発進捗管理｜ガントチャートに騙されない3つの確認ポイント",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. どのくらいの頻度で確認すべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 進捗が遅れている場合、どうすればいいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "prompt-engineering-business",
+      "url": "https://beekle.jp/column/prompt-engineering-business",
+      "section": "column",
+      "title": "プロンプトエンジニアリングとは｜AI受託発注時に発注先のスキルを見極めるための基礎知識",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 個人利用なら適当に聞いても答えるのに、なぜ業務では必要なのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 業務システムに組み込むプロンプトで特に重要な対策は何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 発注先のプロンプトエンジニアリングスキルはどう見極めますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AIが進化したからプロンプトエンジニアリングは要らなくなるは本当ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "system-estimate-validity",
+      "url": "https://beekle.jp/column/system-estimate-validity",
+      "section": "column",
+      "title": "その見積もりは妥当？システム開発の見積もり妥当性を3軸でチェックする方法",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q2. 相見積もりを取れば妥当性は判断できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 開発途中で仕様変更をお願いすると、必ず追加費用がかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q4. 投資対効果（ROI）を正確に計算するのが難しいのですが。",
+              "count": 2
+            },
+            {
+              "sample": "Q5. 見積もりの中に予備費を入れてもらうべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 15
+    },
+    {
+      "id": "ai-contract-development-failures",
+      "url": "https://beekle.jp/column/ai-contract-development-failures",
+      "section": "column",
+      "title": "生成AI受託開発で失敗する5パターンと正しい進め方｜発注前に潰す勘所",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 6,
+          "samples": [
+            {
+              "sample": "Q. 生成AIの精度が上がらないとき、まず何を疑うべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内文書を検索する生成AI（RAG）の精度は何で決まりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIは作って終わりでよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI開発会社をスペックや見積もり金額だけで選んではいけないのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. いきなり本開発せず、小さく検証してから本番に進められますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内の機密データを外部の生成AIに渡しても大丈夫ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "ai-data-foundation-not-ready",
+      "url": "https://beekle.jp/column/ai-data-foundation-not-ready",
+      "section": "column",
+      "title": "「データ基盤が整っていない」は生成AI導入を諦める理由にならない｜CDP・データクリーニングから始める現実解",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. CDPを入れないとAI活用はできませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. データクリーニングの費用はどのくらいかかりますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "ai-development-dor-gherkin",
+      "url": "https://beekle.jp/knowledge/ai-development-dor-gherkin",
+      "section": "knowledge",
+      "title": "AI開発では、DoRとGherkinがとにかく大事｜シナリオの矛盾を潰し、全体整合性を確認する",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            "徹底的に",
+            "徹底"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "レビューの範囲",
+              "確認すること",
+              "シナリオ単体"
+            ],
+            [
+              "確認すること",
+              "Readyと判断するための状態",
+              "目的と範囲"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "emotion-commonsense-kg-customer-support",
+      "url": "https://beekle.jp/knowledge/emotion-commonsense-kg-customer-support",
+      "section": "knowledge",
+      "title": "感情・常識ナレッジグラフでカスタマーサポートはどう変わるか｜言外の感情と意図を読むAI",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. カスタマーサポートで最初に効果が出やすいのはどの用途ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 感情の推定を間違えて、かえって顧客を怒らせないですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 会話の1文だけでなく、やり取りの流れを踏まえて判断できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. すでに社内にサポート文書のAI検索があります。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "enterprise-knowledge-graph-design-patterns",
+      "url": "https://beekle.jp/column/enterprise-knowledge-graph-design-patterns",
+      "section": "column",
+      "title": "エンタープライズのナレッジグラフ設計パターン4種と構築プロセス｜1部門から始める実践手順",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. つなぎ方の設計（オントロジー）は何から手をつければよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. LLMが抜き出した結果はどこまで信用できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. マネージドサービスとVPS自前、どちらで作るべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内AIアシスタントにナレッジグラフを組み込むと何が変わりますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "genai-introduction-complete-guide",
+      "url": "https://beekle.jp/column/genai-introduction-complete-guide",
+      "section": "column",
+      "title": "生成AI導入の完全ガイド｜何から始めるか・進め方・費用・セキュリティ・失敗回避まで",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 生成AI導入の費用はどのくらいかかりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIのセキュリティリスクにはどう対策しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIのもっともらしい間違い（ハルシネーション）は防げますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AI導入でよくある失敗は何ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AI導入」の個別テーマを深掘りする記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "internal-ai-assistant-rag-patterns",
+      "url": "https://beekle.jp/column/internal-ai-assistant-rag-patterns",
+      "section": "column",
+      "title": "社内AIアシスタント導入の成功と失敗パターン｜「社内資料を読むAI」が定着する条件",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            {
+              "sample": "Q. 社内AIアシスタントの成否を分けるのは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 取り込む社内資料はどう絞ればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. なぜ公開前にテストデータを作る必要があるのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内AIアシスタントはどう公開すればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "どの製品を使うかより、テストデータを作るかどうかで成否が決まります。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "it-investment-one-pager",
+      "url": "https://beekle.jp/column/it-investment-one-pager",
+      "section": "column",
+      "title": "決裁者に響く「IT投資の1枚サマリー」テンプレート公開｜5分で稟議を通す3点",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. 稟議書のなぜ今やるのかは、どう書けば決裁者に響きますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 投資対効果（ROI）は、どう表記すると稟議が通りやすいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 1枚サマリーは、全部自分で書かないといけませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. なぜこの会社かを主観で書くと、なぜ通らないのですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "knowledge-graph-rag-business",
+      "url": "https://beekle.jp/column/knowledge-graph-rag-business",
+      "section": "column",
+      "title": "ナレッジグラフは発注者に何の得があるか｜RAGだけのAIが答えられない問いと、その解決",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 4,
+          "samples": [
+            {
+              "sample": "Q. ナレッジグラフを入れると費用はどれくらい増えますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 監査やコンプライアンスでも使えるAIにできますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ナレッジグラフは全社に一度に導入しないといけませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 人事や取引先など機密を含む社内データでも進められますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "mcp-business-data-integration",
+      "url": "https://beekle.jp/column/mcp-business-data-integration",
+      "section": "column",
+      "title": "MCPを活用したAI案件の発注前に押さえること｜活用シナリオ・体制・リスク",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. MCP導入で最も注意すべきことは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. MCP活用を成功させる判断ポイントは何ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "場面",
+              "MCP なし（〜2024年）",
+              "MCP あり（2025年以降）",
+              "Salesforceの商談を聞きたい",
+              "人がSFに入って画面を見る／レポートを作る",
+              "AIに自然文で聞けば、AIがSFに繋いで答える",
+              "BigQueryで分析したい",
+              "SQLを書ける人にお願いする",
+              "AIに質問すれば、AIがSQLを書いて実行",
+              "議事録から要対応事項を抽出",
+              "人が議事録を読む"
+            ],
+            [
+              "新しいツールに繋ぎたい",
+              "各AI製品ごとに個別開発",
+              "MCP対応済みなら追加開発ほぼ不要"
+            ],
+            [
+              "観点",
+              "RAG",
+              "MCP",
+              "得意なこと",
+              "蓄積された資料を検索して回答",
+              "リアルタイムなデータ取得・ツール操作",
+              "典型的な用途",
+              "社内FAQ、過去資料の参照"
+            ],
+            [
+              "データの新鮮さ",
+              "取り込み時点（数日〜数週間遅延）",
+              "取得元の現在値（聞いた瞬間に取りに行く）",
+              "更新作業",
+              "定期的にデータを再取り込み",
+              "不要（リアルタイムで取りに行く）",
+              "ツール操作（書き込み）",
+              "不可（読み取り専用）",
+              "可能（Salesforce に商談を作る、等）"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 14
+    },
+    {
+      "id": "ai-internal-tool-outsourcing",
+      "url": "https://beekle.jp/column/ai-internal-tool-outsourcing",
+      "section": "column",
+      "title": "AI社内ツールの開発は外注でPoCしてから内製化する｜受託会社の使い方・進め方・効果の見方",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            "現実解",
+            "網羅的"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            {
+              "sample": "Q. 社内データを外部の受託会社に渡して大丈夫ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 13
+    },
+    {
+      "id": "sme-data-driven-management",
+      "url": "https://beekle.jp/column/sme-data-driven-management",
+      "section": "column",
+      "title": "中小企業こそデータドリブン経営に切り替えるべき理由｜クラウド時代の現実解",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "圧倒的"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 6,
+          "samples": [
+            "現実解",
+            "本質的な"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 13
+    },
+    {
+      "id": "budget-gap-ringi",
+      "url": "https://beekle.jp/column/budget-gap-ringi",
+      "section": "column",
+      "title": "「200〜300万でいけます」と担当者が言ってきた時、社長が必ず確認すべき3つのこと",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. 担当者が言う予算感は、何を根拠にしているのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 担当者が金額を伝えてきたとき、社長が確認すべきことは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ROIは担当者が出ますと言えば十分ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 12
+    },
+    {
+      "id": "requirements-definition-complete-guide",
+      "url": "https://beekle.jp/column/requirements-definition-complete-guide",
+      "section": "column",
+      "title": "要件定義の完全ガイド｜議事録や会話から、作る範囲・完成条件・テストまで決める方法",
+      "findings": [
+        {
+          "type": "explain-boilerplate",
+          "severity": 1,
+          "count": 9,
+          "samples": [
+            "leが実案件で使う、要求整理・FMによる採否判断・完成条件・テスト・変更管理までの進め方を解説します。",
+            "録や文字起こしから要求を整理し、FMで評価して開発範囲を決め、開発担当者へ渡すまでの手順を説明します。",
+            " Beekleの引き継ぎ事例とは区別して紹介します。",
+            " 3-2. 評価を基に「作る・後回し・作らない」を決める ここでは、FMの判定を次のように整理します。",
+            "リースの優先順位を決める FMを使って作るものを選び、その後のリリース計画をMoSCoWで整理します。",
+            "た範囲を把握する FMで採用し、今回のリリースに含めると合意した要求を、利用者の目的ごとに整理します。",
+            "リーの下に、正常に処理できる場合、入力に不備がある場合、金額などの境界で判断が変わる場合をまとめます。",
+            "連絡先、復旧まで業務をどう続けるか 処理速度や障害からの復旧などの条件は、非機能要件として整理します。",
+            " 最初に、誰のどの問題を解決するかを整理します。"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "要件定義で決める主な項目は、次の5つです。",
+              "決めること",
+              "経費精算で考える例",
+              "目的",
+              "経理担当者が紙の申請書を見て転記する作業をなくす",
+              "開発範囲"
+            ],
+            [
+              "評価軸",
+              "確認すること",
+              "経費精算での確認例",
+              "ビジネス価値"
+            ],
+            [
+              "経理の転記や照合を、どの程度減らせるか",
+              "技術的容易性",
+              "現在の技術、予算、期間で実現できるか"
+            ],
+            [
+              "3軸の評価",
+              "判定",
+              "扱い",
+              "どれか一つでもLがある"
+            ],
+            [
+              "要求",
+              "ビジネス価値",
+              "技術的容易性",
+              "組織受入態勢",
+              "判定と理由",
+              "経理担当者の転記作業と入力ミスを減らしたい",
+              "H",
+              "H",
+              "H"
+            ]
+          ]
+        }
+      ],
+      "score": 12
+    },
+    {
+      "id": "web-system-cost-by-scale",
+      "url": "https://beekle.jp/column/web-system-cost-by-scale",
+      "section": "column",
+      "title": "Webシステム開発の費用相場｜小規模300万円〜・大規模3,000万円超の目安",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "絶対に"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            [
+              "規模",
+              "費用の目安",
+              "期間の目安",
+              "主な例",
+              "小規模",
+              "300〜800万円",
+              "2〜4か月"
+            ],
+            [
+              "中規模",
+              "800〜3,000万円",
+              "4〜8か月"
+            ],
+            [
+              "大規模",
+              "3,000万円以上",
+              "8か月以上"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 12
+    },
+    {
+      "id": "ai-rag-accuracy-graphrag",
+      "url": "https://beekle.jp/column/ai-rag-accuracy-graphrag",
+      "section": "column",
+      "title": "生成AIの回答精度を業務レベルに引き上げる方法｜GraphRAGとハルシネーション対策の実践ガイド",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. GraphRAGの導入コストは通常のRAGと比べてどのくらい高くなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内文書が整理されていない状態でもRAGは導入できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. PoCで精度が出なかった場合はどうすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "chatbot-cannot-answer",
+      "url": "https://beekle.jp/column/chatbot-cannot-answer",
+      "section": "column",
+      "title": "チャットボットが答えられない5つの原因と対策｜型番・仕様の質問はなぜ失敗するか",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. 型番や仕様の込み入った質問に答えられないのはなぜですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 間違った回答（ハルシネーション）が心配です。",
+              "count": 2
+            },
+            {
+              "sample": "Q. 導入したあと、精度は上がっていきますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "genai-inquiry-automation",
+      "url": "https://beekle.jp/column/genai-inquiry-automation",
+      "section": "column",
+      "title": "問い合わせ対応を生成AIで自動化する進め方｜コールセンター・社内ヘルプデスクの実装と注意点",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. コールセンターやカスタマーサポートに生成AIを導入するとどうなりますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 問い合わせAIが間違った回答をすることはありませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内のヘルプデスク（社内問い合わせ）も自動化できますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "genai-security-governance",
+      "url": "https://beekle.jp/column/genai-security-governance",
+      "section": "column",
+      "title": "社内文書を生成AI・RAGで扱う情報漏洩リスクと対策｜情シスが確認すべきチェックポイント",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. RAGや社内文書AIを、社外にデータを出さずに使うにはどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. プロンプトインジェクション対策はどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 生成AIの情報漏洩対策には何をすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "manufacturing-inquiry-ai",
+      "url": "https://beekle.jp/column/manufacturing-inquiry-ai",
+      "section": "column",
+      "title": "製造業の問い合わせ対応AI導入ガイド｜型番・適合・保証の質問に答えるには",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. 回答が間違っていないか、どう担保しますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 取扱説明書のPDFも回答に使えますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社外に出せないデータでも導入できますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "neo4j-multitenant-security",
+      "url": "https://beekle.jp/knowledge/neo4j-multitenant-security",
+      "section": "knowledge",
+      "title": "Neo4j Community Editionでマルチテナントを安全に実装する｜アプリ層の強制フィルタとCI検証",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. Neo4jに、データベースの行レベルセキュリティ（RLS）のような機能はありますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. LLMにCypherを書かせて、テナント越えのリスクはありませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. テナント境界の差し込み忘れを、どうやって見つけますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "project-management-complete-guide",
+      "url": "https://beekle.jp/column/project-management-complete-guide",
+      "section": "column",
+      "title": "システム開発の進め方 完全ガイド｜発注側のプロジェクト管理",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q3. 進捗が遅れていることはどうやって早く検知できますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q4. 炎上プロジェクトを引き継いだらまず何をすべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "rag-evaluation",
+      "url": "https://beekle.jp/knowledge/rag-evaluation",
+      "section": "knowledge",
+      "title": "RAGの精度を評価する方法｜評価指標・正解データセット・RAGASと運用でのドリフト検知",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. RAGASのような自動評価だけで十分ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 正解データセットはどれくらいの規模が必要ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 運用後に精度が落ちるのをどう防ぎますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "spec-driven-development",
+      "url": "https://beekle.jp/knowledge/spec-driven-development",
+      "section": "knowledge",
+      "title": "仕様駆動開発（SDD）とは｜AI駆動開発・バイブコーディングとの違いと、実際の手順",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. 仕様はどこまで細かく書けばいいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 仕様を書く時間の分、開発全体は遅くなりませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 発注側や非エンジニアも関わる必要がありますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "system-development-outsourcing-guide",
+      "url": "https://beekle.jp/column/system-development-outsourcing-guide",
+      "section": "column",
+      "title": "システム開発の外注で失敗しない選び方｜費用相場・流れ・注意点",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. システム開発を外注するメリット・デメリットは？",
+              "count": 2
+            },
+            {
+              "sample": "Q. システム開発の外注と内製はどちらがよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. システム開発の外注にはどのようなリスクがありますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "veteran-knowledge-handover",
+      "url": "https://beekle.jp/column/veteran-knowledge-handover",
+      "section": "column",
+      "title": "ベテラン退職前に技術・知識を引き継ぐ方法｜暗黙知を「検索できる資産」で残す",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 3,
+          "samples": [
+            {
+              "sample": "Q. なぜ普通の社内検索やFAQでは不十分なのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. ベテランが退職するまで数か月しかありません。",
+              "count": 2
+            },
+            {
+              "sample": "Q. 大がかりな基盤やコストが必要になりませんか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 11
+    },
+    {
+      "id": "ai-cost-zero-start",
+      "url": "https://beekle.jp/column/ai-cost-zero-start",
+      "section": "column",
+      "title": "「コストがかけられない」なら最低限から始める｜ゼロスタートで生成AI導入のリスクを最小化する方法",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 初期費用0円で始める方法はありますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. PoCで効果が出なかった場合の損失はどのくらいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "段階",
+              "内容",
+              "費用感",
+              "PoC",
+              "1業務のプロトタイプ開発・精度検証",
+              "数十万〜100万円程度",
+              "本番化",
+              "UIの整備・セキュリティ対策・運用設計",
+              "100〜300万円程度",
+              "拡張",
+              "対象業務の追加・精度改善・機能追加",
+              "追加業務ごとに見積もり"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 10
+    },
+    {
+      "id": "ai-roi-measurement-difficulty",
+      "url": "https://beekle.jp/column/ai-roi-measurement-difficulty",
+      "section": "column",
+      "title": "生成AIの業務効果をどう測るか｜「効果が見えない」を防ぐROI測定と指標設計",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 定性的な効果（楽になったミスが減った）だけでは経営層を説得できません。",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI導入のコストが効果を上回る場合はどうすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "カテゴリ",
+              "指標例",
+              "測定方法",
+              "効率化",
+              "1件あたりの処理時間短縮率",
+              "AIなし/ありの処理時間を比較",
+              "効率化",
+              "月間処理件数の増加率",
+              "導入前後の件数を比較",
+              "品質向上",
+              "回答の正答率",
+              "サンプル抽出で人間が検証",
+              "品質向上",
+              "エラー・手戻りの減少率",
+              "エラー件数を継続記録",
+              "コスト",
+              "対象業務の人件費削減額",
+              "業務時間 x 時間単価で算出",
+              "コスト",
+              "AI運用コスト（API利用料等）",
+              "月次の請求額を記録"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 10
+    },
+    {
+      "id": "demand-forecast-inventory-cost",
+      "url": "https://beekle.jp/column/demand-forecast-inventory-cost",
+      "section": "column",
+      "title": "需要予測で在庫コストを最適化｜サプライチェーンとデータ活用の現実解",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 10
+    },
+    {
+      "id": "ai-development-speed",
+      "url": "https://beekle.jp/column/ai-development-speed",
+      "section": "column",
+      "title": "生成AIで1〜2週間でプロトタイプを作る4ステップ｜発注前に知っておくべき開発の流れ",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "communication-03",
+      "url": "https://beekle.jp/column/communication-03",
+      "section": "column",
+      "title": "システム開発の週次デモで進捗を可視化する｜書類報告ではなく動くもので確認する4ステップ",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "prevent-mismatch",
+      "url": "https://beekle.jp/column/prevent-mismatch",
+      "section": "column",
+      "title": "システム開発「思ったのと違う」を防ぐ3ステップ｜要件のズレ対策",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. 現場のスタッフに見せると混乱しませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. エンジニアがまだ見せられる状態じゃないとデモを拒否します。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "requirements-prioritization-moscow-fm",
+      "url": "https://beekle.jp/column/requirements-prioritization-moscow-fm",
+      "section": "column",
+      "title": "要件の優先順位付け: MoSCoW vs FM法 完全比較｜どちらをいつ使うか",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "カテゴリ",
+              "意味",
+              "扱い",
+              "M ust have",
+              "なくては成立しない",
+              "必須実装",
+              "S hould have",
+              "重要だが致命的ではない",
+              "可能な限り実装",
+              "C ould have",
+              "あると望ましい",
+              "余裕があれば実装",
+              "W on't have (this time)",
+              "今回は対象外",
+              "スコープ外"
+            ],
+            [
+              "軸",
+              "評価",
+              "内容",
+              "ビジネス価値",
+              "★1〜3",
+              "売上・コスト削減・差別化への貢献",
+              "現場で使えるか",
+              "★1〜3",
+              "現場のスキル・運用体制・モチベーション",
+              "技術コスト",
+              "低/中/高"
+            ],
+            [
+              "観点",
+              "MoSCoW",
+              "FM法",
+              "評価軸の数",
+              "1軸（重要度のみ）",
+              "3軸（価値・受入・技術）",
+              "評価値",
+              "4カテゴリ（M/S/C/W）",
+              "3段階×3軸",
+              "1要件あたりの評価時間",
+              "数秒〜数十秒",
+              "数分",
+              "学習コスト",
+              "低",
+              "中",
+              "客観性",
+              "主観に頼りがち",
+              "軸ごとに議論しやすい",
+              "「使われないリスク」",
+              "検出しにくい",
+              "「現場で使えるか」軸で検出",
+              "「無謀な実装リスク」",
+              "検出しにくい",
+              "「技術コスト」軸で検出",
+              "ステークホルダーへの説明",
+              "カテゴリ名で済む",
+              "3軸の評価結果で根拠を示せる",
+              "適した要件数",
+              "数十〜数百",
+              "5〜50程度",
+              "再評価の負荷",
+              "軽い",
+              "やや重い"
+            ],
+            [
+              "要件数",
+              "MoSCoWの負荷",
+              "FM法の負荷",
+              "〜20件",
+              "軽い",
+              "適切",
+              "20〜50件",
+              "軽い",
+              "やや重いが効果大",
+              "50〜100件",
+              "適切",
+              "重い（一段階上のレベルでまとめる）",
+              "100件超",
+              "適切",
+              "評価疲れで形骸化リスク"
+            ],
+            [
+              "フェーズ",
+              "推奨手法",
+              "理由",
+              "要件発散後の絞り込み",
+              "FM法",
+              "客観的に「作らない」を決めるため",
+              "リリース計画",
+              "MoSCoW",
+              "順序付けを速く決めるため",
+              "スプリント中の判断",
+              "MoSCoW",
+              "即決が必要なため",
+              "半年ごとの再評価",
+              "FM法",
+              "状況変化を3軸で反映するため"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "rfm-analysis-guide",
+      "url": "https://beekle.jp/column/rfm-analysis-guide",
+      "section": "column",
+      "title": "優良顧客の見つけ方｜RFM分析を経営者向けにわかりやすく解説",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "圧倒的"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "system-development-budget-control",
+      "url": "https://beekle.jp/column/system-development-budget-control",
+      "section": "column",
+      "title": "システム開発の予算オーバーを防ぐ｜要件と進捗の管理術",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. 開発会社からの進捗報告が順調ですばかりで不安です。",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 予算オーバーになりそうな兆候はありますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "system-development-zero-start",
+      "url": "https://beekle.jp/column/system-development-zero-start",
+      "section": "column",
+      "title": "初期費用0円でシステム開発を始める方法｜プロトタイプ先行型",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q2. プロトタイプの段階で開発を中止することは可能ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q3. 開発会社がプロトタイプの作成を嫌がる場合はどうすればいいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 9
+    },
+    {
+      "id": "ai-dx-introduction-process",
+      "url": "https://beekle.jp/column/ai-dx-introduction-process",
+      "section": "column",
+      "title": "生成AI／DXの導入は「業務可視化」から始める｜As-Is/To-Beで失敗しない進め方完全ガイド",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "項目",
+              "例",
+              "工程（フェーズ）",
+              "受注 → 引当・指示 → 出荷",
+              "担当（レーン）",
+              "顧客 / 営業 / 事務 / 倉庫",
+              "各ステップ"
+            ],
+            [
+              "所要時間（分）",
+              "各ステップで何分かかっているか",
+              "使用ツール",
+              "Excel / 電話 / 紙 / メール 等",
+              "課題（pain）",
+              "転記ミス、待ち時間、属人化 等"
+            ],
+            [
+              "フェーズ",
+              "時間",
+              "コスト",
+              "比率",
+              "受注",
+              "35分",
+              "¥2,200",
+              "26%",
+              "引当・指示",
+              "65分",
+              "¥3,800",
+              "45%",
+              "出荷",
+              "50分",
+              "¥2,400",
+              "29%"
+            ],
+            [
+              "ステップ",
+              "担当",
+              "時間",
+              "ツール",
+              "課題",
+              "メール／FAX注文",
+              "顧客",
+              "0分",
+              "メール／FAX",
+              "—",
+              "Excel に転記",
+              "営業",
+              "15分",
+              "Excel",
+              "転記ミス月3〜5件",
+              "電話で在庫確認",
+              "事務",
+              "20分",
+              "電話",
+              "折返し待ち",
+              "在庫あり？",
+              "事務",
+              "5分",
+              "—",
+              "—",
+              "注文書を紙印刷",
+              "事務",
+              "10分",
+              "プリンタ",
+              "紙の行き来で半日ロス",
+              "ピッキング・梱包",
+              "倉庫",
+              "60分",
+              "紙の指示書",
+              "指示書の紛失",
+              "送り状を手書き",
+              "事務",
+              "15分",
+              "ペン／伝票",
+              "宛名ミス",
+              "集荷・出荷",
+              "倉庫",
+              "10分",
+              "—",
+              "—"
+            ],
+            [
+              "ステップ",
+              "担当",
+              "時間",
+              "ツール",
+              "改善",
+              "Webフォーム注文",
+              "顧客",
+              "0分",
+              "受注Webフォーム",
+              "入力規則で誤注文を未然防止",
+              "在庫を自動引当",
+              "システム",
+              "0分",
+              "在庫API",
+              "電話確認を撤廃",
+              "在庫あり？",
+              "システム",
+              "0分",
+              "—",
+              "API判定",
+              "ピッキング指示を自動生成",
+              "システム",
+              "0分",
+              "WMS",
+              "紙指示書を廃止",
+              "ハンディでピッキング",
+              "倉庫",
+              "40分",
+              "ハンディ端末",
+              "誤出荷をリアルタイム検知",
+              "送り状を自動発行",
+              "システム",
+              "0分",
+              "配送API",
+              "宛名ミスを撲滅",
+              "集荷・出荷",
+              "倉庫",
+              "5分",
+              "—",
+              "—"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-era-asking-questions",
+      "url": "https://beekle.jp/column/ai-era-asking-questions",
+      "section": "column",
+      "title": "生成AI時代の経営判断｜技術的障壁が下がった先で重要になる「問いを立てる力」",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "領域",
+              "AIに任せられる",
+              "人間が担う",
+              "データ抽出・集計",
+              "SQLの記述、ピボット集計、可視化",
+              "何のデータを見るかの設計",
+              "パターン発見",
+              "異常値検出、クラスタリング、相関分析",
+              "発見されたパターンが経営に意味するもの",
+              "予測モデル",
+              "機械学習モデルの学習・推論",
+              "予測値を経営判断にどう使うかの設計",
+              "レポート作成",
+              "定型レポートの自動生成",
+              "誰に何を伝えるかの設計",
+              "判断",
+              "判断材料の整理",
+              "経営としての最終判断"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-era-development-flow",
+      "url": "https://beekle.jp/column/ai-era-development-flow",
+      "section": "column",
+      "title": "AI受託開発の進め方｜生成AIのPoCから本番・改善まで失敗しにくい開発パターン",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "圧倒的",
+            "絶対に"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-executive-understanding",
+      "url": "https://beekle.jp/column/ai-executive-understanding",
+      "section": "column",
+      "title": "経営者がAI導入を理解しない｜As-Is/To-Be可視化と費用対効果で説得する方法",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. PoCの結果が微妙だった場合、経営者にどう報告すべきですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 経営者がAIよりkintoneで十分と言う場合は？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-factcheck",
+      "url": "https://beekle.jp/column/ai-factcheck",
+      "section": "column",
+      "title": "生成AIの回答をファクトチェックする方法｜なぜ必要か、根拠提示と自動検証の仕組み",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. なぜ生成AIの結果をファクトチェックする必要があるのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 完全にハルシネーションをなくせますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-legacy-system-constraints",
+      "url": "https://beekle.jp/column/ai-legacy-system-constraints",
+      "section": "column",
+      "title": "既存システムの制約でAIが導入できない｜基幹システムを見直した方が早いケースの判断軸",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. ベンダーに改修を依頼するより自社で作り直した方が安いですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 既存システムからのデータ移行で失敗しないためのポイントは？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-organization-constraints",
+      "url": "https://beekle.jp/column/ai-organization-constraints",
+      "section": "column",
+      "title": "組織体制がAI導入を阻む｜経営者がAI前提の業務を主導しなければ変わらない",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 部門長がデータ共有に同意してくれません。",
+              "count": 2
+            },
+            {
+              "sample": "Q. 小さい会社（社員30名程度）でも組織体制の問題は起きますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-project-stalled-agile",
+      "url": "https://beekle.jp/column/ai-project-stalled-agile",
+      "section": "column",
+      "title": "AIプロジェクトが進まない｜ゼロスタートでデモから始め、アジャイル的に改善する方法",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. アジャイルで進めると品質が犠牲になりませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内にエンジニアがいない場合、アジャイルで進められますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-security-privacy-guide",
+      "url": "https://beekle.jp/column/ai-security-privacy-guide",
+      "section": "column",
+      "title": "生成AI導入のセキュリティとプライバシー対策｜業務利用で押さえるべきリスクと対処法",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. オンプレミスでAIを動かせば安全ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. AI導入にあたって法務部門との調整で何を決めておくべきですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "ai-training-data-quality",
+      "url": "https://beekle.jp/column/ai-training-data-quality",
+      "section": "column",
+      "title": "生成AIの学習データをどう用意するか｜社内データの棚卸し・品質管理・前処理の実務ガイド",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 紙の資料しかない場合はどうすればよいですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社員の暗黙知をどうやってAI用のデータにすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "chatbot-cost",
+      "url": "https://beekle.jp/column/chatbot-cost",
+      "section": "column",
+      "title": "チャットボットの費用相場｜導入費用・月額・開発費の内訳と、何で決まるか",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. シナリオ型とAI型はどちらが安いですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 費用を安く抑えるにはどうすればよいですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "communication-07",
+      "url": "https://beekle.jp/column/communication-07",
+      "section": "column",
+      "title": "システム開発のプロジェクト管理FAQ｜発注者がよく抱える5つの疑問と対策",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "customer-support-ai-guide",
+      "url": "https://beekle.jp/column/customer-support-ai-guide",
+      "section": "column",
+      "title": "カスタマーサポートのAI活用とは｜導入メリットと事例、始め方",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 単純なFAQボットとの違いは何ですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 導入にはどのくらいの費用がかかりますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "data-quality-trap",
+      "url": "https://beekle.jp/column/data-quality-trap",
+      "section": "column",
+      "title": "データはあるのに分析できない｜データ品質の落とし穴と回避策",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            "徹底",
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "eliminate-work-attribution",
+      "url": "https://beekle.jp/column/eliminate-work-attribution",
+      "section": "column",
+      "title": "業務の属人化を解消する方法｜原因・進め方・AIでの解決と部門別のポイント",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 属人化を解消すると、どんなメリットがありますか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 製造業の属人化も同じように解消できますか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "inquiry-attribution-solution",
+      "url": "https://beekle.jp/column/inquiry-attribution-solution",
+      "section": "column",
+      "title": "問い合わせ対応の属人化を解消する方法｜ベテラン依存から「会社の知識」へ",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. AIが間違った回答をして、かえって現場が混乱しませんか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 社内の機密情報を外部に出すのが不安です。",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "it-advisor-monthly",
+      "url": "https://beekle.jp/column/it-advisor-monthly",
+      "section": "column",
+      "title": "IT専任者ゼロの会社で、情シスが孤独にならないための外部相談役の作り方",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "manufacturing-ai-use-cases",
+      "url": "https://beekle.jp/column/manufacturing-ai-use-cases",
+      "section": "column",
+      "title": "製造業のAI活用｜生産ラインに手を入れずに始める7つの使いどころ",
+      "findings": [
+        {
+          "type": "repeated-sentence",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            {
+              "sample": "Q. 生産ラインの最適化や画像検査はやらないのですか？",
+              "count": 2
+            },
+            {
+              "sample": "Q. 自社のデータを外部のAIに渡して大丈夫ですか？",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "nqu29zwuq6",
+      "url": "https://beekle.jp/column/nqu29zwuq6",
+      "section": "column",
+      "title": "AI受託開発の進め方｜生成AIのPoCから本番・改善まで失敗しにくい開発パターン",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 2,
+          "samples": [
+            "圧倒的",
+            "絶対に"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "requirements-definition-process",
+      "url": "https://beekle.jp/column/requirements-definition-process",
+      "section": "column",
+      "title": "要件定義の進め方がわからない？発注側が押さえる5フェーズと実例",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            [
+              "役割",
+              "氏名",
+              "関与レベル",
+              "期待アウトカム",
+              "プロジェクトオーナー",
+              "田中",
+              "承認権限",
+              "売上20%増、業務時間30%削減",
+              "業務担当",
+              "佐藤",
+              "日次運用",
+              "二重入力の解消",
+              "経理部長",
+              "鈴木",
+              "月次レビュー",
+              "月次決算の早期化",
+              "情報システム",
+              "高橋",
+              "技術検証",
+              "既存システムとの連携可否"
+            ],
+            [
+              "軸",
+              "意味",
+              "評価",
+              "ビジネス価値",
+              "経営インパクト・売上／コスト効果",
+              "★1〜3（多いほど良い）",
+              "現場で使えるか"
+            ],
+            [
+              "★1〜3（多いほど良い）",
+              "技術コスト",
+              "実装・運用・既存システム連携の難易度",
+              "低／中／高（低いほど良い）",
+              "状態",
+              "判定",
+              "どれか1軸でも ★1（または技術コスト=高）"
+            ],
+            [
+              "★3 が2つ以上",
+              "作る",
+              "それ以外（中間）",
+              "後回し （次リリース候補）",
+              "要件",
+              "ビジネス価値",
+              "現場で使えるか",
+              "技術コスト",
+              "判定",
+              "受注登録",
+              "★★★",
+              "★★★",
+              "低",
+              "作る",
+              "請求書自動生成",
+              "★★★",
+              "★★",
+              "低",
+              "作る",
+              "売上ダッシュボード",
+              "★★",
+              "★",
+              "中",
+              "作らない （現場が使う準備不足）",
+              "多通貨対応",
+              "★",
+              "★",
+              "高",
+              "作らない",
+              "顧客別の請求パターン",
+              "★★",
+              "★★",
+              "中",
+              "後回し"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "requirements-vs-requests",
+      "url": "https://beekle.jp/column/requirements-vs-requests",
+      "section": "column",
+      "title": "要求と要件の違い｜現場要望を発注できる形に変える方法",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 4,
+          "samples": [
+            [
+              "段階",
+              "文章",
+              "要求",
+              "サクサク使えるアプリにしたい",
+              "要件"
+            ],
+            [
+              "段階",
+              "文章",
+              "要求",
+              "安全にデータを管理したい",
+              "要件"
+            ],
+            [
+              "段階",
+              "文章",
+              "要求",
+              "初心者でもすぐ使えるようにしてほしい",
+              "要件"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "scope-management-fm-method",
+      "url": "https://beekle.jp/column/scope-management-fm-method",
+      "section": "column",
+      "title": "スコープ管理「FM法」の使い方｜要件を3軸で見える化して何を作らないか決める",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "間違いなく"
+          ]
+        },
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "観点",
+              "MoSCoW",
+              "FM法",
+              "評価軸",
+              "1軸（重要度のみ）",
+              "3軸（価値・受入・技術）",
+              "「使われない」リスク",
+              "検出しにくい",
+              "「現場で使えるか」軸で検出",
+              "「無謀な実装」リスク",
+              "検出しにくい",
+              "「技術コスト」軸で検出",
+              "議論の客観性",
+              "主観に頼りがち",
+              "軸ごとに議論しやすい",
+              "学習コスト",
+              "低",
+              "中"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "silent-three-weeks",
+      "url": "https://beekle.jp/column/silent-three-weeks",
+      "section": "column",
+      "title": "「3週間返事がない」あの提案、発注側の決裁者が案件を滞らせないためにとるべき3つの介入手順",
+      "findings": [
+        {
+          "type": "cliche-metaphor",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強の交渉カード"
+          ]
+        },
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "最強"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "id": "bigquery-mcp-integration",
+      "url": "https://beekle.jp/knowledge/bigquery-mcp-integration",
+      "section": "knowledge",
+      "title": "BigQuery × MCPで生成AIから業務データを直接見る｜ChatGPTがSQLを書いて答える仕組み",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "項目",
+              "必要な準備",
+              "BigQuery 環境",
+              "業務データが既に蓄積されていること",
+              "テーブル設計のドキュメント"
+            ],
+            [
+              "MCP サーバー",
+              "OSS または有料サービスを選定・セットアップ",
+              "生成AIアカウント"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 7
+    },
+    {
+      "id": "churn-prediction-guide",
+      "url": "https://beekle.jp/column/churn-prediction-guide",
+      "section": "column",
+      "title": "チャーン分析とは？解約予測の仕組みと経営判断に活かす方法",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 6
+    },
+    {
+      "id": "profit-but-no-cash-thirteen-week-forecast",
+      "url": "https://beekle.jp/column/profit-but-no-cash-thirteen-week-forecast",
+      "section": "column",
+      "title": "資金繰り表を毎週作らない。Beekle CRMで入出金を「予定・確定・済み」に分けた理由",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "状態",
+              "意味",
+              "例",
+              "予定",
+              "今後発生する見込みがある"
+            ],
+            [
+              "確定",
+              "金額と日付が確認できた",
+              "発行済み請求書、届いた請求書、確定した給与・税額",
+              "済み",
+              "実際の入金・支払いが完了した",
+              "銀行口座で確認できた入出金"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 6
+    },
+    {
+      "id": "sales-but-no-profit-cash-management",
+      "url": "https://beekle.jp/column/sales-but-no-profit-cash-management",
+      "section": "column",
+      "title": "売上があってもお金が残らない。案件の予算・実績・入出金を分けて管理した",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 3,
+          "samples": [
+            [
+              "区分",
+              "意味",
+              "経営での使い方",
+              "予算",
+              "契約や計画に基づく予定",
+              "今後の採算と資金を予測する",
+              "実績",
+              "金額が確定し、計上したもの",
+              "計画との差を確認する",
+              "未確定",
+              "予定にはあるが、まだ実績ではないもの",
+              "楽観的な見込みを分ける"
+            ],
+            [
+              "差の理由",
+              "次回変えること",
+              "当初の見積漏れ",
+              "見積もり時の確認項目を増やす",
+              "追加要求",
+              "追加費用、期限、優先順位を合意する",
+              "認識差",
+              "具体的な利用場面と完成条件を先に確認する",
+              "手戻り",
+              "途中の確認時点と動作証拠を決める",
+              "顧客確認待ち",
+              "回答期限と未回答時の扱いを決める"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 6
+    },
+    {
+      "id": "ai-guideline-template",
+      "url": "https://beekle.jp/column/ai-guideline-template",
+      "section": "column",
+      "title": "生成AIガイドラインの作り方｜AI案件を発注する前に社内で整備すべき利用ルール",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "機密度",
+              "例",
+              "AI入力可否",
+              "公開情報",
+              "製品カタログ、プレスリリース",
+              "○ 制限なし",
+              "社内一般",
+              "社内マニュアル、議事録",
+              "○ 法人契約サービスのみ",
+              "個人情報",
+              "顧客名・連絡先・購入履歴",
+              "△ 匿名化処理が前提",
+              "社外秘",
+              "未発表の戦略、財務データ、人事評価",
+              "× 原則禁止",
+              "機密情報",
+              "契約書原本、特許未出願技術、内部告発情報",
+              "× 完全禁止"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 5
+    },
+    {
+      "id": "estimate-complete-guide",
+      "url": "https://beekle.jp/column/estimate-complete-guide",
+      "section": "column",
+      "title": "システム開発の見積もり完全ガイド｜費用相場・内訳・比較・追加費用",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "知りたいこと",
+              "確認するページ",
+              "Webシステムの規模別費用を知りたい",
+              "Webシステム開発の費用相場",
+              "見積書の各項目が何を意味するか知りたい",
+              "システム開発費用の内訳",
+              "極端に安い見積もりが危険か判断したい",
+              "安すぎる見積もりを見抜く7つの確認点",
+              "提示された金額が妥当か判断したい",
+              "見積もりの妥当性を3軸で確認する方法",
+              "複数社の見積書を比較したい",
+              "見積もり比較チェックリスト",
+              "開発途中で金額が変わる理由を知りたい",
+              "見積もりがブレる理由と追加費用対策",
+              "予算オーバーを防ぎたい",
+              "予算と開発範囲を管理する方法",
+              "生成AIシステムの費用を知りたい",
+              "生成AI開発の費用相場",
+              "試作品・実証実験・最小製品の違いを知りたい",
+              "MVP・PoC・プロトタイプの違いと費用"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有"
+            ]
+          ]
+        }
+      ],
+      "score": 5
+    },
+    {
+      "id": "existing-business-dx-cost-minimize",
+      "url": "https://beekle.jp/column/existing-business-dx-cost-minimize",
+      "section": "column",
+      "title": "既存業務のDXコストを最小化する方法｜現場ヒアリングだけでは決められない理由と「動かして決める」アプローチ",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "必ず後悔"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「DX・AI導入」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 5
+    },
+    {
+      "id": "ai-agent-gherkin-evidence",
+      "url": "https://beekle.jp/knowledge/ai-agent-gherkin-evidence",
+      "section": "knowledge",
+      "title": "AIエージェントに「動いた証拠は？」と詰めよう",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "AIエージェント時代の完了報告は、",
+              "実装できました。",
+              "ではなく、"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "ai-contract-development-guide",
+      "url": "https://beekle.jp/column/ai-contract-development-guide",
+      "section": "column",
+      "title": "AI受託開発とは｜費用・進め方・会社選び・PoCから本番まで",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "確認したいこと",
+              "詳しい解説",
+              "いくらかかるか",
+              "生成AI開発の費用相場",
+              "どう進めるか",
+              "生成AI開発で成功率を上げる進め方",
+              "何に失敗するか",
+              "生成AI受託開発で失敗する5パターン",
+              "社内ツールを外注するか",
+              "AI社内ツールを外注してから内製化する方法"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "ai-development-cost-guide",
+      "url": "https://beekle.jp/column/ai-development-cost-guide",
+      "section": "column",
+      "title": "生成AI PoC・受託開発の費用相場｜50万円〜の検証から本番開発まで",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "段階",
+              "費用の目安",
+              "主に確認・実装すること",
+              "小規模な実証実験",
+              "50〜300万円程度",
+              "技術的に成立するか、実データで使えるかを確認する",
+              "試作品の開発",
+              "200〜600万円程度"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "ai-introduction-kpi-redesign",
+      "url": "https://beekle.jp/column/ai-introduction-kpi-redesign",
+      "section": "column",
+      "title": "AI導入で「コストが増えただけ」にならないためのKPI再設計術",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "company-strength-customer-project-profit-data",
+      "url": "https://beekle.jp/column/company-strength-customer-project-profit-data",
+      "section": "column",
+      "title": "LLMOは難しく考えなくていい。「なぜこのケースでは自社がいいのか」を伝える",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "本質的"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "data-company-learning-sensor",
+      "url": "https://beekle.jp/column/data-company-learning-sensor",
+      "section": "column",
+      "title": "データドリブン経営とは一体 データ活用とかCDPの話",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「顧客データ基盤(CDP)」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "existing-customers-no-upsell-crm-knowledge",
+      "url": "https://beekle.jp/column/existing-customers-no-upsell-crm-knowledge",
+      "section": "column",
+      "title": "既存顧客への提案を記憶に頼らない。顧客管理と社内知識を分けてつないだ",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "そこで、各情報の正式な保管場所を残します。",
+              "情報",
+              "正式に持つ場所",
+              "顧客、案件、金額、段階、次の行動",
+              "Beekle CRM",
+              "契約書、請求、入金",
+              "契約・会計の仕組み",
+              "会議、社内チャット、提案理由、成果物",
+              "社内知識の仕組み",
+              "利用状況や問い合わせ",
+              "各サービス・運用記録"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "gherkin-bdd-introduction",
+      "url": "https://beekle.jp/knowledge/gherkin-bdd-introduction",
+      "section": "knowledge",
+      "title": "Gherkin入門｜「前提・もし・ならば」をどう書けばいいか、具体例で解説",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "状況",
+              "出来事",
+              "期待する結果",
+              "登録済み",
+              "再設定を要求する",
+              "再設定メールが届く",
+              "未登録",
+              "再設定を要求する",
+              "アカウントの存在有無を漏らさない",
+              "期限切れ",
+              "リンクを使う",
+              "再設定できない"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "hexaco-person-job-fit-work-design",
+      "url": "https://beekle.jp/column/hexaco-person-job-fit-work-design",
+      "section": "column",
+      "title": "HEXACOを自分の仕事設計に使ってみた。性格を直すより、苦手な作業を消す",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "観察した傾向",
+              "仕事上の仮説",
+              "確認する記録",
+              "勤勉さが高い",
+              "目的と意味が明確な仕事は長く続けやすい",
+              "集中時間、完了率、成果",
+              "整理整頓が低い",
+              "独立した入力やファイル整理は止まりやすい",
+              "未入力、重複、探す時間",
+              "創造性・型破りが高い",
+              "新しい解法を作る仕事では力を出しやすい",
+              "提案数、試作、改善速度",
+              "定型維持の負荷が高い"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "it-admin-ai-first-week",
+      "url": "https://beekle.jp/column/it-admin-ai-first-week",
+      "section": "column",
+      "title": "経営から「AI入れて」と言われた情シスが、最初の1週間にやるべき5つのこと",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "現実解"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "management-issues-five-pains-statistics",
+      "url": "https://beekle.jp/column/management-issues-five-pains-statistics",
+      "section": "column",
+      "title": "社長の時間を作る経営DX。入力・集計・全件確認を減らし、判断だけを残す",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "判断項目",
+              "手軽に始める",
+              "ガッツリ作る",
+              "対象",
+              "一つの定期確認、一部署",
+              "複数部署、経営全体",
+              "情報源",
+              "一つか二つ",
+              "三つ以上を横断",
+              "データの場所",
+              "既存ツールへ置いたまま",
+              "正本を定義し、必要な履歴をデータ基盤へ集約",
+              "生成AIの役割",
+              "要約、分類、候補抽出",
+              "複数データを踏まえた仮説整理、対話型の確認",
+              "金額・期限の判定",
+              "少数の固定規則",
+              "版管理された会社の規則、予測、例外処理",
+              "元データの更新",
+              "人が手作業",
+              "承認後に自動更新",
+              "権限・監査",
+              "元ツールの権限を利用",
+              "横断権限、操作履歴、漏えい防止まで設計",
+              "開始までの目安",
+              "数日から二週間程度",
+              "一か月から三か月以上"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "mvp-development-guide",
+      "url": "https://beekle.jp/column/mvp-development-guide",
+      "section": "column",
+      "title": "MVP開発とは？PoC・プロトタイプとの違いと費用相場｜発注者向け早見ハブ",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "3つは似ていますが、ゴールが違います。",
+              "用語",
+              "主な目的",
+              "本番投入",
+              "典型的な期間",
+              "プロトタイプ開発",
+              "関係者の認識合わせ／合意形成",
+              "しない（捨てる前提）",
+              "数日〜2週間",
+              "PoC開発（概念実証）",
+              "技術的・業務的な実現可能性の検証",
+              "しない（捨てる前提）",
+              "1〜3ヶ月",
+              "MVP開発",
+              "本番ユーザーに使ってもらい学ぶ",
+              "する（最小機能で投入）",
+              "1〜3ヶ月"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "scenario-test-cost-reduction",
+      "url": "https://beekle.jp/column/scenario-test-cost-reduction",
+      "section": "column",
+      "title": "シナリオテストは発注側が参加すればコストが下がる｜ユーザーストーリー・EARS・Gherkinで受入確認まで自走する方法",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "項目",
+              "フル外注",
+              "協業（発注側参画）",
+              "業務ヒアリング",
+              "40時間",
+              "10時間（ストーリー渡し前提）",
+              "シナリオ起案",
+              "60時間",
+              "20時間（発注側起案、開発会社レビュー）",
+              "受入テスト実施",
+              "40時間",
+              "15時間（自動化部分のみ）",
+              "合計",
+              "140時間",
+              "45時間"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "things-not-to-do-pm",
+      "url": "https://beekle.jp/column/things-not-to-do-pm",
+      "section": "column",
+      "title": "発注側がやらなくていい2つのこと｜WBSとフロー図の維持を捨ててスコープ管理に集中する",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "やらなくていいこと",
+              "代わりにやること",
+              "WBSを自分で引く",
+              "スコープを絞り、仕様を決める",
+              "フロー図を維持し続ける",
+              "ユーザーストーリーとシナリオを死守する"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "user-story-template-examples",
+      "url": "https://beekle.jp/knowledge/user-story-template-examples",
+      "section": "knowledge",
+      "title": "ユーザーストーリーだけでは仕様にならない｜日本語Gherkinの書き方と実例",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "項目",
+              "書くこと",
+              "シナリオ",
+              "何を確認する場面なのか",
+              "前提",
+              "その場面が始まる前に成立している状態",
+              "もし",
+              "利用者の操作や、外部から起きる出来事",
+              "ならば",
+              "その結果、何が起きれば正しいのか",
+              "かつ",
+              "同じ種類の条件や結果を追加するとき",
+              "基本形は次の通りです。"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「Beekleのナレッジ」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "what-is-faq-system",
+      "url": "https://beekle.jp/column/what-is-faq-system",
+      "section": "column",
+      "title": "FAQシステムとは？種類・チャットボットとの違い・費用とAI化のポイント",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 2,
+          "samples": [
+            [
+              "観点",
+              "FAQシステム",
+              "チャットボット",
+              "使い方",
+              "検索やカテゴリから回答ページを探す",
+              "質問を入力し、対話形式で回答を受け取る",
+              "向く情報",
+              "手順、規程、料金など、一覧で確認したい情報",
+              "利用者ごとに質問の言い方が変わる問い合わせ",
+              "運用",
+              "記事の追加・更新・分類が中心"
+            ],
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 4
+    },
+    {
+      "id": "project-management-02",
+      "url": "https://beekle.jp/column/project-management-02",
+      "section": "column",
+      "title": "システム開発の現状分析（As-Is Assessment）｜業務フローとステークホルダーを正しく理解する",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 3
+    },
+    {
+      "id": "step-by-step-development",
+      "url": "https://beekle.jp/column/step-by-step-development",
+      "section": "column",
+      "title": "システム開発を段階的に進める方法｜MVP・プロトタイプ活用法",
+      "findings": [
+        {
+          "type": "label-only-heading",
+          "severity": 1,
+          "count": 1,
+          "samples": [
+            "まとめ"
+          ]
+        },
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 3
+    },
+    {
+      "id": "ai-development-vendor-selection",
+      "url": "https://beekle.jp/column/ai-development-vendor-selection",
+      "section": "column",
+      "title": "AI受託開発とは｜費用相場・進め方・会社選び・PoCから本番まで",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「生成AIの活用と発注」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "ai-search-comparison-candidate-llmo",
+      "url": "https://beekle.jp/column/ai-search-comparison-candidate-llmo",
+      "section": "column",
+      "title": "生成AIの比較候補に入るには、CEP・KBF・RTBをつなぐ。SEOだけでは足りない理由",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "ceo-bottleneck-decision-knowledge-system",
+      "url": "https://beekle.jp/column/ceo-bottleneck-decision-knowledge-system",
+      "section": "column",
+      "title": "元の資料を直しても、仕様へ伝わらなかった。PM on Railsに判断と変更の流れを作った",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "ceo-recapture-delegation-loop",
+      "url": "https://beekle.jp/column/ceo-recapture-delegation-loop",
+      "section": "column",
+      "title": "任せた仕事を取り戻していた。進捗報告ではなく「動いた証拠」を見るようにした",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "estimate-actual-hours-overrun-change-reasons",
+      "url": "https://beekle.jp/column/estimate-actual-hours-overrun-change-reasons",
+      "section": "column",
+      "title": "他社で止まったシステムを立て直した。3日余りで要件を組み直し、2週間で管理進捗60％まで進めた方法",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "genai-roi-investment",
+      "url": "https://beekle.jp/column/genai-roi-investment",
+      "section": "column",
+      "title": "生成AI導入の費用対効果とROIの考え方｜投資判断で経営層が見るべき点",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "new-business-system-cost-minimize",
+      "url": "https://beekle.jp/column/new-business-system-cost-minimize",
+      "section": "column",
+      "title": "新規事業のシステム費用を最小化する方法｜PMF前の不確実性を前提に「初期費用0円」を活かす設計",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "poc-boundary-line",
+      "url": "https://beekle.jp/column/poc-boundary-line",
+      "section": "column",
+      "title": "「PoCで始めましょう」と言われた瞬間、経営者が決めるべきDXの境界線",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "process-undefined-system-request",
+      "url": "https://beekle.jp/column/process-undefined-system-request",
+      "section": "column",
+      "title": "業務フローが整っていないのに「システム化しろ」と言われたときの進め方",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "project-management-04",
+      "url": "https://beekle.jp/column/project-management-04",
+      "section": "column",
+      "title": "PoCで失敗しない：システム開発の概念実証を成功させる5つのポイント",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "recruitment-no-applicants-role-design",
+      "url": "https://beekle.jp/column/recruitment-no-applicants-role-design",
+      "section": "column",
+      "title": "求人を出す前に、社長の仕事を分解する。実際の業務から採る役割を決める",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "referral-dependent-sales-content-system",
+      "url": "https://beekle.jp/column/referral-dependent-sales-content-system",
+      "section": "column",
+      "title": "紹介に頼り切らない営業。紹介者の説明を会社の資産へ変える",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "requirements-definition-template",
+      "url": "https://beekle.jp/column/requirements-definition-template",
+      "section": "column",
+      "title": "要件定義書テンプレート｜実際に何を書く？要求・User Story・Gherkinの具体例",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "このテーマの全体像を知る"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "id": "sales-meetings-no-win-buying-process",
+      "url": "https://beekle.jp/column/sales-meetings-no-win-buying-process",
+      "section": "column",
+      "title": "商談はあるのに、4件すべて次の行動が空欄だった。ChatGPTから更新する営業管理を作った",
+      "findings": [
+        {
+          "type": "choppy-short-paragraphs",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            [
+              "この記事が役に立ったら共有してください",
+              "同じテーマに関心がある方へ届くとうれしいです。",
+              "URLをコピー 共有",
+              "「経営課題」カテゴリの他の記事"
+            ]
+          ]
+        }
+      ],
+      "score": 2
+    }
+  ],
+  "lpFiles": [
+    {
+      "file": "src/data/service.ts",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 5,
+          "samples": [
+            "完全自動",
+            "万能"
+          ]
+        },
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 5,
+          "samples": [
+            "現実解",
+            "本質的",
+            "徹底"
+          ]
+        },
+        {
+          "type": "mechanical-confirm-wording",
+          "severity": 2,
+          "count": 12,
+          "samples": [
+            "売上、顧客セグメント、施策の効果を一目で確認できます。専門知識がなくても読める画面にします。",
+            "読み取り精度だけを追わず、人がどこで確認するかまで先に設計します。業務に載る形から逆算するので、PoCが",
+            "回答例とNG例、人が確認する条件を先に決めておくので、導入後に品質が落ちても勘に頼らず直",
+            "完全自動化を目指すのではなく、AIの判定結果を人間が最終確認する導線を最初から組み込みます。導入初期の信頼を担保しながら、ロ",
+            "ステムに変えます。どんな質問に、どの根拠で答え、どこから人が確認するかを先に設計し、パッケージ型では届かない検索精度を実現します",
+            "います。回答に根拠文書を併記することで、利用者側でも正確性を確認できます。また、対応ログを分析してAIが誤回答しやすいパターンを特定",
+            "合、CMS取込用CSVの生成までをつなぎ、曖昧な候補だけ人が確認する画面も試作しました。",
+            "・保険種別などを抽出し、確信度の低い箇所をハイライトして人が確認する画面を用意しました。",
+            "AIの読み取り結果を人間が確認する仕組みはありますか？",
+            "Rの確信度が低い箇所をハイライト表示します。担当者は全項目を確認する必要はなく、ハイライトされた箇所だけをチェックすれば済むため"
+          ]
+        },
+        {
+          "type": "repeated-jargon",
+          "severity": 1,
+          "count": 11,
+          "samples": [
+            "一気通貫"
+          ]
+        }
+      ],
+      "score": 32
+    },
+    {
+      "file": "src/data/consultation-situations.ts",
+      "findings": [
+        {
+          "type": "mechanical-confirm-wording",
+          "severity": 2,
+          "count": 9,
+          "samples": [
+            "、判断材料、見送り条件、初回で返す資料、似た相談の実例、次に確認することを整理します。",
+            "次に確認すること",
+            "現場で確認する操作、帳票、例外処理を条件化します。"
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "file": "src/data/industry-services.ts",
+      "findings": [
+        {
+          "type": "mechanical-confirm-wording",
+          "severity": 2,
+          "count": 12,
+          "samples": [
+            "最初に確認するのはAIモデルではなく、実際の問い合わせです。担当者に一件の",
+            "CSVを出すところまで一続きで作りました。曖昧な候補だけ人が確認する画面も試作しています。関係をたどる検索そのものは、カスタマー",
+            "回答精度だけでなく、実際の業務時間が減っているかを確認する",
+            "ます）。検索の回答をそのまま顧客に自動送信したい（根拠を人が確認する運用を前提にしています）。",
+            "端末や印刷物に旧版があり、どちらが正か確認する手間がある。適用条件が本文の注記や別紙に分かれていて、確認漏",
+            "定義します。安全に関わる領域なので、何をAIに任せ、何を人が確認するかもこの段階で受入条件に書きます。",
+            "複数文書を確認する回数と、専門担当者への問い合わせ件数",
+            "用される手順を確定できない。複数のマニュアルや別紙を横断して確認する必要がある。機種や部品、製造年によって適用条件が変わる。文書",
+            "す）。AIの回答をそのまま作業指示として使いたい（根拠を人が確認する運用を前提にしています）。文書の版管理が現状まったく行われて",
+            "合、CMS取込用CSVの生成までをつなぎ、曖昧な候補だけ人が確認する画面も試作しました。"
+          ]
+        }
+      ],
+      "score": 8
+    },
+    {
+      "file": "src/pages/case-studies.astro",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "完全自動"
+          ]
+        },
+        {
+          "type": "repeated-jargon",
+          "severity": 1,
+          "count": 6,
+          "samples": [
+            "一気通貫"
+          ]
+        }
+      ],
+      "score": 7
+    },
+    {
+      "file": "src/components/services/ai-development-overview.astro",
+      "findings": [
+        {
+          "type": "overclaim",
+          "severity": 3,
+          "count": 1,
+          "samples": [
+            "完全自動"
+          ]
+        }
+      ],
+      "score": 3
+    },
+    {
+      "file": "src/components/services/service-ai-design-strength.astro",
+      "findings": [
+        {
+          "type": "ai-boilerplate",
+          "severity": 2,
+          "count": 1,
+          "samples": [
+            "徹底"
+          ]
+        }
+      ],
+      "score": 2
+    },
+    {
+      "file": "src/components/services/ai-dx-service-page.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/management-dx-evidence.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-additional-sections.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-ai-risk-management.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-business-flow.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-case-studies.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-contact-cta.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-engagement-flow.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-faq.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-features.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-hero.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-pain-points.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-product-package.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-rag-deployment-modes.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-rag-pricing.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-root-cause.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-scan-summary.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-solutions.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/components/services/service-why-beekle.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/data/ai-service-page-config.ts",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/data/industry-page-config.ts",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/data/situation-lp-content.ts",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/careers.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/company.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/contact.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/index.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/prooffirst.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/services/[id].astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/services/ai-adoption.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/services/management-dx.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/services/rag-system-development.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/situations/[slug].astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/situations/index.astro",
+      "findings": [],
+      "score": 0
+    },
+    {
+      "file": "src/pages/solutions.astro",
+      "findings": [],
+      "score": 0
+    }
+  ]
+}
