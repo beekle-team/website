@@ -28,23 +28,23 @@ const seoDescription = service.seoDescription ?? service.description;
 const relatedGuides = [
   {
     href: '/column/what-is-rag',
-    title: 'RAGの意味と仕組みを確認する',
-    description: 'RAGを導入候補として検討し始めた方向けの基礎解説です。',
+    title: 'RAGの仕組みと向いている業務を知る',
+    description: 'RAGが自社の課題に合うか判断するための基礎をまとめています。',
   },
   {
     href: '/column/ai-rag-accuracy-graphrag',
-    title: 'RAGの回答精度と評価方法を確認する',
-    description: '回答精度を業務利用の水準まで引き上げる判断材料をまとめています。',
+    title: 'RAGの回答精度と評価方法を知る',
+    description: '業務で使える精度をどう測り、どこを改善するかを解説しています。',
   },
   {
     href: '/knowledge/graphrag-knowledge-search',
-    title: 'Hybrid GraphRAGの実装を確認する',
-    description: 'ベクトル・全文・グラフ等を組み合わせたBeekleの実装内容です。',
+    title: 'Hybrid GraphRAGの実装を見る',
+    description: 'ベクトル検索・全文検索・グラフ検索を組み合わせたBeekleの実装例です。',
   },
   {
     href: '/column/eliminate-work-attribution',
-    title: '属人化と暗黙知の継承方法を確認する',
-    description: '特定の担当者へ知識が集中する状態を解消する進め方です。',
+    title: '属人化した知識を引き継ぐ方法を知る',
+    description: '特定の担当者に知識が集中している状態をどう解消するかを整理しています。',
   },
 ] as const;
 ---
@@ -86,36 +86,36 @@ const relatedGuides = [
     <ServicePainPoints
       painPoints={service.painPoints}
       number="01"
-      title="社内文書検索・属人化・問い合わせ対応・要件管理をRAGで改善"
-      subtitle="BeekleがRAG・GraphRAGを構築する代表的な業務課題"
+      title="社内文書検索・問い合わせ対応・属人化をRAGで改善"
+      subtitle="RAG・GraphRAGの相談が多い業務課題"
     />
     <ServiceWhyBeekle rtb={ragServicePageConfig.rtb} number="02" />
     <ServiceCaseStudies
       caseStudies={service.caseStudies}
       number="03"
-      title="RAG・GraphRAGを実際に構築した事例"
+      title="RAG・GraphRAGの構築事例"
       subtitle="Neo4j・Milvus等を使い、検索基盤から業務画面・運用まで担当した実案件"
     />
     <ServiceContactCta serviceId={service.id} placement="cases" />
     <ServiceSolutions
       solutions={service.solutions}
       number="04"
-      title="Beekleへ発注できるRAG構築の工程"
-      subtitle="要件、正本、権限を整理し、必要な検索方式を検証して本番運用へつなげます"
+      title="RAG構築を依頼した場合の進め方"
+      subtitle="要件、正本、権限を整理し、必要な検索方式だけを検証して本番運用へ進めます"
     />
     <ServiceFeatures
       features={service.features}
       number="05"
-      title="検索基盤だけでなく、業務で使うところまで実装"
-      subtitle="認証、権限、引用、評価、データ更新、既存システム連携まで引き受けます"
+      title="検索APIだけで終わらせず、業務で使えるところまで実装"
+      subtitle="認証、権限、引用、評価、データ更新、既存システム連携まで対応します"
     />
     <ServiceRagPricing />
 
     <Section variant="lightPurple" padding="lg" decoration="blursPurple">
       <div class="relative z-10 mx-auto max-w-6xl">
         <SectionHeader
-          title="方式や導入背景を詳しく確認する"
-          subtitle="サービスページでは発注範囲だけを示し、技術や課題の解説は既存記事に分けています"
+          title="RAGの仕組み・精度・GraphRAGを詳しく知る"
+          subtitle="導入判断や発注前の確認に使える解説をまとめています"
           number="07"
           label="RELATED GUIDES"
         />
@@ -154,10 +154,10 @@ const relatedGuides = [
     <section class="relative overflow-hidden bg-navy-950 py-20 md:py-32">
       <div class="container relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
         <h2 class="text-3xl font-bold text-white md:text-5xl">
-          自社データでRAGが成立するか、発注前に整理しませんか
+          RAGを導入すべきか、発注前に整理できます
         </h2>
         <p class="mt-6 text-lg leading-relaxed text-white/90 md:text-xl">
-          想定質問、データ、権限、既存環境を伺い、最初に検証する範囲と概算費用をご案内します。
+          想定する質問、データ、権限、既存環境を確認し、最初に検証する範囲と概算費用を整理します。
         </p>
         <div class="mt-10 flex flex-col items-center justify-center gap-4">
           <a
@@ -182,7 +182,7 @@ const relatedGuides = [
             variant="link"
             tone="dark"
             pageTitle={ragServicePageConfig.headline}
-            pageSummary="想定質問、データ、権限、既存環境を伺い、最初に検証する範囲と概算費用をご案内します。"
+            pageSummary="想定する質問、データ、権限、既存環境を確認し、最初に検証する範囲と概算費用を整理します。"
             serviceName={service.title}
           />
         </div>
