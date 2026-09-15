@@ -103,4 +103,6 @@ export const slugReviewerMap: Record<string, string> = {
   'ai-development-dor-gherkin': 'nakamura',
   'user-story-template-examples': 'nakamura',
   'ai-agent-gherkin-evidence': 'nakamura',
+  // メール配信基盤・SMTP/DNSの実装記事はインフラ/システム設計領域のため中村。
+  'cloudflare-resend-custom-domain-email': 'nakamura',
 };
