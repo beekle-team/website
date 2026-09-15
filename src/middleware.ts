@@ -1,6 +1,10 @@
 import { defineMiddleware, sequence } from 'astro:middleware';
 import { type EdgeCacheEnv, resolveEdgeCacheKeyUrl } from '@/lib/edge-cache';
 import { type ErrorNotifyLocals, notifyServerError, safeBodyExcerpt } from '@/lib/error-notify';
+import {
+  naturalizePublishedHtml,
+  shouldNaturalizePublishedPath,
+} from '@/lib/natural-japanese-copy';
 
 // SSR HTML をエッジ（Cloudflare PoP 単位）でキャッシュする。
 // cf-cache-status: DYNAMIC で毎リクエスト MicroCMS を叩いていた TTFB 対策。
@@ -97,6 +101,31 @@ const referrerGuard = defineMiddleware(async (context, next) => {
   });
 });
 
+// CMS を直接書き換えられない場合でも、公開HTMLは同じ自然な日本語ルールで返す。
+// エッジキャッシュより外側に置き、既存のキャッシュヒットにも即時適用する。
+const publishedCopyNaturalizer = defineMiddleware(async (context, next) => {
+  const response = await next();
+  if (context.request.method !== 'GET') return response;
+
+  const url = new URL(context.request.url);
+  if (!shouldNaturalizePublishedPath(url.pathname)) return response;
+
+  const contentType = response.headers.get('content-type') ?? '';
+  if (!contentType.includes('text/html')) return response;
+
+  const html = await response.text();
+  const normalized = naturalizePublishedHtml(html);
+  if (normalized === html) return new Response(html, response);
+
+  const headers = new Headers(response.headers);
+  headers.delete('content-length');
+  return new Response(normalized, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+});
+
 const edgeCache = defineMiddleware(async (context, next) => {
   const { request } = context;
   const url = new URL(request.url);
@@ -162,4 +191,9 @@ const edgeCache = defineMiddleware(async (context, next) => {
   return outgoing;
 });
 
-export const onRequest = sequence(errorNotifier, referrerGuard, edgeCache);
+export const onRequest = sequence(
+  errorNotifier,
+  referrerGuard,
+  publishedCopyNaturalizer,
+  edgeCache
+);
