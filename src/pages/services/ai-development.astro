@@ -251,13 +251,9 @@ const faq = [
 
   <Header />
   <main class="bg-neutral-100 pt-20">
-    <section class="relative overflow-hidden border-b border-neutral-200 bg-white py-20 md:py-28">
-      <div class="absolute inset-0 pointer-events-none opacity-60">
-        <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-primary-100 blur-3xl"></div>
-        <div class="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-secondary-50 blur-3xl"></div>
-      </div>
-      <div class="container relative z-10 mx-auto max-w-6xl px-6 md:px-8">
-        <div class="max-w-4xl">
+    <section class="border-b border-neutral-300 bg-neutral-100 py-20 md:py-28">
+      <div class="container mx-auto max-w-6xl px-6 md:px-8">
+        <div class="max-w-4xl border-l-8 border-primary-500 pl-6 md:pl-9">
           <p class="mb-5 text-sm font-bold tracking-[0.18em] text-primary-700">GENERATIVE AI DEVELOPMENT</p>
           <h1 class="text-4xl font-bold leading-tight text-navy-950 md:text-6xl">
             AIに何を任せれば仕事が減るか、<br class="hidden md:block" />早い段階で見極めます
@@ -275,11 +271,11 @@ const faq = [
             </p>
           </div>
           <ul class="mt-8 grid gap-3 text-sm font-semibold text-neutral-800 sm:grid-cols-2 md:text-base">
-            <li class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">要件定義から対応</li>
-            <li class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">プロトタイプを早期に作成</li>
-            <li class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">不確実な部分だけPoC</li>
-            <li class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">RAG / GraphRAG / AIエージェントに対応</li>
-            <li class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3 sm:col-span-2">評価設計・権限・ログまで本番化</li>
+            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">要件定義から対応</li>
+            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">プロトタイプを早期に作成</li>
+            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">不確実な部分だけPoC</li>
+            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">RAG / GraphRAG / AIエージェントに対応</li>
+            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3 sm:col-span-2">評価設計・権限・ログまで本番化</li>
           </ul>
           <div class="mt-10 flex flex-col gap-3 sm:flex-row">
             <a
@@ -310,7 +306,6 @@ const faq = [
           number="01"
           label="CONTEXT"
           title="こんな場面で、ご相談いただいています"
-          subtitle="焦ってAIを入れる前に、いま困っていることから整理します"
         />
         <div class="grid gap-5 md:grid-cols-2">
           {painPoints.map((item) => (
@@ -333,6 +328,7 @@ const faq = [
         <div class="space-y-6 text-lg leading-relaxed text-neutral-700">
           <p>普通のWebシステムなら、入力画面、権限、データ保存など、作る前に決められる部分が多くあります。</p>
           <p class="font-bold text-navy-950">生成AIは違います。</p>
+          <p>たとえば、</p>
           <ul class="grid gap-3 md:grid-cols-2">
             <li class="rounded-md bg-neutral-50 px-5 py-4">実際の社内資料で必要な情報を拾えるか</li>
             <li class="rounded-md bg-neutral-50 px-5 py-4">質問の言い方が変わっても答えられるか</li>
@@ -355,8 +351,11 @@ const faq = [
           number="03"
           label="UNCERTAINTY"
           title="だから、最初に「不確実性」を切り分けます"
-          subtitle="最初から全部をPoCにはしません"
         />
+        <div class="mb-7 space-y-3 text-lg leading-relaxed text-neutral-700">
+          <p>Beekleでは、最初から全部をPoCにはしません。</p>
+          <p>ミーティングと実データから、3つに分けます。</p>
+        </div>
         <div class="grid gap-5 md:grid-cols-3">
           {uncertaintyTypes.map((item) => (
             <article class="rounded-lg border border-primary-100 bg-white p-6 md:p-7">
@@ -377,10 +376,7 @@ const faq = [
 
     <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-5xl">
-        <SectionHeader
-          title="プロトタイプを早く出すのにも理由があります"
-          subtitle="完成してからではなく、動くものを見ながらズレを出します"
-        />
+        <SectionHeader title="プロトタイプを早く出すのにも理由があります" />
         <div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
           <div class="space-y-5 text-lg leading-relaxed text-neutral-700">
             <p>資料だけで話していると、要件はなかなか固まりません。</p>
@@ -397,10 +393,7 @@ const faq = [
 
     <Section variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
-        <SectionHeader
-          title="そのうえで、4つを先に決めます"
-          subtitle="AIを作る前に、業務・知識・権限・評価をつなげます"
-        />
+        <SectionHeader title="そのうえで、4つを先に決めます" />
         <div class="grid gap-5 md:grid-cols-2">
           {designPrinciples.map((item) => (
             <article class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
@@ -482,7 +475,6 @@ const faq = [
           number="07"
           label="CAPABILITIES"
           title="対応できる生成AI開発"
-          subtitle="AI単体ではなく、前後の業務や既存システムまで含めて設計します"
         />
         <div class="grid gap-5 md:grid-cols-2">
           {capabilities.map((item, index) => (
@@ -502,10 +494,8 @@ const faq = [
 
     <Section variant="white" padding="lg" decoration="bars">
       <div class="mx-auto max-w-5xl">
-        <SectionHeader
-          title="開発後も、次の改善に使えるものを残します"
-          subtitle="案件が終わったら、またゼロから考え直す。そうならないようにします"
-        />
+        <SectionHeader title="開発後も、次の改善に使えるものを残します" />
+        <p class="mb-6 text-lg leading-relaxed text-neutral-700">案件が終わると、</p>
         <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
           <ul class="space-y-3 rounded-lg border border-neutral-200 bg-neutral-50 p-6 md:p-8">
             {deliverables.map((item) => <li class="font-semibold text-neutral-800">・{item}</li>)}
@@ -526,7 +516,6 @@ const faq = [
           number="08"
           label="PRICE"
           title="費用は、何を確かめるかで変わります"
-          subtitle="同じ「PoC」でも、データと検証範囲で必要な作業は変わります"
         />
         <p class="mx-auto mb-8 max-w-4xl text-center text-lg leading-relaxed text-neutral-700">
           生成AI開発は、同じ「PoC」でも内容がかなり違います。そのため、Beekleでは一律の本番価格を置かず、
@@ -558,7 +547,8 @@ const faq = [
               RAGの本番展開では<strong class="text-navy-950">600〜1,200万円程度</strong>、技術マニュアル検索のようにデータ整理や関係設計が重い案件では
               <strong class="text-navy-950">800〜1,500万円以上</strong>を目安にしているケースがあります。
             </p>
-            <ul class="mt-5 grid gap-2 text-sm text-neutral-700 sm:grid-cols-2">
+            <p class="mt-5 text-sm font-semibold text-neutral-800">ただし、本番費用は、</p>
+            <ul class="mt-3 grid gap-2 text-sm text-neutral-700 sm:grid-cols-2">
               {productionCostFactors.map((item) => <li>・{item}</li>)}
             </ul>
           </div>
