@@ -111,6 +111,24 @@ const Section = React.forwardRef<HTMLElement, SectionProps>(
 );
 Section.displayName = 'Section';
 
+const sectionLabelNotes: Record<string, string> = {
+  CONTEXT: 'よくあるご相談',
+  'WHY NOW': 'なぜ今、取り組むのか',
+  UNCERTAINTY: '何を作り、何を検証するか',
+  'WHY BEEKLE': 'なぜBeekleに頼むのか',
+  PROOF: '実績・導入事例',
+  PROCESS: '進め方',
+  CAPABILITIES: '対応できること',
+  'LIVE DEMOS': '実際のデモ',
+  'RELATED COLUMNS': '関連記事',
+  PRICE: '費用の目安',
+  PRICING: '費用の目安',
+  FAQ: 'よくある質問',
+  'CLOUD DEPLOYMENT': 'クラウド構成',
+  'RELATED GUIDES': '関連ガイド',
+  'CASE STUDIES': '導入事例',
+};
+
 /**
  * SectionHeader コンポーネント
  *
@@ -138,30 +156,39 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
   number,
   label,
 }) => {
+  const labelNote = label ? sectionLabelNotes[label] : undefined;
+
   return (
     <div className={cn(centered && 'text-center', 'mb-16', className)}>
       {/* 番号ラベル */}
       {(number || label) && (
         <div className="mb-4">
-          {number && (
-            <span
-              className={cn(
-                'font-Poppins text-5xl font-bold',
-                dark ? 'text-white/80' : 'text-primary-500'
-              )}
-            >
-              {number}
-            </span>
-          )}
-          {label && (
-            <span
-              className={cn(
-                'ml-4 text-sm font-semibold tracking-wide uppercase',
-                dark ? 'text-white/70' : 'text-primary-500'
-              )}
-            >
-              {label}
-            </span>
+          <div>
+            {number && (
+              <span
+                className={cn(
+                  'font-Poppins text-5xl font-bold',
+                  dark ? 'text-white/80' : 'text-primary-500'
+                )}
+              >
+                {number}
+              </span>
+            )}
+            {label && (
+              <span
+                className={cn(
+                  'ml-4 text-sm font-semibold tracking-wide uppercase',
+                  dark ? 'text-white/70' : 'text-primary-500'
+                )}
+              >
+                {label}
+              </span>
+            )}
+          </div>
+          {labelNote && (
+            <p className={cn('mt-2 text-sm font-medium', dark ? 'text-white/65' : 'text-neutral-500')}>
+              {labelNote}
+            </p>
           )}
         </div>
       )}
