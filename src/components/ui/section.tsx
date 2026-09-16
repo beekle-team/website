@@ -186,7 +186,12 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
             )}
           </div>
           {labelNote && (
-            <p className={cn('mt-2 text-sm font-medium', dark ? 'text-white/65' : 'text-neutral-500')}>
+            <p
+              className={cn(
+                'mt-2 text-sm font-medium',
+                dark ? 'text-white/65' : 'text-neutral-500'
+              )}
+            >
               {labelNote}
             </p>
           )}
