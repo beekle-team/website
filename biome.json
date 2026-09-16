@@ -12,6 +12,8 @@
       "src/data/column-embeddings.json",
       "docs/marketing/data/**",
       "claudedocs/backups/**",
+      ".ops/natural-japanese-audit.json",
+      ".ops/natural-japanese-lp-entries.json",
       "scripts/audit-natural-japanese-full.mjs",
       "scripts/audit-natural-japanese-lp-entries.mjs"
     ]
