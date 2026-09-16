@@ -52,6 +52,28 @@ describe('AI development v8 LP regression', () => {
     }
   });
 
+  it('pairs decorative English labels with Japanese explanations', () => {
+    for (const [label, note] of [
+      ['CONTEXT', 'よくあるご相談'],
+      ['WHY NOW', 'なぜ今、生成AI開発に取り組むのか'],
+      ['UNCERTAINTY', '何を作り、何を検証するか'],
+      ['WHY BEEKLE', 'なぜBeekleに頼むのか'],
+      ['PROOF', '実績・導入事例'],
+      ['PROCESS', '開発の進め方'],
+      ['CAPABILITIES', '対応できること'],
+      ['LIVE DEMOS', '実際のAIデモ'],
+      ['RELATED COLUMNS', '関連記事'],
+      ['PRICE', '費用の目安'],
+      ['FAQ', 'よくある質問'],
+    ]) {
+      expect(source).toContain(`label=\"${label}\"`);
+      expect(source).toContain(`labelNote=\"${note}\"`);
+    }
+
+    expect(source).toContain('GENERATIVE AI DEVELOPMENT</p>\n          <p class=\"mt-1 text-sm font-medium text-neutral-600\">生成AI受託開発</p>');
+    expect(source).toContain('NEXT STEP</p>\n        <p class=\"mb-4 text-sm font-medium text-white/70\">ご相談について</p>');
+  });
+
   it('keeps proof and existing cases before process, then capabilities, price, FAQ, AI Q&A, and final CTA', () => {
     const positions = [
       indexOfCopy('label="PROOF"'),
