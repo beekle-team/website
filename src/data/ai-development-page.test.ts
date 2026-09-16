@@ -5,7 +5,10 @@ import { describe, expect, it } from 'vitest';
 const pagePath = resolve(process.cwd(), 'src/pages/services/ai-development.astro');
 
 function readPage() {
-  expect(existsSync(pagePath), 'ai-development should have a dedicated v8 page').toBe(true);
+  expect(
+    existsSync(pagePath),
+    'ai-development should have a dedicated v8 page',
+  ).toBe(true);
   return readFileSync(pagePath, 'utf8');
 }
 
