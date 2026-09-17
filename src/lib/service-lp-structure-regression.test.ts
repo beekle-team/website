@@ -12,23 +12,20 @@ const indexOfCopy = (source: string, copy: string) => {
 };
 
 describe('service LP structure regression', () => {
-  it('keeps the RAG LP in the approved buyer-story order', () => {
+  it('keeps the current RAG LP in the approved buyer-story order', () => {
     const source = readSource('../pages/services/rag-system-development.astro');
     const positions = [
-      indexOfCopy(source, 'label="KNOWLEDGE SYSTEM"'),
-      indexOfCopy(source, 'label="WHAT YOU GET"'),
+      indexOfCopy(source, '<ServiceHero'),
+      indexOfCopy(source, 'label="USE CASES"'),
       indexOfCopy(source, 'label="WHY NOW"'),
-      indexOfCopy(source, 'label="WHY RAG STOPS"'),
       indexOfCopy(source, 'label="WHY BEEKLE"'),
-      indexOfCopy(source, 'label="HOW WE BUILD"'),
       indexOfCopy(source, '<ServiceCaseStudies'),
-      indexOfCopy(source, '<ServiceSolutions'),
-      indexOfCopy(source, '<ServiceFeatures'),
-      indexOfCopy(source, 'label="DELIVERABLES"'),
-      indexOfCopy(source, 'label="OPERATIONS"'),
-      indexOfCopy(source, '<ServiceRagPricing'),
-      indexOfCopy(source, 'label="ARCHITECTURE"'),
+      indexOfCopy(source, 'label="PLAN & PRICING"'),
+      indexOfCopy(source, 'label="DELIVERY & OPERATIONS"'),
       indexOfCopy(source, '<ServiceRagDeploymentModes'),
+      indexOfCopy(source, '<ServiceFaq'),
+      indexOfCopy(source, 'label="RELATED GUIDES"'),
+      indexOfCopy(source, '<AskAiSection'),
     ];
 
     expect(positions).toEqual([...positions].sort((a, b) => a - b));
