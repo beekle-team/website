@@ -172,7 +172,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     heroLead:
       '株式会社Beekleは、製造業の部品・型番・適合条件を調べる社内検索システムを受託開発します。PDFの仕様書、Excelの適合表、品目マスタをつなぎ、回答候補と適用条件、根拠資料の該当箇所を一緒に示します。',
     primaryOutcome:
-      'まず動くものを見ながら、必要な機能や費用を相談できます。問い合わせが集中している1製品群から、実際の質問で確かめて進めます。',
+      'まず動くものを見ながら、必要な機能や費用を相談できます。問い合わせが集中している1製品群から、実際の質問で確かめて進めます。費用・期間は要件に応じてご提案します。',
     contactIntent: 'manufacturing-parts-knowledge-search',
     contactLabel: '製品・型番検索について相談する',
     showZeroStartLink: false,
@@ -186,8 +186,8 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     ],
     metrics: [
       { label: '最初の対象', value: '1製品群' },
-      { label: '初期費用（税別）', value: '80万円〜' },
-      { label: '開発期間の目安', value: '3〜4か月' },
+      { label: '初期費用の目安（税別）', value: '80万円〜' },
+      { label: '開発期間（要件により変動）', value: '3〜4か月程度' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
