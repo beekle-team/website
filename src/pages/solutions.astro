@@ -20,9 +20,7 @@ const audienceLabels: Record<string, string> = {
 const cards = industryServices.map((service) => {
   const config = industryPageConfig[service.id];
   const metrics = (config?.metrics ?? []).map((metric) =>
-    metric.label.includes('検証費用')
-      ? { label: 'PoC・小規模検証', value: '80万円〜' }
-      : metric
+    metric.label.includes('検証費用') ? { label: 'PoC・小規模検証', value: '80万円〜' } : metric
   );
   return {
     id: service.id,
