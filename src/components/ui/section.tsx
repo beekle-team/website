@@ -117,6 +117,7 @@ const sectionLabelNotes: Record<string, string> = {
   'KNOWLEDGE SYSTEM': 'ナレッジシステムとは何か',
   'WHAT YOU GET': '導入すると、仕事がどう変わるのか',
   'THE PROBLEM': 'なぜ、作っただけでは使えないのか',
+  'WHY RAG STOPS': 'なぜ、作っただけでは使えないのか',
   UNCERTAINTY: '何を作り、何を検証するか',
   'WHY BEEKLE': 'なぜBeekleに頼むのか',
   'HOW WE BUILD': 'どう設計し、どう作るのか',
