@@ -12,9 +12,9 @@ export const prerender = false;
 
 const siteUrl = 'https://beekle.jp';
 const serviceUrl = `${siteUrl}/services/ai-development`;
-const title = '生成AI受託開発｜不確実性を切り分け、PoCから本番まで | Beekle';
+const title = '生成AI受託開発｜PoC・RAG・AIエージェントを本番運用まで | Beekle';
 const description =
-  '生成AIの受託開発。最初に業務とデータを確認し、分かっている部分はすぐプロトタイプ、検索精度やAI判断など不確実な部分だけをPoCで検証します。要件定義、RAG・GraphRAG、AIエージェント、評価設計、本番運用まで対応します。';
+  '生成AIの受託開発。業務を整理し、作り方が分かっている部分は早く形にし、検索精度・AI判断・OCRなど試さないと分からない部分だけをPoCで検証します。RAG・GraphRAG、AIエージェント、AI OCR、評価設計、本番運用まで対応します。';
 
 const aiDevelopmentService = services.find((service) => service.id === 'ai-development');
 if (!aiDevelopmentService) {
@@ -24,101 +24,98 @@ const relatedColumns = aiDevelopmentService.relatedColumns?.slice(0, 3) ?? [];
 
 const painPoints = [
   {
-    title: '「AIを使え」と言われたが、何から始めればいいか分からない',
-    body: '周りは進んでいる。とはいえ、よく分からないまま予算を使って失敗したくない。まず、効果が出そうな業務と、試す必要がある部分を切り分けます。',
+    title: 'AIを使いたいが、どの業務から始めるべきか決められない',
+    body: 'ツールやモデルから選ぶのではなく、今の仕事のどこに時間がかかっているかを見て、効果を確かめやすい業務から絞ります。',
   },
   {
-    title: 'PoCは動いた。でも、本番に進める自信がない',
-    body: 'デモはできた。けれど「この精度で本当に使えるのか」が決められない。本番に進む条件を先に決め、実データで確かめます。',
+    title: 'PoCは動いたが、本番へ進める判断材料が足りない',
+    body: '「動いた」で終わらせず、精度、削減時間、人の確認工数、失敗の種類を測り、本番へ進む条件を決めます。',
   },
   {
-    title: '社内資料を読ませたが、回答を信用しきれない',
-    body: 'それらしい答えは返る。でも、古い資料や誤った根拠が混ざるのが怖い。何を正しい情報として扱うかから見直します。',
+    title: '社内データを使うと、回答が安定しない',
+    body: '検索方式だけでなく、正本、版管理、権限、データの関係、答えてはいけない条件まで含めて見直します。',
   },
   {
-    title: 'AI SaaSを入れたが、結局人の作業が残っている',
-    body: '例外対応、承認、転記が残り、思ったほど仕事が減らない。AIだけでなく、前後の業務まで含めて作ります。',
+    title: 'AI SaaSを導入したが、人の作業が思ったほど減らない',
+    body: 'AI単体ではなく、前後の入力、確認、承認、既存システム連携まで含めて業務フローを作り直します。',
   },
-];
+] as const;
 
 const uncertaintyTypes = [
   {
-    title: 'もう分かっていること',
-    body: '画面、業務フロー、権限など。',
-    action: 'そのまま要件にして、早く作ります。',
+    label: 'そのまま作れる',
+    title: '作り方が分かっていること',
+    examples: '画面、権限、入力項目、業務フロー、既存API連携など',
+    action: '要件に落として、そのまま実装します。',
   },
   {
-    title: '実物を見れば分かること',
-    body: '資料の種類、データの揺れ、既存システムの状態など。',
-    action: '必要ならNDAを結び、実物を確認します。',
+    label: '実物を見れば決められる',
+    title: 'データや現行環境を見れば分かること',
+    examples: '文書の種類、データの揺れ、既存システムの仕様、更新方法など',
+    action: '必要に応じてNDAを結び、早い段階で実物を確認します。',
   },
   {
+    label: 'PoCで確かめる',
     title: '実際に試さないと分からないこと',
-    body: '検索精度、生成AIの判断、OCRの読み取りなど。',
-    action: 'ここだけPoCで検証します。',
+    examples: '検索精度、AIの判断、OCRの読み取り、生成品質、費用と速度など',
+    action: 'この部分だけ、評価基準を決めてPoCします。',
   },
-];
+] as const;
 
-const designPrinciples = [
-  {
-    title: '誰の、どの仕事を減らすか',
-    body: '「AIを入れたい」を、そのまま仕様にはしません。利用者、作業、判断、例外まで見て、ユースケースを決めます。',
-    note: 'ここが曖昧だと、AIは動いても仕事が減りません。',
-  },
-  {
-    title: 'AIが何を根拠に答えるか',
-    body: 'どの資料を使うか、古い版をどう扱うか、情報同士をどう結ぶかを決めます。文書検索で足りればRAG。型番→部品→適用条件のように関係をたどる必要があればGraphRAGを使います。',
-    note: '資料を入れるだけでは、正しい答えにならないからです。',
-  },
-  {
-    title: '誰が何を見て、どこまでAIに任せるか',
-    body: '部署や役割ごとの権限、人の承認、実行ログを決めます。',
-    note: 'AIだからといって、全員に同じ情報や操作権限は渡せません。',
-  },
-  {
-    title: '何をもって「使える」とするか',
-    body: '正解例、NG例、判断が難しい例を用意し、評価基準を決めます。100問中90問正解でも、残り10問で契約金額を間違えるなら、その90％をそのまま成功とは言えません。',
-    note: '「なんとなく良い」でPoCを終わらせないためです。',
-  },
-];
+const uncertaintyResolution = [
+  ['1', '業務を決める', '誰の、どの作業を減らすかを決めます。'],
+  ['2', '失敗例を先に集める', '正解だけでなく、NG例・境界例・情報不足のケースも用意します。'],
+  ['3', '合格条件を決める', '精度だけでなく、削減時間、人の確認工数、重大な誤りを含めて決めます。'],
+  ['4', '実データで試す', 'ダミーデータだけで判断せず、本番に近い条件で検証します。'],
+  ['5', 'Go / No-Goを決める', '満たさなければ、用途を狭める、人の確認を残す、方式を変える、見送るを判断します。'],
+] as const;
+
+const buildFlow = [
+  ['業務', '誰が、何をしているか'],
+  ['To-Be', 'どの作業を減らすか'],
+  ['ユースケース', '誰が何をできればよいか'],
+  ['データ', '何を根拠に使うか'],
+  ['AI・検索', 'どこをAIに任せるか'],
+  ['評価', '何ができたら完成か'],
+] as const;
 
 const proofs = [
   {
     title: 'ヒアリングから、1日で動くデモまで',
-    body: 'ヒアリング議事録から提案依頼書を整理し、そのまま1日で動作するデモまで進めた案件があります。実物を見てもらい、「イメージとずれていない」ことを早い段階で確認しました。',
-    note: '分かっている部分を早く形にし、議論を実物へ移します。',
+    body: 'ヒアリング議事録から提案内容を整理し、そのまま1日で動作するデモまで進めた案件があります。実物を見てもらい、早い段階で認識のズレを確認しました。',
+    note: '分かっている部分は、議論を続けるより早く形にします。',
   },
   {
-    title: 'HR AIエージェント',
-    body: '心理学モデルを使うHR AIでは、PoCを約2週間で実施。作る範囲を絞ったうえで、本開発を約3か月で進めました。HEXACO-100の採点はプロンプト任せにせず、逆転項目やファセット集計をロジックとして実装。LLMの出力もJSON Schemaで固定しました。',
+    title: 'HR領域のAIプロダクト',
+    body: '心理学モデルを使うAIでは、PoCを約2週間で実施し、本開発を約3か月で進めました。HEXACO-100の採点はプロンプト任せにせず、逆転項目や集計をロジックとして実装。LLMの出力もJSON Schemaで固定しました。',
     note: 'AIに任せる部分と、決め打ちするロジックを分けています。',
   },
   {
     title: '社内ヘルプデスクAI',
     body: 'FAQを整理し、AIが一次回答。答えられない質問だけ情シスへ引き継ぐ形にしました。',
     metrics: ['定型質問の75%をAIが回答', '回答待ちが4時間から5分へ', '情シスに月30時間を戻した'],
-    note: 'AIの精度ではなく、人の時間がどれだけ戻ったかまで見ます。',
+    note: 'AIの精度だけでなく、人の仕事がどれだけ減ったかまで見ます。',
   },
-];
+] as const;
 
 const process = [
   {
-    title: 'ミーティングで不確実性を切り分ける',
-    body: '業務、判断条件、例外、使っているデータを確認します。',
+    title: '業務と現行データを確認する',
+    body: '利用者、作業、判断、例外、既存システム、使っているデータを確認します。',
   },
   {
-    title: '分かっている部分は、すぐプロトタイプにする',
-    body: '作れば確認できるところは早く形にし、認識のズレを出します。',
+    title: '分かっている部分を先に形にする',
+    body: '画面や業務フローなど、作れば確認できる部分は早くプロトタイプにします。',
   },
   {
-    title: '分からない部分だけPoCする',
-    body: '検索精度、AI OCR、AI判断など、実際に試す必要があるところだけ検証します。先に評価基準も決めます。',
+    title: '不確実な部分だけPoCする',
+    body: '検索精度、AI OCR、AI判断など、試さないと分からない部分だけを評価します。',
   },
   {
-    title: '効果が出た範囲だけ本番化する',
-    body: '削減時間、精度、確認工数を見て、権限、ログ、既存システム連携まで整えます。',
+    title: '条件を満たした範囲を本番化する',
+    body: '権限、ログ、監視、既存システム連携、人の確認フローまで含めて本番へ載せます。',
   },
-];
+] as const;
 
 const capabilities = [
   {
@@ -133,54 +130,66 @@ const capabilities = [
   },
   {
     title: 'AI OCR・帳票読み取り',
-    body: '請求書、申込書、PDF、画像から必要な項目を読み取ります。読み取れない箇所や判断が必要なところだけ、人に確認を戻せます。',
+    body: '請求書、申込書、PDF、画像から必要な項目を読み取り、判断が必要な箇所だけ人に戻します。',
   },
   {
     title: '既存システムへの生成AI組み込み',
-    body: 'ChatGPT、Claude、Geminiなどの機能を、今使っている管理画面や社内システムへ組み込みます。',
+    body: 'ChatGPT、Claude、Geminiなどの機能を、今使っている管理画面や業務システムへ組み込みます。',
   },
   {
     title: 'AIを使った新規プロダクト',
-    body: 'AIマッチング、レコメンド、翻訳、分析など、中核の体験をプロトタイプで先に確認します。',
+    body: 'AI検索、マッチング、レコメンド、翻訳、分析など、中核となる体験から小さく検証します。',
   },
-];
+] as const;
 
 const deliverables = [
+  '現状業務とTo-Beの整理',
   '業務ごとのユースケース',
-  '正解・NG例を含む評価データ',
-  '権限と人の確認ルール',
-  '仕様とテストの対応',
-  '本番で見つかった失敗事例',
-];
+  '必要データ・正本・権限の定義',
+  '正解例・NG例・境界例を含む評価データ',
+  'AIが答える条件・人に戻す条件',
+  '仕様とテストの対応関係',
+  '本番システム・インフラ構成',
+  '運用開始後の評価・改善ルール',
+] as const;
+
+const operations = [
+  'AIモデル・APIの変更への対応',
+  '検索・回答品質の定期評価',
+  '文書・業務データの更新',
+  '障害監視とログ確認',
+  '権限・セキュリティの見直し',
+  'AI利用料・インフラ費の改善',
+] as const;
 
 const pricePlans = [
   {
-    title: '課題整理・要件定義だけ',
+    title: '課題整理・要件定義',
     price: '30〜80万円程度',
-    body: '業務ヒアリング、As-Is / To-Be、ユースケース整理、PoCで何を確かめるかまでを決めます。まず1か月ほど整理してから、本開発を再見積もりする進め方もあります。',
+    body: '業務ヒアリング、As-Is / To-Be、ユースケース、検証項目までを整理します。まず整理だけ依頼し、その結果を見て開発を見積もる進め方も可能です。',
   },
   {
     title: '小さな試作・AI PoC',
     price: '100〜200万円程度',
-    body: '画面や主要なAI機能を小さく作り、方向性を確かめる範囲です。本番データや複雑な連携をほとんど含まない場合の目安です。',
+    body: '画面や主要なAI機能を小さく作り、方向性を確かめます。本番データや複雑な連携をほとんど含まない場合の目安です。',
   },
   {
     title: 'RAG・AI OCRなど、実データを使うPoC',
     price: '200〜500万円程度',
-    body: '社内文書検索、RAG、AI OCR、評価データ作成、人の確認画面などを含む場合の目安です。データ量、評価項目、外部連携の有無によって範囲が変わります。',
+    body: '社内文書検索、RAG、AI OCR、評価データ作成、人の確認画面などを含む場合の目安です。',
   },
   {
     title: 'AIエージェント・複数システム連携',
     price: '300〜1,000万円程度',
-    body: 'API、データベース、既存システムをまたぐ処理や、権限・承認・監査ログまで含む場合です。連携先の数や、AIが実際に操作する範囲によって金額差が大きくなります。',
+    body: 'API、データベース、既存システムをまたぐ処理や、権限・承認・監査ログまで含む場合の目安です。',
   },
-];
+] as const;
 
 const proposalExamples = [
   'GraphRAG＋AIナレッジ検索＋PDF約30ファイルの検証：2か月 / 340万円（税別）',
   'PDF＋動画文字起こしを含むPoC：2か月 / 560万円（税別）',
   '全量データを使う本格PoC・プロトタイプ：4か月 / 780万円（税別）',
-];
+] as const;
 
 const productionCostFactors = [
   '既存システムとの連携数',
@@ -190,28 +199,33 @@ const productionCostFactors = [
   '権限・監査ログ',
   '精度要件',
   'セキュリティ要件',
-];
+] as const;
 
 const faq = [
   {
-    question: 'まだ仕様が決まっていなくても相談できますか？',
+    question: 'まだ何を作るか決まっていなくても相談できますか？',
     answer:
-      'できます。むしろ最初に、何が分かっていて何を試す必要があるかを切り分けます。仕様を全部決めてから相談いただく必要はありません。',
+      'できます。最初に、どの業務のどの作業を減らしたいかを整理し、作り方が分かっている部分と、試さないと分からない部分を分けます。',
+  },
+  {
+    question: '生成AI開発の不確実性は、どうやって減らしますか？',
+    answer:
+      '作り方が分かっていること、実物を見れば決められること、実際に試さないと分からないことの3つに分けます。最後の部分だけ、正解例・NG例・境界例と合格条件を決めてPoCし、Go / No-Goを判断します。',
   },
   {
     question: 'なぜ最初から全部PoCしないのですか？',
     answer:
-      'すでに作り方が分かっている部分まで検証すると、時間と費用が増えるからです。分かっているところは作り、不確実なところだけPoCします。',
+      '画面、権限、業務フローなど、すでに作り方が分かっている部分まで検証すると時間と費用が増えるからです。不確実なところだけを検証します。',
   },
   {
     question: 'RAGとは何ですか？',
     answer:
-      'RAGは、社内文書やFAQを検索し、その内容を根拠に生成AIへ回答させる仕組みです。Beekleでは、Embedding、ベクトルDB、Reranking、GraphRAG、評価設計まで対応します。',
+      'RAGは、社内文書やFAQを検索し、その内容を根拠に生成AIへ回答させる仕組みです。Embedding、ベクトルDB、Reranking、GraphRAG、評価設計まで対応します。',
   },
   {
     question: 'GraphRAGは、どんなときに使いますか？',
     answer:
-      '似た文章を探すだけでは答えにくい質問に使います。「型番 → 部品 → 適用条件」「顧客 → 案件 → 過去対応」のように、複数の情報の関係をたどる場合です。',
+      '似た文章を探すだけでは答えにくく、複数の情報の関係をたどる必要がある場合に検討します。通常RAGで必要な品質に届くなら、構成を複雑にしません。',
   },
   {
     question: 'AIエージェントも開発できますか？',
@@ -219,16 +233,11 @@ const faq = [
       'できます。API、データベース、社内システムを呼び分けて仕事を進めるAIエージェントを設計・実装します。MCP、Function Callingにも対応します。',
   },
   {
-    question: 'PoCでは何を確認しますか？',
-    answer:
-      '精度だけではありません。失敗の種類、削減時間、人の確認工数、費用、本番で許容できるかまで確認します。',
-  },
-  {
     question: '社外秘データや個人情報は扱えますか？',
     answer:
-      '扱えます。利用するAI・クラウド、データの保存場所、権限、マスキングなどを要件に合わせて設計します。',
+      '扱えます。利用するAI・クラウド、データの保存場所、権限、マスキング、監査ログなどを要件に合わせて設計します。',
   },
-];
+] as const;
 ---
 
 <Layout title={title} description={description} canonical={serviceUrl}>
@@ -260,66 +269,58 @@ const faq = [
   />
 
   <Header />
-  <main class="bg-neutral-100 pt-20">
-    <section class="border-b border-neutral-300 bg-neutral-100 py-20 md:py-28">
+  <main class="bg-neutral-50 pt-20">
+    <section class="border-b border-neutral-200 bg-white py-20 md:py-28">
       <div class="container mx-auto max-w-6xl px-6 md:px-8">
-        <div class="max-w-4xl border-l-8 border-primary-500 pl-6 md:pl-9">
-          <p class="mb-5 text-sm font-bold tracking-[0.18em] text-primary-700">GENERATIVE AI DEVELOPMENT</p>
-          <h1 class="text-4xl font-bold leading-tight text-navy-950 md:text-6xl">
-            AIに何を任せれば仕事が減るか、<br class="hidden md:block" />早い段階で見極めます
-          </h1>
-          <div class="mt-7 space-y-4 text-lg leading-relaxed text-neutral-700 md:text-xl">
-            <p>「AIを使え」と言われた。でも、どの業務なら本当に効果が出るのか分からない。</p>
-            <p>
-              Beekleは最初のミーティングで、業務とデータを見ながら
-              <strong class="font-bold text-navy-950">分かっていることと、試さないと分からないことを切り分けます。</strong>
-            </p>
-            <p>分かっている部分はすぐプロトタイプに。不確実な部分だけをPoCで検証します。</p>
-            <p>
-              余計な検証に時間と予算を使わず、
-              <strong class="font-bold text-navy-950">本番に進むべきかを早く判断できる状態</strong>まで持っていきます。
-            </p>
-          </div>
-          <ul class="mt-8 grid gap-3 text-sm font-semibold text-neutral-800 sm:grid-cols-2 md:text-base">
-            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">要件定義から対応</li>
-            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">プロトタイプを早期に作成</li>
-            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">不確実な部分だけPoC</li>
-            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3">RAG / GraphRAG / AIエージェントに対応</li>
-            <li class="rounded-md border border-neutral-200 bg-white px-4 py-3 sm:col-span-2">評価設計・権限・ログまで本番化</li>
-          </ul>
-          <div class="mt-10 flex flex-col gap-3 sm:flex-row">
-            <a
-              href="/contact?source=services-ai-development-hero&intent=ai-development"
-              data-cta-source="services-ai-development-hero"
-              data-cta-id="contact"
-              class="inline-flex min-h-[54px] items-center justify-center rounded-md bg-primary-500 px-7 py-4 text-center text-base font-bold text-white transition-colors hover:bg-primary-600"
-            >
-              最初に試す業務を相談する →
-            </a>
-            <a
-              href="/downloads/beekle-zero-start-sales-deck.pdf"
-              download="beekle-zero-start-sales-deck.pdf"
-              data-cta-source="services-ai-development-hero"
-              data-cta-id="pdf-zero-start-sales-deck"
-              class="inline-flex min-h-[54px] items-center justify-center rounded-md border border-primary-300 bg-white px-7 py-4 text-center text-base font-bold text-primary-700 transition-colors hover:bg-primary-50"
-            >
-              サービス資料を見る
-            </a>
-          </div>
+        <p class="text-sm font-bold tracking-[0.18em] text-primary-600">GENERATIVE AI DEVELOPMENT</p>
+        <h1 class="mt-5 max-w-5xl text-4xl font-bold leading-tight text-navy-950 md:text-6xl">
+          AIで減らす仕事を決め、<br class="hidden md:block" />試すべきところだけPoCで確かめます
+        </h1>
+        <p class="mt-7 max-w-4xl text-lg leading-relaxed text-neutral-700 md:text-xl">
+          生成AIは、作ること自体は以前より速くなりました。難しいのは、実データで期待どおり動くか、業務の中で本当に使えるかを事前に読み切れないことです。
+        </p>
+        <p class="mt-4 max-w-4xl text-lg leading-relaxed text-neutral-700 md:text-xl">
+          Beekleは、<strong class="text-navy-950">分かっている部分は早く作り、分からない部分だけを評価してから本番へ進めます。</strong>
+        </p>
+        <div class="mt-10 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="/contact?source=services-ai-development-hero&intent=ai-development"
+            data-cta-source="services-ai-development-hero"
+            data-cta-id="contact"
+            class="inline-flex min-h-[54px] items-center justify-center bg-primary-500 px-7 py-4 text-center text-base font-bold text-white transition-colors hover:bg-primary-600"
+          >
+            自社のAI活用を相談する →
+          </a>
+          <a
+            href="/downloads/beekle-zero-start-sales-deck.pdf"
+            download="beekle-zero-start-sales-deck.pdf"
+            data-cta-source="services-ai-development-hero"
+            data-cta-id="pdf-zero-start-sales-deck"
+            class="inline-flex min-h-[54px] items-center justify-center border border-neutral-300 bg-white px-7 py-4 text-center text-base font-bold text-navy-950 transition-colors hover:bg-neutral-100"
+          >
+            サービス資料を見る
+          </a>
+        </div>
+        <div class="mt-12 grid border-y border-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
+          {['業務整理から対応', '不確実な部分だけPoC', 'RAG / GraphRAG / AIエージェント', '評価・権限・運用まで本番化'].map((item) => (
+            <div class="border-b border-neutral-200 px-5 py-5 font-semibold text-neutral-800 last:border-b-0 sm:border-r sm:last:border-r-0 lg:border-b-0">
+              {item}
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
-    <Section variant="light" padding="lg" decoration="none">
+    <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
-          number="01"
-          label="CONTEXT"
-          title="こんな場面で、ご相談いただいています"
+          label="STARTING POINT"
+          title="まず、どの仕事を減らしたいかを決めます"
+          subtitle="AIの種類ではなく、現場の仕事から考えます"
         />
         <div class="grid gap-5 md:grid-cols-2">
           {painPoints.map((item) => (
-            <article class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
+            <article class="border border-neutral-200 bg-white p-6 md:p-8">
               <h3 class="text-xl font-bold leading-snug text-navy-950">{item.title}</h3>
               <p class="mt-4 leading-relaxed text-neutral-700">{item.body}</p>
             </article>
@@ -328,136 +329,118 @@ const faq = [
       </div>
     </Section>
 
-    <Section variant="white" padding="lg" decoration="bars">
+    <Section variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-5xl">
         <SectionHeader
-          number="02"
           label="WHY NOW"
-          title="生成AI開発は「作る前に全部決める」が難しい"
+          title="実装が速くなったからこそ、何を検証するかが重要です"
+          subtitle="生成AIは、作る前に結果を完全には決められません"
         />
         <div class="space-y-6 text-lg leading-relaxed text-neutral-700">
-          <p>普通のWebシステムなら、入力画面、権限、データ保存など、作る前に決められる部分が多くあります。</p>
-          <p class="font-bold text-navy-950">生成AIは違います。</p>
-          <p>たとえば、</p>
-          <ul class="grid gap-3 md:grid-cols-2">
-            <li class="rounded-md bg-neutral-50 px-5 py-4">実際の社内資料で必要な情報を拾えるか</li>
-            <li class="rounded-md bg-neutral-50 px-5 py-4">質問の言い方が変わっても答えられるか</li>
-            <li class="rounded-md bg-neutral-50 px-5 py-4">帳票の形式が変わっても読めるか</li>
-            <li class="rounded-md bg-neutral-50 px-5 py-4">AIの判断をどこまで信用できるか</li>
-          </ul>
-          <p>こうしたことは、<strong class="text-navy-950">実データで試さないと分からない</strong>ことがあります。</p>
-          <p>一方で、今はAIを使って実装自体はかなり速くなりました。</p>
-          <div class="rounded-lg border-l-4 border-primary-500 bg-primary-50 p-6 text-xl font-bold leading-relaxed text-navy-950 md:p-8 md:text-2xl">
-            作るスピードは上がったのに、正しいものを作れているかは試さないと分からない。
+          <p>
+            画面や権限、データ保存のように、作り方が分かっている部分は普通のシステム開発と同じように要件へ落とせます。
+          </p>
+          <p>
+            一方、社内文書から必要な情報を拾えるか、OCRが帳票の揺れに耐えられるか、AIの判断をどこまで任せられるかは、<strong class="text-navy-950">実際のデータで試さないと分からない</strong>ことがあります。
+          </p>
+          <div class="border-l-4 border-primary-500 bg-white p-6 md:p-8">
+            <p class="text-xl font-bold leading-relaxed text-navy-950 md:text-2xl">
+              すべてをPoCにするのではなく、分からないところだけを検証する。
+            </p>
+            <p class="mt-3 leading-relaxed text-neutral-700">
+              それ以外は早く形にした方が、時間も予算も無駄になりません。
+            </p>
           </div>
-          <p>ここが難しさです。</p>
         </div>
-      </div>
-    </Section>
-
-    <Section variant="lightPurple" padding="lg" decoration="blursPurple">
-      <div class="mx-auto max-w-6xl">
-        <SectionHeader
-          number="03"
-          label="UNCERTAINTY"
-          title="だから、最初に「不確実性」を切り分けます"
-        />
-        <div class="mb-7 space-y-3 text-lg leading-relaxed text-neutral-700">
-          <p>Beekleでは、最初から全部をPoCにはしません。</p>
-          <p>ミーティングと実データから、3つに分けます。</p>
-        </div>
-        <div class="grid gap-5 md:grid-cols-3">
-          {uncertaintyTypes.map((item) => (
-            <article class="rounded-lg border border-primary-100 bg-white p-6 md:p-7">
-              <h3 class="text-xl font-bold text-navy-950">{item.title}</h3>
-              <p class="mt-4 leading-relaxed text-neutral-700">{item.body}</p>
-              <p class="mt-5 border-t border-neutral-200 pt-5 font-bold leading-relaxed text-primary-700">
-                → {item.action}
-              </p>
-            </article>
-          ))}
-        </div>
-        <div class="mt-8 rounded-lg bg-navy-950 p-7 text-center text-xl font-bold leading-relaxed text-white md:p-10 md:text-3xl">
-          分かるところは、さっさと形にする。<br />分からないところだけ、ちゃんと試す。
-        </div>
-        <p class="mt-5 text-center text-lg font-semibold text-neutral-700">これがBeekleの生成AI開発です。</p>
       </div>
     </Section>
 
     <Section variant="white" padding="lg" decoration="none">
-      <div class="mx-auto max-w-5xl">
-        <SectionHeader title="プロトタイプを早く出すのにも理由があります" />
-        <div class="grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
-          <div class="space-y-5 text-lg leading-relaxed text-neutral-700">
-            <p>資料だけで話していると、要件はなかなか固まりません。</p>
-            <p>動くものを見ると、「ここは違う」「この情報も必要」「実際はこの順番では使わない」と、具体的な話が出てきます。</p>
-            <p>そこで分かったことを要件へ戻します。</p>
-          </div>
-          <div class="rounded-lg border border-primary-200 bg-primary-50 p-6 text-xl font-bold leading-relaxed text-navy-950 md:p-8">
-            完成してからズレに気づくより、プロトタイプで早くズレを出した方が安い。
-          </div>
+      <div class="mx-auto max-w-6xl">
+        <SectionHeader
+          label="UNCERTAINTY"
+          title="不確実性は、3つに分けると扱えます"
+          subtitle="分からないことを全部まとめて「PoC」にしません"
+        />
+        <div class="grid gap-5 lg:grid-cols-3">
+          {uncertaintyTypes.map((item) => (
+            <article class="border border-neutral-200 bg-white p-6 md:p-8">
+              <p class="text-sm font-bold text-primary-600">{item.label}</p>
+              <h3 class="mt-2 text-xl font-bold leading-snug text-navy-950">{item.title}</h3>
+              <p class="mt-4 text-sm leading-relaxed text-neutral-600">例：{item.examples}</p>
+              <p class="mt-5 border-t border-neutral-200 pt-5 font-semibold leading-relaxed text-neutral-800">
+                {item.action}
+              </p>
+            </article>
+          ))}
         </div>
-        <p class="mt-8 text-lg font-bold text-navy-950">だから、分かっているところは早く作ります。</p>
       </div>
     </Section>
 
     <Section variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
-        <SectionHeader title="そのうえで、4つを先に決めます" />
-        <div class="grid gap-5 md:grid-cols-2">
-          {designPrinciples.map((item) => (
-            <article class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
-              <h3 class="text-xl font-bold text-navy-950">{item.title}</h3>
-              <p class="mt-4 leading-relaxed text-neutral-700">{item.body}</p>
-              <p class="mt-5 font-bold leading-relaxed text-primary-700">{item.note}</p>
-            </article>
+        <SectionHeader
+          label="HOW TO REDUCE UNCERTAINTY"
+          title="PoCでは、先に合格条件を決めてから試します"
+          subtitle="精度が高そう、ではなく、本番へ進む条件を決めます"
+        />
+        <div class="grid gap-0 border border-neutral-300 bg-white md:grid-cols-5">
+          {uncertaintyResolution.map(([number, title, body]) => (
+            <div class="border-b border-neutral-300 p-5 last:border-b-0 md:border-r md:border-b-0 md:last:border-r-0">
+              <p class="text-sm font-bold text-primary-600">STEP {number}</p>
+              <h3 class="mt-2 font-bold text-navy-950">{title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600">{body}</p>
+            </div>
           ))}
         </div>
-      </div>
-    </Section>
-
-    <Section variant="white" padding="lg" decoration="bars">
-      <div class="mx-auto max-w-5xl">
-        <SectionHeader
-          number="04"
-          label="WHY BEEKLE"
-          title="Beekleが違うのは、ここまでを一つにつなげること"
-        />
-        <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 md:p-9">
-          <p class="text-lg leading-relaxed text-neutral-700">業務ヒアリングだけ。AIの実装だけ。PoCだけ。ではなく、</p>
-          <div class="mt-6 grid gap-2 text-center font-bold text-navy-950 sm:grid-cols-4">
-            {['業務理解', '要件定義', 'ユースケース', '知識構造・権限', '評価基準', '実装', 'テスト', '本番運用'].map((item) => (
-              <div class="rounded-md border border-neutral-200 bg-white px-4 py-4">{item}</div>
-            ))}
-          </div>
-          <p class="mt-6 leading-relaxed text-neutral-700">までをつなげます。</p>
-          <p class="mt-4 leading-relaxed text-neutral-700">
-            要求、ユーザーストーリー、受入条件、開発タスク、テストも関連付けて管理します。仕様が変わったときも、
-            <strong class="text-navy-950">どこを直し、何をもう一度確認するか</strong>を追える状態にします。
+        <div class="mx-auto mt-10 max-w-4xl text-lg leading-relaxed text-neutral-700">
+          <p>
+            本番で新しい失敗が見つかったら、その例を評価データへ戻します。生成AIは一度のPoCで「完成」にするのではなく、<strong class="text-navy-950">失敗例を蓄積しながら、判断できる範囲を広げる</strong>方が運用しやすくなります。
           </p>
-          <p class="mt-4 font-semibold leading-relaxed text-neutral-800">自社開発の「PM on Rails」も、この考え方から作っています。</p>
         </div>
       </div>
     </Section>
 
-    <Section variant="lightPurple" padding="lg" decoration="blursPurple">
+    <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
-          number="05"
-          label="PROOF"
-          title="実物を早く出し、数字で判断してきました"
+          label="WHY BEEKLE"
+          title="業務の話を、データ・AI・テストまでつなげます"
+          subtitle="上流の整理と実装を別々にせず、同じ流れで設計します"
         />
+        <div class="grid gap-0 border border-neutral-300 bg-neutral-50 md:grid-cols-6">
+          {buildFlow.map(([title, detail]) => (
+            <div class="border-b border-neutral-300 p-5 last:border-b-0 md:border-r md:border-b-0 md:last:border-r-0">
+              <h3 class="font-bold text-navy-950">{title}</h3>
+              <p class="mt-2 text-xs leading-relaxed text-neutral-600">{detail}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mx-auto mt-10 max-w-4xl space-y-5 text-lg leading-relaxed text-neutral-700">
+          <p>
+            「AIを入れたい」をそのまま仕様にはしません。誰が、どの場面で、何をできれば仕事が変わるのかをユースケースにし、必要なデータ、権限、AIの判断範囲、評価条件へ落とします。
+          </p>
+          <p>
+            仕様が変わったときも、どの実装とテストを見直すか追えるようにします。自社開発のPM on Railsも、この進め方をAIエージェントで支援するために作っています。
+          </p>
+        </div>
+      </div>
+    </Section>
+
+    <Section variant="light" padding="lg" decoration="none">
+      <div class="mx-auto max-w-6xl">
+        <SectionHeader label="PROOF" title="実物を早く出し、数字で判断してきました" />
         <div class="grid gap-5 lg:grid-cols-3">
           {proofs.map((item) => (
-            <article class="flex h-full flex-col rounded-lg border border-primary-100 bg-white p-6 md:p-7">
+            <article class="flex h-full flex-col border border-neutral-200 bg-white p-6 md:p-7">
               <h3 class="text-xl font-bold text-navy-950">{item.title}</h3>
               <p class="mt-4 flex-1 leading-relaxed text-neutral-700">{item.body}</p>
               {item.metrics && (
-                <ul class="mt-5 space-y-2 rounded-md bg-neutral-50 p-4 text-sm font-bold text-navy-950">
+                <ul class="mt-5 space-y-2 border-t border-neutral-200 pt-5 text-sm font-bold text-navy-950">
                   {item.metrics.map((metric) => <li>・{metric}</li>)}
                 </ul>
               )}
-              <p class="mt-5 border-t border-neutral-200 pt-5 font-bold leading-relaxed text-primary-700">{item.note}</p>
+              <p class="mt-5 border-t border-neutral-200 pt-5 font-semibold leading-relaxed text-primary-700">{item.note}</p>
             </article>
           ))}
         </div>
@@ -466,17 +449,17 @@ const faq = [
 
     <ServiceCaseStudies
       caseStudies={aiDevelopmentService.caseStudies}
-      number="05"
-      title="既存の開発実績も、詳細まで掲載します"
-      subtitle="翻訳、マッチング、RAG、OCRなど、これまで公開していた実案件を省かず残しています"
+      number=""
+      title="生成AI・RAG・OCR・マッチングなどの開発実績"
+      subtitle="課題、担当範囲、実装内容、結果まで公開できる範囲で掲載しています"
     />
 
     <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
-        <SectionHeader number="06" label="PROCESS" title="開発の進め方" />
+        <SectionHeader label="PROCESS" title="開発の進め方" />
         <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {process.map((item, index) => (
-            <article class="rounded-lg border border-neutral-200 bg-white p-6">
+            <article class="border-t-4 border-primary-500 bg-neutral-50 p-6">
               <span class="text-sm font-bold text-primary-600">STEP {index + 1}</span>
               <h3 class="mt-3 text-lg font-bold leading-snug text-navy-950">{item.title}</h3>
               <p class="mt-4 text-sm leading-relaxed text-neutral-700">{item.body}</p>
@@ -488,18 +471,14 @@ const faq = [
 
     <Section variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
-        <SectionHeader
-          number="07"
-          label="CAPABILITIES"
-          title="対応できる生成AI開発"
-        />
+        <SectionHeader label="CAPABILITIES" title="対応できる生成AI開発" />
         <div class="grid gap-5 md:grid-cols-2">
           {capabilities.map((item, index) => (
-            <article class:list={['rounded-lg border border-neutral-200 bg-white p-6 md:p-8', index === 0 && 'md:col-span-2']}>
+            <article class:list={['border border-neutral-200 bg-white p-6 md:p-8', index === 0 && 'md:col-span-2']}>
               <h3 class="text-xl font-bold text-navy-950">{item.title}</h3>
               <p class="mt-4 leading-relaxed text-neutral-700">{item.body}</p>
               {item.technologies && (
-                <p class="mt-5 rounded-md bg-neutral-50 px-4 py-3 text-sm font-bold leading-relaxed text-primary-700">
+                <p class="mt-5 border-t border-neutral-200 pt-4 text-sm font-bold leading-relaxed text-primary-700">
                   {item.technologies}
                 </p>
               )}
@@ -509,53 +488,57 @@ const faq = [
       </div>
     </Section>
 
-    <Section variant="white" padding="lg" decoration="bars">
-      <div class="mx-auto max-w-5xl">
-        <SectionHeader title="開発後も、次の改善に使えるものを残します" />
-        <p class="mb-6 text-lg leading-relaxed text-neutral-700">案件が終わると、</p>
-        <div class="grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-          <ul class="space-y-3 rounded-lg border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            {deliverables.map((item) => <li class="font-semibold text-neutral-800">・{item}</li>)}
-          </ul>
-          <div class="space-y-5 text-lg leading-relaxed text-neutral-700">
-            <p>次の改善で、またゼロから考え直す必要はありません。</p>
-            <p class="text-xl font-bold leading-relaxed text-navy-950">
-              使うほど、その会社専用の評価データと運用ルールが育つ状態を作ります。
-            </p>
-          </div>
+    <Section variant="white" padding="lg" decoration="none">
+      <div class="mx-auto max-w-6xl">
+        <SectionHeader
+          label="DELIVERABLES"
+          title="システムだけでなく、次の改善に使える判断材料を残します"
+        />
+        <div class="grid gap-x-8 gap-y-3 border-y border-neutral-300 py-7 md:grid-cols-2">
+          {deliverables.map((item) => (
+            <div class="flex gap-3 py-2 font-semibold leading-relaxed text-neutral-800">
+              <span class="mt-2 h-2 w-2 shrink-0 bg-primary-500"></span>
+              <span>{item}</span>
+            </div>
+          ))}
         </div>
       </div>
     </Section>
 
-    <Section variant="white" padding="lg" decoration="bars">
+    <Section variant="light" padding="lg" decoration="none">
+      <div class="mx-auto max-w-6xl">
+        <SectionHeader
+          label="OPERATIONS"
+          title="本番導入後の保守・評価・改善まで対応します"
+          subtitle="AIモデル、データ、利用量が変わっても運用できる状態を作ります"
+        />
+        <div class="grid gap-x-8 gap-y-3 md:grid-cols-2 lg:grid-cols-3">
+          {operations.map((item) => (
+            <div class="border-b border-neutral-300 py-4 font-semibold leading-relaxed text-neutral-800">{item}</div>
+          ))}
+        </div>
+      </div>
+    </Section>
+
+    <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-5xl">
         <SectionHeader
-          title="まずはブラウザで試してみる"
-          subtitle="導入前に、社内検索とAI OCRの実際の挙動を体感できます"
           label="LIVE DEMOS"
+          title="ブラウザで試せるAIデモ"
+          subtitle="社内検索とAI OCRの動きを、その場で確認できます"
         />
         <div class="grid gap-6 md:grid-cols-2">
-          <a
-            href="/demos/it-advisor"
-            class="group block rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300"
-          >
-            <span class="inline-block rounded-md bg-primary-50 px-2 py-1 text-xs font-bold text-primary-700">社内資料検索</span>
-            <h3 class="mt-4 text-xl font-bold text-navy-950 transition group-hover:text-primary-600">AIナレッジ相談</h3>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-700">
-              Beekleのコラム記事をもとに回答する相談員AI。社内資料を探して答える仕組みの感触を体感できます。
-            </p>
-            <span class="mt-4 inline-flex items-center text-sm font-medium text-primary-600">試してみる →</span>
+          <a href="/demos/it-advisor" class="group block border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-400">
+            <p class="text-xs font-bold text-primary-600">社内資料検索</p>
+            <h3 class="mt-3 text-xl font-bold text-navy-950 group-hover:text-primary-700">AIナレッジ相談</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">Beekleの公開記事をもとに、質問へ根拠付きで回答します。</p>
+            <span class="mt-5 inline-flex text-sm font-bold text-primary-700">試してみる →</span>
           </a>
-          <a
-            href="/demos/ocr"
-            class="group block rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300"
-          >
-            <span class="inline-block rounded-md bg-neutral-100 px-2 py-1 text-xs font-bold text-neutral-700">AI OCR</span>
-            <h3 class="mt-4 text-xl font-bold text-navy-950 transition group-hover:text-primary-600">AI領収書OCR</h3>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-700">
-              画像から店舗名・日付・合計・明細を読み取り、確認しやすい形に整理します。書類処理をAIで軽くする感触を体感できます。
-            </p>
-            <span class="mt-4 inline-flex items-center text-sm font-medium text-primary-600">試してみる →</span>
+          <a href="/demos/ocr" class="group block border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-400">
+            <p class="text-xs font-bold text-primary-600">AI OCR</p>
+            <h3 class="mt-3 text-xl font-bold text-navy-950 group-hover:text-primary-700">AI領収書OCR</h3>
+            <p class="mt-3 text-sm leading-relaxed text-neutral-700">画像から店舗名・日付・合計・明細を読み取り、確認しやすい形に整理します。</p>
+            <span class="mt-5 inline-flex text-sm font-bold text-primary-700">試してみる →</span>
           </a>
         </div>
         <div class="mt-7 text-center">
@@ -568,21 +551,15 @@ const faq = [
       <Section variant="light" padding="lg" decoration="none">
         <div class="mx-auto max-w-5xl">
           <SectionHeader
-            title="もっと詳しく知りたい方へ"
-            subtitle="生成AI開発の判断材料になる記事"
             label="RELATED COLUMNS"
+            title="発注前に確認したいことを詳しく解説しています"
           />
           <div class="grid gap-5 md:grid-cols-3">
             {relatedColumns.map((column) => (
-              <a
-                href={`/column/${column.slug}`}
-                class="group block rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300"
-              >
-                <h3 class="text-base font-bold leading-snug text-navy-950 transition group-hover:text-primary-600">{column.title}</h3>
-                {column.description && (
-                  <p class="mt-3 text-sm leading-relaxed text-neutral-700">{column.description}</p>
-                )}
-                <span class="mt-4 inline-flex items-center text-xs font-bold text-primary-600">記事を読む →</span>
+              <a href={`/column/${column.slug}`} class="group block border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-400">
+                <h3 class="text-base font-bold leading-snug text-navy-950 group-hover:text-primary-700">{column.title}</h3>
+                {column.description && <p class="mt-3 text-sm leading-relaxed text-neutral-700">{column.description}</p>}
+                <span class="mt-4 inline-flex text-xs font-bold text-primary-600">記事を読む →</span>
               </a>
             ))}
           </div>
@@ -590,58 +567,47 @@ const faq = [
       </Section>
     )}
 
-    <Section variant="lightPurple" padding="lg" decoration="blursPurple">
+    <Section variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
-          number="08"
           label="PRICE"
-          title="費用は、何を確かめるかで変わります"
+          title="費用は、作るものと検証範囲で変わります"
+          subtitle="最初から大きな本番見積もりを固定せず、不確実な部分を確認してから本番範囲を決めます"
         />
-        <p class="mx-auto mb-8 max-w-4xl text-center text-lg leading-relaxed text-neutral-700">
-          生成AI開発は、同じ「PoC」でも内容がかなり違います。そのため、Beekleでは一律の本番価格を置かず、
-          <strong class="text-navy-950">不確実性と検証範囲で見積もります。</strong>
-        </p>
         <div class="grid gap-5 md:grid-cols-2">
           {pricePlans.map((item) => (
-            <article class="rounded-lg border border-primary-100 bg-white p-6 md:p-8">
+            <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
               <h3 class="text-lg font-bold text-navy-950">{item.title}</h3>
               <p class="mt-3 text-2xl font-bold text-primary-700 md:text-3xl">{item.price}</p>
               <p class="mt-4 leading-relaxed text-neutral-700">{item.body}</p>
             </article>
           ))}
         </div>
-
         <div class="mt-10 grid gap-6 lg:grid-cols-2">
-          <div class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
+          <div class="border border-neutral-200 bg-white p-6 md:p-8">
             <h3 class="text-xl font-bold text-navy-950">過去の提案例</h3>
-            <p class="mt-3 text-sm leading-relaxed text-neutral-600">実際には、データ量と検証内容でかなり変わっています。</p>
             <ul class="mt-5 space-y-3 leading-relaxed text-neutral-700">
               {proposalExamples.map((item) => <li>・<strong>{item}</strong></li>)}
             </ul>
-            <p class="mt-5 text-xs leading-relaxed text-neutral-500">※いずれも過去の提案額であり、同じ金額・期間を保証するものではありません。</p>
+            <p class="mt-5 text-xs leading-relaxed text-neutral-500">※過去の提案額であり、同じ金額・期間を保証するものではありません。</p>
           </div>
-          <div class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
+          <div class="border border-neutral-200 bg-white p-6 md:p-8">
             <h3 class="text-xl font-bold text-navy-950">本番開発</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">本番は、PoCで分かったことをもとに再見積もりします。</p>
             <p class="mt-4 leading-relaxed text-neutral-700">
-              RAGの本番展開では<strong class="text-navy-950">600〜1,200万円程度</strong>、技術マニュアル検索のようにデータ整理や関係設計が重い案件では
-              <strong class="text-navy-950">800〜1,500万円以上</strong>を目安にしているケースがあります。
+              RAGの本番展開では<strong class="text-navy-950">600〜1,200万円程度</strong>、データ整理や関係設計が重い案件では<strong class="text-navy-950">800〜1,500万円以上</strong>を目安にしているケースがあります。
             </p>
-            <p class="mt-5 text-sm font-semibold text-neutral-800">ただし、本番費用は、</p>
+            <p class="mt-5 text-sm font-semibold text-neutral-800">主に次の条件で変わります。</p>
             <ul class="mt-3 grid gap-2 text-sm text-neutral-700 sm:grid-cols-2">
               {productionCostFactors.map((item) => <li>・{item}</li>)}
             </ul>
           </div>
-        </div>
-        <div class="mt-8 rounded-lg bg-navy-950 p-7 text-center text-lg font-bold leading-relaxed text-white md:p-9 md:text-xl">
-          最初から大きな本番見積もりを固定するのではなく、分からない部分をPoCで潰してから本番費用を決めます。
         </div>
         <div class="mt-8 text-center">
           <a
             href="/contact?source=services-ai-development-price&intent=ai-development"
             data-cta-source="services-ai-development-price"
             data-cta-id="contact"
-            class="inline-flex min-h-[54px] items-center justify-center rounded-md bg-primary-500 px-7 py-4 text-base font-bold text-white transition-colors hover:bg-primary-600"
+            class="inline-flex min-h-[54px] items-center justify-center bg-primary-500 px-7 py-4 text-base font-bold text-white transition-colors hover:bg-primary-600"
           >
             自社の場合の費用を相談する →
           </a>
@@ -649,12 +615,12 @@ const faq = [
       </div>
     </Section>
 
-    <Section variant="white" padding="lg" decoration="none">
+    <Section variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-4xl">
-        <SectionHeader number="09" label="FAQ" title="よくある質問" />
+        <SectionHeader label="FAQ" title="よくある質問" />
         <div class="space-y-4">
           {faq.map((item) => (
-            <details class="group rounded-lg border border-neutral-200 bg-white p-6">
+            <details class="group border border-neutral-200 bg-white p-6">
               <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold text-navy-950">
                 <span>{item.question}</span>
                 <span class="text-primary-600 transition-transform group-open:rotate-45">＋</span>
@@ -669,40 +635,35 @@ const faq = [
     <AskAiSection
       client:visible
       source="services-ai-development-ask-ai"
-      pageTitle="AIに何を任せれば仕事が減るか、早い段階で見極めます"
+      pageTitle="AIで減らす仕事を決め、試すべきところだけPoCで確かめます"
       pageSummary={description}
       serviceName="生成AI受託開発"
     />
 
-    <section class="relative overflow-hidden bg-navy-950 py-20 md:py-28">
-      <div class="container relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
-        <p class="mb-4 text-sm font-bold tracking-[0.18em] text-primary-200">NEXT STEP</p>
-        <h2 class="text-3xl font-bold leading-tight text-white md:text-5xl">
-          まだ「何を作るか」が決まっていなくても大丈夫です
+    <section class="bg-navy-950 py-20 md:py-28">
+      <div class="container mx-auto max-w-4xl px-6 text-center md:px-8">
+        <p class="text-sm font-bold tracking-[0.18em] text-primary-200">NEXT STEP</p>
+        <h2 class="mt-5 text-3xl font-bold leading-tight text-white md:text-5xl">
+          何を作るかが決まっていなくても、業務から整理できます
         </h2>
-        <div class="mx-auto mt-7 max-w-3xl space-y-4 text-lg leading-relaxed text-white/85 md:text-xl">
-          <p>生成AI開発では、最初から全部分かっていることの方が少ないです。</p>
-          <p>業務とデータを見ながら、</p>
-          <p class="text-2xl font-bold leading-relaxed text-white md:text-3xl">
-            分かっていることは早く形にする。<br />分からないことだけ試す。
-          </p>
-          <p>そこから始めます。</p>
-        </div>
+        <p class="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-white/85 md:text-xl">
+          分かっていることは早く形にし、分からないことだけを試す。まずは、どの仕事を減らしたいかから確認します。
+        </p>
         <div class="mt-10 flex flex-col flex-wrap items-center justify-center gap-4 sm:flex-row">
           <a
             href="/contact?source=services-ai-development-final&intent=ai-development"
             data-cta-source="services-ai-development-final"
             data-cta-id="contact"
-            class="inline-flex min-h-[56px] items-center justify-center rounded-md bg-white px-8 py-4 text-base font-bold text-navy-950 transition-colors hover:bg-neutral-100"
+            class="inline-flex min-h-[56px] items-center justify-center bg-white px-8 py-4 text-base font-bold text-navy-950 transition-colors hover:bg-neutral-100"
           >
-            最初に試す業務を相談する →
+            自社のAI活用を相談する →
           </a>
           <a
             href="/downloads/beekle-zero-start-sales-deck.pdf"
             download="beekle-zero-start-sales-deck.pdf"
             data-cta-source="services-ai-development-final"
             data-cta-id="pdf-zero-start-sales-deck"
-            class="inline-flex min-h-[56px] items-center justify-center px-5 py-4 text-base font-bold text-white underline underline-offset-4 transition hover:text-primary-100"
+            class="inline-flex min-h-[56px] items-center justify-center px-5 py-4 text-base font-bold text-white underline underline-offset-4 hover:text-primary-100"
           >
             サービス資料を見る
           </a>
@@ -711,7 +672,7 @@ const faq = [
             source="services-ai-development-final"
             variant="link"
             tone="dark"
-            pageTitle="AIに何を任せれば仕事が減るか、早い段階で見極めます"
+            pageTitle="AIで減らす仕事を決め、試すべきところだけPoCで確かめます"
             pageSummary={description}
             serviceName="生成AI受託開発"
           />
