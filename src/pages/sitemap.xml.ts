@@ -75,6 +75,7 @@ export const GET: APIRoute = async ({ locals }) => {
     url: `/services/${service.id}`,
     priority: '0.8',
     changefreq: 'monthly',
+    lastmod: service.updatedAt,
   }));
 
   // MicroCMSコラム記事

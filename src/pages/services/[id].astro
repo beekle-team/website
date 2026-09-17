@@ -250,6 +250,11 @@ const featuresCopy = sectionCopy[service.id]?.features;
   <Header />
   <main class="bg-neutral-100 pt-20">
     <ServiceHero service={service} config={servicePageConfig} />
+    {service.updatedAt && (
+      <Section as="div" variant="light" padding="none" className="py-4 text-sm text-neutral-600">
+        最終更新: <time datetime={service.updatedAt}>{service.updatedAt}</time>
+      </Section>
+    )}
     <ServicePainPoints painPoints={service.painPoints} number={sectionNumbers.painPoints} />
     {!isAiDevelopment && <ServiceRootCause rootCause={servicePageConfig?.rootCause} />}
     <ServiceBusinessFlow flow={servicePageConfig?.flow} />
