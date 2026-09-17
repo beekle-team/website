@@ -230,8 +230,7 @@ export const ragServicePageConfig = {
   headline: '社内に眠っている知識を、仕事で使える状態にする',
   heroLead:
     'RAG・GraphRAGによるナレッジシステムで、資料を探す、詳しい人に聞く、大量の文書を読み比べる時間を減らします。回答には根拠となる社内情報を示します。',
-  primaryOutcome:
-    '会社の中にすでにある知識を、必要な人が必要なときに使える状態にします。',
+  primaryOutcome: '会社の中にすでにある知識を、必要な人が必要なときに使える状態にします。',
   contactIntent: 'rag-system-development',
   contactLabel: '自社のナレッジ活用を相談する',
   showZeroStartLink: false,
@@ -251,8 +250,7 @@ export const ragServicePageConfig = {
   rtb: {
     eyebrow: 'WHY BEEKLE',
     title: '現場の話を聞き、業務をデータとシステムの設計へ変換します',
-    lead:
-      '機能を聞いてすぐ検索方式を決めるのではなく、今の仕事をどう変えたいかから整理します。ヒアリングした内容を、To-Be、ユースケース、必要データ、正本、オントロジー、検索、評価へつなげます。',
+    lead: '機能を聞いてすぐ検索方式を決めるのではなく、今の仕事をどう変えたいかから整理します。ヒアリングした内容を、To-Be、ユースケース、必要データ、正本、オントロジー、検索、評価へつなげます。',
     items: [
       {
         title: '現場ヒアリングから、To-Beを整理する',
