@@ -81,7 +81,6 @@ const toPersonSchema = (author: Author) => ({
   worksFor: orgRef(),
 });
 
-// 会社情報（Organization）
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
@@ -90,9 +89,7 @@ const organizationSchema = {
   legalName: '株式会社Beekle',
   alternateName: ['Beekle', 'Beekle Inc.', 'ビークル'],
   url: siteUrl,
-  // このエンティティの正典ページ。同名の別企業（英 Beekle）と区別するための起点。
   mainEntityOfPage: `${siteUrl}/company`,
-  // 法人番号は日本法人を一意に特定する公的IDで、名寄せの最優先キーになる。
   identifier: {
     '@type': 'PropertyValue',
     name: '法人番号',
@@ -160,12 +157,10 @@ const organizationSchema = {
   sameAs: [
     `https://info.gbiz.go.jp/hojin/ichiran?hojinBango=${companyInfo.corporateNumber}`,
     `https://www.houjin-bangou.nta.go.jp/henkorireki-johoto-1?selHouzinNo=${companyInfo.corporateNumber}`,
-    // 公式LinkedIn会社ページ（LinkedIn側も beekle.jp をウェブサイトに設定済みで相互参照）
     'https://www.linkedin.com/company/beekle-inc/',
   ],
 };
 
-// WebSite（サイト全体の identity、検索ボックス展開などにも使われる）
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
@@ -177,9 +172,6 @@ const websiteSchema = {
   publisher: orgRef(),
 };
 
-// 記事（Article）
-// data.authorId / data.reviewerId で Person を切替可能（未指定なら default）
-// data.reviewerId === null を明示すると監修者を出力しない
 const articleAuthor = data.authorId
   ? (authors[data.authorId as string] ?? defaultAuthor)
   : defaultAuthor;
@@ -221,7 +213,6 @@ const articleSchema = data.title
     }
   : null;
 
-// パンくずリスト（BreadcrumbList）
 const breadcrumbSchema = data.items
   ? {
       '@context': 'https://schema.org',
@@ -237,7 +228,6 @@ const breadcrumbSchema = data.items
     }
   : null;
 
-// サービス（Service）
 const serviceSchema = data.serviceName
   ? {
       '@context': 'https://schema.org',
@@ -264,7 +254,6 @@ const serviceSchema = data.serviceName
     }
   : null;
 
-// FAQ
 const faqSchema = data.faqs
   ? {
       '@context': 'https://schema.org',
@@ -280,7 +269,6 @@ const faqSchema = data.faqs
     }
   : null;
 
-// SoftwareApplication（無料ツール用）
 const softwareApplicationSchema = data.appName
   ? {
       '@context': 'https://schema.org',
@@ -303,7 +291,6 @@ const softwareApplicationSchema = data.appName
     }
   : null;
 
-// ItemList（事例集等の一覧用）
 const itemListSchema = data.items
   ? {
       '@context': 'https://schema.org',
@@ -325,7 +312,6 @@ const itemListSchema = data.items
     }
   : null;
 
-// WebPage（役割型を持たない汎用ページ用。data.pageType で schema.org sub-type を指定）
 const webPageSchema = data.name
   ? {
       '@context': 'https://schema.org',
@@ -341,12 +327,10 @@ const webPageSchema = data.name
         url: siteUrl,
       },
       publisher: orgRef(),
-      // data.mainEntity === 'organization' で「このページが会社エンティティの正典」と宣言する
       ...(data.mainEntity === 'organization' ? { mainEntity: { '@id': ORG_ID } } : {}),
     }
   : null;
 
-// Person 単体（members ページ等で個人を独立して出力する用途）
 const personSchema = data.authorId
   ? (() => {
       const a = authors[data.authorId as string];
@@ -355,7 +339,6 @@ const personSchema = data.authorId
     })()
   : null;
 
-// 選択されたスキーマを取得
 const getSchema = () => {
   switch (type) {
     case 'organization':
