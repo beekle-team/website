@@ -8,6 +8,31 @@ interface Props {
 }
 
 const { faq, number } = Astro.props;
+
+const POC_PRICING_SERVICE_PATHS = new Set([
+  '/services/web-mobile-development',
+  '/services/mvp-poc-development',
+  '/services/ai-development',
+  '/services/cdp-development',
+  '/services/internal-document-ai-search',
+  '/services/rag-system-development',
+  '/services/ai-chatbot-development',
+  '/services/ocr-ai-development',
+  '/services/ai-agent-development',
+  '/services/sales-data-coaching',
+  '/services/manufacturing-parts-knowledge-search',
+  '/services/technical-manual-knowledge-search',
+  '/services/internal-it-helpdesk-ai',
+  '/services/document-processing-automation',
+]);
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const showPocPricing = POC_PRICING_SERVICE_PATHS.has(pathname);
+
+function answerWithPricingContext(question: string, answer: string) {
+  const isPricingFaq = /費用|料金|予算/.test(question) && /PoC|検証|開発/.test(answer);
+  if (!showPocPricing || !isPricingFaq) return answer;
+  return `PoC・小規模検証は80万円〜です。範囲を絞った検証から始められ、実際の金額は要件確認後に個別見積もりします。以下の金額は標準的なモデルケースです。${answer}`;
+}
 ---
 
 <section class="relative overflow-hidden bg-neutral-100 py-20 md:py-28">
@@ -31,7 +56,7 @@ const { faq, number } = Astro.props;
               <span class="mt-1 text-2xl leading-none text-primary-500 transition group-open:rotate-45">+</span>
             </summary>
             <p class="mt-4 pl-11 text-base leading-relaxed text-neutral-700">
-              {item.answer}
+              {answerWithPricingContext(item.question, item.answer)}
             </p>
           </details>
         ))}
