@@ -13,7 +13,7 @@ const indexOfCopy = (copy: string) => {
   return index;
 };
 
-describe('AI development v8 LP regression', () => {
+describe('AI development LP regression', () => {
   it('keeps the approved pricing and technical terms without the old 200〜400万円 wording', () => {
     for (const copy of [
       '100〜200万円程度',
@@ -34,33 +34,34 @@ describe('AI development v8 LP regression', () => {
     expect(source).not.toContain('200〜400万円前後');
   });
 
-  it('preserves the existing AI-development assets around the approved v8 narrative', () => {
+  it('keeps access to cases, demos, guidance, and the existing conversion routes', () => {
     for (const copy of [
       "import { AskAiButton } from '@/components/ask-ai-button';",
-      "import { AskAiSection } from '@/components/ask-ai-section';",
-      "import ServiceCaseStudies from '@/components/services/service-case-studies.astro';",
       "import { services } from '@/data/service';",
-      '<ServiceCaseStudies',
-      'caseStudies={aiDevelopmentService.caseStudies}',
+      'href="/case-studies"',
       '/demos/it-advisor',
       '/demos/ocr',
+      '/column/genai-introduction-complete-guide',
+      '/downloads/beekle-zero-start-sales-deck.pdf',
+      'services-ai-development-hero&intent=ai-development',
+      'services-ai-development-price&intent=ai-development',
+      'services-ai-development-final&intent=ai-development',
       'relatedColumns.map',
-      '<AskAiSection',
       '<AskAiButton',
     ]) {
       expect(source).toContain(copy);
     }
   });
 
-  it('keeps proof and existing cases before process, then capabilities, price, FAQ, AI Q&A, and final CTA', () => {
+  it('connects business value, Beekle strengths, proof, pricing, and contact in reading order', () => {
     const positions = [
-      indexOfCopy('label="PROOF"'),
-      indexOfCopy('<ServiceCaseStudies'),
-      indexOfCopy('label="PROCESS"'),
-      indexOfCopy('label="CAPABILITIES"'),
-      indexOfCopy('label="PRICE"'),
-      indexOfCopy('label="FAQ"'),
-      indexOfCopy('<AskAiSection'),
+      indexOfCopy('id="why-now"'),
+      indexOfCopy('id="why-beekle"'),
+      indexOfCopy('id="how"'),
+      indexOfCopy('id="proof"'),
+      indexOfCopy('id="plan-pricing"'),
+      indexOfCopy('id="capabilities"'),
+      indexOfCopy('id="faq"'),
       indexOfCopy('services-ai-development-final'),
     ];
 
