@@ -36,7 +36,7 @@ const staticPages: SitemapPage[] = [
   { url: '/company', priority: '0.8', changefreq: 'monthly' },
   { url: '/members', priority: '0.7', changefreq: 'monthly' },
   { url: '/process', priority: '0.8', changefreq: 'monthly' },
-  { url: '/strengths', priority: '0.8', changefreq: 'monthly', lastmod: '2026-08-17' },
+  { url: '/strengths', priority: '0.8', changefreq: 'monthly', lastmod: '2026-09-18' },
   { url: '/testimonial', priority: '0.7', changefreq: 'monthly' },
   { url: '/case-studies', priority: '0.7', changefreq: 'monthly' },
   { url: '/column', priority: '0.8', changefreq: 'daily' },
