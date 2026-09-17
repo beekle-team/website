@@ -228,6 +228,13 @@ const costRows = [
   { stage: '保守、継続改善', guide: '対象範囲に応じて個別見積もり' },
 ];
 
+const roleRates = [
+  { role: 'デザイナー', hourly: '4,000〜5,500円', monthly: '64〜88万円' },
+  { role: 'エンジニア', hourly: '5,000〜8,000円', monthly: '80〜128万円' },
+  { role: 'PM（プロジェクトマネージャー）', hourly: '10,000円', monthly: '160万円' },
+  { role: 'AIエンジニア', hourly: '8,000円〜', monthly: '128万円〜' },
+];
+
 const costArticles = [
   {
     href: '/column/ai-development-cost-guide',
@@ -631,6 +638,41 @@ const faqItems = [
                   <p class="text-sm leading-relaxed text-neutral-700">{row.guide}</p>
                 </div>
               ))}
+            </div>
+
+            <div id="rates" class="mt-10 scroll-mt-28 border-t border-neutral-300 pt-8">
+              <h3 class="text-2xl font-bold text-accent-950">職種別の単価</h3>
+              <p class="mt-4 text-base leading-relaxed text-neutral-700">
+                既存コードや構築済みの仕組みを活用し、動くものを短期間で作って確認します。必要な範囲を絞り、作り直しと開発工数を抑えることで、総額を抑えます。
+              </p>
+              <div class="mt-6 border-y border-neutral-300 bg-white">
+                <div class="hidden grid-cols-[1.2fr_1fr_1fr] gap-4 border-b border-neutral-300 bg-neutral-50 px-5 py-3 text-sm font-bold text-neutral-600 sm:grid">
+                  <p>職種</p>
+                  <p>時間単価</p>
+                  <p>1人月の参考額</p>
+                </div>
+                <dl>
+                  {roleRates.map((rate) => (
+                    <div class="grid gap-3 border-b border-neutral-200 px-5 py-4 last:border-b-0 sm:grid-cols-[1.2fr_1fr_1fr] sm:gap-4">
+                      <dt class="text-base font-bold leading-relaxed text-accent-950 sm:text-sm">{rate.role}</dt>
+                      <dd class="flex justify-between gap-4 text-sm leading-relaxed text-neutral-700 sm:block">
+                        <span class="font-semibold sm:hidden">時間単価</span>
+                        <span>{rate.hourly}</span>
+                      </dd>
+                      <dd class="flex justify-between gap-4 text-sm leading-relaxed text-neutral-700 sm:block">
+                        <span class="font-semibold sm:hidden">1人月の参考額</span>
+                        <span>{rate.monthly}</span>
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+              <p class="mt-4 text-sm leading-relaxed text-neutral-700">
+                金額は税別の目安です。1人月の参考額は160時間で換算しています。必要な作業時間に応じて契約でき、担当者の専門性、対応内容、体制によって個別にお見積もりします。クラウド・API利用料等は別途です。
+              </p>
+              <a href="#proof" class="mt-4 inline-flex min-h-[44px] items-center border-b border-accent-950 text-sm font-semibold text-accent-950 hover:border-primary-500 hover:text-primary-500">
+                短期間で動くものを作った実績を見る
+              </a>
             </div>
 
             <ul class="mt-6 border-t border-neutral-300">
