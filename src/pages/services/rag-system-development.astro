@@ -45,27 +45,33 @@ const knowledgeFlow = [
 const outcomes = [
   {
     title: '資料を探す時間を減らす',
-    description: 'フォルダを掘り、複数のPDFを読み比べる代わりに、知りたいことをそのまま質問できます。',
+    description:
+      'フォルダを掘り、複数のPDFを読み比べる代わりに、知りたいことをそのまま質問できます。',
   },
   {
     title: '「あの人に聞く」を減らす',
-    description: '特定の社員しか知らなかった情報や過去の判断を、他のメンバーも根拠付きで確認できます。',
+    description:
+      '特定の社員しか知らなかった情報や過去の判断を、他のメンバーも根拠付きで確認できます。',
   },
   {
     title: '同じ質問への繰り返し回答を減らす',
-    description: '社内ヘルプデスクやサポートの定型質問をAIが一次対応し、人は判断が必要な相談へ集中できます。',
+    description:
+      '社内ヘルプデスクやサポートの定型質問をAIが一次対応し、人は判断が必要な相談へ集中できます。',
   },
   {
     title: '新人が自分で調べられる',
-    description: '大量の資料を最初から読むのではなく、必要なときに質問し、回答と原文を確認できます。',
+    description:
+      '大量の資料を最初から読むのではなく、必要なときに質問し、回答と原文を確認できます。',
   },
   {
     title: '過去の判断を再利用する',
-    description: '結論だけでなく、なぜその判断になったのかまで検索できれば、同じ検討をゼロからやり直す必要がありません。',
+    description:
+      '結論だけでなく、なぜその判断になったのかまで検索できれば、同じ検討をゼロからやり直す必要がありません。',
   },
   {
     title: '複数の情報をつないで判断する',
-    description: '製品→型番→部品→適合条件のように、一つの文書だけでは答えられない質問も扱えます。',
+    description:
+      '製品→型番→部品→適合条件のように、一つの文書だけでは答えられない質問も扱えます。',
   },
 ] as const;
 
@@ -167,7 +173,10 @@ const relatedGuides = [
         <p class="text-sm font-bold text-navy-950">このページで分かること</p>
         <div class="mt-3 flex flex-wrap gap-x-5 gap-y-3 text-sm">
           {pageNav.map((item) => (
-            <a class="font-medium text-primary-700 underline-offset-4 hover:underline" href={item.href}>
+            <a
+              class="font-medium text-primary-700 underline-offset-4 hover:underline"
+              href={item.href}
+            >
               {item.label}
             </a>
           ))}
@@ -196,7 +205,9 @@ const relatedGuides = [
               <p class="text-xs font-bold text-primary-600">STEP {index + 1}</p>
               <p class="mt-2 font-bold text-navy-950">{item}</p>
               {index < 3 && (
-                <span class="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 bg-white px-1 text-xl font-bold text-primary-500 md:block">→</span>
+                <span class="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 bg-white px-1 text-xl font-bold text-primary-500 md:block">
+                  →
+                </span>
               )}
             </div>
           ))}
@@ -221,8 +232,10 @@ const relatedGuides = [
         </div>
         <div class="mx-auto mt-10 grid max-w-6xl gap-0 border border-neutral-300 bg-white md:grid-cols-4">
           {knowledgeFlow.map((item, index) => (
-            <div class="relative border-b border-neutral-300 p-6 md:border-r md:border-b-0 last:border-0">
-              <p class="text-xs font-bold text-primary-600">{String(index + 1).padStart(2, '0')}</p>
+            <div class="relative border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0">
+              <p class="text-xs font-bold text-primary-600">
+                {String(index + 1).padStart(2, '0')}
+              </p>
               <h3 class="mt-2 text-lg font-bold text-navy-950">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-neutral-600">{item.detail}</p>
             </div>
@@ -242,7 +255,9 @@ const relatedGuides = [
           {outcomes.map((item) => (
             <article class="border-t-4 border-primary-500 bg-neutral-50 p-6">
               <h3 class="text-lg font-bold leading-snug text-navy-950">{item.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">{item.description}</p>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">
+                {item.description}
+              </p>
             </article>
           ))}
         </div>
@@ -259,18 +274,30 @@ const relatedGuides = [
         <div class="grid gap-6 md:grid-cols-3">
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">業務</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">何の仕事をどう変えるかが曖昧</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">誰が、どの場面で、何を知りたいかが決まっていないと、検索も回答ルールも評価できません。</p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">
+              何の仕事をどう変えるかが曖昧
+            </h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">
+              誰が、どの場面で、何を知りたいかが決まっていないと、検索も回答ルールも評価できません。
+            </p>
           </article>
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">データ</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">必要な情報と正本が決まっていない</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">旧版や矛盾した資料、欠けた関係データをそのまま検索しても、安定した回答にはなりません。</p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">
+              必要な情報と正本が決まっていない
+            </h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">
+              旧版や矛盾した資料、欠けた関係データをそのまま検索しても、安定した回答にはなりません。
+            </p>
           </article>
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">評価</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">何をもって「使える」とするかが無い</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">正解例、情報不足、旧版、権限外、曖昧な質問まで決めないと、PoCが動いても本番へ進む判断ができません。</p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">
+              何をもって「使える」とするかが無い
+            </h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">
+              正解例、情報不足、旧版、権限外、曖昧な質問まで決めないと、PoCが動いても本番へ進む判断ができません。
+            </p>
           </article>
         </div>
       </div>
@@ -298,14 +325,18 @@ const relatedGuides = [
           <div class="grid min-w-[980px] grid-cols-7 border border-neutral-300 bg-white">
             {designFlow.map(([title, detail], index) => (
               <div class="relative border-r border-neutral-300 p-5 last:border-r-0">
-                <p class="text-xs font-bold text-primary-600">{String(index + 1).padStart(2, '0')}</p>
+                <p class="text-xs font-bold text-primary-600">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
                 <h3 class="mt-2 font-bold text-navy-950">{title}</h3>
                 <p class="mt-2 text-xs leading-relaxed text-neutral-600">{detail}</p>
               </div>
             ))}
           </div>
         </div>
-        <p class="mt-5 text-center text-sm leading-relaxed text-neutral-500 md:hidden">横にスクロールすると全体の流れを確認できます。</p>
+        <p class="mt-5 text-center text-sm leading-relaxed text-neutral-500 md:hidden">
+          横にスクロールすると全体の流れを確認できます。
+        </p>
       </div>
     </Section>
 
@@ -319,24 +350,37 @@ const relatedGuides = [
         <div class="grid gap-6 lg:grid-cols-2">
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">通常のRAGが向く質問</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">答えが主に一つの文書・箇所にある</h3>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">
+              答えが主に一つの文書・箇所にある
+            </h3>
             <div class="mt-6 flex flex-wrap items-center gap-2 text-sm font-bold text-neutral-800">
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">質問</span><span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">関係文書を検索</span><span>→</span>
+              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">質問</span>
+              <span>→</span>
+              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">関係文書を検索</span>
+              <span>→</span>
               <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">根拠付き回答</span>
             </div>
-            <p class="mt-5 leading-relaxed text-neutral-700">規程の確認、マニュアル検索、FAQなどは、通常RAGや全文検索との組み合わせで十分なことがあります。</p>
+            <p class="mt-5 leading-relaxed text-neutral-700">
+              規程の確認、マニュアル検索、FAQなどは、通常RAGや全文検索との組み合わせで十分なことがあります。
+            </p>
           </article>
           <article class="border border-primary-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">GraphRAGが候補になる質問</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">複数の情報の関係をたどる必要がある</h3>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">
+              複数の情報の関係をたどる必要がある
+            </h3>
             <div class="mt-6 flex flex-wrap items-center gap-2 text-sm font-bold text-neutral-800">
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">製品</span><span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">型番</span><span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">部品</span><span>→</span>
+              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">製品</span>
+              <span>→</span>
+              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">型番</span>
+              <span>→</span>
+              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">部品</span>
+              <span>→</span>
               <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">適合条件</span>
             </div>
-            <p class="mt-5 leading-relaxed text-neutral-700">製品・部品・条件、顧客・契約・過去対応のように、関係そのものが答えに必要な場合にグラフ検索を検討します。</p>
+            <p class="mt-5 leading-relaxed text-neutral-700">
+              製品・部品・条件、顧客・契約・過去対応のように、関係そのものが答えに必要な場合にグラフ検索を検討します。
+            </p>
           </article>
         </div>
       </div>
@@ -395,8 +439,10 @@ const relatedGuides = [
             ['本番', '認証、画面、連携、インフラを実装'],
             ['運用改善', '品質・費用を監視し継続改善'],
           ].map(([title, detail], index) => (
-            <div class="border-b border-neutral-300 p-6 md:border-r md:border-b-0 last:border-0">
-              <p class="text-xs font-bold text-primary-600">{String(index + 1).padStart(2, '0')}</p>
+            <div class="border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0">
+              <p class="text-xs font-bold text-primary-600">
+                {String(index + 1).padStart(2, '0')}
+              </p>
               <h3 class="mt-2 text-lg font-bold text-navy-950">{title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-neutral-600">{detail}</p>
             </div>
