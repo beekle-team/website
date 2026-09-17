@@ -114,11 +114,18 @@ Section.displayName = 'Section';
 const sectionLabelNotes: Record<string, string> = {
   CONTEXT: 'よくあるご相談',
   'WHY NOW': 'なぜ今、取り組むのか',
+  'KNOWLEDGE SYSTEM': 'ナレッジシステムとは何か',
+  'WHAT YOU GET': '導入すると、仕事がどう変わるのか',
+  'THE PROBLEM': 'なぜ、作っただけでは使えないのか',
   UNCERTAINTY: '何を作り、何を検証するか',
   'WHY BEEKLE': 'なぜBeekleに頼むのか',
+  'HOW WE BUILD': 'どう設計し、どう作るのか',
+  ARCHITECTURE: '検索方式の選び方',
   PROOF: '実績・導入事例',
   PROCESS: '進め方',
   CAPABILITIES: '対応できること',
+  DELIVERABLES: '納品するもの',
+  OPERATIONS: '本番運用・保守',
   'LIVE DEMOS': '実際のデモ',
   'RELATED COLUMNS': '関連記事',
   PRICE: '費用の目安',
@@ -127,6 +134,7 @@ const sectionLabelNotes: Record<string, string> = {
   'CLOUD DEPLOYMENT': 'クラウド構成',
   'RELATED GUIDES': '関連ガイド',
   'CASE STUDIES': '導入事例',
+  'PAIN POINTS': '改善できる業務',
 };
 
 /**
