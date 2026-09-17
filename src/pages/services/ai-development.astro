@@ -1,12 +1,12 @@
 ---
 import { AskAiButton } from '@/components/ask-ai-button';
 import { Header } from '@/components/header';
-import { testimonialData } from '@/components/testimonial-section';
-import { CircleDollarSign, ListChecks, MonitorPlay, Smile, Target } from 'lucide-react';
 import JsonLd from '@/components/seo/json-ld.astro';
+import { testimonialData } from '@/components/testimonial-section';
 import { Section } from '@/components/ui';
 import { services } from '@/data/service';
 import Layout from '@/layouts/layout.astro';
+import { CircleDollarSign, ListChecks, MonitorPlay, Smile, Target } from 'lucide-react';
 
 export const prerender = false;
 
@@ -25,12 +25,27 @@ const relatedColumns = aiDevelopmentService.relatedColumns?.slice(0, 3) ?? [];
 const customerVoice = testimonialData.find((item) => item.id === 5);
 
 const businessBenefits = [
-  { icon: ListChecks, title: '手作業が減る。', body: '資料探し、転記、集計。繰り返す作業をAIに任せる。' },
-  { icon: Smile, title: '毎日の仕事が楽に。', body: '同じ質問への対応や、単純作業に追われる時間を減らす。' },
-  { icon: CircleDollarSign, title: '対応コストを減らす。', body: '残業や外注に頼っていた作業を減らし、費用を抑える。' },
-  { icon: Target, title: '大事な仕事に集中。', body: '提案、顧客対応、業務改善。時間を使いたかった仕事へ。' },
+  {
+    icon: ListChecks,
+    title: '手作業が減る。',
+    body: '資料探し、転記、集計。繰り返す作業をAIに任せる。',
+  },
+  {
+    icon: Smile,
+    title: '毎日の仕事が楽に。',
+    body: '同じ質問への対応や、単純作業に追われる時間を減らす。',
+  },
+  {
+    icon: CircleDollarSign,
+    title: '対応コストを減らす。',
+    body: '残業や外注に頼っていた作業を減らし、費用を抑える。',
+  },
+  {
+    icon: Target,
+    title: '大事な仕事に集中。',
+    body: '提案、顧客対応、業務改善。時間を使いたかった仕事へ。',
+  },
 ] as const;
-
 
 const strengths = [
   {
@@ -82,10 +97,26 @@ const proofs = [
 
 const process = [
   { title: 'NDA', body: '秘密保持契約を結び、安心して話せる状態に。', output: '情報の扱いを合意' },
-  { title: '成果を決める', body: '減らしたい作業・費用と、成功条件を整理。', output: '業務成果を要件にする' },
-  { title: 'デモで見極める', body: '実際に動かし、AIを業務に使える見込みを確認。', output: '難しければ変更・見送り' },
-  { title: '稟議・ご判断', body: 'デモ、狙う効果、開発範囲、費用で社内検討。', output: '次の投資を判断' },
-  { title: '開発・運用', body: '必要な検証を行い、連携・権限・運用まで実装。', output: '現場で使える仕組みへ' },
+  {
+    title: '成果を決める',
+    body: '減らしたい作業・費用と、成功条件を整理。',
+    output: '業務成果を要件にする',
+  },
+  {
+    title: 'デモで見極める',
+    body: '実際に動かし、AIを業務に使える見込みを確認。',
+    output: '難しければ変更・見送り',
+  },
+  {
+    title: '稟議・ご判断',
+    body: 'デモ、狙う効果、開発範囲、費用で社内検討。',
+    output: '次の投資を判断',
+  },
+  {
+    title: '開発・運用',
+    body: '必要な検証を行い、連携・権限・運用まで実装。',
+    output: '現場で使える仕組みへ',
+  },
 ] as const;
 
 const capabilities = [
@@ -227,7 +258,6 @@ const faq = [
 ] as const;
 ---
 
-
 <Layout title={title} description={description} canonical={serviceUrl}>
   <JsonLd slot="head" type="service" data={{ serviceName: '生成AI受託開発', serviceDescription: description, url: serviceUrl, serviceType: '生成AI受託開発', image: `${siteUrl}/og-image.png` }} />
   <JsonLd slot="head" type="breadcrumb" data={{ items: [{ name: 'ホーム', url: '/' }, { name: '生成AI受託開発', url: '/services/ai-development' }] }} />
@@ -267,7 +297,7 @@ const faq = [
     <Section id="why-now" className="scroll-mt-20" padding="sm" variant="white" decoration="none" containerClass="mx-auto max-w-6xl">
       <div class="relative overflow-hidden rounded-lg bg-accent-950">
         <img src="/images/services/ai-business-transformation-v1.webp" alt="散らばった文書が、確認しやすい情報へ変わるイメージ" width="1600" height="900" loading="lazy" decoding="async" class="w-full lg:absolute lg:inset-0 lg:h-full lg:object-cover" />
-        <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-3/5 bg-gradient-to-r from-accent-950 via-accent-950/90 to-transparent lg:block" aria-hidden="true"></div>
+        <div class="pointer-events-none absolute inset-y-0 left-0 hidden w-3/5 bg-accent-950/90 lg:block" aria-hidden="true"></div>
         <div class="relative px-6 pb-8 md:px-10 lg:max-w-[56%] lg:py-14">
           <p class="eyebrow text-primary-200">WHY NOW — 今、AIに投資すべき理由</p>
           <h2 class="section-title text-white">毎日の手作業を減らし、<br />もっと大事な仕事へ。</h2>
