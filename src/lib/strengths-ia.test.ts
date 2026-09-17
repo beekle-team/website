@@ -54,7 +54,7 @@ describe('strengths page information architecture', () => {
       expect(source).toContain(`option: '${option}'`);
     }
     expect(source).toContain("guide: '0円。合わなければここで終了'");
-    expect(source).toContain("guide: '準委任（月額）。単価100〜150万円目安'");
+    expect(source).toContain("guide: '準委任（月額）。単価は下の職種別の単価を参照'");
     expect(source).not.toContain('500〜1,500万円以上');
     expect(source).toContain("href: '/column/ai-development-cost-guide'");
     expect(source).toContain('testimonialData.map');

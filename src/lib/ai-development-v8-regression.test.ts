@@ -18,7 +18,7 @@ describe('AI development LP regression', () => {
     for (const copy of [
       "price: '0円'",
       "price: '準委任（月額）'",
-      '単価は100〜150万円が目安',
+      '単価は職種別に公開',
       'AI OCR・帳票読み取り',
       'GraphRAG',
       'Reranking',
