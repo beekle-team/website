@@ -1,7 +1,8 @@
 import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
-const contactPage = readFileSync(new URL('../pages/contact.astro', import.meta.url), 'utf8');
+const contactPage = readFileSync(resolve(process.cwd(), 'src/pages/contact.astro'), 'utf8');
 
 describe('contact case-study discount offer', () => {
   it('shows the anonymous and named-publication discount tiers', () => {
