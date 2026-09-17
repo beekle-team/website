@@ -17,7 +17,7 @@ const STAGE_CARDS = [
     description: '実データと業務を確認し、改善対象を決めます。費用は案件内で設計します。',
   },
   {
-    title: '1業務の検証・実装（4〜8週間、150〜400万円程度）',
+    title: '1業務の検証・実装（4〜8週間、50〜400万円程度）',
     description: '一つの業務を実際に動かします。',
   },
   {
@@ -215,7 +215,6 @@ export const industryServices: ServiceDetail[] = [
       },
       {
         title: '向いている会社、向いていない会社',
-        subtitle: '先に線を引いておきます',
         paragraphs: [
           '営業担当が増えて育成が追いつかず、成績の個人差が大きく、CRMや商談記録が何らかの形で残っている会社に向いています。',
         ],
@@ -454,7 +453,6 @@ export const industryServices: ServiceDetail[] = [
       },
       {
         title: '向いている会社、向いていない会社',
-        subtitle: '先に線を引いておきます',
         paragraphs: [
           '製品・部品の点数が多く、型番に世代や後継関係があり、適合条件の問い合わせが日常的に来る会社に向いています。',
         ],
@@ -689,7 +687,6 @@ export const industryServices: ServiceDetail[] = [
       },
       {
         title: '向いている会社、向いていない会社',
-        subtitle: '先に線を引いておきます',
         paragraphs: [
           '複数のマニュアルや別紙を横断し、機種や部品によって適用条件が変わり、版管理が業務と監査の上で重要な会社に向いています。',
         ],
@@ -920,7 +917,6 @@ export const industryServices: ServiceDetail[] = [
       },
       {
         title: '向いている会社、向いていない会社',
-        subtitle: '先に線を引いておきます',
         paragraphs: [
           '従業員100名以上で情シスが1〜5名、同じ種類の問い合わせが繰り返し届いている会社に向いています。',
         ],
@@ -1153,7 +1149,6 @@ export const industryServices: ServiceDetail[] = [
       },
       {
         title: '向いている会社、向いていない会社',
-        subtitle: '先に線を引いておきます',
         paragraphs: [
           '帳票が月に数百件以上、FAX・PDF・紙で届き、読み取り後の確認や突合を人が手作業で行っている会社に向いています。',
         ],
