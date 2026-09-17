@@ -23,6 +23,29 @@ export interface Props {
 const { type, data = {} } = Astro.props;
 
 const siteUrl = 'https://beekle.jp';
+const POC_PRICING_SERVICE_PATHS = new Set([
+  '/services/web-mobile-development',
+  '/services/mvp-poc-development',
+  '/services/ai-development',
+  '/services/cdp-development',
+  '/services/internal-document-ai-search',
+  '/services/rag-system-development',
+  '/services/ai-chatbot-development',
+  '/services/ocr-ai-development',
+  '/services/ai-agent-development',
+  '/services/sales-data-coaching',
+  '/services/manufacturing-parts-knowledge-search',
+  '/services/technical-manual-knowledge-search',
+  '/services/internal-it-helpdesk-ai',
+  '/services/document-processing-automation',
+]);
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const hasPocPricing = POC_PRICING_SERVICE_PATHS.has(pathname);
+
+function faqAnswerForStructuredData(question: string, answer: string) {
+  if (!hasPocPricing || !/費用|料金|予算|いくら/.test(question)) return answer;
+  return `PoC・小規模検証は80万円〜です。範囲を絞った検証から始められ、実際の金額は要件確認後に個別見積もりします。以下に金額がある場合は、標準的なモデルケースまたは本番開発の目安です。${answer}`;
+}
 
 // エンティティの正典ノードID。会社を指す全参照はこの @id に集約する（LLM/検索エンジンが
 // ページをまたいで同一エンティティと解決できるようにするため）。
@@ -226,8 +249,9 @@ const serviceSchema = data.serviceName
       offers: {
         '@type': 'Offer',
         name: '無料相談',
-        description:
-          '初回相談・簡易デモは無料です。PoCや本開発は、目的・範囲・判断基準を整理してから提案します。',
+        description: hasPocPricing
+          ? '初回相談・簡易デモは無料です。PoC・小規模検証は80万円〜で、実際の金額は要件確認後に個別見積もりします。'
+          : '初回相談・簡易デモは無料です。PoCや本開発は、目的・範囲・判断基準を整理してから提案します。',
         url: `${siteUrl}/contact`,
         availability: 'https://schema.org/InStock',
       },
@@ -244,7 +268,7 @@ const faqSchema = data.faqs
         name: faq.question,
         acceptedAnswer: {
           '@type': 'Answer',
-          text: faq.answer,
+          text: faqAnswerForStructuredData(faq.question, faq.answer),
         },
       })),
     }
