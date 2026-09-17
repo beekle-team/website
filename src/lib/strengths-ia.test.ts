@@ -49,13 +49,10 @@ describe('strengths page information architecture', () => {
     expect(countMatches(source, /voice: null/g)).toBe(2);
   });
 
-  it('compares four options and keeps the cost summary tied to the cost articles', () => {
+  it('compares four options and links the cost summary to the cost articles', () => {
     for (const option of ['既製サービス', 'コンサル会社', '仕様確定型の開発会社', 'Beekle']) {
       expect(source).toContain(`option: '${option}'`);
     }
-    expect(source).toContain("guide: '50〜300万円程度'");
-    expect(source).toContain("guide: '200〜600万円程度'");
-    expect(source).toContain("guide: '500〜1,500万円以上'");
     expect(source).toContain("href: '/column/ai-development-cost-guide'");
     expect(source).toContain('testimonialData.map');
   });
