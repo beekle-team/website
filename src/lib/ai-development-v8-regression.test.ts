@@ -14,10 +14,10 @@ const indexOfCopy = (copy: string) => {
 };
 
 describe('AI development v8 LP regression', () => {
-  it('keeps the approved pricing and technical terms without the old 200〜400万円 wording', () => {
+  it('keeps the approved pricing and technical terms without the old PoC price floors', () => {
     for (const copy of [
-      '100〜200万円程度',
-      '200〜500万円程度',
+      '50〜200万円程度',
+      '50〜500万円程度',
       '300〜1,000万円程度',
       'AI OCR・帳票読み取り',
       'GraphRAG',
@@ -31,6 +31,8 @@ describe('AI development v8 LP regression', () => {
       expect(source).toContain(copy);
     }
 
+    expect(source).not.toContain('100〜200万円程度');
+    expect(source).not.toContain('200〜500万円程度');
     expect(source).not.toContain('200〜400万円前後');
   });
 
