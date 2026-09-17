@@ -5,25 +5,20 @@ import { describe, expect, it } from 'vitest';
 const readSource = (path: string) => readFileSync(resolve(process.cwd(), path), 'utf8');
 
 describe('RAG service procurement page', () => {
-  it('renders a dedicated service route in procurement-decision order', () => {
+  it('renders the current service route in procurement-decision order', () => {
     const page = readSource('src/pages/services/rag-system-development.astro');
     const sections = [
       '<ServiceHero',
-      'label="KNOWLEDGE SYSTEM"',
-      'label="WHAT YOU GET"',
+      'label="USE CASES"',
       'label="WHY NOW"',
-      'label="WHY RAG STOPS"',
       'label="WHY BEEKLE"',
-      'label="HOW WE BUILD"',
       '<ServiceCaseStudies',
-      '<ServiceSolutions',
-      '<ServiceFeatures',
-      'label="DELIVERABLES"',
-      'label="OPERATIONS"',
-      '<ServiceRagPricing',
-      'label="ARCHITECTURE"',
+      'label="PLAN & PRICING"',
+      'label="DELIVERY & OPERATIONS"',
       '<ServiceRagDeploymentModes',
       '<ServiceFaq',
+      'label="RELATED GUIDES"',
+      '<AskAiSection',
     ];
     const positions = sections.map((section) => page.indexOf(section));
 
