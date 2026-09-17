@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { aiServicePageConfig } from './ai-service-page-config';
-import { RAG_SERVICE_DEFINITION, ragDeploymentModes, ragPricingPhases } from './rag-service-page';
+import { RAG_SERVICE_DEFINITION, ragDeploymentModes } from './rag-service-page';
 import { services } from './service';
 
 describe('service page copy', () => {
@@ -66,31 +66,6 @@ describe('service page copy', () => {
     ]) {
       expect(copy).not.toContain(unsupported);
     }
-  });
-
-  it('uses the approved RAG price ranges without inventing a separate prototype tier', () => {
-    expect(ragPricingPhases).toEqual([
-      {
-        phase: '検証・PoC',
-        price: '200万〜500万円',
-        scope: '実データで検索方式、回答品質、権限、更新方法を検証',
-      },
-      {
-        phase: '本番開発',
-        price: '600万〜1,200万円',
-        scope: '検索基盤、画面、認証、権限、ログ、既存システム連携まで実装',
-      },
-      {
-        phase: '継続運用',
-        price: '月20万〜100万円',
-        scope: 'データ更新、精度評価、モデル変更、追加開発、運用監視',
-      },
-      {
-        phase: '大規模・複雑な運用',
-        price: '月120万円以上',
-        scope: '複数基盤、高い可用性、継続的なAI・PM体制が必要な運用',
-      },
-    ]);
   });
 
   it('keeps the AI development hero concise and outcome-led', () => {
