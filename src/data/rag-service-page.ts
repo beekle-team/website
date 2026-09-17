@@ -62,7 +62,7 @@ export const ragService: ServiceDetail = {
   title: 'RAGシステム構築・GraphRAG開発',
   seoTitle: 'RAG構築・GraphRAG開発会社｜PoC 80万円〜・クラウド対応',
   seoDescription:
-    'RAG・GraphRAGのPoCは80万円〜。株式会社Beekleは、社内文書・業務データ向けのRAG、ハイブリッド検索、GraphRAGをクラウド環境で構築します。要件定義、Neo4j・Milvus等の検索基盤、権限、評価、画面、本番運用まで一貫して対応します。',
+    '株式会社Beekleは、社内文書・業務データ向けのRAG、ハイブリッド検索、GraphRAGをクラウド環境で構築します。要件定義、Neo4j・Milvus等の検索基盤、権限、評価、画面、本番運用まで一貫して対応します。',
   description: RAG_SERVICE_DEFINITION,
   longDescription:
     '社内文書検索、暗黙知の継承、問い合わせ対応、要件や設計判断の追跡に使うRAGを、要件定義から本番運用まで構築します。検索APIだけでなく、認証、権限、引用表示、評価、データ更新、監視、既存システム連携まで一つの開発範囲として引き受けます。',
