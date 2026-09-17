@@ -53,9 +53,9 @@ describe('strengths page information architecture', () => {
     for (const option of ['既製サービス', 'コンサル会社', '仕様確定型の開発会社', 'Beekle']) {
       expect(source).toContain(`option: '${option}'`);
     }
-    expect(source).toContain("guide: '50〜300万円程度'");
-    expect(source).toContain("guide: '200〜600万円程度'");
-    expect(source).toContain("guide: '500〜1,500万円以上'");
+    expect(source).toContain("guide: '0円。合わなければここで終了'");
+    expect(source).toContain("guide: '準委任（月額）。単価は下の職種別の単価を参照'");
+    expect(source).not.toContain('500〜1,500万円以上');
     expect(source).toContain("href: '/column/ai-development-cost-guide'");
     expect(source).toContain('testimonialData.map');
   });

@@ -42,14 +42,14 @@ export type IndustryPageConfig = {
 
 // 5ページ共通のKBF。要件定義 → PM on Rails → ゼロスタート → 速さ、の順で置く。
 const KBF_REQUIREMENTS: RtbItem = {
-  title: '要件定義から入る。AI・DXが失敗する原因の大半はモデルではなく要件のズレ',
+  title: '要件定義から入る。AI・DXが失敗する原因の大半は要件のズレ',
   description:
     '誰が、どの場面で、何を見て判断しているかが決まらないまま作り始めると、動くものはできても使われません。ヒアリングでいまの業務の流れ（As-Is）を書き出し、あるべき流れ（To-Be）との差分からアクターとユースケースを定義してから作ります。要求を洗い出して「作る・後回し・作らない」に絞り、作るものだけをユーザーストーリーと受入条件（Gherkin）に落とします。ChatGPTなどのAI検索で要件定義について尋ねたとき、Beekleの記事が最も多く引用されている領域です。',
 };
 const KBF_PMR: RtbItem = {
   title: 'PM on Railsで、要求から動作の証拠までを一本でつなぐ',
   description:
-    '要求カード、ユースケース、ユーザーストーリー、受入条件、実装タスク、テスト結果を切れ目なくつなぐ自社開発のツールを、自社の案件だけでなく外部のお客様の案件でも使っています。「何を作ると言ったか」と「何が動いているか」が常に照合できるので、途中で要件が増えても、どこに影響するかがその場で分かります。',
+    '要求カード、ユースケース、ユーザーストーリー、受入条件、実装タスク、テスト結果を自動で管理できる自社開発のマネジメントAIシステムを、自社の案件だけでなく外部のお客様の案件でも使っています。管理コストと実装コストが下がるので、要件の変更が起きたり案件の規模が大きくなってもスピード感を持って対応できます。',
 };
 const KBF_ZERO: RtbItem = {
   title: '動くものを先に見せる（ゼロスタート）',
@@ -91,7 +91,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '1チーム・1テーマ' },
       { label: '検証期間', value: '4〜6週間' },
-      { label: '検証費用の目安', value: '180〜300万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -186,7 +186,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     ],
     metrics: [
       { label: '最初の対象', value: '1製品群' },
-      { label: '初期費用の目安（税別）', value: '80万円〜' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
       { label: '開発期間（要件により変動）', value: '3〜4か月程度' },
     ],
     flow: {
@@ -250,7 +250,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
         },
         KBF_REQUIREMENTS,
         {
-          title: '関係をたどる検索を、本番で運用している',
+          title: '実際に本番で運用経験あり',
           description:
             'カスタマーサポート向けのナレッジ検索では、実際のデータ量ではベクトル検索だけでは精度が保てない場面に当たり、メタデータ・全文・ベクトル・グラフ近傍・主張単位の5経路を統合して回答後に根拠を検証するHybrid GraphRAGに切り替え、Neo4jのナレッジグラフとともに自社のVPS上で運用しています。データの更新と削除、権限、マルチテナント、検索精度の評価、再埋め込み、顧客クラウドでの運用まで実案件で扱い、Milvusの開発元であるZillizの日本チームとも技術的な意見交換を行っています。',
         },
@@ -292,7 +292,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '1機種・1作業領域' },
       { label: '検証期間', value: '8〜12週間' },
-      { label: '検証費用の目安', value: '400〜600万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -350,7 +350,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
       items: [
         KBF_REQUIREMENTS,
         {
-          title: '関係をたどる検索と根拠の提示を、本番で運用している',
+          title: '根拠の提示がしっかりできるAIシステムを、本番で運用している',
           description:
             'ナレッジ検索の実案件で、メタデータ・全文・ベクトル・グラフ近傍・主張単位の5経路を統合し、回答後に根拠を検証する構成をNeo4jのナレッジグラフとともに自社インフラ上で運用しています。データの更新と削除、権限、マルチテナント、検索精度の評価、顧客クラウドでの運用まで扱い、Milvusの開発元であるZillizの日本チームとも技術的な意見交換を行っています。機密性の高い文書を外部のAIサービスに送らない構成も設計できます。',
         },
@@ -392,7 +392,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '問い合わせの多い一領域' },
       { label: '検証期間', value: '4〜6週間' },
-      { label: '検証費用の目安', value: '200〜400万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -491,7 +491,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '帳票1種類・登録先1つ' },
       { label: '検証期間', value: '4〜8週間' },
-      { label: '検証費用の目安', value: '200〜400万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
