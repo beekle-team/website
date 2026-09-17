@@ -8,11 +8,9 @@ import ServiceContactCta from '@/components/services/service-contact-cta.astro';
 import ServiceFaq from '@/components/services/service-faq.astro';
 import ServiceFeatures from '@/components/services/service-features.astro';
 import ServiceHero from '@/components/services/service-hero.astro';
-import ServicePainPoints from '@/components/services/service-pain-points.astro';
 import ServiceRagDeploymentModes from '@/components/services/service-rag-deployment-modes.astro';
 import ServiceRagPricing from '@/components/services/service-rag-pricing.astro';
 import ServiceSolutions from '@/components/services/service-solutions.astro';
-import ServiceWhyBeekle from '@/components/services/service-why-beekle.astro';
 import { Section, SectionHeader } from '@/components/ui';
 import { ragService, ragServicePageConfig } from '@/data/rag-service-page';
 import Layout from '../../layouts/layout.astro';
@@ -25,15 +23,20 @@ const serviceUrl = `${siteUrl}/services/rag-system-development`;
 const seoTitle = service.seoTitle ?? service.title;
 const seoDescription = service.seoDescription ?? service.description;
 
-const pageNav = [
-  { href: '#why-now', label: 'なぜ今なのか' },
-  { href: '#knowledge-system', label: 'ナレッジシステムとは' },
-  { href: '#what-you-get', label: '導入すると何が変わるか' },
-  { href: '#why-beekle', label: 'なぜBeekleなのか' },
-  { href: '#case-studies', label: '実績' },
-  { href: '#pricing', label: '費用' },
-  { href: '#faq', label: 'よくある質問' },
-] as const;
+const heroConfig = {
+  ...ragServicePageConfig,
+  eyebrow: '社内の知識を、仕事で使いたい企業へ',
+  headline: '社内に眠っている知識を、仕事で使える状態にする',
+  heroLead:
+    'RAG・GraphRAGで、探す・聞く・読む時間を減らします。社内資料や業務データを横断し、必要な人が必要なときに根拠付きで答えへたどり着ける状態を作ります。',
+  primaryOutcome:
+    '製品仕様、規程、問い合わせ履歴、過去案件、ベテランの判断。すでに社内にある知識を、仕事の中で使える状態へ変えます。',
+  contactLabel: '自社のナレッジ活用を相談する',
+  visualTitle: '仕事がどう変わるか',
+  visualSubtitle: 'RAG導入後の変化',
+  visualItems: ['資料探しを減らす', '詳しい人への確認を減らす', '根拠付きで答えに届く', '過去の知識を再利用する'],
+  metrics: [],
+};
 
 const knowledgeFlow = [
   { title: '社内の知識', detail: '文書・仕様・履歴・規程・過去判断' },
@@ -72,6 +75,29 @@ const outcomes = [
     title: '複数の情報をつないで判断する',
     description:
       '製品→型番→部品→適合条件のように、一つの文書だけでは答えられない質問も扱えます。',
+  },
+] as const;
+
+const whyBeekleItems = [
+  {
+    title: '現場の仕事を聞き、To-Beまで整理する',
+    description:
+      '「どんな機能が欲しいですか」だけでは終わりません。誰が、何を見て、どう判断し、どこで人に確認しているかを聞き、AI導入後にどの仕事をどう変えるかを整理します。',
+  },
+  {
+    title: 'ユースケースから必要なデータと正本を決める',
+    description:
+      '誰が、どんな場面で、何を知りたいのかを具体化し、その問いに答えるために必要なデータ、正しい情報として扱う資料、版、更新ルールを決めます。',
+  },
+  {
+    title: '業務をオントロジーと検索設計へ変換する',
+    description:
+      '製品・型番・部品・顧客・契約・問い合わせなど、業務上重要な情報と関係を整理します。その上で全文、ベクトル、属性、グラフ検索から必要な方式を選びます。',
+  },
+  {
+    title: '回答ルールとテストまで同じ設計からつなぐ',
+    description:
+      '根拠がない場合、資料が矛盾する場合、権限がない場合、質問が曖昧な場合まで含め、AIが答える条件・答えない条件と評価基準を決めます。',
   },
 ] as const;
 
@@ -159,30 +185,12 @@ const relatedGuides = [
   <JsonLd
     slot="head"
     type="faq"
-    data={{
-      faqs: service.faq.map((faq) => ({ question: faq.question, answer: faq.answer })),
-    }}
+    data={{ faqs: service.faq.map((faq) => ({ question: faq.question, answer: faq.answer })) }}
   />
 
   <Header />
   <main class="bg-neutral-100 pt-20">
-    <ServiceHero service={service} config={ragServicePageConfig} />
-
-    <nav aria-label="このページで分かること" class="border-b border-neutral-200 bg-white">
-      <div class="container mx-auto max-w-6xl px-6 py-6 lg:px-12">
-        <p class="text-sm font-bold text-navy-950">このページで分かること</p>
-        <div class="mt-3 flex flex-wrap gap-x-5 gap-y-3 text-sm">
-          {pageNav.map((item) => (
-            <a
-              class="font-medium text-primary-700 underline-offset-4 hover:underline"
-              href={item.href}
-            >
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </nav>
+    <ServiceHero service={service} config={heroConfig} />
 
     <Section id="why-now" variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
@@ -192,9 +200,7 @@ const relatedGuides = [
           subtitle="保存してある情報を、質問すれば根拠付きで取り出せる情報へ変えられます"
         />
         <div class="mx-auto max-w-4xl space-y-5 text-lg leading-relaxed text-neutral-700">
-          <p>
-            これまで社内情報を横断して使うには、キーワードを考えて検索し、複数の資料を開き、最後は詳しい人へ確認する必要がありました。
-          </p>
+          <p>これまで社内情報を横断して使うには、キーワードを考えて検索し、複数の資料を開き、最後は詳しい人へ確認する必要がありました。</p>
           <p>
             RAGを使うと、<strong class="text-navy-950">質問に関係する社内情報を先に探し、その内容を根拠としてAIに回答させる</strong>流れを作れます。
           </p>
@@ -205,9 +211,7 @@ const relatedGuides = [
               <p class="text-xs font-bold text-primary-600">STEP {index + 1}</p>
               <p class="mt-2 font-bold text-navy-950">{item}</p>
               {index < 3 && (
-                <span class="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 bg-white px-1 text-xl font-bold text-primary-500 md:block">
-                  →
-                </span>
+                <span class="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 bg-white px-1 text-xl font-bold text-primary-500 md:block">→</span>
               )}
             </div>
           ))}
@@ -223,20 +227,15 @@ const relatedGuides = [
           subtitle="必要な人が、必要な場面で、仕事に必要な知識へたどり着くための仕組みです"
         />
         <div class="mx-auto max-w-4xl space-y-5 text-lg leading-relaxed text-neutral-700">
-          <p>
-            対象になるのは、社内規程、マニュアル、製品仕様、型番・部品情報、FAQ、問い合わせ履歴、議事録、顧客情報、過去の判断理由などです。
-          </p>
+          <p>対象になるのは、社内規程、マニュアル、製品仕様、型番・部品情報、FAQ、問い合わせ履歴、議事録、顧客情報、過去の判断理由などです。</p>
           <p>
             重要なのは一か所に集めることではなく、<strong class="text-navy-950">営業、サポート、技術、管理部門が、それぞれの仕事で必要な答えにたどり着けること</strong>です。
           </p>
         </div>
         <div class="mx-auto mt-10 grid max-w-6xl gap-0 border border-neutral-300 bg-white md:grid-cols-4">
-          {knowledgeFlow.map((item, index) => (
-            <div class="relative border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0">
-              <p class="text-xs font-bold text-primary-600">
-                {String(index + 1).padStart(2, '0')}
-              </p>
-              <h3 class="mt-2 text-lg font-bold text-navy-950">{item.title}</h3>
+          {knowledgeFlow.map((item) => (
+            <div class="border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0">
+              <h3 class="text-lg font-bold text-navy-950">{item.title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-neutral-600">{item.detail}</p>
             </div>
           ))}
@@ -255,132 +254,105 @@ const relatedGuides = [
           {outcomes.map((item) => (
             <article class="border-t-4 border-primary-500 bg-neutral-50 p-6">
               <h3 class="text-lg font-bold leading-snug text-navy-950">{item.title}</h3>
-              <p class="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">
-                {item.description}
-              </p>
+              <p class="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">{item.description}</p>
             </article>
           ))}
         </div>
       </div>
     </Section>
 
-    <Section id="the-problem" variant="light" padding="lg" decoration="none">
+    <Section id="why-rag-stops" variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
-          label="THE PROBLEM"
-          title="RAGは、文書を入れてAIにつなぐだけでは本番で使えません"
-          subtitle="精度の問題に見えて、実際は業務・データ・知識構造の設計不足で止まることがあります"
+          label="WHY RAG STOPS"
+          title="できることは増えました。でも、RAGは作れば使えるわけではありません"
+          subtitle="本番で止まる原因は、検索技術より前の業務・データ・知識構造にあることがあります"
         />
         <div class="grid gap-6 md:grid-cols-3">
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">業務</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">
-              何の仕事をどう変えるかが曖昧
-            </h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              誰が、どの場面で、何を知りたいかが決まっていないと、検索も回答ルールも評価できません。
-            </p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">何の仕事をどう変えるかが曖昧</h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">誰が、どの場面で、何を知りたいかが決まっていないと、検索も回答ルールも評価できません。</p>
           </article>
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">データ</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">
-              必要な情報と正本が決まっていない
-            </h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              旧版や矛盾した資料、欠けた関係データをそのまま検索しても、安定した回答にはなりません。
-            </p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">必要な情報と正本が決まっていない</h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">旧版や矛盾した資料、欠けた関係データをそのまま検索しても、安定した回答にはなりません。</p>
           </article>
           <article class="border border-neutral-200 bg-white p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">評価</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">
-              何をもって「使える」とするかが無い
-            </h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              正解例、情報不足、旧版、権限外、曖昧な質問まで決めないと、PoCが動いても本番へ進む判断ができません。
-            </p>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">何をもって「使える」とするかが無い</h3>
+            <p class="mt-4 leading-relaxed text-neutral-700">正解例、情報不足、旧版、権限外、曖昧な質問まで決めないと、PoCが動いても本番へ進む判断ができません。</p>
           </article>
+        </div>
+        <p class="mx-auto mt-10 max-w-4xl text-center text-xl font-bold leading-relaxed text-navy-950 md:text-2xl">
+          だから、RAGを作る前に、業務・データ・知識構造を整理する必要があります。
+        </p>
+      </div>
+    </Section>
+
+    <Section id="why-beekle" variant="white" padding="lg" decoration="none">
+      <div class="mx-auto max-w-6xl">
+        <SectionHeader
+          label="WHY BEEKLE"
+          title="現場の話を聞き、業務をデータとシステムの設計へ変換します"
+          subtitle="ユースケースだけでなく、To-Be、必要データ、正本、オントロジー、評価まで整理します"
+        />
+        <div class="grid gap-6 md:grid-cols-2">
+          {whyBeekleItems.map((item) => (
+            <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
+              <h3 class="text-xl font-bold leading-snug text-navy-950">{item.title}</h3>
+              <p class="mt-4 leading-relaxed text-neutral-700">{item.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </Section>
 
-    <ServiceRagDeploymentModes />
-
-    <ServicePainPoints
-      painPoints={service.painPoints}
-      number="01"
-      title="こうした確認業務から、ナレッジシステムに置き換えられます"
-      subtitle="検索そのものではなく、探す・聞く・読み比べる仕事を減らします"
-    />
-
-    <ServiceWhyBeekle rtb={ragServicePageConfig.rtb} number="02" />
-
-    <Section id="how-we-build" variant="white" padding="lg" decoration="none">
+    <Section id="how-we-build" variant="light" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
           label="HOW WE BUILD"
-          title="ヒアリングした業務を、データとシステムの設計へ落とします"
-          subtitle="ユースケースだけで終わらせず、必要データ、オントロジー、検索、評価までつなげます"
+          title="ヒアリングした業務を、そのまま検索・AI・テストまでつなげます"
+          subtitle="上流の整理を資料で終わらせず、本番システムへ落とします"
         />
         <div class="overflow-x-auto pb-2">
           <div class="grid min-w-[980px] grid-cols-7 border border-neutral-300 bg-white">
-            {designFlow.map(([title, detail], index) => (
-              <div class="relative border-r border-neutral-300 p-5 last:border-r-0">
-                <p class="text-xs font-bold text-primary-600">
-                  {String(index + 1).padStart(2, '0')}
-                </p>
-                <h3 class="mt-2 font-bold text-navy-950">{title}</h3>
+            {designFlow.map(([title, detail]) => (
+              <div class="border-r border-neutral-300 p-5 last:border-r-0">
+                <h3 class="font-bold text-navy-950">{title}</h3>
                 <p class="mt-2 text-xs leading-relaxed text-neutral-600">{detail}</p>
               </div>
             ))}
           </div>
         </div>
-        <p class="mt-5 text-center text-sm leading-relaxed text-neutral-500 md:hidden">
-          横にスクロールすると全体の流れを確認できます。
-        </p>
+        <p class="mt-5 text-center text-sm leading-relaxed text-neutral-500 md:hidden">横にスクロールすると全体の流れを確認できます。</p>
       </div>
     </Section>
 
-    <Section id="rag-or-graphrag" variant="light" padding="lg" decoration="none">
+    <Section id="rag-or-graphrag" variant="white" padding="lg" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
           label="ARCHITECTURE"
           title="必要以上に複雑なRAGを作らず、質問に合う検索方式を選びます"
-          subtitle="GraphRAGを使えることではなく、必要な品質を合理的な構成で出すことを優先します"
+          subtitle="GraphRAGありきではなく、必要な品質を合理的な構成で出すことを優先します"
         />
         <div class="grid gap-6 lg:grid-cols-2">
-          <article class="border border-neutral-200 bg-white p-6 md:p-8">
+          <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">通常のRAGが向く質問</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">
-              答えが主に一つの文書・箇所にある
-            </h3>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">答えが主に一つの文書・箇所にある</h3>
             <div class="mt-6 flex flex-wrap items-center gap-2 text-sm font-bold text-neutral-800">
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">質問</span>
-              <span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">関係文書を検索</span>
-              <span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">根拠付き回答</span>
+              <span class="border border-neutral-200 bg-white px-3 py-2">質問</span><span>→</span><span class="border border-neutral-200 bg-white px-3 py-2">関係文書を検索</span><span>→</span><span class="border border-neutral-200 bg-white px-3 py-2">根拠付き回答</span>
             </div>
-            <p class="mt-5 leading-relaxed text-neutral-700">
-              規程の確認、マニュアル検索、FAQなどは、通常RAGや全文検索との組み合わせで十分なことがあります。
-            </p>
+            <p class="mt-5 leading-relaxed text-neutral-700">規程の確認、マニュアル検索、FAQなどは、通常RAGや全文検索との組み合わせで十分なことがあります。</p>
           </article>
-          <article class="border border-primary-200 bg-white p-6 md:p-8">
+          <article class="border border-primary-200 bg-neutral-50 p-6 md:p-8">
             <p class="text-sm font-bold text-primary-600">GraphRAGが候補になる質問</p>
-            <h3 class="mt-2 text-xl font-bold text-navy-950">
-              複数の情報の関係をたどる必要がある
-            </h3>
+            <h3 class="mt-2 text-xl font-bold text-navy-950">複数の情報の関係をたどる必要がある</h3>
             <div class="mt-6 flex flex-wrap items-center gap-2 text-sm font-bold text-neutral-800">
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">製品</span>
-              <span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">型番</span>
-              <span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">部品</span>
-              <span>→</span>
-              <span class="border border-neutral-200 bg-neutral-50 px-3 py-2">適合条件</span>
+              <span class="border border-neutral-200 bg-white px-3 py-2">製品</span><span>→</span><span class="border border-neutral-200 bg-white px-3 py-2">型番</span><span>→</span><span class="border border-neutral-200 bg-white px-3 py-2">部品</span><span>→</span><span class="border border-neutral-200 bg-white px-3 py-2">適合条件</span>
             </div>
-            <p class="mt-5 leading-relaxed text-neutral-700">
-              製品・部品・条件、顧客・契約・過去対応のように、関係そのものが答えに必要な場合にグラフ検索を検討します。
-            </p>
+            <p class="mt-5 leading-relaxed text-neutral-700">製品・部品・条件、顧客・契約・過去対応のように、関係そのものが答えに必要な場合にグラフ検索を検討します。</p>
           </article>
         </div>
       </div>
@@ -388,7 +360,7 @@ const relatedGuides = [
 
     <ServiceCaseStudies
       caseStudies={service.caseStudies}
-      number="03"
+      number=""
       title="RAG・GraphRAGを、実データと業務画面まで構築してきました"
       subtitle="課題、構成、成果を同じ画面で確認できます"
     />
@@ -396,13 +368,14 @@ const relatedGuides = [
 
     <ServiceSolutions
       solutions={service.solutions}
-      number="04"
-      title="ヒアリングから本番運用までの進め方"
-      subtitle="業務を整理し、必要なデータと検索方式を決め、実データで確認してから本番へ進めます"
+      number=""
+      title="業務整理から本番運用まで、段階を分けて進めます"
+      subtitle="必要なデータと検索方式を決め、実データで確認してから本番へ進めます"
     />
+
     <ServiceFeatures
       features={service.features}
-      number="05"
+      number=""
       title="検索部分だけでなく、業務システム全体を構築できます"
       subtitle="業務整理、データ・オントロジー、検索、権限、評価、更新運用まで対応します"
     />
@@ -417,8 +390,7 @@ const relatedGuides = [
         <div class="grid gap-x-8 gap-y-3 border-y border-neutral-300 py-7 md:grid-cols-2 lg:grid-cols-3">
           {deliverables.map((item) => (
             <div class="flex gap-3 py-2 text-sm font-semibold leading-relaxed text-neutral-800 md:text-base">
-              <span class="mt-2 h-2 w-2 shrink-0 bg-primary-500"></span>
-              <span>{item}</span>
+              <span class="mt-2 h-2 w-2 shrink-0 bg-primary-500"></span><span>{item}</span>
             </div>
           ))}
         </div>
@@ -438,12 +410,9 @@ const relatedGuides = [
             ['PoC', '実データで検索・回答・例外を検証'],
             ['本番', '認証、画面、連携、インフラを実装'],
             ['運用改善', '品質・費用を監視し継続改善'],
-          ].map(([title, detail], index) => (
+          ].map(([title, detail]) => (
             <div class="border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0">
-              <p class="text-xs font-bold text-primary-600">
-                {String(index + 1).padStart(2, '0')}
-              </p>
-              <h3 class="mt-2 text-lg font-bold text-navy-950">{title}</h3>
+              <h3 class="text-lg font-bold text-navy-950">{title}</h3>
               <p class="mt-2 text-sm leading-relaxed text-neutral-600">{detail}</p>
             </div>
           ))}
@@ -451,53 +420,45 @@ const relatedGuides = [
         <div class="mx-auto mt-10 grid max-w-5xl gap-x-8 gap-y-3 md:grid-cols-2">
           {operations.map((item) => (
             <div class="flex gap-3 text-sm font-semibold leading-relaxed text-neutral-800 md:text-base">
-              <span class="mt-2 h-2 w-2 shrink-0 bg-primary-500"></span>
-              <span>{item}</span>
+              <span class="mt-2 h-2 w-2 shrink-0 bg-primary-500"></span><span>{item}</span>
             </div>
           ))}
         </div>
       </div>
     </Section>
 
+    <ServiceRagDeploymentModes />
+
     <ServiceRagPricing />
+
+    <div id="faq">
+      <ServiceFaq faq={service.faq} number="" />
+    </div>
 
     <Section variant="lightPurple" padding="lg" decoration="blursPurple">
       <div class="relative z-10 mx-auto max-w-6xl">
         <SectionHeader
           title="RAGの仕組み・精度・GraphRAGを詳しく知る"
           subtitle="導入判断や発注前の確認に使える解説をまとめています"
-          number="07"
           label="RELATED GUIDES"
         />
         <div class="grid gap-5 md:grid-cols-2">
           {relatedGuides.map((guide) => (
-            <a
-              href={guide.href}
-              class="group block rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300"
-            >
-              <h3 class="text-lg font-bold leading-snug text-navy-950 transition-colors group-hover:text-primary-600">
-                {guide.title}
-              </h3>
-              <p class="mt-2 text-sm leading-relaxed text-neutral-600 md:text-base">
-                {guide.description}
-              </p>
-              <span class="mt-4 inline-flex items-center text-sm font-bold text-primary-600">
-                記事を読む
-                <span aria-hidden="true" class="ml-1">→</span>
-              </span>
+            <a href={guide.href} class="group block rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300">
+              <h3 class="text-lg font-bold leading-snug text-navy-950 transition-colors group-hover:text-primary-600">{guide.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-neutral-600 md:text-base">{guide.description}</p>
+              <span class="mt-4 inline-flex items-center text-sm font-bold text-primary-600">記事を読む<span aria-hidden="true" class="ml-1">→</span></span>
             </a>
           ))}
         </div>
       </div>
     </Section>
 
-    <ServiceFaq faq={service.faq} number="08" />
-
     <AskAiSection
       client:visible
       source="services-rag-system-development-ask-ai"
-      pageTitle={ragServicePageConfig.headline}
-      pageSummary={ragServicePageConfig.heroLead}
+      pageTitle={heroConfig.headline}
+      pageSummary={heroConfig.heroLead}
       serviceName={service.title}
     />
 
@@ -505,12 +466,8 @@ const relatedGuides = [
       <div class="container relative z-10 mx-auto max-w-4xl px-6 text-center md:px-8">
         <p class="text-sm font-bold tracking-[0.18em] text-primary-200">NEXT STEP</p>
         <p class="mt-2 text-sm font-medium text-white/65">ご相談について</p>
-        <h2 class="mt-5 text-3xl font-bold leading-tight text-white md:text-5xl">
-          まず「どんなRAGを作るか」ではなく、仕事をどう変えるかから整理します
-        </h2>
-        <p class="mt-6 text-lg leading-relaxed text-white/90 md:text-xl">
-          現在の業務、利用者、必要なデータ、正本、権限を確認し、最初に検証する範囲と概算費用を整理します。
-        </p>
+        <h2 class="mt-5 text-3xl font-bold leading-tight text-white md:text-5xl">まず「どんなRAGを作るか」ではなく、仕事をどう変えるかから整理します</h2>
+        <p class="mt-6 text-lg leading-relaxed text-white/90 md:text-xl">現在の業務、利用者、必要なデータ、正本、権限を確認し、最初に検証する範囲と概算費用を整理します。</p>
         <div class="mt-10 flex flex-col items-center justify-center gap-4">
           <a
             href="/contact?source=services-rag-system-development-final&intent=rag-system-development"
@@ -520,12 +477,7 @@ const relatedGuides = [
           >
             自社のナレッジ活用を相談する
             <svg class="ml-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              ></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>
           </a>
           <AskAiButton
@@ -533,7 +485,7 @@ const relatedGuides = [
             source="services-rag-system-development-final"
             variant="link"
             tone="dark"
-            pageTitle={ragServicePageConfig.headline}
+            pageTitle={heroConfig.headline}
             pageSummary="現在の業務、利用者、必要なデータ、正本、権限を確認し、最初に検証する範囲と概算費用を整理します。"
             serviceName={service.title}
           />
