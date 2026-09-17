@@ -31,7 +31,7 @@ export const ragDeploymentModes = [
 export const ragPricingPhases = [
   {
     phase: '検証・PoC',
-    price: '50万〜500万円',
+    price: '80万〜500万円',
     scope: '実データで検索方式、回答品質、権限、更新方法を検証',
   },
   {
@@ -60,9 +60,9 @@ if (!baseRagService) {
 export const ragService: ServiceDetail = {
   ...baseRagService,
   title: 'RAGシステム構築・GraphRAG開発',
-  seoTitle: 'RAG構築・GraphRAG開発会社｜PoC 50万円〜・クラウド対応',
+  seoTitle: 'RAG構築・GraphRAG開発会社｜PoC 80万円〜・クラウド対応',
   seoDescription:
-    'RAG・GraphRAGのPoCは50万円〜。株式会社Beekleは、社内文書・業務データ向けのRAG、ハイブリッド検索、GraphRAGをクラウド環境で構築します。要件定義、Neo4j・Milvus等の検索基盤、権限、評価、画面、本番運用まで一貫して対応します。',
+    'RAG・GraphRAGのPoCは80万円〜。株式会社Beekleは、社内文書・業務データ向けのRAG、ハイブリッド検索、GraphRAGをクラウド環境で構築します。要件定義、Neo4j・Milvus等の検索基盤、権限、評価、画面、本番運用まで一貫して対応します。',
   description: RAG_SERVICE_DEFINITION,
   longDescription:
     '社内文書検索、暗黙知の継承、問い合わせ対応、要件や設計判断の追跡に使うRAGを、要件定義から本番運用まで構築します。検索APIだけでなく、認証、権限、引用表示、評価、データ更新、監視、既存システム連携まで一つの開発範囲として引き受けます。',
@@ -174,7 +174,7 @@ export const ragService: ServiceDetail = {
     {
       question: 'RAGシステムの構築費用を教えてください',
       answer:
-        '検証・PoCは50万〜500万円、本番開発は600万〜1,200万円、継続運用は月20万〜100万円が目安です。50万円台は対象データや機能を絞った小規模検証を想定しています。データ量、連携先、権限、評価範囲によって費用は変わるため、初回相談後に内訳付きで見積もります。複数基盤や高い可用性、継続的なAI・PM体制が必要な運用は月120万円以上になる場合があります。',
+        '検証・PoCは80万〜500万円、本番開発は600万〜1,200万円、継続運用は月20万〜100万円が目安です。80万円台は対象データや機能を絞った小規模検証を想定しています。データ量、連携先、権限、評価範囲によって費用は変わるため、初回相談後に内訳付きで見積もります。複数基盤や高い可用性、継続的なAI・PM体制が必要な運用は月120万円以上になる場合があります。',
     },
     {
       question: '相談から本番運用まで、どのくらいかかりますか？',
