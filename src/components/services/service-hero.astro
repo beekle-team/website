@@ -34,6 +34,29 @@ const resolvedCopy = resolveServiceHeroCopy(service.id, {
 });
 const contactLabel = resolvedCopy.contactLabel;
 const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? benefits;
+
+const POC_PRICING_SERVICE_IDS = new Set([
+  'web-mobile-development',
+  'mvp-poc-development',
+  'ai-development',
+  'cdp-development',
+  'internal-document-ai-search',
+  'rag-system-development',
+  'ai-chatbot-development',
+  'ocr-ai-development',
+  'ai-agent-development',
+  'sales-data-coaching',
+  'manufacturing-parts-knowledge-search',
+  'technical-manual-knowledge-search',
+  'internal-it-helpdesk-ai',
+  'document-processing-automation',
+]);
+const showPocPricing = POC_PRICING_SERVICE_IDS.has(service.id);
+const heroMetrics = config?.metrics?.map((metric) =>
+  showPocPricing && metric.label.includes('検証費用')
+    ? { ...metric, label: '標準的なモデルケース' }
+    : metric
+);
 ---
 
 <!-- ライト基調ヒーロー（2026-07-07 ユーザー指定）。
@@ -64,9 +87,22 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
           )
         }
         {
-          config?.metrics && (
+          showPocPricing && (
+            <div class="mt-6 max-w-2xl rounded-md border border-primary-200 bg-primary-50 px-5 py-4">
+              <p class="text-xs font-bold text-primary-600">PoC・小規模検証</p>
+              <div class="mt-1 flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
+                <p class="text-2xl font-bold text-navy-950">80万円〜</p>
+                <p class="text-sm leading-relaxed text-neutral-700">
+                  範囲を絞った検証から対応。実際の金額は要件確認後に個別見積もりします。
+                </p>
+              </div>
+            </div>
+          )
+        }
+        {
+          heroMetrics && (
             <div class="mt-6 grid max-w-2xl gap-3 sm:grid-cols-3">
-              {config.metrics.map((metric) => (
+              {heroMetrics.map((metric) => (
                 <div class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">
                   <p class="text-xs font-bold text-neutral-500">{metric.label}</p>
                   <p class="mt-1 text-base font-bold leading-snug text-navy-950">
