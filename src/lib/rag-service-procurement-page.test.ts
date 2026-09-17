@@ -9,13 +9,20 @@ describe('RAG service procurement page', () => {
     const page = readSource('src/pages/services/rag-system-development.astro');
     const sections = [
       '<ServiceHero',
-      '<ServiceRagDeploymentModes',
-      '<ServicePainPoints',
-      '<ServiceWhyBeekle',
+      'label="KNOWLEDGE SYSTEM"',
+      'label="WHAT YOU GET"',
+      'label="WHY NOW"',
+      'label="WHY RAG STOPS"',
+      'label="WHY BEEKLE"',
+      'label="HOW WE BUILD"',
       '<ServiceCaseStudies',
       '<ServiceSolutions',
       '<ServiceFeatures',
+      'label="DELIVERABLES"',
+      'label="OPERATIONS"',
       '<ServiceRagPricing',
+      'label="ARCHITECTURE"',
+      '<ServiceRagDeploymentModes',
       '<ServiceFaq',
     ];
     const positions = sections.map((section) => page.indexOf(section));
