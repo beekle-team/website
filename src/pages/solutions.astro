@@ -19,20 +19,25 @@ const audienceLabels: Record<string, string> = {
 
 const cards = industryServices.map((service) => {
   const config = industryPageConfig[service.id];
+  const metrics = (config?.metrics ?? []).map((metric) =>
+    metric.label.includes('検証費用')
+      ? { label: 'PoC・小規模検証', value: '80万円〜' }
+      : metric
+  );
   return {
     id: service.id,
     href: `/services/${service.id}`,
     audience: audienceLabels[service.id] ?? service.title,
     headline: config?.headline ?? service.title,
     description: service.description,
-    metrics: config?.metrics ?? [],
+    metrics,
   };
 });
 ---
 
 <Layout
   title="業種・業務別ソリューション | 株式会社Beekle"
-  description="営業組織、製造業、自動車・航空、情シス、経理・管理。業種と業務ごとに、いま起きている損失、原因、Beekleの設計、モデルケースの費用と期間をまとめています。まず1業務から始めます。"
+  description="営業組織、製造業、自動車・航空、情シス、経理・管理。PoC・小規模検証は80万円〜。業種と業務ごとに、いま起きている損失、原因、Beekleの設計、モデルケースの費用と期間をまとめています。"
   canonical={pageUrl}
 >
   <JsonLd
@@ -62,6 +67,9 @@ const cards = industryServices.map((service) => {
             <p class="mt-6 text-lg leading-relaxed text-neutral-700">
               業種と業務ごとに、いま起きている損失、業務構造上の原因、Beekleの設計、モデルケースの費用と期間をまとめています。
               いきなり全部をAI化する提案はしません。業務を整理し、1業務に絞って実装し、前後を測ってから広げます。
+            </p>
+            <p class="mt-5 border-l-4 border-primary-500 pl-4 text-base font-bold leading-relaxed text-navy-950">
+              PoC・小規模検証は80万円〜。実際の金額は要件確認後に個別見積もりします。
             </p>
           </div>
 
@@ -103,7 +111,7 @@ const cards = industryServices.map((service) => {
             </h2>
           </div>
           <p class="max-w-xl text-sm leading-relaxed text-neutral-700">
-            費用と期間はBeekleの過去案件をもとにしたモデルケースです。実際は対象業務・データ・連携先・権限要件で変わります。
+            PoC・小規模検証は80万円〜です。各詳細ページに掲載する高い金額は、過去案件をもとにした標準的なモデルケースです。実際は対象業務・データ・連携先・権限要件で変わります。
           </p>
         </div>
 
