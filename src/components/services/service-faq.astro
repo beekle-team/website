@@ -29,9 +29,9 @@ const pathname = Astro.url.pathname.replace(/\/$/, '');
 const showPocPricing = POC_PRICING_SERVICE_PATHS.has(pathname);
 
 function answerWithPricingContext(question: string, answer: string) {
-  const isPricingFaq = /費用|料金|予算/.test(question) && /PoC|検証|開発/.test(answer);
+  const isPricingFaq = /費用|料金|予算|いくら/.test(question);
   if (!showPocPricing || !isPricingFaq) return answer;
-  return `PoC・小規模検証は80万円〜です。範囲を絞った検証から始められ、実際の金額は要件確認後に個別見積もりします。以下の金額は標準的なモデルケースです。${answer}`;
+  return `PoC・小規模検証は80万円〜です。範囲を絞った検証から始められ、実際の金額は要件確認後に個別見積もりします。以下に金額がある場合は、標準的なモデルケースまたは本番開発の目安です。${answer}`;
 }
 ---
 
