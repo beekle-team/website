@@ -91,7 +91,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '1チーム・1テーマ' },
       { label: '検証期間', value: '4〜6週間' },
-      { label: '検証費用の目安', value: '180〜300万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -187,7 +187,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '1製品群' },
       { label: '検証期間', value: '6〜8週間' },
-      { label: '検証費用の目安', value: '50〜450万円程度(規模次第)' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -283,7 +283,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '1機種・1作業領域' },
       { label: '検証期間', value: '8〜12週間' },
-      { label: '検証費用の目安', value: '400〜600万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -383,7 +383,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '問い合わせの多い一領域' },
       { label: '検証期間', value: '4〜6週間' },
-      { label: '検証費用の目安', value: '200〜400万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -482,7 +482,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
     metrics: [
       { label: '最初の対象', value: '帳票1種類・登録先1つ' },
       { label: '検証期間', value: '4〜8週間' },
-      { label: '検証費用の目安', value: '200〜400万円程度' },
+      { label: '契約', value: '0円デモ後、準委任（月額）' },
     ],
     flow: {
       eyebrow: 'BEFORE / AFTER',

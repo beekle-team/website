@@ -14,7 +14,7 @@ const siteUrl = 'https://beekle.jp';
 const serviceUrl = `${siteUrl}/services/ai-development`;
 const title = '生成AI受託開発｜業務成果から要件定義、PoC・本番運用まで | Beekle';
 const description =
-  '生成AI開発は、業務成果から要件を決められる会社へ。Beekleは削減したい作業・費用、成功条件、人の確認まで設計し、PoCから本番運用まで一貫して支援。NDA締結後、商談中に動くデモをご提示し、完成像・開発範囲・費用を見ながら社内稟議を進められます。';
+  '生成AI開発は、業務成果から要件を決められる会社へ。Beekleは削減したい作業・費用、成功条件、人の確認まで設計し、PoCから本番運用まで一貫して支援。NDA締結後に実データで0円のデモを作り、完成像を見てから準委任で進めるか判断できます。';
 
 const aiDevelopmentService = services.find((service) => service.id === 'ai-development');
 if (!aiDevelopmentService) {
@@ -96,25 +96,29 @@ const proofs = [
 ] as const;
 
 const process = [
-  { title: 'NDA', body: '秘密保持契約を結び、安心して話せる状態に。', output: '情報の扱いを合意' },
+  {
+    title: 'NDA',
+    body: '秘密保持契約を結び、実際の業務データをお預かり。',
+    output: '情報の扱いを合意',
+  },
   {
     title: '成果を決める',
     body: '減らしたい作業・費用と、成功条件を整理。',
     output: '業務成果を要件にする',
   },
   {
-    title: 'デモで見極める',
-    body: '実際に動かし、AIを業務に使える見込みを確認。',
-    output: '難しければ変更・見送り',
+    title: '0円のデモで見極める',
+    body: '実データで動かし、AIを業務に使える見込みを双方で確認。',
+    output: '合わなければ、ここで終了',
   },
   {
     title: '稟議・ご判断',
-    body: 'デモ、狙う効果、開発範囲、費用で社内検討。',
-    output: '次の投資を判断',
+    body: 'デモ、狙う効果、PoCの範囲と体制で社内検討。',
+    output: '望みがあればPoCへ',
   },
   {
-    title: '開発・運用',
-    body: '必要な検証を行い、連携・権限・運用まで実装。',
+    title: 'PoC・開発・運用',
+    body: '準委任で必要な検証を行い、連携・権限・運用まで実装。',
     output: '現場で使える仕組みへ',
   },
 ] as const;
@@ -167,24 +171,19 @@ const operations = [
 
 const pricePlans = [
   {
-    title: '課題整理・要件定義',
-    price: '30〜80万円程度',
-    body: '業務ヒアリング、As-Is / To-Be、ユースケース、検証項目までを整理します。まず整理だけ依頼し、その結果を見て開発を見積もる進め方も可能です。',
+    title: '検証用デモ（ゼロスタート）',
+    price: '0円',
+    body: 'NDAを結び、実際の業務データをお預かりして確認したうえで、対象業務を絞った動くデモを作ります。合わなければ、双方ここで終了。費用は発生しません。',
   },
   {
-    title: '小さな試作・AI PoC',
-    price: '100〜200万円程度',
-    body: '画面や主要なAI機能を小さく作り、方向性を確かめます。本番データや複雑な連携をほとんど含まない場合の目安です。',
+    title: 'PoC（実データで業務として成立するか）',
+    price: '準委任（月額）',
+    body: 'デモで望みが見えた場合だけ進みます。デモで分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりします。単価は100〜150万円が目安です。',
   },
   {
-    title: 'RAG・AI OCRなど、実データを使うPoC',
-    price: '200〜500万円程度',
-    body: '社内文書検索、RAG、AI OCR、評価データ作成、人の確認画面などを含む場合の目安です。',
-  },
-  {
-    title: 'AIエージェント・複数システム連携',
-    price: '300〜1,000万円程度',
-    body: 'API、データベース、既存システムをまたぐ処理や、権限・承認・監査ログまで含む場合の目安です。',
+    title: 'MVP・本番開発・運用',
+    price: '準委任（月額）',
+    body: 'PoCの結果を見て、画面、連携、権限、運用まで同じ体制で続けます。範囲を狭める、方式を変える、見送る判断も各段階でできます。',
   },
 ] as const;
 
@@ -218,7 +217,7 @@ const faq = [
   {
     question: '商談のデモと、有償のPoCは何が違いますか？',
     answer:
-      '初回相談・商談時の簡易デモは無料です。完成像や操作の認識を合わせ、どの作業にAIを使えそうかを早く見極めます。見込みがなければ、その段階で方式変更や見送りを判断します。さらに実データでの精度・確認工数・費用やシステム連携を確かめる必要がある場合は、目的・範囲・費用を別途合意してPoCを行います。デモだけで本番の品質を保証するものではありません。',
+      'デモは0円です。NDA締結後に実データを確認し、対象業務を絞って動くものを作り、AIを業務に使えそうかを双方で見極めます。見込みがなければ、そこで終了でき、費用はかかりません。望みがあれば、デモで分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりし、準委任（月額）でPoCへ進みます。デモだけで本番の品質を保証するものではありません。',
   },
   {
     question: 'まだ何を作るか決まっていなくても相談できますか？',
@@ -228,7 +227,7 @@ const faq = [
   {
     question: '生成AI開発の不確実性は、どうやって減らしますか？',
     answer:
-      'まず、どの作業をAIに任せられるかを動くデモで早く確かめます。業務に耐える見込みがなければ、方式変更・AIを使わない・開発を見送る判断をします。残る不確実性だけを、実データと合格条件を決めたPoCで検証。精度だけでなく、確認工数や運用費を含めて、続行・変更・中止を判断します。',
+      'まず、どの作業をAIに任せられるかを0円のデモで早く確かめます。業務に耐える見込みがなければ、方式変更・AIを使わない・開発を見送る判断をします。残る不確実性だけを、実データと合格条件を決めたPoCで検証。精度だけでなく、確認工数や運用費を含めて、続行・変更・中止を判断します。',
   },
   {
     question: 'なぜ最初から全部PoCしないのですか？',
@@ -275,7 +274,7 @@ const faq = [
           <p class="mt-5 max-w-lg text-base leading-8 text-neutral-700 md:text-lg">どこに頼めばいいか分からなくても、大丈夫。<br class="hidden sm:block" />NDAを結び、商談中に動くデモをご用意。<br class="hidden sm:block" />完成像を見ながら、社内稟議まで進められます。</p>
           <div class="mt-7 flex flex-col items-start gap-2">
             <a href="/contact?source=services-ai-development-hero&intent=ai-development" data-cta-source="services-ai-development-hero" data-cta-id="contact" class="primary-link w-full sm:w-auto">NDA・デモから相談する <span aria-hidden="true">→</span></a>
-            <p class="text-sm leading-7 text-neutral-600">初回相談・簡易デモは無料。要件書は不要です。</p>
+            <p class="text-sm leading-7 text-neutral-600">NDA後の検証用デモは0円。合わなければ、そこで終了できます。要件書は不要です。</p>
           </div>
         </div>
         <figure class="relative overflow-hidden rounded-lg bg-white">
@@ -425,8 +424,8 @@ const faq = [
         ))}
       </ol>
       <div class="mt-8 flex flex-col gap-3 border-y border-neutral-200 py-5 md:flex-row md:items-center md:gap-8">
-        <p class="shrink-0 font-bold text-accent-950">デモで早く見極める。<br class="hidden md:block" />必要なところだけ、PoCで確かめる。</p>
-        <p class="max-w-3xl text-sm leading-7 text-neutral-600">商談デモで、完成像と業務に使える見込みを確認。難しければ、その段階で変更・見送りを判断します。実データや連携の検証が必要な場合は、目的・範囲・費用を絞ってPoCへ。精度・確認工数・運用費を見て、続行・変更・中止を決めます。</p>
+        <p class="shrink-0 font-bold text-accent-950">0円のデモで早く見極める。<br class="hidden md:block" />望みがあれば、準委任でPoCへ。</p>
+        <p class="max-w-3xl text-sm leading-7 text-neutral-600">NDA締結後に実データでデモを作り、業務に使える見込みを双方で確認。難しければ、その段階で終了でき、費用はかかりません。望みがあれば、デモで見えた不確実性だけを範囲にしてPoCを再見積もりし、準委任で進めます。精度・確認工数・運用費を見て、続行・変更・中止を決めます。</p>
       </div>
     </Section>
 
@@ -457,9 +456,9 @@ const faq = [
     </Section>
 
     <Section id="plan-pricing" padding="sm" variant="white" decoration="none" containerClass="mx-auto max-w-6xl">
-      <p class="eyebrow">開発・検証の費用</p>
-      <h2 class="section-title">次に何を作るか。<br class="sm:hidden" />いくらかかるか。</h2>
-      <p class="copy mb-8 mt-5 max-w-2xl">商談で方向性を合わせたうえで、必要な開発・検証をご提案します。精度、確認工数、運用費を見て、範囲を狭める・方式を変える・見送る判断もできます。</p>
+      <p class="eyebrow">費用と契約の流れ</p>
+      <h2 class="section-title">0円のデモで確かめてから、<br class="sm:hidden" />準委任で進める。</h2>
+      <p class="copy mb-8 mt-5 max-w-2xl">まずお金を払って確かめる進め方はとりません。NDA締結後に実データでデモを作り、双方が判断してから、望みのある案件だけPoCへ。範囲を狭める・方式を変える・見送る判断も、その都度できます。</p>
       <div class="divide-y divide-neutral-200 border-y border-neutral-300">
         {pricePlans.map((item) => (
           <div class="grid gap-3 py-6 md:grid-cols-[1fr_1.4fr] md:gap-12">
@@ -470,22 +469,12 @@ const faq = [
             <p class="copy">{item.body}</p>
           </div>
         ))}
-        <div class="grid gap-3 py-6 md:grid-cols-[1fr_1.4fr] md:gap-12">
-          <div>
-            <h3 class="font-bold text-accent-950">本番開発</h3>
-            <p class="mt-2 text-xl font-bold text-primary-700">個別見積もり</p>
-          </div>
-          <div>
-            <p class="copy">RAGの本番展開は600〜1,200万円程度。データ整理や関係設計が重い案件では800〜1,500万円以上を目安にしているケースがあります。</p>
-            <p class="mt-3 text-sm leading-7 text-neutral-600">検証結果を踏まえ、連携数・データ量・精度・セキュリティ要件から本番の範囲と費用を決めます。</p>
-          </div>
-        </div>
       </div>
       <details class="disclosure mt-5">
-        <summary>過去の提案例と、費用が変わる条件 <span aria-hidden="true">＋</span></summary>
+        <summary>デモ後のPoCで過去に提案した例と、費用が変わる条件 <span aria-hidden="true">＋</span></summary>
         <div class="disclosure-body">
           <ul class="space-y-3 text-sm leading-7 text-neutral-700">{proposalExamples.map((item) => <li>{item}</li>)}</ul>
-          <p class="mt-4 text-sm leading-relaxed text-neutral-600">過去の提案額であり、同じ金額・期間を保証するものではありません。</p>
+          <p class="mt-4 text-sm leading-relaxed text-neutral-600">デモ後に準委任で進んだ場合の規模感の参考です。過去の提案額であり、同じ金額・期間を保証するものではありません。</p>
           <h3 class="mt-6 font-bold text-accent-950">費用が変わる主な条件</h3>
           <p class="mt-3 text-sm leading-7 text-neutral-700">{productionCostFactors.join('、')}</p>
         </div>

@@ -68,29 +68,18 @@ describe('service page copy', () => {
     }
   });
 
-  it('uses the approved RAG price ranges without inventing a separate prototype tier', () => {
-    expect(ragPricingPhases).toEqual([
-      {
-        phase: '検証・PoC',
-        price: '200万〜500万円',
-        scope: '実データで検索方式、回答品質、権限、更新方法を検証',
-      },
-      {
-        phase: '本番開発',
-        price: '600万〜1,200万円',
-        scope: '検索基盤、画面、認証、権限、ログ、既存システム連携まで実装',
-      },
-      {
-        phase: '継続運用',
-        price: '月20万〜100万円',
-        scope: 'データ更新、精度評価、モデル変更、追加開発、運用監視',
-      },
-      {
-        phase: '大規模・複雑な運用',
-        price: '月120万円以上',
-        scope: '複数基盤、高い可用性、継続的なAI・PM体制が必要な運用',
-      },
+  it('uses the zero-start flow for RAG pricing: free demo first, then 準委任', () => {
+    expect(ragPricingPhases.map((phase) => phase.phase)).toEqual([
+      '検証用デモ（ゼロスタート）',
+      'PoC',
+      '本番開発',
+      '継続運用',
     ]);
+    expect(ragPricingPhases[0].price).toBe('0円');
+    for (const phase of ragPricingPhases.slice(1)) {
+      expect(phase.price).toBe('準委任（月額）');
+      expect(phase.price).not.toMatch(/万円/);
+    }
   });
 
   it('keeps the AI development hero concise and outcome-led', () => {

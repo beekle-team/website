@@ -14,11 +14,11 @@ const indexOfCopy = (copy: string) => {
 };
 
 describe('AI development LP regression', () => {
-  it('keeps the approved pricing and technical terms without the old 200〜400万円 wording', () => {
+  it('keeps the zero-start pricing flow and technical terms without fixed price tiers', () => {
     for (const copy of [
-      '100〜200万円程度',
-      '200〜500万円程度',
-      '300〜1,000万円程度',
+      "price: '0円'",
+      "price: '準委任（月額）'",
+      '単価は100〜150万円が目安',
       'AI OCR・帳票読み取り',
       'GraphRAG',
       'Reranking',
@@ -32,6 +32,15 @@ describe('AI development LP regression', () => {
     }
 
     expect(source).not.toContain('200〜400万円前後');
+    for (const fixedTier of [
+      '30〜80万円程度',
+      '100〜200万円程度',
+      '200〜500万円程度',
+      '300〜1,000万円程度',
+      '600〜1,200万円程度',
+    ]) {
+      expect(source).not.toContain(fixedTier);
+    }
   });
 
   it('keeps access to cases, demos, guidance, and the existing conversion routes', () => {

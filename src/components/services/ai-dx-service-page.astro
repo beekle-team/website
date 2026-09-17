@@ -37,15 +37,15 @@ const pageConfigs = {
     path: '/services/ai-adoption',
     seoTitle: 'AI導入支援｜業務選定からPoC・本番運用まで伴走',
     seoDescription:
-      'AIを導入する業務の選定、評価設計、データ連携、PoC、本番運用、社内定着まで支援します。AI顧問月20万円、導入伴走月80万円、AI・DX推進室月120万円から。',
+      'NDA締結後に実データで検証用デモを作り、AIを業務に導入する価値を確認します。投資判断後は本開発まで伴走します。',
     serviceName: 'AI導入支援',
     serviceType: 'AI導入支援・コンサルティング・実装伴走',
     breadcrumb: 'AI導入支援',
     eyebrow: '新規事業・DX・情シス担当者へ',
     heading: 'AI導入を、検討だけで終わらせない。',
-    lead: '社内のAI相談役として、どの業務から始めるか、何を選び、何を見送るかを一緒に決めます。実装が必要になったら、簡易PoCから本番運用、社内定着まで同じチームで進めます。',
-    heroNote: 'NDA後に詳細確認可 / AI顧問のみの依頼可 / 今やらない判断も可',
-    heroCta: 'AI顧問・導入支援を相談する',
+    lead: 'NDA締結後、実際の業務データを使って検証用デモを作ります。触って確かめたうえで、投資するか、今回は見送るかをご判断ください。',
+    heroNote: '検証デモは無料 / NDA後に実データ確認可 / 本開発は判断後に提案',
+    heroCta: '無料デモで確かめる',
     memoTitle: 'AI導入判断メモ',
     memoSubtitle: '相談前ドラフト',
     memoRows: [
@@ -142,17 +142,17 @@ const spotPlan: Plan = {
   no: 'SPOT',
   code: 'ASSESS',
   name: 'AI・経営DX診断',
-  tagline: '課題とデータを棚卸しし、着手するテーマを絞る',
+  tagline: '実データで動くデモを作り、投資判断の材料を返す',
   target: 'AIやDXを進めたいが、対象業務、優先順位、費用対効果が決まっていない',
-  chooseWhen: 'まず経営課題、業務、既存ツール、利用可能なデータを整理したい',
-  deliverable: '課題マップ、AI・DX候補の優先順位、想定効果、概算費用、90日ロードマップ',
-  scope: '経営・業務ヒアリング、ツールとデータの棚卸し、候補の評価、実施順序の設計',
-  meetings: 'ヒアリング3回＋報告会1回',
-  period: '3〜4週間',
-  implementation: '含まない',
-  contract: '準委任（スポット）',
-  price: '400,000',
-  priceUnit: '一式',
+  chooseWhen: '自社の業務データでAIが使えるか、まず実物で確かめたい',
+  deliverable: '対象業務を絞った検証用デモ、確認結果、投資判断の条件、見送り条件',
+  scope: 'NDA締結、代表データの確認、検証用デモの作成、触った結果の整理',
+  meetings: 'ヒアリング＋デモ確認＋報告会',
+  period: '内容を相談して決定',
+  implementation: '検証用デモのみ。本開発は判断後に別途提案',
+  contract: '無料検証',
+  price: '無料',
+  priceUnit: '検証デモ',
   featured: false,
 };
 
@@ -250,20 +250,21 @@ const outputs = [
 const steps = [
   {
     no: '01',
-    title: '無料相談・NDA確認',
-    description: '公開できる範囲で、課題、体制、利用中のツール、すでに試したことを伺います。',
+    title: '無料相談・NDA締結',
+    description:
+      'NDAを締結し、課題、体制、利用中のツールを伺ったうえで、実際の業務データをお預かりして確認します。',
   },
   {
     no: '02',
-    title: '課題・業務・データを整理',
+    title: '実データで検証デモを作る',
     description:
-      '経営上の目的と現場業務をつなぎ、利用者、データ、評価指標、運用上の制約を確認します。',
+      '対象業務を絞り、実データで動くデモを作って、AIが業務に使える見込みを双方で確認します。費用はかかりません。',
   },
   {
     no: '03',
-    title: '優先テーマと支援範囲を提案',
+    title: '進めるかを判断し、体制を提案',
     description:
-      '着手するテーマ、見送るテーマ、成果物、期間、費用、別途必要になる費用を明示します。',
+      '合わなければここで終了し、費用は発生しません。望みがあれば、着手するテーマ、見送るテーマ、体制、費用を準委任で提案します。',
   },
   {
     no: '04',
@@ -287,7 +288,7 @@ const faqs = [
   {
     question: '診断だけ依頼し、実装は他社に任せてもよいですか？',
     answer:
-      '可能です。診断で作成した課題マップ、優先順位、概算、90日ロードマップは、社内実装や他社への発注にも利用できます。',
+      '可能です。NDA締結後に実データで検証用デモを作り、結果と投資判断の条件をお返しします。進めない場合も費用はかかりません。',
   },
   {
     question: '月額料金に本番システムの開発費も含まれますか？',
@@ -302,7 +303,7 @@ const faqs = [
   {
     question: '最低契約期間はありますか？',
     answer:
-      'AI・経営DX診断はスポットです。月額の3プランは、判断、検証、運用の変化を確認するため最低3ヶ月とし、4ヶ月目以降は月単位で見直せます。',
+      '検証用デモは無料で、契約期間はありません。本開発へ進む場合は準委任（月額）で、単価100〜150万円を目安に、デモの結果から範囲と体制をご提案します。月額プランは最低3ヶ月、以降は月単位です。',
   },
   {
     question: 'オンプレミスや完全閉域環境に対応していますか？',
@@ -312,12 +313,12 @@ const faqs = [
   {
     question: 'NDAは相談前に締結できますか？',
     answer:
-      '可能です。初回は公開できる範囲で伺い、詳細な業務資料や顧客情報が必要になった段階でNDA締結後に確認します。',
+      '可能です。詳細な業務資料や顧客情報を確認する前にNDAを締結し、合意した範囲のデータだけを使います。',
   },
   {
     question: 'PoC後に本番化しない判断もできますか？',
     answer:
-      'できます。精度、効果、利用者、データ、運用負荷、費用を確認し、本番化しない場合は理由と再検討条件を残します。',
+      'できます。検証用デモを触って、精度、業務適合、利用者、データ、運用負荷を確認します。進めない場合は費用はかからず、見送り理由と再検討条件を残します。',
   },
 ];
 ---
@@ -420,8 +421,8 @@ const faqs = [
 
     <Section variant="white" padding="lg" id="plans">
       <SectionHeader
-        title="判断支援から実装まで選べる3つの月額プラン"
-        subtitle="社内のAI相談役が必要な段階から、専任チームで複数テーマを進める段階まで対応します"
+        title="デモの後に選ぶ、準委任の3つの月額プラン"
+        subtitle="まず0円の検証デモで判断し、進める場合に相談役だけ、伴走、専任チームのどれが要るかを選びます"
         number="02"
         label="PLANS"
       />
@@ -432,12 +433,14 @@ const faqs = [
             <p class="text-xs font-bold tracking-wide text-primary-700">スポット支援</p>
             <h2 class="mt-2 text-xl font-bold text-navy-950">{spotPlan.name}</h2>
             <p class="mt-2 text-sm leading-relaxed text-neutral-700">
-              継続支援の前に、課題と優先順位だけを整理したい方へ。{spotPlan.deliverable}を{spotPlan.period}でまとめます。
+              まず実データで使えるか確かめたい方へ。{spotPlan.deliverable}を、対象業務を絞って作ります。進めない場合の費用はありません。
             </p>
           </div>
           <div class="md:text-right">
             <p>
-              <span class="font-Poppins text-3xl font-bold text-navy-950">&yen;{spotPlan.price}</span>
+              <span class="font-Poppins text-3xl font-bold text-navy-950">
+                {spotPlan.price === '無料' ? spotPlan.price : `&yen;${spotPlan.price}`}
+              </span>
               <span class="ml-1 text-sm font-medium text-neutral-600">/ {spotPlan.priceUnit}（税別）</span>
             </p>
             <a
@@ -446,7 +449,7 @@ const faqs = [
               data-cta-id="contact"
               class="mt-4 inline-flex min-h-[48px] items-center justify-center rounded-md border border-primary-500 px-5 py-3 text-sm font-bold text-primary-600 transition hover:bg-primary-50"
             >
-              診断だけ相談する
+              無料検証を相談する
             </a>
           </div>
         </div>
