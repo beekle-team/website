@@ -69,6 +69,7 @@ export interface ServiceDetail {
   longDescription: string;
   seoTitle?: string;
   seoDescription?: string;
+  updatedAt?: string;
   painPoints: PainPoint[];
   solutions: Solution[];
   caseStudies: CaseStudy[];
