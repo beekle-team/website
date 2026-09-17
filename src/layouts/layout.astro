@@ -23,6 +23,31 @@ const { title, description, canonical, ogImage, ogType, publishedTime, modifiedT
   Astro.props;
 
 const fullTitle = normalizeBeeklePageTitle(title);
+const POC_PRICING_SERVICE_PATHS = new Set([
+  '/services/web-mobile-development',
+  '/services/mvp-poc-development',
+  '/services/ai-development',
+  '/services/cdp-development',
+  '/services/internal-document-ai-search',
+  '/services/rag-system-development',
+  '/services/ai-chatbot-development',
+  '/services/ocr-ai-development',
+  '/services/ai-agent-development',
+  '/services/sales-data-coaching',
+  '/services/manufacturing-parts-knowledge-search',
+  '/services/technical-manual-knowledge-search',
+  '/services/internal-it-helpdesk-ai',
+  '/services/document-processing-automation',
+]);
+const pathname = Astro.url.pathname.replace(/\/$/, '');
+const hasPocPricing = POC_PRICING_SERVICE_PATHS.has(pathname);
+const normalizedDescription = description
+  ?.replace(/まず[^。]*?\d+〜\d+週間・\d+〜\d+万円程度から。?/g, '')
+  .trim();
+const effectiveDescription =
+  hasPocPricing && normalizedDescription
+    ? `PoC・小規模検証は80万円〜。実際の金額は要件確認後に個別見積もりします。${normalizedDescription}`
+    : description;
 ---
 
 <!DOCTYPE html>
@@ -42,7 +67,7 @@ const fullTitle = normalizeBeeklePageTitle(title);
     />
     <SeoHead
       title={title}
-      description={description}
+      description={effectiveDescription}
       canonical={canonical}
       ogImage={ogImage}
       ogType={ogType}
