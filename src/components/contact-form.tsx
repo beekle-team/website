@@ -36,6 +36,7 @@ const DEFAULT_MESSAGE_PLACEHOLDER =
   '空欄でも送信できます。現状の課題、使いたいデータ、概算を知りたい範囲など、書ける範囲だけご記入ください。詳細はNDA後に共有できます。';
 
 const INTENT_TYPE_MAP: Record<string, string> = {
+  'management-dx-session': 'ai',
   'ai-accuracy': 'ai',
   'ai-agent-development': 'ai',
   'ai-chatbot-development': 'ai',
@@ -70,6 +71,13 @@ const INTENT_TYPE_MAP: Record<string, string> = {
 };
 
 const INTENT_GUIDES: Record<string, IntentGuide> = {
+  'management-dx-session': {
+    title: '経営導入プラン壁打ち（90分）のお申し込み',
+    body: 'オンライン90分・35,000円（税別／税込38,500円）の単発プランです。経営課題・AIやDXの導入候補・優先順位を整理し、導入検討メモをお返しします。送信後に日程と相談テーマを確認します。',
+    placeholder:
+      '例: 経営・業務で困っていること、導入を検討しているAIやツール、相談したいテーマ、ご希望の日程など。要件が決まっていなくても構いません。',
+    emptyMessage: '経営導入プラン壁打ち（オンライン90分・35,000円税別）を申し込みたいです。',
+  },
   'sales-data-coaching': {
     title: '営業データを育成に戻す相談として受け付けます',
     body: 'いまのCRM・電話システム・商談記録で何が残っているかを確認し、最初に手をつける1チーム・1テーマの候補と概算をお伝えします。',
@@ -413,7 +421,9 @@ const ContactForm = ({ sitekey }: ContactFormProps) => {
             まだ要件がまとまっていなくても構いません。NDA締結後に詳細を伺い、「開発すべきか分からない」という段階から整理します。
           </p>
           <p className="mt-2 text-sm leading-relaxed text-primary-800">
-            初回相談・簡易デモは費用をいただきません。実データ連携や個別業務に合わせたPoCは別途範囲を定義します。
+            {provenance.intent === 'management-dx-session'
+              ? '経営導入プラン壁打ちは有料です。オンライン90分・35,000円（税別／税込38,500円）で、継続契約は必須ではありません。'
+              : '初回相談・簡易デモは費用をいただきません。実データ連携や個別業務に合わせたPoCは別途範囲を定義します。'}
           </p>
         </div>
 

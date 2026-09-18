@@ -1,0 +1,72 @@
+---
+const source = 'services-management-dx-plan-session';
+const contactHref = `/contact?source=${source}&intent=management-dx-session`;
+const agenda = [
+  [
+    '01',
+    '経営課題を整理する',
+    '売上・利益・現場の負担など、いま困っていることと、変えたい業務を伺います。',
+  ],
+  [
+    '02',
+    '導入候補を絞る',
+    '既存ツールやデータの状況を確認し、AIで試すこと、業務の見直しで対応することを分けます。',
+  ],
+  [
+    '03',
+    '次の一歩を決める',
+    '効果・実現性・準備の負担を見比べ、最初に取り組むテーマと確認事項を整理します。',
+  ],
+];
+---
+
+<article id="management-dx-session" aria-labelledby="management-dx-session-title" class="mx-auto mb-12 max-w-5xl scroll-mt-24 overflow-hidden rounded-lg border border-primary-300 bg-white">
+  <div class="grid lg:grid-cols-[1fr_320px]">
+    <div class="p-6 md:p-8">
+      <p class="text-sm font-bold tracking-wide text-primary-700">まずは90分、単発で相談</p>
+      <h2 id="management-dx-session-title" class="mt-3 text-2xl font-bold leading-snug text-accent-950 md:text-3xl">経営導入プラン壁打ち</h2>
+      <p class="mt-4 text-lg font-bold leading-relaxed text-accent-950">AI・DXで、どの業務から変えるか。<br />経営の悩みから、一緒に整理します。</p>
+      <p class="mt-4 text-base leading-relaxed text-neutral-700">「何を導入すればよいか分からない」「ベンダーの提案を判断できない」。そんな経営者・事業責任者のための相談プランです。まだ要件書や導入計画がなくても、そのままお話しください。</p>
+      <dl class="mt-6 divide-y divide-neutral-200 border-y border-neutral-200">
+        <div class="py-4">
+          <dt class="text-sm font-bold text-primary-700">こんな方に</dt>
+          <dd class="mt-2 text-base leading-relaxed text-neutral-700">
+            <ul class="list-disc space-y-2 pl-5">
+              <li>AI・DXで何から始めるか迷っている経営者・事業責任者</li>
+              <li>ツールや開発への投資前に、導入案を第三者と確かめたい方</li>
+              <li>月額契約の前に、まず1回だけ課題と次の一手を整理したい方</li>
+            </ul>
+          </dd>
+        </div>
+        <div class="py-4">
+          <dt class="text-sm font-bold text-primary-700">お持ち帰りいただくもの</dt>
+          <dd class="mt-2 text-base leading-relaxed text-neutral-700">導入検討メモ（課題・導入候補・優先順位・次のアクション）と、壁打ちで確認した論点のまとめ。</dd>
+        </div>
+        <div class="py-4">
+          <dt class="text-sm font-bold text-primary-700">準備するもの</dt>
+          <dd class="mt-2 text-base leading-relaxed text-neutral-700">困っている業務と、利用中のツールが分かれば始められます。検討中の提案書や資料があれば、共有できる範囲でお持ちください。</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="flex flex-col justify-center border-t border-primary-200 bg-primary-50 p-6 md:p-8 lg:border-l lg:border-t-0">
+      <p class="text-sm font-bold text-primary-700">オンライン・90分 / 1回</p>
+      <p class="mt-4 whitespace-nowrap text-accent-950"><span class="font-Poppins text-4xl font-bold">35,000</span><span class="ml-1 text-lg font-bold">円</span><span class="ml-2 text-sm">（税別）</span></p>
+      <p class="mt-2 text-sm text-neutral-700">税込38,500円・単発</p>
+      <a href={contactHref} data-cta-source={source} data-cta-id="contact-management-dx-session" class="mt-6 inline-flex min-h-[52px] items-center justify-center rounded-md bg-primary-500 px-5 py-3 text-center text-base font-bold text-white transition-colors hover:bg-primary-600">90分の壁打ちを申し込む</a>
+      <p class="mt-4 text-sm leading-relaxed text-neutral-700">お問い合わせ後に日程・相談テーマを確認します。継続契約は必須ではありません。</p>
+      <p class="mt-4 border-t border-primary-200 pt-4 text-sm leading-relaxed text-neutral-700">詳細な要件定義・データ調査・開発は含みません。実装や継続支援をご希望の場合は、別途ご提案します。</p>
+    </div>
+  </div>
+  <div class="border-t border-neutral-200 bg-neutral-50 p-6 md:p-8">
+    <h3 class="text-lg font-bold text-accent-950">90分で話すこと</h3>
+    <ol class="mt-5 grid gap-6 md:grid-cols-3">
+      {agenda.map(([no, title, description]) => (
+        <li>
+          <span class="font-Poppins text-sm font-bold text-primary-700">{no}</span>
+          <h4 class="mt-2 text-base font-bold text-accent-950">{title}</h4>
+          <p class="mt-2 text-sm leading-relaxed text-neutral-700">{description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</article>

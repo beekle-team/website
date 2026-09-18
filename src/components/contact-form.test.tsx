@@ -1,8 +1,30 @@
+import { render, screen } from '@testing-library/react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import ContactForm, { intentToType } from './contact-form';
 
 describe('ContactForm', () => {
+  it('壁打ち申込の料金と相談種別を引き継ぎ、無料と案内しない', async () => {
+    window.history.replaceState(
+      {},
+      '',
+      '/contact?source=services-management-dx-plan-session&intent=management-dx-session'
+    );
+    try {
+      render(<ContactForm />);
+      expect(
+        await screen.findByText('経営導入プラン壁打ち（90分）のお申し込み')
+      ).toBeInTheDocument();
+      expect(screen.getByText(/経営導入プラン壁打ちは有料です/)).toHaveTextContent('35,000円');
+      expect(
+        screen.queryByText(/初回相談・簡易デモは費用をいただきません/)
+      ).not.toBeInTheDocument();
+      expect(intentToType('management-dx-session')).toBe('ai');
+    } finally {
+      window.history.replaceState({}, '', '/');
+    }
+  });
+
   it('sets expectations for the free initial demo without promising free PoC', () => {
     const html = renderToStaticMarkup(<ContactForm />);
 
