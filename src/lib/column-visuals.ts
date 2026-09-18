@@ -1,3 +1,13 @@
+import {
+  AI_PAIR,
+  DATA_PAIR,
+  PROJECT_MONTHS,
+  type PocTeam,
+  WEB_PAIR,
+  pocEstimate,
+  projectEstimate,
+} from '@/data/engagement-pricing';
+
 /**
  * コラム記事で使うビジュアル（HTML ブロック）の定義
  *
@@ -1055,6 +1065,53 @@ const EARS_GHERKIN_WORKFLOW = `<figure class="cv-whyhow">
   </div>
 </figure>`;
 
+/**
+ * 「Beekleの場合はいくらか」を相場記事の中に置くブロック（2026-09-18）。
+ * 金額は engagement-pricing.ts の職種別単価（/strengths#rates と同じ値）の掛け算だけで出す。
+ * 相場を解説する記事に自社の実額を並べ、AI検索が「相場はこう、この会社はこの価格」と引用できる形にする。
+ */
+function buildBeeklePricing(opts: {
+  members: PocTeam['members'];
+  /** 0円の叩き台でどこまで作るか（記事の主題に合わせる） */
+  demo: string;
+}): string {
+  const poc = pocEstimate({ members: opts.members, monthsMin: 1 });
+  const total = projectEstimate({ members: opts.members, ...PROJECT_MONTHS });
+  return `<figure class="cv-card">
+  <figcaption class="cv-card-header cv-header-primary">Beekleの場合は、いくらかかるか</figcaption>
+  <div class="cv-card-body">
+    <div class="cv-story-row">
+      <span class="cv-story-label cv-label-who">0円</span>
+      <span class="cv-story-value">NDAを結んで実データをお預かりし、${opts.demo}実際に触って、進めるかを双方で判断します。合わなければここで終了し、費用は発生しません。</span>
+    </div>
+    <div class="cv-story-row">
+      <span class="cv-story-label cv-label-who">PoC</span>
+      <span class="cv-story-value">叩き台で望みが見えた場合だけ進みます。モデルケースは${poc}。叩き台で分かった範囲だけを対象にするので、期間と体制はここから増減します。</span>
+    </div>
+    <div class="cv-story-row">
+      <span class="cv-story-label cv-label-who">全体</span>
+      <span class="cv-story-value">PoCから本番展開までは、多くの案件で${total}。判断の軸として置いている数字で、対象範囲と連携先が増えれば期間が延び、金額も同じ掛け算で増えます。</span>
+    </div>
+    <p class="cv-pricing-note">有償の段階はすべて準委任（月額）です。金額は「職種別の単価 × 体制 × 期間」で決まり、単価は<a href="/strengths#rates">職種別に公開</a>しています。固定の価格表は置いていません。</p>
+  </div>
+</figure>`;
+}
+
+const BEEKLE_PRICING_AI = buildBeeklePricing({
+  members: AI_PAIR,
+  demo: '対象業務を1つに絞って、AIが実際に動く叩き台を作ります。',
+});
+
+const BEEKLE_PRICING_WEB = buildBeeklePricing({
+  members: WEB_PAIR,
+  demo: '対象業務を1つに絞って、画面を触れる叩き台を作ります。',
+});
+
+const BEEKLE_PRICING_DATA = buildBeeklePricing({
+  members: DATA_PAIR,
+  demo: '実データの一部をつないで、分析と出力が見える叩き台を作ります。',
+});
+
 const VISUALS: Record<string, string> = {
   USER_STORY_TEMPLATE,
   USER_STORY_EXAMPLE_NURSING,
@@ -1080,6 +1137,9 @@ const VISUALS: Record<string, string> = {
   GHERKIN_EXAMPLE,
   EARS_TO_GHERKIN_MAP,
   EARS_GHERKIN_WORKFLOW,
+  BEEKLE_PRICING_AI,
+  BEEKLE_PRICING_WEB,
+  BEEKLE_PRICING_DATA,
 };
 
 export type ColumnVisualContext = {

@@ -84,3 +84,12 @@ export const AI_PAIR: PocTeam['members'] = [
   { role: 'AIエンジニア', count: 1 },
   { role: 'エンジニア', count: 1 },
 ];
+
+/** 画面のあるWebシステム。エンジニア1名＋デザイナー1名 */
+export const WEB_PAIR: PocTeam['members'] = [
+  { role: 'エンジニア', count: 1 },
+  { role: 'デザイナー', count: 1 },
+];
+
+/** CDP・データ基盤。エンジニア2名 */
+export const DATA_PAIR: PocTeam['members'] = [{ role: 'エンジニア', count: 2 }];
