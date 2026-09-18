@@ -4,6 +4,7 @@ import { Header } from '@/components/header';
 import JsonLd from '@/components/seo/json-ld.astro';
 import { testimonialData } from '@/components/testimonial-section';
 import { Section } from '@/components/ui';
+import { AI_PAIR, PROJECT_MONTHS, pocEstimate, projectEstimate } from '@/data/engagement-pricing';
 import { services } from '@/data/service';
 import Layout from '@/layouts/layout.astro';
 import { CircleDollarSign, ListChecks, MonitorPlay, Smile, Target } from 'lucide-react';
@@ -169,21 +170,24 @@ const operations = [
   'AI利用料・インフラ費の改善',
 ] as const;
 
+const aiPocEstimate = pocEstimate({ members: AI_PAIR, monthsMin: 1 });
+const aiProjectEstimate = projectEstimate({ members: AI_PAIR, ...PROJECT_MONTHS });
+
 const pricePlans = [
   {
-    title: '検証用デモ（ゼロスタート）',
+    title: '検証用の叩き台（ゼロスタート）',
     price: '0円',
-    body: 'NDAを結び、実際の業務データをお預かりして確認したうえで、対象業務を絞った動くデモを作ります。合わなければ、双方ここで終了。費用は発生しません。',
+    body: 'NDAを結び、実際の業務データをお預かりして確認したうえで、1業務の代表データでコアのAI機能が動く叩き台を作ります。営業として成立するかを双方で判断できるところまでが範囲で、全量データ、権限、連携、確認画面、評価セットの整備は含めません。合わなければ、双方ここで終了。費用は発生しません。',
   },
   {
     title: 'PoC（実データで業務として成立するか）',
     price: '準委任（月額）',
-    body: 'デモで望みが見えた場合だけ進みます。デモで分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりします。単価は職種別に公開しています。',
+    body: `叩き台で望みが見えた場合だけ進みます。モデルケースの体制と費用の目安は${aiPocEstimate}。叩き台で分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりします。単価は職種別に公開しています。`,
   },
   {
     title: 'MVP・本番開発・運用',
     price: '準委任（月額）',
-    body: 'PoCの結果を見て、画面、連携、権限、運用まで同じ体制で続けます。範囲を狭める、方式を変える、見送る判断も各段階でできます。',
+    body: `PoCの結果を見て、画面、連携、権限、運用まで同じ体制で続けます。PoCから本番展開までの全体は、多くの案件で${aiProjectEstimate}。判断の軸として置いている数字で、範囲を狭める、方式を変える、見送る判断も各段階でできます。`,
   },
 ] as const;
 

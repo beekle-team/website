@@ -3,6 +3,14 @@ import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { testimonialData } from '../components/testimonial-section';
 import { ButtonLink } from '../components/ui/button';
+import {
+  AI_PAIR,
+  PROJECT_MONTHS,
+  ROLE_RATES,
+  ZERO_START_SCOPE_RULE,
+  pocEstimate,
+  projectEstimate,
+} from '../data/engagement-pricing';
 import Layout from '../layouts/layout.astro';
 
 const pageTitle = 'Beekleはどんな開発会社か｜向いている案件・他社との違い・費用・実績';
@@ -230,12 +238,12 @@ const costRows = [
   { stage: '保守、継続改善', guide: '準委任（月額）。範囲は都度合意' },
 ];
 
-const roleRates = [
-  { role: 'デザイナー', hourly: '4,000〜5,500円', monthly: '64〜88万円' },
-  { role: 'エンジニア', hourly: '5,000〜8,000円', monthly: '80〜128万円' },
-  { role: 'PM（プロジェクトマネージャー）', hourly: '10,000円', monthly: '160万円' },
-  { role: 'AIエンジニア', hourly: '8,000円〜', monthly: '128万円〜' },
-];
+// 0円の叩き台の線引きと、PoCの最小構成の目安。金額は下の単価表の掛け算（engagement-pricing.ts が単一の情報源）
+const zeroStartScope = ZERO_START_SCOPE_RULE;
+const pocEstimateExample = pocEstimate({ members: AI_PAIR, monthsMin: 1 });
+const projectEstimateExample = projectEstimate({ members: AI_PAIR, ...PROJECT_MONTHS });
+
+const roleRates = ROLE_RATES;
 
 const costArticles = [
   {
@@ -641,6 +649,13 @@ const faqItems = [
                 </div>
               ))}
             </div>
+            <p class="mt-4 text-sm leading-relaxed text-neutral-700">{zeroStartScope}</p>
+            <p class="mt-2 text-sm leading-relaxed text-neutral-700">
+              PoCの最小構成の目安は、{pocEstimateExample}。下の職種別の単価の下限に体制と最短期間を掛けたもので、叩き台で見えた不確実性だけを範囲にするため、ここから増減します。
+            </p>
+            <p class="mt-2 text-sm leading-relaxed text-neutral-700">
+              PoCから本番展開までの全体は、多くの案件で{projectEstimateExample}。判断の軸として置いている数字で、対象範囲と連携先が増えれば期間が延び、金額も同じ掛け算で増えます。サービスごとの内訳は各サービスページのモデルケースに置いています。
+            </p>
 
             <div id="rates" class="mt-10 scroll-mt-28 border-t border-neutral-300 pt-8">
               <h3 class="text-2xl font-bold text-accent-950">職種別の単価</h3>

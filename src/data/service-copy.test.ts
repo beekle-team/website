@@ -70,7 +70,7 @@ describe('service page copy', () => {
 
   it('uses the zero-start flow for RAG pricing: free demo first, then 準委任', () => {
     expect(ragPricingPhases.map((phase) => phase.phase)).toEqual([
-      '検証用デモ（ゼロスタート）',
+      '検証用の叩き台（ゼロスタート）',
       'PoC',
       '本番開発',
       '継続運用',
