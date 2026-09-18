@@ -4,6 +4,7 @@ import JsonLd from '@/components/seo/json-ld.astro';
 import { Section, SectionHeader } from '@/components/ui';
 import Layout from '../../layouts/layout.astro';
 import ManagementDxEvidence from './management-dx-evidence.astro';
+import ManagementDxSession from './management-dx-session.astro';
 
 type ServiceMode = 'ai-adoption' | 'management-dx';
 
@@ -86,14 +87,14 @@ const pageConfigs = {
     path: '/services/management-dx',
     seoTitle: '経営DX・AI導入支援｜経営データの整理からAI実装まで',
     seoDescription:
-      '売上、案件、利益、資金繰り、顧客、マーケティングなどの経営データを整理し、AIの判断支援からデータ連携・実装まで伴走します。AI顧問は月20万円から。',
+      '経営課題とAI・DXの導入候補を整理する90分の壁打ちは35,000円（税別）。経営データの整理から、AIの判断支援・データ連携・実装まで伴走します。AI顧問は月20万円から。',
     serviceName: '経営DX・AI導入支援',
     serviceType: '経営DX・AI導入コンサルティング・実装伴走',
     breadcrumb: '経営DX・AI導入支援',
     eyebrow: '経営者・経営企画・事業責任者へ',
     heading: '経営数字と業務データを、毎週判断できる状態へ。',
     lead: '経営数字と業務データをどこから整えるか、毎月の判断を支援します。AIレポート、アラート、RAGなどが必要になったら、データ連携と実装まで同じチームで進めます。',
-    heroNote: 'AI顧問のみの依頼可 / 既存ツールを活用 / AI実装まで一貫支援',
+    heroNote: '90分の壁打ち 35,000円（税別） / 単発相談可 / AI実装まで一貫支援',
     heroCta: '経営課題とデータの状況を相談する',
     memoTitle: '経営DX判断メモ',
     memoSubtitle: '相談前ドラフト',
@@ -143,7 +144,7 @@ const spotPlan: Plan = {
   code: 'ASSESS',
   name: 'AI・経営DX診断',
   tagline: '実データで動くデモを作り、投資判断の材料を返す',
-  target: 'AIやDXを進めたいが、対象業務、優先順位、費用対効果が決まっていない',
+  target: '試したい業務と利用できるデータがあり、発注前にAIが使えるかを実物で確かめたい方',
   chooseWhen: '自社の業務データでAIが使えるか、まず実物で確かめたい',
   deliverable: '対象業務を絞った検証用デモ、確認結果、投資判断の条件、見送り条件',
   scope: 'NDA締結、代表データの確認、検証用デモの作成、触った結果の整理',
@@ -162,7 +163,7 @@ const plans: Plan[] = [
     code: 'ADVISORY',
     name: 'AI顧問',
     tagline: '社内にAIの相談役を持ち、毎月やることを決める',
-    target: 'AI活用を進めたいが、方針や技術を継続的に相談できる人が社内にいない',
+    target: '社内に実行担当者がいて、AI活用の優先順位・ツール選定・ベンダー提案を継続的に相談したい経営者・DX責任者',
     chooseWhen:
       '社内担当者が手を動かせるが、優先順位、ツール選定、要件、ベンダー提案を専門家と確かめたい',
     deliverable: '月次AI活用メモ（優先課題、判断、次のアクション）、資料・提案へのレビューコメント',
@@ -180,7 +181,7 @@ const plans: Plan[] = [
     code: 'DELIVER',
     name: 'AI導入・経営DX伴走',
     tagline: '優先テーマを簡易PoCにし、評価と運用まで進める',
-    target: '対象テーマは見えているが、社内だけではデータ連携、検証、運用設計まで進めにくい',
+    target: '取り組むテーマが決まっていて、データ連携・試作・運用設計を一緒に進める実装パートナーが必要な事業責任者・DX担当者',
     chooseWhen: '週次で意思決定しながら、1つの優先テーマを実際に動かして評価したい',
     deliverable: '簡易PoC、評価記録、データ接続設計、運用ルール、改善バックログ',
     scope: '週次定例、KPI・評価設計、データ連携、AIレポート・アラート、業務改善、社内定着支援',
@@ -197,7 +198,7 @@ const plans: Plan[] = [
     code: 'TEAM',
     name: 'AI・DX推進室',
     tagline: 'PMとAIエンジニアが入り、複数テーマを継続的に実装する',
-    target: '専任のAI・DXチームがなく、複数部門の課題を継続して整理・実装する体制が必要',
+    target: '専任のAI・DXチームがなく、複数部門の改善を進めるPM・エンジニアの体制が必要な経営者・経営企画責任者',
     chooseWhen: 'CRM、会計、メール、文書、マーケティングなどを横断して改善したい',
     deliverable: '優先順位表、データ連携、RAG、AIエージェント、自動レポート、運用記録',
     scope: 'PM・AIエンジニアの参画、複数テーマ管理、設計、実装、検証、社内展開、継続改善',
@@ -280,10 +281,24 @@ const steps = [
 ];
 
 const faqs = [
+  ...(mode === 'management-dx'
+    ? [
+        {
+          question: '90分の壁打ちでは何を相談できますか？',
+          answer:
+            '経営導入プラン壁打ちは、オンライン90分・35,000円（税別）の単発相談です。経営・業務の課題からAI・DXの導入候補と優先順位を整理し、次のアクションを導入検討メモにまとめます。要件書がなくても相談できます。詳細な要件定義・データ調査・開発は含みません。',
+        },
+        {
+          question: '壁打ちと無料相談・無料検証デモはどう違いますか？',
+          answer:
+            '無料相談はサービスの適合や支援範囲の確認、無料検証デモは対象業務を絞って実データで使えるかを確かめるものです。有料の壁打ちは、90分を使って経営課題・導入候補・優先順位を整理し、導入検討メモをお返しします。単発で完結でき、月額契約や開発の発注は必須ではありません。無料検証へ進む場合も、実施済みの壁打ち料金は発生します。',
+        },
+      ]
+    : []),
   {
     question: 'AI導入支援と経営DX支援は別のサービスですか？',
     answer:
-      '提供する体制と料金は共通です。AI導入支援は業務担当者・DX担当者の課題から、経営DX支援は経営数字と意思決定の課題から入ります。相談内容に応じて同じチームが支援します。',
+      '月額プランの体制と料金は共通です。AI導入支援は業務担当者・DX担当者の課題から、経営DX支援は経営数字と意思決定の課題から入ります。相談内容に応じて同じチームが支援します。',
   },
   {
     question: '診断だけ依頼し、実装は他社に任せてもよいですか？',
@@ -375,6 +390,11 @@ const faqs = [
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
               </svg>
             </a>
+            {mode === 'management-dx' && (
+              <a href="#management-dx-session" class="mt-3 inline-flex min-h-[48px] items-center px-2 py-3 text-base font-bold text-primary-700 underline underline-offset-4 hover:text-primary-600 sm:ml-4">
+                90分の壁打ちプランを見る →
+              </a>
+            )}
           </div>
 
           <aside class="border-y border-neutral-300 bg-white">
@@ -421,11 +441,13 @@ const faqs = [
 
     <Section variant="white" padding="lg" id="plans">
       <SectionHeader
-        title="デモの後に選ぶ、準委任の3つの月額プラン"
-        subtitle="まず0円の検証デモで判断し、進める場合に相談役だけ、伴走、専任チームのどれが要るかを選びます"
+        title={mode === 'management-dx' ? '90分の壁打ちから、実装・継続支援まで' : 'デモの後に選ぶ、準委任の3つの月額プラン'}
+        subtitle={mode === 'management-dx' ? '導入方針を整理したい方は単発の壁打ちから。実データでの検証や継続支援も、必要な段階に合わせて選べます' : 'まず0円の検証デモで判断し、進める場合に相談役だけ、伴走、専任チームのどれが要るかを選びます'}
         number="02"
         label="PLANS"
       />
+
+      {mode === 'management-dx' && <ManagementDxSession />}
 
       <aside class="mx-auto mb-8 max-w-5xl border-y border-neutral-300 bg-neutral-50 px-6 py-6 md:px-8">
         <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
@@ -435,6 +457,10 @@ const faqs = [
             <p class="mt-2 text-sm leading-relaxed text-neutral-700">
               まず実データで使えるか確かめたい方へ。{spotPlan.deliverable}を、対象業務を絞って作ります。進めない場合の費用はありません。
             </p>
+            <dl class="mt-4 border-t border-neutral-200 pt-4">
+              <dt class="text-sm font-bold text-primary-700">こんな方に</dt>
+              <dd class="mt-2 text-base leading-relaxed text-neutral-700">{spotPlan.target}</dd>
+            </dl>
           </div>
           <div class="md:text-right">
             <p>
@@ -641,6 +667,11 @@ const faqs = [
         number="05"
         label="FLOW"
       />
+      {mode === 'management-dx' && (
+        <p class="mx-auto mb-8 max-w-4xl border-l-4 border-primary-500 bg-white p-6 text-base leading-relaxed text-neutral-700">
+          単発の壁打ちは、お申し込み → 日程・相談テーマの確認 → オンライン90分 → 導入検討メモのお渡しで完結します。以下は、無料検証から継続支援・開発へ進む場合の流れです。壁打ちの実施料金は、継続の有無にかかわらず35,000円（税別）です。
+        </p>
+      )}
       <div class="mx-auto max-w-4xl space-y-5">
         {steps.map((step) => (
           <article class="flex flex-col gap-4 rounded-lg border border-neutral-200 bg-white p-6 sm:flex-row sm:items-start sm:gap-6 md:p-8">
