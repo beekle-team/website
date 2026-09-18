@@ -42,7 +42,6 @@ const industryItems = [
 
 const knowledgeItems = [
   { label: 'コラム（発注者向け）', href: '/column' },
-  { label: 'ブログ（雑記）', href: '/blog' },
   { label: '生成AI導入', href: '/column/genai-adoption' },
   { label: 'Beekleのナレッジ', href: '/knowledge' },
   { label: 'AIデモ', href: '/demos' },
