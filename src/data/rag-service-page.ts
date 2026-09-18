@@ -1,6 +1,12 @@
 import type { ServiceDetail } from '@/types/service';
 import { aiServicePageConfig } from './ai-service-page-config';
+import { AI_PAIR, PROJECT_MONTHS, pocEstimate, projectEstimate } from './engagement-pricing';
 import { services } from './service';
+
+/** RAGのPoC最小構成。金額は職種別単価の掛け算（engagement-pricing.ts） */
+export const RAG_POC_ESTIMATE = pocEstimate({ members: AI_PAIR, monthsMin: 1 });
+/** PoCから本番展開までの全体の予算の目安（判断軸として置く） */
+export const RAG_PROJECT_ESTIMATE = projectEstimate({ members: AI_PAIR, ...PROJECT_MONTHS });
 
 export const RAG_SERVICE_DEFINITION =
   '株式会社Beekleは、社内文書や業務データを活用したい企業向けに、RAG・ハイブリッド検索・GraphRAGを、クラウド環境で要件定義から本番運用まで構築する開発会社です。';
@@ -30,19 +36,20 @@ export const ragDeploymentModes = [
 
 export const ragPricingPhases = [
   {
-    phase: '検証用デモ（ゼロスタート）',
+    phase: '検証用の叩き台（ゼロスタート）',
     price: '0円',
-    scope: 'NDA締結後に実データを確認し、対象を絞った検索・回答のデモを作成',
+    scope:
+      'NDA締結後に1部署の実文書 数十〜数百件を投入し、ハイブリッド検索、引用元つき回答、資料に無いことは答えない判定まで動かす。実際の業務質問10〜20問で当て感を確認',
   },
   {
     phase: 'PoC',
     price: '準委任（月額）',
-    scope: 'デモで望みが見えた場合のみ。検索方式、回答品質、権限、更新方法を実データで検証',
+    scope: `叩き台で望みが見えた場合のみ。全量データ、検索方式の比較、評価セット、権限、更新方法を実データで検証。目安: ${RAG_POC_ESTIMATE}`,
   },
   {
     phase: '本番開発',
     price: '準委任（月額）',
-    scope: '検索基盤、画面、認証、権限、ログ、既存システム連携まで実装',
+    scope: `検索基盤、画面、認証、権限、ログ、既存システム連携まで実装。PoCから本番展開までの全体は、多くの案件で${RAG_PROJECT_ESTIMATE}`,
   },
   {
     phase: '継続運用',
@@ -195,8 +202,7 @@ export const ragService: ServiceDetail = {
     },
     {
       question: 'RAGシステムの構築費用を教えてください',
-      answer:
-        '固定の価格表は置いていません。NDA締結後に実データを確認し、0円で検証用デモを作ってから、望みがある場合だけPoCへ進みます。PoC以降は準委任（月額）で、単価は職種別に公開しています。デモで分かったデータの量と形式、連携先、権限、評価範囲をもとに、確かめる範囲と体制を再見積もりして提示します。',
+      answer: `固定の価格表は置いていません。NDA締結後に実データを確認し、1部署の実文書で検索と引用元つき回答が動く叩き台を0円で作ってから、望みがある場合だけPoCへ進みます。PoC以降は準委任（月額）で、単価は職種別に公開しています。モデルケースのPoCは${RAG_POC_ESTIMATE}です。PoCから本番展開までの全体は、多くの案件で${RAG_PROJECT_ESTIMATE}。判断の軸として置いている数字で、叩き台で分かったデータの量と形式、連携先、権限、評価範囲をもとに、確かめる範囲と体制を再見積もりして提示します。`,
     },
     {
       question: 'PoCと本番開発は分けて依頼できますか？',
