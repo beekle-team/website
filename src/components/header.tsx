@@ -70,9 +70,11 @@ const mobileSections: { heading: string; items: { label: string; href: string }[
 function Dropdown({
   label,
   items,
+  align = 'left',
 }: {
   label: string;
   items: { label: string; href: string }[];
+  align?: 'left' | 'right';
 }) {
   return (
     <li className="group relative">
@@ -94,7 +96,9 @@ function Dropdown({
       {/* マウスは hover、キーボードは トリガーの focus-visible とパネル内の focus-within で開く。
           group-focus-within にすると、クリックでボタンにフォーカスが残ったとき、
           カーソルを離してもパネルが開いたままになる（2026-09-06 のバグ報告の原因）。 */}
-      <div className="invisible absolute left-0 top-full z-50 w-72 pt-2 opacity-0 transition-opacity focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100 peer-focus-visible:visible peer-focus-visible:opacity-100">
+      <div
+        className={`invisible absolute ${align === 'right' ? 'right-0' : 'left-0'} top-full z-50 w-72 pt-2 opacity-0 transition-opacity focus-within:visible focus-within:opacity-100 group-hover:visible group-hover:opacity-100 peer-focus-visible:visible peer-focus-visible:opacity-100`}
+      >
         <div className="rounded-lg border border-neutral-200 bg-white py-2">
           {items.map((item) => (
             <a
@@ -221,7 +225,7 @@ export function Header() {
             </a>
           </li>
           <Dropdown label="判断材料" items={knowledgeItems} />
-          <Dropdown label="会社情報" items={aboutItems} />
+          <Dropdown label="会社情報" items={aboutItems} align="right" />
           <li>
             <a
               href="/contact?source=header-desktop"
