@@ -49,7 +49,7 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
           {config?.eyebrow ?? 'Beekle のサービス'}
         </span>
         <h1
-          class="mt-6 max-w-4xl text-balance text-3xl font-bold leading-tight text-navy-950 [word-break:keep-all] md:text-5xl lg:text-5xl"
+          class="mt-6 max-w-4xl text-balance text-3xl font-bold leading-tight text-navy-950 md:text-5xl lg:text-5xl"
         >
           {resolvedCopy.headline}
         </h1>
@@ -77,7 +77,7 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
             </div>
           )
         }
-        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <a
             href={`/contact?source=services-${service.id}-hero&intent=${contactIntent}`}
             data-cta-source={`services-${service.id}-hero`}
