@@ -20,7 +20,7 @@ const visualName =
   serviceReadingVisuals[Astro.url.pathname.split('/').filter(Boolean).pop() ?? '']?.pain;
 ---
 <section id="pain-points" class="relative bg-neutral-50 py-16 md:py-20">
-  <div class="container mx-auto px-6 lg:px-12">
+  <div class="container mx-auto px-8 lg:px-12">
     <SectionHeader title={title} subtitle={subtitle} number={number} />
     {visualName ? <>
       <ReadingVisual name={visualName} />

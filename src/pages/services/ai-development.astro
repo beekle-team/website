@@ -419,9 +419,9 @@ const faq = [
     </Section>
 
     <section class="bg-neutral-50 py-16">
-      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+      <div class="container mx-auto px-8 lg:px-12">
         <h2 class="mb-6 text-3xl font-bold leading-snug text-accent-950">AIに任せる作業と、人が確認する作業</h2>
-        <ServiceFigure name="document-review-v2" alt="帳票をAIで読み取り、担当者が原本と照合して登録する業務の流れ" caption="生成AI開発の一例が帳票処理です。Beekleは、項目の読み取りだけでなく、確認が必要な項目の表示と既存システムへの登録まで設計します。自動化できる範囲は実データで確かめます。" />
+        <ServiceFigure name="document-review-v2" alt="帳票をスキャンし、画面で内容を確認してから業務システムへ登録するまでの様子を表したイラストです。画像内に文字はありません。" caption="生成AI開発の一例が帳票処理です。Beekleは、項目の読み取りだけでなく、確認が必要な項目の表示と既存システムへの登録まで設計します。自動化できる範囲は実データで確かめます。" />
       </div>
     </section>
 
@@ -476,7 +476,7 @@ const faq = [
     <Section id="plan-pricing" padding="sm" variant="white" decoration="none" containerClass="mx-auto max-w-6xl">
       <p class="eyebrow">費用と契約の流れ</p>
       <h2 class="section-title">0円のデモで確かめてから、<br class="sm:hidden" />準委任で進める。</h2>
-      <div class="mx-auto my-8 max-w-3xl"><ServiceFigure name="delivery-scope-v2" alt="無料デモで入力・保存、業務ロジック、結果の確認を実装し、確認後に有料の検証・本開発へ進む流れ" caption="Beekleのゼロスタートでは、対象業務に必要な画面と業務ロジックを実装し、動くデモで開発を進めるか判断します。AI DXはまず1業務から始めます。本番向けの品質・精度の検証、連携や機能の拡張、運用の整備は、範囲と費用を合意して進めます。" /></div>
+      <div class="mx-auto my-8 max-w-3xl"><ServiceFigure name="delivery-scope-v2" alt="ゼロスタートから本番開発へ進みます。無料デモではまず1業務を動く形にし、入力・保存、業務ロジック、結果の確認までを実装して開発の判断に使います。実物を確認して進め方と費用を合意した後、有料の検証・本開発では品質・精度の検証、連携・機能の拡張、本番運用の整備へ進みます。具体的な対象範囲は事前に合意します。" caption="Beekleのゼロスタートでは、対象業務に必要な画面と業務ロジックを実装し、動くデモで開発を進めるか判断します。AI DXはまず1業務から始めます。本番向けの品質・精度の検証、連携や機能の拡張、運用の整備は、範囲と費用を合意して進めます。" /></div>
       <p class="copy mb-8 mt-5 max-w-2xl">まずお金を払って確かめる進め方はとりません。NDA締結後に実データでデモを作り、双方が判断してから、望みのある案件だけPoCへ。範囲を狭める・方式を変える・見送る判断も、その都度できます。</p>
       <div class="divide-y divide-neutral-200 border-y border-neutral-300">
         {pricePlans.map((item) => (
