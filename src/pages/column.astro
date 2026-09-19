@@ -127,7 +127,7 @@ const columnCategories = categories
     {/* API Error - ユーザーには汎用メッセージのみ表示 */}
     {apiError && (
       <section class="py-8">
-        <div class="container mx-auto px-6 md:px-8">
+        <div class="container mx-auto px-8 lg:px-12">
           <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-8 text-center">
             <p class="text-gray-600">現在コンテンツを読み込めません。しばらくしてから再度お試しください。</p>
           </div>
@@ -137,7 +137,7 @@ const columnCategories = categories
 
     {/* Column Categories */}
     <section id="categories" class="border-b border-neutral-300 bg-neutral-100 py-16 md:py-24">
-      <div class="container mx-auto px-6 md:px-8">
+      <div class="container mx-auto px-8 lg:px-12">
         {columnCategories.map((category) => (
           <div id={category.id} class="mb-20 scroll-mt-24">
             {/* Category Header */}
@@ -246,7 +246,7 @@ const columnCategories = categories
 
     {/* Quick Navigation */}
     <section class="border-y border-neutral-300 bg-neutral-50 py-12">
-      <div class="container mx-auto px-6 md:px-8">
+      <div class="container mx-auto px-8 lg:px-12">
         <h3 class="text-xl font-bold text-gray-900 mb-6 text-center">カテゴリーから探す</h3>
         <div class="flex flex-wrap justify-center gap-4">
           {columnCategories.map((category) => (
@@ -264,7 +264,7 @@ const columnCategories = categories
     {/* Templates & Checklists */}
     <section class="relative py-20 md:py-28 bg-accent-950 text-white overflow-hidden">
 
-      <div class="container mx-auto px-6 md:px-8 relative">
+      <div class="container mx-auto px-8 lg:px-12 relative">
         <div class="max-w-3xl mx-auto text-center mb-16">
           <span class="mb-6 inline-flex items-center rounded-md border border-white/20 bg-white/10 px-4 py-2 text-sm font-medium">
             Templates & Checklists
@@ -374,7 +374,7 @@ const columnCategories = categories
     {/* CTA Section - Zero Start */}
     <section class="relative overflow-hidden bg-navy-950 py-20 md:py-28">
 
-      <div class="container mx-auto px-6 md:px-8 relative">
+      <div class="container mx-auto px-8 lg:px-12 relative">
         <div class="max-w-4xl mx-auto text-center">
           <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
             知識を得たら、次は<br class="md:hidden" />
