@@ -30,7 +30,10 @@ function normalize(classList) {
   const before = classList.slice(0, firstIndex).replace(/\s+$/, '');
   const afterRaw = classList.slice(firstIndex).replace(PX_TOKEN_RE, '').trim();
   const parts = [before, STANDARD, afterRaw].filter(Boolean);
-  return parts.join(' ').replace(/\s{2,}/g, ' ').trim();
+  return parts
+    .join(' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
 }
 
 function walk(dir, files = []) {
