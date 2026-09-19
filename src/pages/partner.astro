@@ -232,12 +232,12 @@ const caseRows = [
           </div>
           <div class="border-t border-neutral-300">
             {faqs.map((item) => (
-              <details class="border-b border-neutral-300 py-5">
-                <summary class="cursor-pointer list-none text-lg font-bold text-accent-950 [&::-webkit-details-marker]:hidden">
+              <article class="border-b border-neutral-300 py-5">
+                <h3 class="text-lg font-bold text-accent-950">
                   {item.question}
-                </summary>
+                </h3>
                 <p class="mt-3 text-sm leading-relaxed text-neutral-700">{item.answer}</p>
-              </details>
+              </article>
             ))}
           </div>
         </div>

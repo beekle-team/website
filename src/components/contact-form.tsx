@@ -557,11 +557,8 @@ const ContactForm = ({ sitekey }: ContactFormProps) => {
           </p>
         </div>
 
-        <details className="group">
-          <summary className="cursor-pointer text-base font-medium text-foreground/70 hover:text-primary-500 select-none list-none flex items-center gap-2">
-            <span className="text-primary-500 group-open:rotate-90 transition-transform">▶</span>
-            電話番号も記入する（任意）
-          </summary>
+        <div>
+          <p className="text-base font-medium text-foreground/70">電話番号（任意）</p>
           <div className="space-y-6 mt-4 pl-4 border-l-2 border-primary-100">
             <div>
               <label
@@ -581,7 +578,7 @@ const ContactForm = ({ sitekey }: ContactFormProps) => {
               />
             </div>
           </div>
-        </details>
+        </div>
 
         <input type="hidden" name="to_name" value="管理者" />
 

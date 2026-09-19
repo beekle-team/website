@@ -358,8 +358,8 @@ const faq = [
             <p class="mt-4 border-l-4 border-primary-500 pl-4 text-base font-bold leading-8 text-primary-900">選ぶべきは、業務と数字で<br class="hidden sm:block" />「何をもって成功か」を決められる会社です。</p>
           </div>
         </div>
-        <details class="disclosure mx-6 border-b-0 md:mx-8">
-          <summary>調査の出典・数字の読み方 <span aria-hidden="true">＋</span></summary>
+        <div class="disclosure mx-6 border-b-0 md:mx-8">
+          <h3 class="disclosure-title">調査の出典・数字の読み方</h3>
           <div class="disclosure-body space-y-3 text-sm leading-7 text-neutral-700">
             <p>95%は「The GenAI Divide: State of AI in Business 2025」（2025年7月）の著者による報告です。2025年1〜6月の公開施策300件超の分析、52組織への聞き取り、幹部153人への調査に基づきます。本文は業務への組み込みや損益への効果の難しさを指摘し、標本数・成功の定義が組織により異なることも明記しています。</p>
             <p>一方、Wharton・GBKの2025年調査では、約4分の3のリーダーが生成AI投資へのプラスのリターンを報告しています。調査対象・測定方法の異なる数字を、単一の「AI導入の成功率・失敗率」として扱うことはできません。</p>
@@ -370,7 +370,7 @@ const faq = [
               <a href="https://knowledge.wharton.upenn.edu/special-report/2025-ai-adoption-report/" target="_blank" rel="noopener noreferrer" class="text-link text-sm">Wharton：2025年の生成AI導入調査 <span aria-hidden="true">↗</span></a>
             </div>
           </div>
-        </details>
+        </div>
       </div>
 
       <p class="mt-10 text-xl font-bold leading-relaxed text-accent-950">小さく試して、早く見極める。<br class="sm:hidden" />ダメなら、そこで止められる。</p>
@@ -395,14 +395,14 @@ const faq = [
               {['業務の目的', '要件・合格条件', '実装・テスト', '本番の業務へ'].map((step, index) => <li class="border-l-2 border-primary-300 bg-neutral-50 px-3 py-3"><span class="block text-sm font-bold text-primary-600">0{index + 1}</span><span class="mt-1 block text-sm font-semibold leading-6 text-accent-950">{step}</span></li>)}
             </ol>
             <p class="mt-4 text-sm leading-7 text-neutral-700">自社開発の「PM on Rails」で、「なぜ作るか」と「何ができたら完成か」を仕様・実装・テストに結びつけます。デモで見つかった認識のズレも要件に戻し、同じチームが画面・システム連携・本番運用まで引き継ぎます。</p>
-            <details class="disclosure mt-4">
-              <summary>精度・手戻り・運用の問題にどう備えるか <span aria-hidden="true">＋</span></summary>
+            <div class="disclosure mt-4">
+              <h3 class="disclosure-title">精度・手戻り・運用の問題にどう備えるか</h3>
               <div class="disclosure-body space-y-3 text-sm leading-7 text-neutral-700">
                 <p><strong>精度は、実データで確認。</strong>正解例・NG例・境界例と合格条件を用意し、不確実な部分だけをPoCにします。AIが答えず人に戻す条件も決めます。</p>
                 <p><strong>変更は、理由とテストまで追跡。</strong>何のために作るかと受入条件を結びつけ、変更時に直す範囲と確認項目を追います。</p>
                 <p><strong>本番の前後工程まで設計。</strong>権限、既存システムとの連携、人の確認画面、ログ、運用費を含めて、現場で使い続けられる形にします。</p>
               </div>
-            </details>
+            </div>
           </div>
         </div>
       </div>
@@ -489,15 +489,15 @@ const faq = [
           </div>
         ))}
       </div>
-      <details class="disclosure mt-5">
-        <summary>デモ後のPoCで過去に提案した例と、費用が変わる条件 <span aria-hidden="true">＋</span></summary>
+      <div class="disclosure mt-5">
+        <h3 class="disclosure-title">デモ後のPoCで過去に提案した例と、費用が変わる条件</h3>
         <div class="disclosure-body">
           <ul class="space-y-3 text-sm leading-7 text-neutral-700">{proposalExamples.map((item) => <li>{item}</li>)}</ul>
           <p class="mt-4 text-sm leading-relaxed text-neutral-600">デモ後に準委任で進んだ場合の規模感の参考です。過去の提案額であり、同じ金額・期間を保証するものではありません。</p>
-          <h3 class="mt-6 font-bold text-accent-950">費用が変わる主な条件</h3>
+          <h4 class="mt-6 font-bold text-accent-950">費用が変わる主な条件</h4>
           <p class="mt-3 text-sm leading-7 text-neutral-700">{productionCostFactors.join('、')}</p>
         </div>
-      </details>
+      </div>
       <a href="/contact?source=services-ai-development-price&intent=ai-development" data-cta-source="services-ai-development-price" data-cta-id="contact" class="text-link mt-5">自社の場合の検証範囲と費用を相談する <span aria-hidden="true">→</span></a>
     </Section>
 
@@ -527,21 +527,21 @@ const faq = [
         <h3 class="text-xl font-bold text-accent-950">本番に入ってからも、改善を続けます。</h3>
         <p class="copy mt-3 max-w-3xl">新しい失敗例を評価データへ戻し、回答品質を再確認。文書・モデル・利用量の変化に合わせて、精度と運用費を見直します。</p>
         <div class="mt-5">
-          <details class="disclosure">
-            <summary>納品物・保守運用の範囲 <span aria-hidden="true">＋</span></summary>
+          <div class="disclosure">
+            <h4 class="disclosure-title">納品物・保守運用の範囲</h4>
             <div class="disclosure-body grid gap-6 md:grid-cols-2">
               <div><h4 class="font-bold text-accent-950">お渡しするもの</h4><ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-neutral-700">{deliverables.map((item) => <li>{item}</li>)}</ul></div>
               <div><h4 class="font-bold text-accent-950">継続して支援すること</h4><ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-neutral-700">{operations.map((item) => <li>{item}</li>)}</ul></div>
             </div>
-          </details>
-          <details class="disclosure border-t-0">
-            <summary>対応技術・構成の考え方 <span aria-hidden="true">＋</span></summary>
+          </div>
+          <div class="disclosure border-t-0">
+            <h4 class="disclosure-title">対応技術・構成の考え方</h4>
             <div class="disclosure-body space-y-4 text-sm leading-7 text-neutral-700">
               {capabilities.filter((item) => 'technologies' in item).map((item) => <p><strong>{item.title}</strong><br />{'technologies' in item && item.technologies}</p>)}
               <p>通常RAGで必要な品質に届くなら、構成を複雑にしません。複数の情報の関係をたどる必要がある場合はGraphRAGも検討します。モデルやインフラは、データの扱い・利用量・運用体制から選びます。</p>
               <p>権限、回答の参照元、AIが答えず人に戻す条件、重要操作の承認とログを、業務に合わせて設計します。</p>
             </div>
-          </details>
+          </div>
         </div>
       </div>
     </Section>
@@ -555,18 +555,18 @@ const faq = [
         </div>
         <div>
           {faq.map((item) => (
-            <details class="disclosure -mt-px first:mt-0">
-              <summary>{item.question}<span aria-hidden="true">＋</span></summary>
+            <article class="disclosure -mt-px first:mt-0">
+              <h3 class="disclosure-title">{item.question}</h3>
               <p class="disclosure-body copy">{item.answer}</p>
-            </details>
+            </article>
           ))}
-          <details class="disclosure mt-5">
-            <summary>発注先・費用・進め方を詳しく調べる <span aria-hidden="true">＋</span></summary>
+          <aside class="disclosure mt-5">
+            <h3 class="disclosure-title">発注先・費用・進め方を詳しく調べる</h3>
             <div class="disclosure-body flex flex-col items-start gap-2">
               {relatedColumns.map((column) => <a href={`/column/${column.slug}`} class="text-link text-sm">{column.title} <span aria-hidden="true">→</span></a>)}
               <a href="/demos" class="text-link text-sm">すべてのAIデモを見る <span aria-hidden="true">→</span></a>
             </div>
-          </details>
+          </aside>
         </div>
       </div>
     </Section>
@@ -617,22 +617,13 @@ const faq = [
   .disclosure {
     @apply border-y border-neutral-200;
   }
-  .disclosure > summary {
-    @apply flex min-h-[52px] cursor-pointer list-none items-center justify-between gap-5 py-4 font-semibold leading-7 text-accent-950;
-  }
-  .disclosure > summary::-webkit-details-marker {
-    display: none;
-  }
-  .disclosure > summary > span {
-    @apply shrink-0 text-xl font-normal text-primary-600;
-  }
-  .disclosure[open] > summary > span {
-    transform: rotate(45deg);
+  .disclosure-title {
+    @apply py-4 font-semibold leading-7 text-accent-950;
   }
   .disclosure-body {
     @apply border-t border-neutral-200 py-5;
   }
-  .ai-development :is(a, summary):focus-visible {
+  .ai-development a:focus-visible {
     @apply outline outline-2 outline-offset-4 outline-primary-500;
   }
   .section-title.text-white, .text-link.text-white {

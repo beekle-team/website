@@ -24,10 +24,10 @@ const visualName =
     <SectionHeader title={title} subtitle={subtitle} number={number} />
     {visualName ? <>
       <ReadingVisual name={visualName} />
-      <details class="mx-auto mt-6 max-w-4xl rounded-lg border border-neutral-300 bg-white p-5 md:p-6">
-        <summary class="cursor-pointer py-2 text-lg font-bold text-accent-950">課題と確認項目の詳細</summary>
+      <div class="mx-auto mt-6 max-w-4xl rounded-lg border border-neutral-300 bg-white p-5 md:p-6">
+        <h3 class="py-2 text-lg font-bold text-accent-950">課題と確認項目</h3>
         <div class="mt-6"><InformationMap label="確認する課題" items={painPoints} caption="現状の課題を整理した図です。該当する業務と、発生する頻度・確認にかかる手間を相談時に確認します。" /></div>
-      </details>
+      </div>
     </> : <InformationMap label="確認する課題" items={painPoints} caption="現状の課題を整理した図です。該当する業務と、発生する頻度・確認にかかる手間を相談時に確認します。" />}
 
   </div>
