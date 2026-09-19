@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // container mx-auto の手書きpaddingがSection標準(px-8 lg:px-12)からズレていないか検査する。
 // レイアウトぐちゃぐちゃ事故(2026-09, PR #249)の再発防止。
-import { readdirSync, readFileSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync } from 'node:fs';
 import { extname, join } from 'node:path';
 
 const ROOT = join(import.meta.dirname, '..', 'src');
@@ -9,7 +9,8 @@ const TARGET_EXT = new Set(['.astro', '.tsx']);
 // Section コンポーネント自体は標準の定義元なので対象外
 const EXCLUDE = new Set([join(ROOT, 'components', 'ui', 'section.tsx')]);
 
-const CONTAINER_RE = /class(?:Name)?=(?:"|'|\{`|\{cn\(\s*")([^"'`]*?\bcontainer\b[^"'`]*?)(?:"|'|`)/g;
+const CONTAINER_RE =
+  /class(?:Name)?=(?:"|'|\{`|\{cn\(\s*")([^"'`]*?\bcontainer\b[^"'`]*?)(?:"|'|`)/g;
 const PADDING_RE = /\bpx-(\d+)(?:\s+lg:px-(\d+))?\b/;
 const EXPECTED = { base: '8', lg: '12' };
 
@@ -50,11 +51,15 @@ for (const file of walk(ROOT)) {
 }
 
 if (violations.length > 0) {
-  console.error('container 幅の不整合を検出しました（Section コンポーネントの標準 px-8 lg:px-12 に揃えてください）:\n');
+  console.error(
+    'container 幅の不整合を検出しました（Section コンポーネントの標準 px-8 lg:px-12 に揃えてください）:\n'
+  );
   for (const v of violations) {
     console.error(`  ${v.file}:${v.line} - ${v.reason}`);
   }
-  console.error(`\n${violations.length} 件。手書きの container mx-auto div を書かず、可能なら Section コンポーネントを使ってください。`);
+  console.error(
+    `\n${violations.length} 件。手書きの container mx-auto div を書かず、可能なら Section コンポーネントを使ってください。`
+  );
   process.exit(1);
 } else {
   console.log('container 幅チェック: 問題なし');
