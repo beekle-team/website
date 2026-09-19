@@ -96,15 +96,15 @@ const relatedGuides = [
   <main class="bg-neutral-100 pt-20">
     <ServiceHero service={service} config={heroConfig} />
 
-    <nav aria-label="このページの内容" class="container mx-auto flex flex-wrap gap-x-6 px-6 py-5 text-sm font-bold text-primary-700">
+    <nav aria-label="このページの内容" class="container mx-auto flex flex-wrap gap-x-6 px-8 py-5 text-sm font-bold text-primary-700 lg:px-12">
       <a href="#use-cases" class="inline-flex min-h-[44px] items-center underline underline-offset-4">活用例</a>
       <a href="#search-flow" class="inline-flex min-h-[44px] items-center underline underline-offset-4">検索の仕組み</a>
       <a href="#service-scope" class="inline-flex min-h-[44px] items-center underline underline-offset-4">費用と進め方</a>
     </nav>
     <section id="search-flow" class="scroll-mt-24 bg-white py-16">
-      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+      <div class="container mx-auto px-8 lg:px-12">
         <h2 class="mb-6 text-3xl font-bold leading-snug text-accent-950">質問から、根拠を確認するまで</h2>
-        <ServiceFigure name="rag-answer-flow-v1" alt="質問、資料検索、回答と出典の表示、担当者の確認というRAGの4段階" caption="RAGは社内資料を検索し、見つかった情報を根拠に回答を作る仕組みです。Beekleは、質問する人の権限や文書の版を考慮し、担当者が回答と出典を確認できる検索システムを構築します。資料に根拠がない質問への対応も設計します。" />
+        <ServiceFigure name="rag-answer-flow-v1" alt="社内資料から根拠を確かめられる回答へつなげます。質問(例: 「この部品は使える？」)に対し仕様書・対応履歴などの資料を探し、回答案と参照した資料をあわせて表示し、担当者が条件と根拠を確認して使います。" caption="RAGは社内資料を検索し、見つかった情報を根拠に回答を作る仕組みです。Beekleは、質問する人の権限や文書の版を考慮し、担当者が回答と出典を確認できる検索システムを構築します。資料に根拠がない質問への対応も設計します。" />
       </div>
     </section>
     <Section id="use-cases" variant="light" padding="md" decoration="none">
