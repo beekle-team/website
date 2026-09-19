@@ -11,8 +11,9 @@ const EXCLUDE = new Set([join(ROOT, 'components', 'ui', 'section.tsx')]);
 
 const CONTAINER_RE =
   /class(?:Name)?=(?:"|'|\{`|\{cn\(\s*")([^"'`]*?\bcontainer\b[^"'`]*?)(?:"|'|`)/g;
-const PADDING_RE = /\bpx-(\d+)(?:\s+lg:px-(\d+))?\b/;
-const EXPECTED = { base: '8', lg: '12' };
+// 他のレスポンシブユーティリティ(grid-cols等)が間に挟まっていても px-* トークンを順不同で拾う
+const PX_TOKEN_RE = /(?:^|\s)(?:[a-z0-9]+:)?px-\d+/g;
+const STANDARD = 'px-8 lg:px-12';
 
 function walk(dir, files = []) {
   for (const entry of readdirSync(dir)) {
@@ -34,16 +35,19 @@ for (const file of walk(ROOT)) {
   while (match !== null) {
     const classList = match[1];
     if (/\bcontainer\b/.test(classList) && /\bmx-auto\b/.test(classList)) {
-      const padding = classList.match(PADDING_RE);
+      const tokens = classList.match(PX_TOKEN_RE);
       const line = content.slice(0, match.index).split('\n').length;
-      if (!padding) {
+      if (!tokens) {
         violations.push({ file, line, reason: 'container mx-auto に px-* が見つかりません' });
-      } else if (padding[1] !== EXPECTED.base || padding[2] !== EXPECTED.lg) {
-        violations.push({
-          file,
-          line,
-          reason: `px-${padding[1]}${padding[2] ? ` lg:px-${padding[2]}` : ''} は標準 (px-8 lg:px-12) と異なります`,
-        });
+      } else {
+        const joined = tokens.join(' ').replace(/\s+/g, ' ').trim();
+        if (joined !== STANDARD) {
+          violations.push({
+            file,
+            line,
+            reason: `${joined} は標準 (${STANDARD}) と異なります`,
+          });
+        }
       }
     }
     match = CONTAINER_RE.exec(content);

@@ -1,7 +1,7 @@
 export function ValueSection() {
   return (
     <section id="value" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-12">
         <h2 className="text-3xl font-bold text-center mb-12">OUR VALUE</h2>
         <p className="text-lg text-center max-w-3xl mx-auto leading-relaxed">
           求められるものをただ作るのではなく

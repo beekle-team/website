@@ -154,7 +154,7 @@ const TestimonialSection: React.FC = () => {
 
   return (
     <section className="py-16 bg-neutral-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-8 lg:px-12">
         <div className="flex flex-wrap justify-center gap-2 mb-8">
           <button
             type="button"

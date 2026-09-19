@@ -119,7 +119,7 @@ function Dropdown({
 export function Header() {
   return (
     <header className="fixed z-50 w-full border-b border-neutral-200 bg-white/90 backdrop-blur-sm">
-      <nav className="container mx-auto flex items-center justify-between px-4 py-4">
+      <nav className="container mx-auto flex items-center justify-between px-8 lg:px-12 py-4">
         <a href="/" className="flex min-h-[44px] flex-shrink-0 items-center space-x-2">
           <img src="/logo.png" alt="logo" width={640} height={166} className="h-9 w-auto" />
         </a>
