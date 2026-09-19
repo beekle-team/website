@@ -16,6 +16,7 @@
     "check:all": "biome check .",
     "check:rules": "biome check --rules",
     "check:ci": "biome ci .",
+    "check:container-width": "node scripts/check-container-width.mjs",
     "biome:init": "biome init",
     "test": "vitest",
     "test:ci": "vitest run",

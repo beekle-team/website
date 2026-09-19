@@ -37,6 +37,14 @@ import { Button, Card, Section, SectionHeader } from '@/components/ui';
 - `dots` - ドット装飾
 - `none` - 装飾なし
 
+## container mx-auto の幅は px-8 lg:px-12 で統一する（2026-09-19 事故対応）
+
+`Section` コンポーネントの標準は `container mx-auto px-8 lg:px-12`。ページ内で `<div class="container mx-auto ...">` を手書きするとき、`px-6 lg:px-12` 等の別値を混ぜると同一ページ内でコンテナ幅がズレて「レイアウトぐちゃぐちゃ」に見える（本文と見出しの左右端が揃わない）。
+
+- 事例: `/prooffirst` と全サービスページ配下 24ファイルで `px-6 lg:px-12` が混在し本番で目視できるレベルの崩れが発生。PR #249 で `px-8 lg:px-12` に統一。
+- 新しいセクションを書く時は、まず `Section` コンポーネントで書けないか検討する。やむを得ず手書きする時は `container mx-auto px-8 lg:px-12` にする。
+- 検証: `bun run check:container-width`（`scripts/check-container-width.mjs`）で `container mx-auto` を持つ全 `.astro`/`.tsx` の padding を機械チェックできる。**CI には未接続**（PR #249 修正時点で対象外の86箇所が残っており、strict化すると無関係なPRを巻き込んで壊れるため）。既存の残債を段階的に潰してから `check:ci` に組み込む。
+
 ## React Component Pattern
 
 ```tsx
