@@ -29,7 +29,7 @@ describe('AI導入・経営DX支援', () => {
     const servicePage = readSource('../components/services/ai-dx-service-page.astro');
 
     expect(servicePage).toContain('const spotPlan: Plan = {');
-    expect(servicePage).toContain("name: 'AI・経営DX診断'");
+    expect(servicePage).toContain("name: '開発検討のための無料デモ'");
     expect(servicePage).toContain("price: '無料'");
     expect(servicePage).not.toContain("price: '400,000'");
     expect(servicePage).toContain('まず実データで使えるか確かめたい方へ');

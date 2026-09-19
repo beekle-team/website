@@ -3,6 +3,7 @@ import { CTASection } from '@/components/process-cta-section';
 import { ProcessFAQ } from '@/components/process-faq-section';
 // src/pages/process.astro
 import { ProcessSteps } from '@/components/process-steps';
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { PageHero } from '../components/ui/page-hero';
@@ -39,6 +40,8 @@ import Layout from '../layouts/layout.astro';
       title="導入の流れ"
       subtitle="お問い合わせから運用開始まで、段階的に進めていきます"
     />
+    <PageExplainer name="home-decision-v1" />
+
     <ProcessSteps client:visible />
     <ProcessFAQ client:visible />
     <CTASection client:visible source="process-final" />

@@ -1,0 +1,19 @@
+---
+import ServiceFigure from '@/components/services/service-figure.astro';
+import { ZERO_START_SCOPE_RULE } from '@/data/engagement-pricing';
+---
+
+<section id="service-scope" class="scroll-mt-24 border-y border-neutral-200 bg-neutral-50 py-16 md:py-20">
+  <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+    <h2 class="text-3xl font-bold leading-snug text-accent-950 md:text-4xl">無料で確かめる範囲と、有料で作る範囲</h2>
+    <p class="mt-5 text-base leading-relaxed text-neutral-700">開発をご検討の方に、対象を絞った無料デモをご提案します。PoC（実現性や精度の検証）以降は、担当者の単価・人数・期間をもとに費用を見積もり、契約後に進めます。</p>
+    <div class="mt-8">
+      <ServiceFigure
+        name="delivery-scope-v2" alt="無料デモで入力・保存、業務ロジック、結果の確認を実装し、確認後に有料の検証・本開発へ進む流れ" caption="Beekleのゼロスタートでは、対象業務に必要な画面と業務ロジックを実装し、動くデモで開発を進めるか判断します。AI DXはまず1業務から始めます。本番向けの品質・精度の検証、連携や機能の拡張、運用の整備は、範囲と費用を合意して進めます。"
+      />
+    </div>
+    <p class="mt-6 text-base leading-relaxed text-neutral-700">{ZERO_START_SCOPE_RULE}</p>
+    <p class="mt-4 text-sm leading-relaxed text-neutral-600">データの状態と実現性を確認し、無料デモの対象範囲を事前に合意します。経営課題や導入方針を整理する有料コンサルティングとは別のサービスです。</p>
+    <a href="/strengths#rates" class="mt-5 inline-flex min-h-[44px] items-center text-base font-bold text-primary-700 underline underline-offset-4">職種別の単価と料金の考え方を見る</a>
+  </div>
+</section>

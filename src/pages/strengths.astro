@@ -1,4 +1,6 @@
 ---
+import ServiceFigure from '@/components/services/service-figure.astro';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { testimonialData } from '../components/testimonial-section';
@@ -360,6 +362,8 @@ const faqItems = [
         </div>
 
         <!-- 2. 主要な実績数字（要約。詳細は #proof） -->
+        <div>
+        <ReadingVisual name="decision-materials-v1" eager />
         <div class="case-log-table border-t border-neutral-300">
           <p class="border-b border-neutral-300 py-3 text-sm font-bold text-primary-700">実案件ログ</p>
           {proofSummary.map((item) => (
@@ -368,6 +372,7 @@ const faqItems = [
               <p class="text-xl font-bold leading-tight text-primary-500 md:text-2xl">{item.value}</p>
             </a>
           ))}
+        </div>
         </div>
       </div>
     </section>
@@ -392,7 +397,9 @@ const faqItems = [
                 <p class="text-sm font-bold text-primary-700">{item.label}</p>
                 <p class="mt-1 text-2xl font-bold leading-tight text-primary-500">{item.value}</p>
               </div>
-              <dl>
+              <details class="p-5">
+                <summary class="cursor-pointer py-2 font-bold text-accent-950">課題・対応・結果を詳しく見る</summary>
+              <dl class="mt-4">
                 {item.rows.map((row) => (
                   <div class="grid gap-1 border-b border-neutral-200 px-5 py-4 md:grid-cols-[152px_1fr] md:gap-4">
                     <dt class="text-sm font-bold text-neutral-500">{row.key}</dt>
@@ -427,6 +434,7 @@ const faqItems = [
                   </div>
                 )}
               </dl>
+              </details>
             </article>
           ))}
         </div>
@@ -444,6 +452,7 @@ const faqItems = [
           <p class="mt-4 text-base leading-relaxed text-neutral-700">
             何でも作る前提ではなく、判断材料が足りない段階の相談に向いています。
           </p>
+          <ReadingVisual name="unclear-scope-v1" />
         </div>
 
         <div class="mt-8 grid gap-8 border-y border-neutral-300 py-6 lg:grid-cols-2">
@@ -473,6 +482,13 @@ const faqItems = [
     </section>
 
     <!-- 4. 他の選択肢との違い -->
+    <section class="bg-neutral-50 py-16">
+      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+        <h2 class="mb-6 text-3xl font-bold text-accent-950">動く画面で認識を合わせ、手戻りを減らす</h2>
+        <ServiceFigure name="prototype-review-v2" alt="業務整理、プロトタイプの確認、開発範囲の合意というBeekleの進め方" caption="Beekleは、業務と要望を整理したうえで、動く画面を使って認識のずれを確認します。確認結果を仕様と完成条件に反映し、合意した範囲から開発を進めます。" />
+      </div>
+    </section>
+
     <section id="comparison" class="scroll-mt-28 bg-neutral-50 py-14 md:py-16">
       <div class="container mx-auto px-8 lg:px-12">
         <div class="max-w-3xl">
@@ -568,6 +584,7 @@ const faqItems = [
             <p class="mt-4 text-base leading-relaxed text-neutral-700">
               サービス名や技術名を決める前に、社内で合意しやすい材料へ変換します。
             </p>
+            <ReadingVisual name="home-decision-v1" />
           </div>
 
           <div class="decision-sheet-table border-y border-neutral-300 bg-white">
@@ -605,6 +622,7 @@ const faqItems = [
             <p class="mt-4 text-base leading-relaxed text-neutral-700">
               要件定義を先に完成させようとせず、短く動くものを出し、そこで見えたズレを要件へ戻します。
             </p>
+            <ReadingVisual name="prototype-feedback-v1" />
           </div>
 
           <div class="border-t border-neutral-300">
@@ -634,6 +652,7 @@ const faqItems = [
             <p class="mt-4 text-base leading-relaxed text-neutral-700">
               判断に必要な要約だけを置いています。金額は対象業務、データの状態、連携するシステムで変わるため、この表だけで自社の金額は決まりません。条件の詳細は下の記事にまとめています。
             </p>
+            <ReadingVisual name="reuse-foundation-v1" />
           </div>
 
           <div>
@@ -800,5 +819,6 @@ const faqItems = [
         </div>
       </div>
     </section>
+
   </main>
 </Layout>

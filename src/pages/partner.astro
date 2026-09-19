@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { ButtonLink } from '../components/ui/button';
@@ -8,7 +9,7 @@ const faqs = [
   {
     question: '協業の契約形態はどうなりますか。',
     answer:
-      'ご要望に応じて、成果物ベースの請負と、月単位でチームが参画する準委任のどちらでも対応します。難航案件の火消しやスコープが動きやすいフェーズでは準委任、仕様が固まった実装フェーズでは請負、といった使い分けもできます。',
+      'ご要望に応じて、成果物ベースの請負と、月単位でチームが参画する準委任のどちらでも対応します。難航案件の立て直しやスコープが動きやすいフェーズでは準委任、仕様が固まった実装フェーズでは請負、といった使い分けもできます。',
   },
   {
     question: '秘密保持や再委託先への情報開示は問題ありませんか。',
@@ -94,12 +95,12 @@ const caseRows = [
 
   <main class="bg-neutral-100 pt-20">
     <section class="border-b border-neutral-300 bg-neutral-100 py-14 md:py-20">
-      <div class="container mx-auto grid gap-10 px-8 lg:grid-cols-[0.9fr_0.85fr] lg:items-end lg:px-12">
+      <div class="container mx-auto grid grid-cols-1 gap-10 px-8 lg:grid-cols-[0.9fr_0.85fr] lg:items-end lg:px-12">
         <div>
           <p class="border-l-8 border-primary-500 pl-5 text-sm font-bold text-primary-700">
             開発会社・SIer・コンサルの皆さまへ
           </p>
-          <h1 class="mt-6 max-w-4xl text-4xl font-bold leading-[1.08] text-accent-950 [word-break:keep-all] sm:text-5xl md:text-6xl">
+          <h1 class="mt-6 max-w-4xl text-4xl font-bold leading-[1.08] text-accent-950 [overflow-wrap:anywhere] sm:text-5xl md:text-6xl">
             実装まで一貫で任せられる
             <br />
             開発パートナー。
@@ -144,6 +145,8 @@ const caseRows = [
         </aside>
       </div>
     </section>
+    <PageExplainer name="support-roles-v1" />
+
 
     <section class="bg-neutral-50 py-14 md:py-16">
       <div class="container mx-auto px-8 lg:px-12">
@@ -171,7 +174,7 @@ const caseRows = [
           <div>
             <p class="text-sm font-bold text-primary-500">対応範囲</p>
             <h2 class="mt-3 text-3xl font-bold leading-tight text-accent-950 md:text-4xl">
-              領域の間で責任が落ちる状態を減らします。
+              画面からインフラまで、担当範囲を明確にします。
             </h2>
           </div>
           <div class="decision-sheet-table border-y border-neutral-300 bg-white">
@@ -197,7 +200,7 @@ const caseRows = [
           <div>
             <p class="text-sm font-bold text-primary-500">実案件ログ</p>
             <h2 class="mt-3 text-3xl font-bold leading-tight text-accent-950 md:text-4xl">
-              守秘に触れない範囲で、変化だけ示します。
+              公開できる範囲で、開発実績をご紹介します。
             </h2>
             <p class="mt-4 text-sm leading-relaxed text-neutral-700">
               社名・製品名は伏せ、期間・対応範囲など確認可能な事実だけを出します。

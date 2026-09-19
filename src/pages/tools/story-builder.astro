@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Header } from '../../components/header';
 import JsonLd from '../../components/seo/json-ld.astro';
 import { StoryBuilder } from '../../components/story-builder';
@@ -125,7 +126,9 @@ import Layout from '../../layouts/layout.astro';
         });
       }
     </script>
-  </main>
+
+    <PageExplainer name="scenario-evidence-v1" />
+</main>
   <FloatingCTA
     href="/contact?source=tool-story-builder&intent=floating-stuck&phase=mid"
     label="要件のヒアリング相談へ"

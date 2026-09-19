@@ -1,0 +1,19 @@
+{
+  "id": "delivery-scope-v2",
+  "tool": "built-in image_gen",
+  "prompt": "Use case: infographic-diagram. Create a Japanese Beekle B2B website explanatory infographic, landscape 1536x1024. Clean editorial information design with two spacious vertically stacked stages, not three columns, flat precise line illustrations, no gradients, no shadows, no logo. Strict brand palette: white #ffffff, pale neutral #f8fafc, primary #3D4DB7, dark navy #001738 for all text, cyan #00c4cc as limited accent, pale primary #f0f1fb. No other hues. Large highly legible Japanese sans serif. Exact heading: 「ゼロスタートから本番開発へ」. Top stage purple number 01 and label 「無料デモ」, main text 「まず1業務を、動く形に」. Show connected icons of an input form, processing gears, a result screen; exact labels 「入力・保存」「業務ロジック」「結果の確認」. Beneath top stage exact text 「必要な画面と処理を実装し、開発の判断に使う」. Between stages a downward arrow and label 「実物を確認して、進め方と費用を合意」. Bottom stage cyan number 02 with dark navy text label 「有料の検証・本開発」. Show icons of quality checklist, system connection, operations monitor; exact labels 「品質・精度の検証」「連携・機能の拡張」「本番運用の整備」. Footer small readable text 「具体的な対象範囲は事前に合意します」. Keep all text exact. Generous whitespace, strong hierarchy, professional and simple, no decorative busy backgrounds.",
+  "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-f56f1131-3d45-4342-b922-3165d7cca01e.png",
+  "supersedes": "delivery-scope-v1",
+  "files": [
+    "public/images/services/delivery-scope-v2.webp",
+    "public/images/services/delivery-scope-v2-768.webp"
+  ],
+  "usedBy": [
+    "src/components/services/service-scope.astro",
+    "src/pages/prooffirst.astro",
+    "src/pages/services/ai-development.astro",
+    "MicroCMS columns/ai-development-cost-guide"
+  ],
+  "revisionPrompt": "Keep text, icons and layout. Replace all dark haze, gradients, shadows, glow and metallic texture with solid white background; use navy text, purple and cyan flat icons.",
+  "review": "修正版の日本語・配色・コントラストを視認。ビルド成功、既存テスト15件成功。"
+}

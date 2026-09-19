@@ -1,7 +1,8 @@
+import visualExplanations from '@/data/visual-explanations.json';
 import { CheckCircle, Lightbulb, PhoneCall, Rocket, TestTube } from 'lucide-react';
 import type React from 'react';
 
-// 各Stepは「Beekleがすること」「お客様にお願いすること」「この段階で決まること」の3列で見せる。
+// 工程は画像で示し、役割分担と判断条件の詳細はHTMLの開閉領域に残す。
 // 金銭負担がないことと「リスクがない」ことは同義ではないため、断定的な安全表現は使わない
 // (tasks-v3 TASK-P0-05 / [VALUE-1] 総コスト = 価格 + 金銭以外の負担)。
 interface ProcessStep {
@@ -86,6 +87,14 @@ const processSteps: ProcessStep[] = [
   },
 ];
 
+const stepVisuals = [
+  'home-questions-v1',
+  'prototype-review-v2',
+  'evaluation-loop-v1',
+  'home-decision-v1',
+  'delivery-handoff-v1',
+];
+
 const COLUMN_LABELS = {
   beekle: 'Beekleがすること',
   customer: 'お客様にお願いすること',
@@ -108,7 +117,7 @@ export const ProcessSteps = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => 
                   aria-hidden="true"
                 />
               )}
-              <div className="relative flex items-start">
+              <div className="relative grid items-start gap-4 md:grid-cols-[64px_1fr]">
                 <span
                   className={`flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-md transition-colors duration-500 ${
                     step.highlight ? 'bg-primary-500 ring-2 ring-primary-100' : 'bg-primary-500'
@@ -120,7 +129,7 @@ export const ProcessSteps = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => 
                   <step.icon className="h-8 w-8 text-white" />
                 </span>
                 <div
-                  className={`ml-6 flex-1 rounded-lg border p-6 transition-colors ${
+                  className={`min-w-0 rounded-lg border p-4 md:p-6 transition-colors ${
                     step.highlight
                       ? 'border-primary-200 bg-primary-50/60'
                       : 'border-neutral-200 bg-white'
@@ -158,50 +167,76 @@ export const ProcessSteps = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => 
                       {step.condition}
                     </span>
                   </div>
-                  <p className="mt-2 text-gray-700 leading-relaxed">{step.description}</p>
-
-                  <div className="mt-5 grid gap-4 md:grid-cols-3">
-                    <div className="rounded-md bg-gray-50 p-4">
-                      <p className="text-xs font-bold text-primary-500 mb-2">
-                        {COLUMN_LABELS.beekle}
-                      </p>
-                      <ul className="space-y-1.5">
-                        {step.beekle.map((item) => (
-                          <li key={item} className="flex items-start text-sm text-gray-600">
-                            <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-sm bg-primary-500" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="rounded-md bg-gray-50 p-4">
-                      <p className="text-xs font-bold text-primary-500 mb-2">
-                        {COLUMN_LABELS.customer}
-                      </p>
-                      <ul className="space-y-1.5">
-                        {step.customer.map((item) => (
-                          <li key={item} className="flex items-start text-sm text-gray-600">
-                            <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-sm bg-primary-500" />
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="rounded-md border border-primary-200 bg-primary-50 p-4">
-                      <p className="text-xs font-bold text-primary-600 mb-2">
-                        {COLUMN_LABELS.decision}
-                      </p>
-                      <p className="text-sm font-semibold text-gray-800 leading-relaxed">
+                  <div className="mt-6 grid items-start gap-6 lg:grid-cols-2">
+                    <figure className="overflow-hidden rounded-lg border border-neutral-200 bg-white">
+                      <img
+                        src={`/images/services/${stepVisuals[idx]}.webp`}
+                        alt={(visualExplanations as Record<string, string[]>)[stepVisuals[idx]][0]}
+                        width={1536}
+                        height={1024}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-auto w-full"
+                      />
+                      <figcaption className="border-t border-neutral-200 px-4 py-3 text-sm leading-relaxed text-neutral-700">
+                        {(visualExplanations as Record<string, string[]>)[stepVisuals[idx]][1]}
+                      </figcaption>
+                    </figure>
+                    <div>
+                      <p className="text-lg font-bold leading-relaxed text-accent-950">
                         {step.decision}
                       </p>
+                      <details className="mt-4 border-t border-neutral-200 pt-3">
+                        <summary className="cursor-pointer py-2 font-bold text-primary-700">
+                          役割分担・確認内容を詳しく見る
+                        </summary>
+                        <p className="mt-2 text-gray-700 leading-relaxed">{step.description}</p>
+
+                        <div className="mt-5 grid gap-4">
+                          <div className="rounded-md bg-gray-50 p-4">
+                            <p className="text-xs font-bold text-primary-500 mb-2">
+                              {COLUMN_LABELS.beekle}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {step.beekle.map((item) => (
+                                <li key={item} className="flex items-start text-sm text-gray-600">
+                                  <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-sm bg-primary-500" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="rounded-md bg-gray-50 p-4">
+                            <p className="text-xs font-bold text-primary-500 mb-2">
+                              {COLUMN_LABELS.customer}
+                            </p>
+                            <ul className="space-y-1.5">
+                              {step.customer.map((item) => (
+                                <li key={item} className="flex items-start text-sm text-gray-600">
+                                  <span className="mr-2 mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-sm bg-primary-500" />
+                                  <span>{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                          <div className="rounded-md border border-primary-200 bg-primary-50 p-4">
+                            <p className="text-xs font-bold text-primary-600 mb-2">
+                              {COLUMN_LABELS.decision}
+                            </p>
+                            <p className="text-sm font-semibold text-gray-800 leading-relaxed">
+                              {step.decision}
+                            </p>
+                          </div>
+                        </div>
+                        {step.evidence && (
+                          <div className="mt-4 border-t border-neutral-200 pt-4">
+                            <p className="text-xs font-bold text-primary-600 mb-1">実案件</p>
+                            <p className="text-sm leading-relaxed text-gray-700">{step.evidence}</p>
+                          </div>
+                        )}
+                      </details>
                     </div>
                   </div>
-                  {step.evidence && (
-                    <div className="mt-4 border-t border-neutral-200 pt-4">
-                      <p className="text-xs font-bold text-primary-600 mb-1">実案件</p>
-                      <p className="text-sm leading-relaxed text-gray-700">{step.evidence}</p>
-                    </div>
-                  )}
                 </div>
               </div>
             </div>

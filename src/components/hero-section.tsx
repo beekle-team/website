@@ -16,13 +16,13 @@ export const HeroSection = () => (
     <div className="relative mx-auto flex min-h-[420px] w-full max-w-[1440px] items-center px-4 py-14 sm:px-8 lg:min-h-[560px] lg:px-12">
       <div className="w-full max-w-[24rem] lg:max-w-[28rem] xl:max-w-[36rem]">
         <h1 className="text-3xl font-bold leading-[1.35] text-accent-950 sm:text-4xl lg:text-5xl xl:text-6xl">
-          資料より、まず
+          本開発の前に
           <br />
-          <span className="text-primary-500">爆速デモ。</span>
+          <span className="text-primary-500">動くデモで確認。</span>
           <br />
-          見て決めたら、
+          業務に合うか
           <br />
-          <span className="text-primary-500">そのまま本番へ。</span>
+          <span className="text-primary-500">確かめてから開発。</span>
         </h1>
 
         <a
@@ -32,7 +32,7 @@ export const HeroSection = () => (
           className="page-cta group mt-8 inline-flex min-h-[56px] w-full overflow-hidden rounded-md border border-primary-500 bg-primary-500 text-center text-base font-semibold leading-snug text-white transition-colors hover:border-primary-600 hover:bg-primary-600 sm:w-auto sm:text-lg"
         >
           <span className="flex flex-1 items-center justify-center px-3 py-4 sm:flex-none sm:px-8">
-            爆速デモについて相談する
+            無料デモについて相談する
           </span>
           <span
             aria-hidden="true"

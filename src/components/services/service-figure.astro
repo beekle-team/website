@@ -1,0 +1,33 @@
+---
+interface Props {
+  name: string;
+  alt: string;
+  caption: string;
+  eager?: boolean;
+  width?: number;
+  height?: number;
+}
+
+const { name, alt, caption, eager = false, width = 1536, height = 1024 } = Astro.props;
+const src = `/images/services/${name}.webp`;
+---
+
+<figure class="min-w-0 overflow-hidden rounded-lg border border-neutral-200 bg-white">
+  <a href={src} target="_blank" rel="noopener" class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary-500" aria-label={`${alt}（画像を拡大）`}>
+    <img
+      src={src}
+      srcset={`/images/services/${name}-768.webp 768w, ${src} ${width}w`}
+      sizes="(max-width: 767px) calc(100vw - 48px), (max-width: 1023px) 90vw, 960px"
+      alt={alt}
+      width={width}
+      height={height}
+      loading={eager ? 'eager' : 'lazy'}
+      decoding="async"
+      class="h-auto w-full"
+    />
+  </a>
+  <figcaption class="border-t border-neutral-200 px-5 py-4 text-sm leading-relaxed text-neutral-700">
+    {caption}
+    <span class="mt-2 block text-neutral-600">業務の流れを説明する図です。実際の製品画面ではありません。画像を選ぶと拡大できます。</span>
+  </figcaption>
+</figure>

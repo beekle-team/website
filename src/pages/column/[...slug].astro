@@ -1,4 +1,7 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
+import TopicIcon from '@/components/visuals/topic-icon.astro';
+import articleVisuals from '@/data/article-visuals.json';
 import { Renderer, marked } from 'marked';
 import { Header } from '../../components/header';
 import AuthorByline from '../../components/seo/author-byline.astro';
@@ -23,6 +26,7 @@ import { type TocItem, slugify } from '../../lib/toc';
 export const prerender = false;
 const { slug } = Astro.params;
 const columnId = slug as string;
+const visualName = (articleVisuals as Record<string, string>)[columnId];
 
 // SEOカニバリ統合: 旧スラッグから統合先へ301リダイレクト
 if (columnId in columnRedirects) {
@@ -320,7 +324,7 @@ const reviewerId =
     {/* Breadcrumb */}
     <section class="py-6 bg-gray-50 border-b border-gray-200">
       <div class="container mx-auto px-6 md:px-8">
-        <nav class="flex items-center gap-2 text-sm text-gray-600 min-h-[44px]">
+        <nav class="flex flex-wrap items-center gap-2 text-sm text-gray-600 min-h-[44px]">
           <a href="/" class="hover:text-primary-500 transition-colors py-3 px-1">ホーム</a>
           <span>/</span>
           <a href={isKnowledge ? '/knowledge' : '/column'} class="hover:text-primary-500 transition-colors py-3 px-1">
@@ -343,6 +347,8 @@ const reviewerId =
           </div>
         )}
 
+        <TopicIcon name="book" class="mb-4" />
+
         {/* Title */}
         <h1 class="text-3xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
           {frontmatter.title}
@@ -357,6 +363,13 @@ const reviewerId =
         />
       </div>
     </section>
+
+    <aside class="bg-neutral-50">
+      <div class="container mx-auto max-w-3xl px-6 py-5 md:px-12">
+        <p class="text-base leading-relaxed text-neutral-700">{categoryCta.primary.description}</p>
+        <a href={primaryCtaHref} target={categoryCta.primary.external ? '_blank' : undefined} rel={categoryCta.primary.external ? 'noopener noreferrer' : undefined} data-cta-source={`${ctaSource}-intro`} data-cta-id={categoryCta.primary.ctaId} class="mt-2 inline-flex min-h-[44px] items-center text-base font-bold text-primary-700 underline underline-offset-4">{categoryCta.primary.label}</a>
+      </div>
+    </aside>
 
     {/* Table of Contents */}
     {toc.length > 0 && (
@@ -400,7 +413,8 @@ const reviewerId =
     {/* Article Content */}
     <article class="bg-neutral-50 py-16 md:py-20">
       <div class="container mx-auto px-6 md:px-12 max-w-3xl">
-        <div class="markdown-content">
+        <div class="markdown-content min-w-0 [overflow-wrap:anywhere]">
+          {!/<img\b/i.test(htmlContent) && visualName && <PageExplainer name={visualName} />}
           <Fragment set:html={htmlContent} />
         </div>
       </div>
@@ -569,17 +583,6 @@ const reviewerId =
 
     <script>
       import { initChatGptEvaluationCtas } from '../../lib/chatgpt-evaluation-cta';
-      import { trackCtaClick } from '../../lib/analytics';
-      const ctas = document.querySelectorAll<HTMLAnchorElement>(
-        '.column-cta-primary, .column-cta-secondary, .column-cta-sub'
-      );
-      for (const el of ctas) {
-        el.addEventListener('click', () => {
-          const source = el.dataset.ctaSource ?? 'unknown';
-          const cta = el.dataset.ctaId ?? 'unknown';
-          trackCtaClick({ source, cta });
-        });
-      }
       initChatGptEvaluationCtas();
     </script>
   </main>
@@ -869,6 +872,23 @@ const reviewerId =
     margin-bottom: 40px; /* 8 × 5 */
     max-width: 100%;
     height: auto;
+  }
+
+  .markdown-content :global(figure:has(img)) {
+    @apply my-10 overflow-hidden rounded-lg border border-neutral-200 bg-white;
+  }
+
+  .markdown-content :global(figure img[height="1536"]) {
+    max-width: 512px;
+    width: 100%;
+  }
+
+  .markdown-content :global(figure img) {
+    @apply my-0 rounded-none;
+  }
+
+  .markdown-content :global(figure figcaption) {
+    @apply border-t border-neutral-200 px-5 py-4 text-sm leading-relaxed text-neutral-700;
   }
 
   /* 水平線 */
@@ -1173,7 +1193,7 @@ const reviewerId =
   /* 機能リスト vs シナリオ 比較 */
   .markdown-content :global(.cv-compare) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     gap: 16px;
   }
 

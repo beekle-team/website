@@ -6,7 +6,10 @@ import { HeroSection } from '@/components/hero-section';
 import { ProcessFAQ } from '@/components/process-faq-section';
 import { ProcessHero } from '@/components/process-hero';
 import { ProcessSteps } from '@/components/process-steps';
+import SectionVisual from '@/components/services/section-visual.astro';
 import { ButtonLink } from '@/components/ui/button';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
+import VisualCardImage from '@/components/visuals/visual-card-image.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { companyPositioning } from '../data/company';
@@ -31,6 +34,18 @@ type ColumnCard = {
   description?: string;
   categoryTitle?: string;
 };
+
+const situationVisuals: Record<string, string> = {
+  'requirements-unclear': 'unclear-scope-v1',
+  'ai-adoption': 'ai-evaluation-before-after-v1',
+  'business-systemization': 'manual-transfer-v1',
+  'legacy-system-modernization': 'web-app-delivery-v1',
+  'internal-document-search': 'knowledge-search-v2',
+  'customer-data-foundation': 'customer-data-v1',
+  'stalled-project': 'prototype-review-v2',
+};
+const messageVisuals = ['requirements-chain-v1', 'prototype-review-v2', 'web-app-delivery-v1'];
+const caseVisuals = ['case-recovery-v1', 'case-demo-one-day-v1', 'case-new-business-v1'];
 
 const preOrderConcerns = [
   '何を作るべきか分からない',
@@ -73,7 +88,7 @@ const decisionMessages = [
   },
   {
     title: '課題整理から本番開発まで同じ会社が担当する',
-    text: '整理した要件、受入条件、検証結果を本開発へ引き継ぎます。上流で決めたことが、別会社への伝言で薄まらないようにします。',
+    text: '整理した要件、受入条件、検証結果を本開発へ引き継ぎます。上流で決めたことが、本開発でも共有されるようにします。',
   },
 ];
 
@@ -148,14 +163,16 @@ try {
           <div class="max-w-3xl">
             <span class="section-label">発注前の不安</span>
             <h2 class="mt-3 text-3xl font-bold leading-tight text-navy-950 md:text-4xl">
-              動くものを見る前に、
+              開発を発注する前に、
               <br class="hidden lg:block" />
-              引っかかるのはここです。
+              確認したいこと。
             </h2>
             <p class="mt-4 text-base leading-relaxed text-neutral-700">
 大きな開発投資の前に、AIを使うかどうかより先に、そもそも何を作るべきか、この要件で発注していいか、社内で説明できる投資根拠があるかを確認します。
             </p>
           </div>
+          <ReadingVisual name="unclear-scope-v1" />
+          <SectionVisual name="home-questions-v1" />
           <div class="grid gap-3 md:grid-cols-2">
             {preOrderConcerns.map((concern) => (
               <div class="border-l-4 border-primary-500 bg-white px-4 py-3 text-base font-bold leading-snug text-accent-950">
@@ -174,34 +191,35 @@ try {
           <div class="max-w-3xl">
             <span class="section-label">止まっていた判断が動いた例</span>
             <h2 class="mt-3 text-3xl font-bold leading-tight text-navy-950 md:text-4xl">
-              止まっていた判断が、何で動いたか。
+              開発前の検証で、何が分かったか。
             </h2>
             <p class="mt-4 text-base leading-relaxed text-neutral-600">
-              速さだけを売るための数字ではありません。止まっていた判断を、何で動かしたかまで見せます。
+              各案件の課題、検証した内容、その後の判断を紹介します。期間はそれぞれの案件での実績です。
             </p>
             <a href="/case-studies" class="mt-5 inline-flex min-h-[44px] items-center border-b border-primary-500 text-sm font-bold text-primary-500 hover:text-primary-600">
               実案件をすべて見る
             </a>
           </div>
-          <div class="case-log-table border-t border-neutral-300">
-            {caseLogs.map((item) => (
-              <a href="/case-studies" class="grid gap-4 border-b border-neutral-300 py-5 transition-colors hover:bg-white md:grid-cols-[0.54fr_1fr_1.1fr_1fr] md:px-2">
-                <p class="text-sm font-bold text-primary-700">{item.theme}</p>
+          <figure class="case-log-table border-t border-neutral-300">
+            {caseLogs.map((item, index) => (
+              <article class="grid items-start gap-6 border-b border-neutral-300 py-8 lg:grid-cols-2">
+                <VisualCardImage name={caseVisuals[index]} />
                 <div>
-                  <p class="font-Poppins text-xs font-bold text-neutral-500">Before</p>
-                  <p class="mt-1 text-sm font-bold leading-relaxed text-accent-950">{item.before}</p>
+                  <h3 class="text-2xl font-bold text-accent-950">{item.theme}</h3>
+                  <p class="mt-4 text-sm font-bold text-neutral-500">Before</p>
+                  <p class="mt-1 text-lg leading-relaxed text-accent-950">{item.before}</p>
+                  <p class="mt-4 text-sm font-bold text-primary-700">After</p>
+                  <p class="mt-1 text-xl font-bold leading-relaxed text-primary-700">{item.after}</p>
+                  <details class="mt-5 border-t border-neutral-200 pt-4">
+                    <summary class="cursor-pointer py-2 font-bold text-accent-950">Beekleがしたこと</summary>
+                    <p class="mt-3 text-sm leading-relaxed text-neutral-700">{item.did}</p>
+                  </details>
+                  <a href="/case-studies" class="mt-4 inline-flex min-h-[44px] items-center font-bold text-primary-600">実案件を詳しく見る →</a>
                 </div>
-                <div>
-                  <p class="font-Poppins text-xs font-bold text-neutral-500">Beekleがしたこと</p>
-                  <p class="mt-1 text-sm leading-relaxed text-neutral-700">{item.did}</p>
-                </div>
-                <div>
-                  <p class="font-Poppins text-xs font-bold text-neutral-500">After</p>
-                  <p class="mt-1 text-sm font-bold leading-relaxed text-primary-700">{item.after}</p>
-                </div>
-              </a>
+              </article>
             ))}
-          </div>
+            <figcaption class="mt-4 text-sm leading-relaxed text-neutral-600">実案件の課題、実施した検証、その後の変化を並べています。期間・成果は案件ごとの実績です。</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -210,22 +228,27 @@ try {
     <section class="relative overflow-hidden bg-neutral-50 py-14 md:py-16">
       <div class="container mx-auto px-8 lg:px-12 relative">
         <div class="grid gap-10">
-          <div class="max-w-3xl">
+          <div>
             <span class="section-label">Beekleがすること</span>
             <h2 class="mt-4 text-4xl font-bold leading-tight text-navy-950 lg:text-5xl">
               作るものを決める前から、
               <br class="hidden lg:block" />
               <span class="text-primary-500">相談できます。</span>
             </h2>
+            <details class="mt-6 border-b border-neutral-200 pb-4">
+              <summary class="cursor-pointer py-2 font-bold text-primary-700">相談から判断までの考え方</summary>
             <p class="mt-6 text-lg leading-relaxed text-neutral-700">
               「何を作るべきか」が曖昧なまま見積もりや開発に入ると、作った後に認識のズレが出ます。Beekleは、業務の困りごとを聞き、検証すべき範囲を絞り、動くものを見ながら社内で説明できる判断材料へ変えます。
             </p>
             <p class="mt-4 text-lg leading-relaxed text-neutral-700">
               作る価値が薄い場合は、作らない判断も選択肢に含めます。開発契約を取ることより先に、成立可能性と投資範囲を確認するためです。
             </p>
-            <div class="mt-7 grid gap-4 md:grid-cols-3">
+            </details>
+            <div class="mt-7 grid gap-8">
               {decisionMessages.map((message, index) => (
-                <div class="border-l-4 border-primary-500 bg-white px-5 py-4">
+                <div class="grid items-center gap-6 rounded-lg border border-neutral-200 bg-white p-5 lg:grid-cols-2">
+                  <VisualCardImage name={messageVisuals[index]} />
+                  <div>
                   <p class="font-Poppins text-xs font-bold text-neutral-500">
                     MESSAGE {String(index + 1).padStart(2, '0')}
                   </p>
@@ -233,11 +256,14 @@ try {
                     {message.title}
                   </h3>
                   <p class="mt-2 text-sm leading-relaxed text-neutral-700">{message.text}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
 
+          <SectionVisual name="home-decision-v1" />
+          <ReadingVisual name="decision-materials-v1" />
           <div class="decision-sheet-table border-y border-neutral-300 bg-white">
             <div class="grid gap-2 border-b border-neutral-300 border-l-8 border-primary-500 px-5 py-4 md:grid-cols-[0.6fr_1fr]">
               <p class="text-sm font-bold text-primary-700">発注判断シート</p>
@@ -285,6 +311,9 @@ try {
             </a>
           </div>
 
+          <SectionVisual name="delivery-handoff-v1" />
+          <details class="rounded-lg border border-neutral-300 bg-white p-5">
+            <summary class="cursor-pointer py-2 text-lg font-bold text-accent-950">比較条件と各社の違いを詳しく見る</summary>
           <div class="border-y border-neutral-300 bg-white md:hidden">
             {comparisonRows.map((row) => (
               <section class="border-b border-neutral-200 px-4 py-4 last:border-b-0">
@@ -333,6 +362,7 @@ try {
               </tbody>
             </table>
           </div>
+          </details>
         </div>
       </div>
     </section>
@@ -350,12 +380,14 @@ try {
           </p>
         </div>
 
-        <div class="grid gap-5 lg:grid-cols-3">
+        <div class="grid gap-5 lg:grid-cols-2">
           {featuredConsultationSituations.map((situation, index) => (
             <a href={situation.href} class="group block">
-              <div class="card-base card-hover h-full p-7">
-                <p class="text-sm font-bold text-primary-500">
-                  発注前の詰まり {String(index + 1).padStart(2, '0')}
+              <div class="card-base card-hover h-full overflow-hidden">
+                <VisualCardImage name={situationVisuals[situation.slug]} />
+                <div class="px-5 pb-6 md:px-7">
+                <p class="mt-5 text-sm font-bold text-primary-500">
+                  発注前の課題 {String(index + 1).padStart(2, '0')}
                 </p>
                 <h3 class="mt-3 text-2xl font-bold leading-snug text-navy-950">
                   {situation.cardTitle}
@@ -371,6 +403,7 @@ try {
                 <p class="mt-5 text-sm font-semibold text-primary-500 group-hover:text-primary-600">
                   場面別に判断材料を見る
                 </p>
+                </div>
               </div>
             </a>
           ))}
@@ -407,6 +440,7 @@ try {
         <div class="container mx-auto px-8 lg:px-12 mt-16">
           <div class="max-w-4xl mx-auto">
             <div class="relative overflow-hidden border-y border-neutral-300 border-l-8 border-primary-500 bg-white p-8 md:p-10">
+              <ReadingVisual name="demo-business-logic-v1" />
               <h3 class="text-3xl font-bold text-accent-950 mb-4 relative">
                 実物で確かめてから、次の投資条件を決めてください
               </h3>
@@ -454,10 +488,15 @@ try {
         </div>
 
         {featuredColumns.length > 0 && (
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             {featuredColumns.map((c) => (
               <a href={`/column/${c.id}`} class="group">
                 <div class="card-base card-hover p-6 h-full flex flex-col">
+                  <img
+                    src={`/images/services/${c.id === 'requirements-definition-complete-guide' ? 'requirements-chain-v1' : c.id === 'web-system-cost-by-scale' ? 'delivery-scope-v2' : 'evaluation-loop-v1'}-768.webp`}
+                    alt={c.id === 'requirements-definition-complete-guide' ? '業務の困りごとから開発範囲と完成条件を整理する図' : c.id === 'web-system-cost-by-scale' ? '無料デモと有料開発の範囲を比較する図' : '業務データで品質・時間・費用を確認する図'}
+                    width="768" height="512" loading="lazy" decoding="async" class="mb-5 w-full rounded-md border border-neutral-200"
+                  />
                   {c.categoryTitle && (
                     <span class="inline-block text-xs font-bold text-primary-500 mb-3">
                       {c.categoryTitle}
@@ -521,9 +560,9 @@ try {
             発注前の不安を<span class="text-primary-500">相談</span>する
           </h2>
           <p class="text-lg text-neutral-600">
-            まだ要件がまとまっていなくても構いません。NDA締結後に詳細を伺い、通常1〜2営業日以内に確認したい前提と次に見るべきリスクを返信します。
+            まだ要件がまとまっていなくても構いません。NDA締結後に詳細を伺い、通常1〜2営業日以内に確認したい前提と次の進め方をご案内します。
           </p>
-          <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="mt-6 grid gap-3 sm:grid-cols-2">
             {[
               '初回相談・簡易デモは無料',
               'PoCは別途範囲定義',
@@ -536,6 +575,7 @@ try {
             ))}
           </div>
         </div>
+        <ReadingVisual name="delivery-scope-v2" />
         <div class="max-w-2xl mx-auto">
           <ContactForm client:visible={{ rootMargin: '600px' }} sitekey={sitekey} />
         </div>
@@ -549,7 +589,7 @@ try {
       <div class="container mx-auto px-8 lg:px-12 relative">
         <div class="text-center">
           <h2 class="text-4xl lg:text-5xl font-bold text-white mb-6">
-            この会社と話してから、発注を決めた方が安全かもしれない。
+            開発の進め方と費用を、発注前に相談できます。
           </h2>
           <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
             要件、見積もり、技術リスク、見送り条件を整理します。NDA可。要件未確定でも構いません。

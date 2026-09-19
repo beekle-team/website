@@ -1,6 +1,7 @@
 ---
-import { AskAiButton } from '@/components/ask-ai-button';
+import ServiceFigure from '@/components/services/service-figure.astro';
 import { resolveServiceHeroCopy } from '@/data/outcome-led-copy';
+import { serviceVisuals } from '@/data/service-visuals';
 import type { ServiceDetail } from '@/types/service';
 
 type Metric = { label: string; value: string };
@@ -25,6 +26,7 @@ interface Props {
 }
 
 const { service, config } = Astro.props;
+const visual = serviceVisuals[service.id];
 const benefits = service.benefits.slice(0, 3);
 const contactIntent = config?.contactIntent ?? 'consult';
 const resolvedCopy = resolveServiceHeroCopy(service.id, {
@@ -41,7 +43,7 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
      旧: 紺背景+右パネル11要素（チップ・メトリクス・紺ボックス）は情報過多のため撤去 -->
 <section class="relative overflow-hidden border-b border-neutral-300 bg-neutral-100 pt-14 pb-12 md:pt-24 md:pb-20">
   <div class="container relative mx-auto px-6 lg:px-12">
-    <div class="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+    <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
       <div>
         <span
           class="inline-flex items-center gap-2 border-l-8 border-primary-500 bg-white px-4 py-2 text-sm font-semibold text-primary-700"
@@ -65,16 +67,16 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
         }
         {
           config?.metrics && (
-            <div class="mt-6 grid max-w-2xl gap-3 sm:grid-cols-3">
+            <dl class="mt-6 max-w-2xl divide-y divide-neutral-200 border-y border-neutral-200">
               {config.metrics.map((metric) => (
-                <div class="rounded-md border border-neutral-200 bg-neutral-50 px-4 py-3">
-                  <p class="text-xs font-bold text-neutral-500">{metric.label}</p>
-                  <p class="mt-1 text-base font-bold leading-snug text-navy-950">
+                <div class="grid grid-cols-[5rem_minmax(0,1fr)] items-baseline gap-4 py-2">
+                  <dt class="text-sm font-medium text-neutral-600">{metric.label}</dt>
+                  <dd class="text-base font-bold leading-snug text-navy-950">
                     {metric.value}
-                  </p>
+                  </dd>
                 </div>
               ))}
-            </div>
+            </dl>
           )
         }
         <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -103,37 +105,20 @@ const heroVisualItems = config?.visualItems ?? config?.illustration?.stages ?? b
               </a>
             )
           }
-          <AskAiButton
-            client:visible
-            source={`services-${service.id}-hero`}
-            variant="link"
-            pageTitle={resolvedCopy.headline}
-            pageSummary={resolvedCopy.heroLead}
-            serviceName={service.title}
-          />
+
         </div>
       </div>
 
-      <aside class="border-y border-neutral-300 bg-white">
-        <div class="border-b border-neutral-300 border-l-8 border-primary-500 px-5 py-4">
-          <p class="text-sm font-bold text-primary-700">
-            {config?.visualTitle ?? '判断メモ'}
-          </p>
-          <p class="mt-1 text-2xl font-bold leading-tight text-navy-950">
-            {config?.visualSubtitle ?? 'お客さま側の変化'}
-          </p>
-        </div>
-        <div class="divide-y divide-neutral-300">
-          {heroVisualItems.map((item, index) => (
-            <div class="grid gap-3 px-5 py-4 md:grid-cols-[72px_1fr]">
-              <p class="font-Poppins text-sm font-bold text-primary-600">
-                {String(index + 1).padStart(2, '0')}
-              </p>
-              <p class="text-base font-bold leading-relaxed text-navy-950">{item}</p>
-            </div>
-          ))}
-        </div>
-      </aside>
+      {visual ? (
+        <ServiceFigure {...visual} eager />
+      ) : (
+        <aside class="border-y border-neutral-300 bg-white p-6">
+          <p class="text-lg font-bold text-accent-950">{config?.visualTitle ?? 'このサービスでできること'}</p>
+          <ul class="mt-4 space-y-3 text-base leading-relaxed text-neutral-700">
+            {heroVisualItems.map((item) => <li>{item}</li>)}
+          </ul>
+        </aside>
+      )}
     </div>
   </div>
 </section>

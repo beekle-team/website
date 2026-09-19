@@ -763,7 +763,20 @@ export function upgradeRequirementsContent(slug, content) {
   if (!TARGET_SLUGS.has(slug) || !content) return content;
   const upgrade = UPGRADERS[slug];
   try {
-    return upgrade(content);
+    const headings = headingNodes(content, 2);
+    const figures = [...content.matchAll(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi)].map((match) => ({
+      html: match[0],
+      heading: headings.filter((heading) => heading.start < match.index).at(-1)?.text,
+    }));
+    let result = upgrade(content);
+    // 旧本文の差し替えでも、CMSで追記した図とキャプションは失わない。
+    for (const figure of figures.reverse()) {
+      if (result.includes(figure.html)) continue;
+      const heading = figure.heading && findHeading(result, 2, figure.heading);
+      const offset = heading ? heading.end : 0;
+      result = `${result.slice(0, offset)}${figure.html}${result.slice(offset)}`;
+    }
+    return result;
   } catch (error) {
     console.error(`[requirements-content-upgrades] failed for ${slug}`, error);
     return content;

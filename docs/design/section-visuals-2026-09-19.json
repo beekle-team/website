@@ -1,0 +1,188 @@
+[
+  {
+    "name": "sales-coaching-v1",
+    "title": "営業の記録を、具体的な育成へ",
+    "alt": "架電・商談の記録を整理し、振り返りから次の行動を決める営業育成の流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「営業の記録を、具体的な育成へ」. Four vertical steps: 「架電・商談の記録」 with headset and CRM log; 「同じ項目で整理」 with aligned rows; 「課題を振り返る」 with manager and representative examining selected record; 「次の行動を決める」 with action checklist. Show that people choose coaching actions, no fabricated scores.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/sales-coaching-v1.webp",
+    "smallOutput": "public/images/services/sales-coaching-v1-768.webp",
+    "selectedSource": "exec-231febc5-c6eb-4caa-b5f9-1b3b44d7a253.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  },
+  {
+    "name": "parts-fit-v1",
+    "title": "部品の候補と、適合条件を確認する",
+    "alt": "型番から仕様・図面・互換情報をたどり、担当者が部品の適合を確認する流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「部品の候補と、適合条件を確認する」. Three vertical stages: 「型番・仕様で探す」 with industrial gear and spec sheet; 「図面・互換情報を確認」 with visibly linked technical sheets and matching dimensions; 「担当者が適合を判断」 with engineer checking actual physical connector and original drawing. Diagram emphasizes matching CONDITIONS, not magically guaranteed substitution.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/parts-fit-v1.webp",
+    "smallOutput": "public/images/services/parts-fit-v1-768.webp",
+    "selectedSource": "exec-74356638-e254-4479-9ad5-f2df4cf27bf7.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  },
+  {
+    "name": "manual-conditions-v1",
+    "title": "機種と版に合う、作業手順を探す",
+    "alt": "機種・構成・資料の版を確認し、適用できる作業手順を探す流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「機種と版に合う、作業手順を探す」. Three wide vertical bands: 「機種・構成を指定」 with equipment model; 「適用する手順を検索」 with binder tabs and edition marker; 「原本を確認して作業」 with technician checking manual next to equipment. Avoid numeric model identifiers. Clear connections between matching equipment and manual.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/manual-conditions-v1.webp",
+    "smallOutput": "public/images/services/manual-conditions-v1-768.webp",
+    "selectedSource": "exec-9181afa3-8850-4bee-b7a9-51be2694dc15.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  },
+  {
+    "name": "helpdesk-routing-v1",
+    "title": "問い合わせの内容で、対応を分ける",
+    "alt": "社内問い合わせをFAQの案内と、担当者の判断が必要な依頼に分ける図",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「問い合わせの内容で、対応を分ける」. Top central question inbox 「社内の問い合わせ」. Branch into exactly two columns: left「手順・FAQ」→「AIが回答案と出典を表示」 with manual and response; right「権限変更・判断が必要」→「担当者へ引き継ぐ」 with access card and human. Bottom shared footer「必要な確認をして対応」. Clear branch arrows not sequential.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/helpdesk-routing-v1.webp",
+    "smallOutput": "public/images/services/helpdesk-routing-v1-768.webp",
+    "selectedSource": "exec-5d28e05b-1d9e-4213-8097-33b10546f858.png"
+  },
+  {
+    "name": "document-registration-v1",
+    "title": "帳票を、確認して登録できるデータへ",
+    "alt": "帳票の受領、項目抽出、原本との照合、業務システム登録の流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「帳票を、確認して登録できるデータへ」. 4 vertical steps: 「受け取る」 paper email pdf icons; 「項目を読み取る」 original document highlighted fields aligned to table; 「原本と照合する」 human checks exception in amber; 「業務システムへ登録」 confirmed row enters record. Large labels no extra small text.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/document-registration-v1.webp",
+    "smallOutput": "public/images/services/document-registration-v1-768.webp",
+    "selectedSource": "exec-457196ae-b43a-4918-b1eb-4b36b1355c48.png"
+  },
+  {
+    "name": "web-app-delivery-v1",
+    "title": "使う場面から、画面と操作を決める",
+    "alt": "業務と利用者の整理から、Web・モバイル画面の試作、開発・公開へ進む流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「使う場面から、画面と操作を決める」. 3 vertical stages: 「業務と利用者を整理」 client points at workflow; 「試作画面を触って確認」 laptop and phone show same reservation-style generic business form; 「開発・テスト・公開」 developer checks test list then hands over finished app. No real product branding. Clear app sketches no illegible dummy text.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/web-app-delivery-v1.webp",
+    "smallOutput": "public/images/services/web-app-delivery-v1-768.webp",
+    "selectedSource": "exec-752872fe-cb4e-4dfb-970b-1678e4e6bf4e.png"
+  },
+  {
+    "name": "customer-data-v1",
+    "title": "分かれた顧客情報を、同じ顧客として見る",
+    "alt": "営業・購買・問い合わせの情報を照合し、顧客単位で分析に使うデータ基盤",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「分かれた顧客情報を、同じ顧客として見る」. Top stage「情報を集める」 with sales CRM, ecommerce bag, support inbox grouped. Middle stage「顧客を照合する」 show 3 duplicate profile cards merging into 1 via arrows. Final stage「分析・施策に使う」 show segments and action checklist. Small callout「利用権限・更新ルールも設定」. No fabricated chart numbers.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/customer-data-v1.webp",
+    "smallOutput": "public/images/services/customer-data-v1-768.webp",
+    "selectedSource": "exec-2729a4e3-d08d-48eb-86d2-c9e95d226c7f.png"
+  },
+  {
+    "name": "chatbot-handoff-v1",
+    "title": "答えられる質問と、引き継ぐ質問を分ける",
+    "alt": "FAQ・対応履歴を検索し、根拠のある回答と担当者への引き継ぎに分けるチャットボット",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「答えられる質問と、引き継ぐ質問を分ける」. Top「お客様からの質問」 conversation bubble. Center「FAQ・対応履歴を検索」 with knowledge files. Two branch columns:「根拠がある」→「回答案を提示」 and「判断が必要」→「担当者へ引き継ぐ」. No made-up product UI or accuracy.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/chatbot-handoff-v1.webp",
+    "smallOutput": "public/images/services/chatbot-handoff-v1-768.webp",
+    "selectedSource": "exec-184b07ca-50c9-4f2e-b867-0e76fb8f3735.png"
+  },
+  {
+    "name": "requirements-chain-v1",
+    "title": "要望を、完成を確かめられる条件へ",
+    "alt": "業務の困りごとを、開発範囲・画面・完成の確認条件へ整理する要件定義",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「要望を、完成を確かめられる条件へ」. Four vertical steps with illustrative document objects connected: 「業務と困りごと」→「作る範囲」→「画面と操作」→「完成の確認条件」. First includes meeting notes, second prioritized scope sheet, third clear wireframe, fourth human testing and check marks. Do not show imaginary product screenshots.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/requirements-chain-v1.webp",
+    "smallOutput": "public/images/services/requirements-chain-v1-768.webp",
+    "selectedSource": "exec-b5bf280b-ab26-46e8-99e7-f6ba24e3a20a.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  },
+  {
+    "name": "mvp-decision-v1",
+    "title": "小さく試して、次の投資を決める",
+    "alt": "仮説を試作品で確かめ、結果をもとに開発・変更・見送りを判断するMVP検証",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「小さく試して、次の投資を決める」. Top「確かめたい仮説」 sticky note; down「最小限の試作品」 generic mobile app prototype; down「利用者の反応を確認」 interview clipboard; branch exactly two columns「範囲を決めて開発」 and「変更・見送り」. No percentage improvement, no guaranteed success.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/mvp-decision-v1.webp",
+    "smallOutput": "public/images/services/mvp-decision-v1-768.webp",
+    "selectedSource": "exec-995883f8-07a6-4f53-8ca6-6f8be99f8b58.png"
+  },
+  {
+    "name": "home-decision-v1",
+    "title": "発注前に、判断材料をそろえる",
+    "alt": "業務と資料をもとに動くデモで確認し、開発範囲・費用・進め方を判断する流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「発注前に、判断材料をそろえる」. Three vertical stages: 「業務・資料・困りごと」 with scattered concrete business documents, 「動くデモで確認」 client using laptop with developer, 「範囲・費用・進め方を決める」 aligned checklist and cost sheet. Bottom branch 「進める」 / 「見送る」. Calm credible business infographic not sales hype.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/home-decision-v1.webp",
+    "smallOutput": "public/images/services/home-decision-v1-768.webp",
+    "selectedSource": "exec-99f16964-2fca-4950-a868-5c5e4b4d8b7c.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  },
+  {
+    "name": "home-questions-v1",
+    "title": "発注前に確認する、3つのこと",
+    "alt": "改善する業務、現場での使いやすさ、費用と効果の3点を発注前に確認",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「発注前に確認する、3つのこと」. Three stacked illustrated rows each with oversized number and concise Japanese question: 「何を変える？」 workflow sheets; 「現場で使える？」 person testing app; 「投資できる？」 decision maker reviewing scope and cost document. Show tangible decision evidence, no money piles or decorative question marks.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/home-questions-v1.webp",
+    "smallOutput": "public/images/services/home-questions-v1-768.webp",
+    "selectedSource": "exec-a2545941-32d3-4656-8127-408dafda4d6f.png"
+  },
+  {
+    "name": "delivery-handoff-v1",
+    "title": "決めたことを、開発と確認までつなぐ",
+    "alt": "整理した要件を試作・実装・テスト・運用へ引き継ぐBeekleの開発支援",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「決めたことを、開発と確認までつなぐ」. 4 stages vertical: 「業務・要件を整理」→「画面で認識を合わせる」→「実装・テスト」→「現場で運用」. A continuous indigo line connects document, prototype, code with checklist, user in workplace. Side small label「同じチームで引き継ぐ」. Illustrate traceability without software branding.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/delivery-handoff-v1.webp",
+    "smallOutput": "public/images/services/delivery-handoff-v1-768.webp",
+    "selectedSource": "exec-57fdcc08-a0d5-4bb5-addc-de81bbe39625.png"
+  },
+  {
+    "name": "risk-gates-v1",
+    "title": "任せる前に、止め方まで決める",
+    "alt": "AIの処理案を権限と確認条件で判定し、実行または担当者への引き継ぎを行う図",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「任せる前に、止め方まで決める」. Top stage「AIが処理案を作る」 generic proposed action card. Middle decision diamond「権限・確認条件を満たす？」. Two columns below left「確認して実行」 human checks approved action and log book; right「止めて担当者へ」 blocked operation and human inbox. Both connect to bottom「履歴を残す」. Safety gate not guaranteed accuracy. No robots.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/risk-gates-v1.webp",
+    "smallOutput": "public/images/services/risk-gates-v1-768.webp",
+    "selectedSource": "exec-e35bc94c-c775-48b4-a752-24050ffe1883.png"
+  },
+  {
+    "name": "evaluation-loop-v1",
+    "title": "精度だけでなく、業務で使えるかを測る",
+    "alt": "実データで品質・処理時間・費用・人の確認工数を測り、導入を判断する図",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「精度だけでなく、業務で使えるかを測る」. Top「実際の業務データ」 document set. Middle exactly two columns showing「回答・処理の品質」 with original vs output checked, and「時間・費用・確認工数」 clock invoice reviewer. Bottom「基準と比べて判断」 splits「導入」 and「改善・見送り」. No numbers, percentages or fake graphs.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/evaluation-loop-v1.webp",
+    "smallOutput": "public/images/services/evaluation-loop-v1-768.webp",
+    "selectedSource": "exec-0213445a-4c55-4453-885f-602f7ee1840c.png"
+  },
+  {
+    "name": "knowledge-relations-v1",
+    "title": "文書の内容と、文書同士の関係を探す",
+    "alt": "文章の内容から探す検索と、型番や適用条件の関係をたどる検索の比較",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「文書の内容と、文書同士の関係を探す」. Two columns with clear labels: left「内容が近い資料」 several pages one highlighted passage and search icon; right「条件でつながる資料」 specification→part→model manual as connected illustrated nodes; bottom full-width「質問に合う方式を選び、出典を確認」. Avoid claiming graph always superior or exhaustive answer. Simple accurate RAG vs relationship search conceptual comparison.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/knowledge-relations-v1.webp",
+    "smallOutput": "public/images/services/knowledge-relations-v1-768.webp",
+    "selectedSource": "exec-5c9062db-6c0c-4d62-adee-f336f4f7daa8.png"
+  },
+  {
+    "name": "support-roles-v1",
+    "title": "必要な支援の深さで、体制を選ぶ",
+    "alt": "相談役、伴走支援、実行チームの役割の違い",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「必要な支援の深さで、体制を選ぶ」. Three vertically stacked bands, NOT 3 columns: 「相談役」 client owns execution, advisor provides comments; 「伴走支援」 client and specialist work on same scope sheet; 「実行チーム」 cross-functional team handles agreed implementation with client reviewer. No prices or guaranteed outcomes. Show human responsibility and collaboration.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/support-roles-v1.webp",
+    "smallOutput": "public/images/services/support-roles-v1-768.webp",
+    "selectedSource": "exec-7182a852-140e-4f08-8f62-bfcdd36d4c9c.png"
+  },
+  {
+    "name": "management-priorities-v1",
+    "title": "経営の困りごとを、着手する課題へ",
+    "alt": "経営数値と現場の状況から課題の優先順位と次の行動を整理する相談の流れ",
+    "prompt": "Use case: infographic-diagram. Asset: Japanese Beekle B2B website section explanatory infographic, landscape 3:2. Professional editorial illustration plus clear information architecture; warm off-white background, indigo #3D4DB7, navy #001738 text, cyan #00c4cc accents. Precise simplified objects with restrained shading, generous whitespace. Large perfectly legible Japanese typography; no tiny text, no logo, no watermark, no robots, no fantasy tech, no decorative cubes. Maximum two columns, prefer top-to-bottom reading flow. Only exact Japanese labels below, no English, no invented metrics. Diagram is an explanation, not an actual product screenshot. Title「経営の困りごとを、着手する課題へ」. Three vertical bands: 「数字と現場の状況を確認」 finance sales and operations reports; 「原因と制約を整理」 connected cause notes with review; 「優先順位と次の行動を決める」 one selected issue and clear action owner. Footer「実装は範囲と費用を別途合意」. No promise consultation includes actual system.",
+    "tool": "built-in image_gen",
+    "output": "public/images/services/management-priorities-v1.webp",
+    "smallOutput": "public/images/services/management-priorities-v1-768.webp",
+    "selectedSource": "exec-352c2355-7705-4a41-baa0-f6a9bd3fb500.png",
+    "revision": "Reorganized into one column of full-width horizontal rows stacked top to bottom; deleted small paragraphs and speech bubbles, retained main labels, title and business meaning. See final asset for selected composition."
+  }
+]

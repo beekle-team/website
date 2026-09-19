@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Header } from '../../components/header';
 import { ScopeManager } from '../../components/scope-manager';
 import JsonLd from '../../components/seo/json-ld.astro';
@@ -249,7 +250,9 @@ import Layout from '../../layouts/layout.astro';
         });
       }
     </script>
-  </main>
+
+    <PageExplainer name="scope-priority-v1" />
+</main>
   <FloatingCTA
     href="/contact?source=tool-scope-manager&intent=floating-stuck&phase=mid"
     label="スコープ判断を一緒に詰める"

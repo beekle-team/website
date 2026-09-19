@@ -1,4 +1,6 @@
 ---
+import ServiceFigure from '@/components/services/service-figure.astro';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { ButtonLink } from '../components/ui/button';
@@ -49,7 +51,7 @@ const faqItems = [
   {
     question: '無料相談とPoCの範囲はどこで分かれますか？',
     answer:
-      'NDA締結後にデータを確認し、動くデモを作って現場で試すところまで費用をいただきません。見送っても負担は発生しません。Beekle側も、データや実現性から難しいと判断した案件はお断りします。望みがある場合は、実データ連携、個別業務フロー、精度検証、セキュリティ要件を含むPoCを、準委任（月額）で範囲と体制を再見積もりして進めます。',
+      'NDA締結後にデータを確認し、動くデモを作って現場で試すところまで費用をいただきません。見送っても負担は発生しません。Beekle側も、データや実現性から難しいと判断した案件はお断りします。実現の見込みがある場合は、実データ連携、個別業務フロー、精度検証、セキュリティ要件を含むPoCを、準委任（月額）で範囲と体制を再見積もりして進めます。',
   },
   {
     question: '作ったものはそのまま本番化できますか？',
@@ -109,7 +111,7 @@ const faqItems = [
             動くもので確かめる。
           </h1>
           <p class="mt-6 max-w-2xl text-lg leading-relaxed text-neutral-700 md:text-xl">
-            ゼロスタートは、NDA締結後に実際の業務データで検証用デモを作り、投資する価値があるかを確かめる進め方です。デモは0円。結果を見て、進めるか見送るかを双方で判断します。望みがあれば、PoCを準委任で再見積もりして進みます。
+            ゼロスタートは、NDA締結後に実際の業務データで検証用デモを作り、投資する価値があるかを確かめる進め方です。デモは0円。結果を見て、進めるか見送るかを双方で判断します。実現の見込みがあれば、PoCを準委任で再見積もりして進みます。
           </p>
           <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
             <ButtonLink
@@ -126,10 +128,19 @@ const faqItems = [
             </a>
           </div>
           <p class="mt-5 text-sm leading-relaxed text-neutral-600">
-            NDA締結後にデータ確認。デモは0円。望みがあればPoCへ、準委任で再見積もり（単価は職種別に公開）。合わなければ費用なしで終了。
+            NDA締結後にデータ確認。デモは0円。実現の見込みがあればPoCへ、準委任で再見積もり（単価は職種別に公開）。合わなければ費用なしで終了。
           </p>
         </div>
 
+        <ReadingVisual name="decision-materials-v1" eager />
+      </div>
+    </section>
+
+    <section class="bg-neutral-50 py-14 md:py-16">
+      <div class="container mx-auto px-6 lg:px-12">
+        <h2 class="text-3xl font-bold text-accent-950">デモで、どこまで確かめられるか</h2>
+        <div class="grid items-center gap-8 lg:grid-cols-2">
+          <ReadingVisual name="demo-business-logic-v1" />
         <aside class="border-y border-neutral-300 bg-white">
           <div class="border-b border-neutral-300 border-l-8 border-primary-500 px-5 py-4">
             <p class="text-sm font-bold text-primary-700">検証前ドラフト</p>
@@ -146,6 +157,14 @@ const faqItems = [
             ))}
           </dl>
         </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16">
+      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+        <h2 class="mb-6 text-3xl font-bold text-accent-950">デモの確認後に、有料開発を判断します</h2>
+        <ServiceFigure name="delivery-scope-v2" alt="無料デモで入力・保存、業務ロジック、結果の確認を実装し、確認後に有料の検証・本開発へ進む流れ" caption="Beekleのゼロスタートでは、対象業務に必要な画面と業務ロジックを実装し、動くデモで開発を進めるか判断します。AI DXはまず1業務から始めます。本番向けの品質・精度の検証、連携や機能の拡張、運用の整備は、範囲と費用を合意して進めます。" />
       </div>
     </section>
 
@@ -157,6 +176,7 @@ const faqItems = [
             <h2 class="mt-3 text-3xl font-bold leading-tight text-accent-950 md:text-4xl">
               見積もり前に、確かめる問いを決める。
             </h2>
+            <ReadingVisual name="home-questions-v1" />
           </div>
           <div class="border-t border-neutral-300">
             {fitItems.map((item) => (
@@ -178,11 +198,13 @@ const faqItems = [
           </h2>
         </div>
 
+        <ReadingVisual name="prototype-feedback-v1" />
         <div class="mt-8 border-t border-neutral-300">
           {processRows.map((row) => (
-            <div class="grid gap-5 border-b border-neutral-300 py-6 lg:grid-cols-[80px_0.8fr_1fr_1fr_1fr]">
-              <p class="font-Poppins text-2xl font-bold text-primary-500">{row.no}</p>
-              <h3 class="text-xl font-bold leading-snug text-accent-950">{row.title}</h3>
+            <div class="grid gap-5 border-b border-neutral-300 py-6 lg:grid-cols-[0.65fr_1.35fr]">
+              <div><p class="font-Poppins text-2xl font-bold text-primary-500">{row.no}</p>
+              <h3 class="mt-2 text-xl font-bold leading-snug text-accent-950">{row.title}</h3></div>
+              <div class="space-y-3">
               <p class="text-sm leading-relaxed text-neutral-700">
                 <span class="font-bold text-primary-700">お客様: </span>{row.customer}
               </p>
@@ -190,6 +212,7 @@ const faqItems = [
                 <span class="font-bold text-primary-700">Beekle: </span>{row.beekle}
               </p>
               <p class="text-sm font-bold leading-relaxed text-accent-950">{row.decision}</p>
+              </div>
             </div>
           ))}
         </div>
@@ -199,6 +222,7 @@ const faqItems = [
           <h3 class="mt-2 text-xl font-bold leading-snug text-accent-950">
             ヒアリング議事録から、その日のうちに動くデモまで
           </h3>
+          <ReadingVisual name="prototype-review-v2" />
           <p class="mt-3 leading-relaxed text-neutral-700">
             構想段階で要件が言語化されていない状態から、議事録をもとにRFP（提案依頼書）を作り、その仕様で実装しました。1日で動作するデモを完成させ、画面を見ながら認識を合わせています。発注者からは「イメージとずれていない」と評価いただき、以降の打ち合わせを認識合わせではなく中身の検討に使えました。
           </p>
@@ -261,5 +285,6 @@ const faqItems = [
         </div>
       </div>
     </section>
+
   </main>
 </Layout>

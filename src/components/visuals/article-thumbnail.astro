@@ -1,0 +1,10 @@
+---
+import articleVisuals from '@/data/article-visuals.json';
+interface Props {
+  id: string;
+}
+const name = (articleVisuals as Record<string, string>)[Astro.props.id];
+---
+{name && <div class="mb-5 flex h-44 items-center justify-center overflow-hidden rounded-md border border-neutral-200 bg-neutral-50 p-3" aria-hidden="true">
+  <img src={`/images/services/${name}-768.webp`} alt="" loading="lazy" decoding="async" class="h-full w-full object-contain" width="768" height="512" />
+</div>}

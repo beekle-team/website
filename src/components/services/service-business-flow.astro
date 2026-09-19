@@ -28,11 +28,11 @@ const { flow } = Astro.props;
           <p class="mt-4 text-base leading-relaxed text-neutral-700 md:text-lg">{flow.lead}</p>
         </div>
 
-        <div class="mt-8 grid gap-3 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
+        <figure class="mt-8 grid max-w-4xl gap-3">
           {flow.steps.map((step, index) => (
             <>
               <article class:list={[
-                'rounded-lg border p-5 md:p-6',
+                'rounded-lg border p-5 md:p-6 md:grid md:grid-cols-[180px_1fr] md:gap-x-6',
                 index === 0
                   ? 'border-neutral-200 bg-neutral-50'
                   : index === flow.steps.length - 1
@@ -52,18 +52,18 @@ const { flow } = Astro.props;
                   </span>
                   <p class="text-xs font-bold tracking-wide text-primary-600">{step.label}</p>
                 </div>
-                <h3 class="mt-4 text-xl font-bold leading-snug text-accent-950">{step.title}</h3>
-                <p class="mt-3 text-sm leading-relaxed text-neutral-700">{step.description}</p>
+                <h3 class="mt-4 md:mt-0 text-xl font-bold leading-snug text-accent-950">{step.title}</h3>
+                <p class="mt-3 md:col-start-2 text-base leading-relaxed text-neutral-700">{step.description}</p>
               </article>
               {index < flow.steps.length - 1 && (
                 <div class="flex items-center justify-center text-primary-400" aria-hidden="true">
-                  <span class="hidden text-3xl font-bold md:block">→</span>
-                  <span class="text-2xl font-bold md:hidden">↓</span>
+                  <span class="text-2xl font-bold">↓</span>
                 </div>
               )}
             </>
           ))}
-        </div>
+          <figcaption class="mt-3 text-sm leading-relaxed text-neutral-600">現在の業務から、Beekleが設計する対応、導入後に目指す状態への流れです。実際の効果は検証で確認します。</figcaption>
+        </figure>
 
         <div class="mt-5 flex items-start gap-3 rounded-lg bg-accent-950 p-4 text-white md:px-5">
           <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary-400 text-sm font-bold text-accent-950">
