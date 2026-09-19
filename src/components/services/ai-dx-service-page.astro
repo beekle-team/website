@@ -1,7 +1,11 @@
 ---
 import { Header } from '@/components/header';
 import JsonLd from '@/components/seo/json-ld.astro';
+import SectionVisual from '@/components/services/section-visual.astro';
+import ServiceFigure from '@/components/services/service-figure.astro';
 import { Section, SectionHeader } from '@/components/ui';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
+import { ZERO_START_SCOPE_RULE } from '@/data/engagement-pricing';
 import Layout from '../../layouts/layout.astro';
 import ManagementDxEvidence from './management-dx-evidence.astro';
 import ManagementDxSession from './management-dx-session.astro';
@@ -51,7 +55,7 @@ const pageConfigs = {
     memoSubtitle: '相談前ドラフト',
     memoRows: [
       ['誰向け', '新規事業 / DX / 情シス'],
-      ['返すもの', '対象業務、評価基準、概算、進め方'],
+      ['お渡しするもの', '対象業務、評価基準、概算、進め方'],
       ['実装範囲', '簡易PoCから運用設計まで'],
       ['判断', '今やらない判断も明記'],
     ],
@@ -101,7 +105,7 @@ const pageConfigs = {
     memoRows: [
       ['誰向け', '経営者 / 経営企画 / 事業責任者'],
       ['見る数字', '売上、案件、利益、資金、顧客'],
-      ['返すもの', '導入検討メモ（課題、導入候補、優先順位）'],
+      ['お渡しするもの', '導入検討メモ（課題、導入候補、優先順位）'],
       ['実装例', 'AIレポート、アラート、検索、エージェント'],
     ],
     issueTitle: '経営DXは、システム導入だけでは進みません',
@@ -143,7 +147,7 @@ const contactHref = `/contact?source=${page.source}&intent=${entryIntent}`;
 const spotPlan: Plan = {
   no: 'SPOT',
   code: 'ASSESS',
-  name: 'AI・経営DX診断',
+  name: '開発検討のための無料デモ',
   tagline: '実データで動くデモを作り、投資判断の材料を返す',
   target: '試したい業務と利用できるデータがあり、発注前にAIが使えるかを実物で確かめたい方',
   chooseWhen: '自社の業務データでAIが使えるか、まず実物で確かめたい',
@@ -221,7 +225,7 @@ const comparisonRows: { label: string; key: keyof Plan }[] = [
   { label: '選ぶ状態', key: 'chooseWhen' },
   { label: '成果物', key: 'deliverable' },
   { label: '支援内容', key: 'scope' },
-  { label: '接触頻度', key: 'meetings' },
+  { label: '打ち合わせ', key: 'meetings' },
   { label: '期間', key: 'period' },
   { label: '実装', key: 'implementation' },
   { label: '契約形態', key: 'contract' },
@@ -297,7 +301,7 @@ const steps =
           no: '03',
           title: '進めるかを判断し、体制を提案',
           description:
-            '合わなければここで終了し、費用は発生しません。望みがあれば、着手するテーマ、見送るテーマ、体制、費用を準委任で提案します。',
+            '合わなければここで終了し、費用は発生しません。実現の見込みがあれば、着手するテーマ、見送るテーマ、体制、費用を準委任で提案します。',
         },
         {
           no: '04',
@@ -341,7 +345,7 @@ const faqs = [
     answer:
       mode === 'management-dx'
         ? '可能です。壁打ちやAI顧問は、コンサルティングとして単独でご依頼いただけます。Beekleへの開発発注は必須ではありません。実装先にかかわらず、ご利用いただいたコンサルティングの料金は発生します。'
-        : '可能です。NDA締結後に実データで検証用デモを作り、結果と投資判断の条件をお返しします。進めない場合も費用はかかりません。',
+        : '無料デモは、Beekleへの開発発注をご検討の案件を対象に、対象業務に必要な画面と業務ロジックを実装し、開発を進めるか判断するためのものです。結果を見て開発を見送ることはできます。導入方針の整理や他社提案のレビューのみをご希望の場合は、有料のAI顧問などをご案内します。',
   },
   {
     question: '月額料金に本番システムの開発費も含まれますか？',
@@ -462,6 +466,16 @@ const faqs = [
       </div>
     </section>
 
+    <section class="bg-white py-16">
+      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+        <h2 class="mb-6 text-3xl font-bold leading-snug text-accent-950">{mode === 'management-dx' ? '経営データを、判断できる情報に整理する' : '業務を整理し、試してから導入を決める'}</h2>
+        <ServiceFigure
+          name={mode === 'management-dx' ? 'management-data-flow-v1' : 'prototype-review-v2'}
+          alt={mode === 'management-dx' ? '部門の情報を集め、同じ基準で整理し、人が課題と対応を決める経営DXの流れ' : '業務の整理、デモの確認、開発範囲の合意というAI導入の流れ'}
+          caption={mode === 'management-dx' ? 'Beekleの経営DX支援では、営業・会計・顧客対応などのデータを整理し、経営者が課題と対応を判断できる状態を目指します。90分の有料相談では課題と優先順位を整理します。図に示すデータ連携やシステム実装は、別途合意した支援範囲で行います。' : 'BeekleのAI導入支援では、対象業務と必要なデータを整理し、まず1業務に必要な画面と業務ロジックをデモに実装し、実際に操作して確認します。評価結果と費用を確認してから、有料のPoCや継続支援を判断します。'}
+        />
+      </div>
+    </section>
     <Section variant="light" padding="lg">
       <SectionHeader
         title={page.issueTitle}
@@ -469,6 +483,7 @@ const faqs = [
         number="01"
         label="ISSUES"
       />
+      {mode === 'management-dx' ? <SectionVisual name="management-priorities-v1" /> : <ReadingVisual name="ai-evaluation-before-after-v1" />}
       <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
         {page.painPoints.map((pain) => (
           <article class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
@@ -488,6 +503,7 @@ const faqs = [
         number="02"
         label="PLANS"
       />
+      <SectionVisual name="support-roles-v1" />
 
       {mode === 'management-dx' && <ManagementDxSession />}
 
@@ -498,7 +514,7 @@ const faqs = [
             <p class="text-xs font-bold tracking-wide text-primary-700">スポット支援</p>
             <h2 class="mt-2 text-xl font-bold text-navy-950">{spotPlan.name}</h2>
             <p class="mt-2 text-sm leading-relaxed text-neutral-700">
-              まず実データで使えるか確かめたい方へ。{spotPlan.deliverable}を、対象業務を絞って作ります。進めない場合の費用はありません。
+              まず実データで使えるか確かめたい方へ。{spotPlan.deliverable}を、対象業務を絞って作ります。進めない場合の費用はありません。無料デモはBeekleへの開発発注をご検討の案件が対象です。
             </p>
             <dl class="mt-4 border-t border-neutral-200 pt-4">
               <dt class="text-sm font-bold text-primary-700">こんな方に</dt>
@@ -510,7 +526,7 @@ const faqs = [
               <span class="font-Poppins text-3xl font-bold text-navy-950">
                 {spotPlan.price === '無料' ? spotPlan.price : `&yen;${spotPlan.price}`}
               </span>
-              <span class="ml-1 text-sm font-medium text-neutral-600">/ {spotPlan.priceUnit}（税別）</span>
+              <span class="ml-1 text-sm font-medium text-neutral-600">/ {spotPlan.priceUnit}{spotPlan.price !== '無料' && '（税別）'}</span>
             </p>
             <a
               href={`/contact?source=${page.source}-plan-assess&intent=genai-adoption`}
@@ -525,6 +541,7 @@ const faqs = [
       </aside>
       )}
 
+      {mode === 'ai-adoption' && <p class="mx-auto mb-8 max-w-5xl text-base leading-relaxed text-neutral-700">{ZERO_START_SCOPE_RULE}</p>}
       <div class="space-y-6 md:hidden">
         {plans.map((plan) => (
           <article
@@ -653,6 +670,7 @@ const faqs = [
         number="03"
         label="OUTPUTS"
       />
+      <SectionVisual name="delivery-handoff-v1" />
       <div class="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
         {outputs.map((output) => (
           <article class="rounded-lg border border-neutral-200 bg-white p-6 md:p-8">
@@ -716,7 +734,8 @@ const faqs = [
           壁打ちは導入検討メモのお渡しで完結します。顧問・伴走支援や開発は、ご希望と課題に応じて別途ご提案します。継続契約や開発発注は必須ではありません。
         </p>
       )}
-      <div class="mx-auto max-w-4xl space-y-5">
+      <ReadingVisual name={mode === 'management-dx' ? 'business-redesign-v1' : 'demo-business-logic-v1'} />
+      <figure class="mx-auto max-w-4xl space-y-5 border-l-2 border-primary-200 pl-5">
         {steps.map((step) => (
           <article class="flex flex-col gap-4 rounded-lg border border-neutral-200 bg-white p-6 sm:flex-row sm:items-start sm:gap-6 md:p-8">
             <span class="shrink-0 font-Poppins text-4xl font-bold leading-none text-primary-500">{step.no}</span>
@@ -726,7 +745,8 @@ const faqs = [
             </div>
           </article>
         ))}
-      </div>
+        <figcaption class="text-sm leading-relaxed text-neutral-600">相談から支援・運用へ進む流れです。次の段階へ進む前に、対象範囲と費用を確認します。</figcaption>
+      </figure>
     </Section>
 
     <Section variant="white" padding="lg">

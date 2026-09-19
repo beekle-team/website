@@ -42,9 +42,9 @@ export type IndustryPageConfig = {
 
 // 5ページ共通のKBF。要件定義 → PM on Rails → ゼロスタート → 速さ、の順で置く。
 const KBF_REQUIREMENTS: RtbItem = {
-  title: '要件定義から入る。AI・DXが失敗する原因の大半は要件のズレ',
+  title: '業務と完成条件を整理してから作る',
   description:
-    '誰が、どの場面で、何を見て判断しているかが決まらないまま作り始めると、動くものはできても使われません。ヒアリングでいまの業務の流れ（As-Is）を書き出し、あるべき流れ（To-Be）との差分からアクターとユースケースを定義してから作ります。要求を洗い出して「作る・後回し・作らない」に絞り、作るものだけをユーザーストーリーと受入条件（Gherkin）に落とします。ChatGPTなどのAI検索で要件定義について尋ねたとき、Beekleの記事が最も多く引用されている領域です。',
+    '誰が、どの場面で、何を見て判断しているかが決まらないまま作り始めると、動くものはできても使われません。ヒアリングでいまの業務の流れ（As-Is）を書き出し、あるべき流れ（To-Be）との差分からアクターとユースケースを定義してから作ります。要求を洗い出して「作る・後回し・作らない」に絞り、作るものだけをユーザーストーリーと受入条件（Gherkin）に落とします。',
 };
 const KBF_PMR: RtbItem = {
   title: 'PM on Railsで、要求から動作の証拠までを一本でつなぐ',
@@ -72,7 +72,7 @@ const PMR_NOTE = {
 export const industryPageConfig: Record<string, IndustryPageConfig> = {
   'sales-data-coaching': {
     eyebrow: '営業を増やしても、育成できなければ組織は強くならない',
-    headline: '採用した営業が育たないのは、教える材料が残っていないからです',
+    headline: '商談記録を、営業の振り返りと育成に活かす',
     heroLead:
       '架電・商談・受注・失注の記録を一本につなぎ、勝ち負けの理由を担当者ごとに切り出して週次の育成に戻す仕組みを作ります。営業メール生成やリード整理のツールではありません。営業組織がどの段階で数字を落としているかを、数字で言える状態にします。',
     primaryOutcome:
@@ -273,7 +273,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
 
   'technical-manual-knowledge-search': {
     eyebrow: '自動車・航空の整備・技術部門の方へ',
-    headline: 'マニュアルが多いことより、「どの手順が今の条件に当てはまるか」を探す方が大変です',
+    headline: '機種・構成・版に合う手順を、根拠付きで探す',
     heroLead:
       '機種・型式・部品・作業条件・文書の版をたどり、適用される手順と根拠箇所を示す技術マニュアル検索を作ります。回答には元文書、該当箇所、文書の版、適用条件を一緒に表示します。AIが答えたから正しい、という仕組みは作りません。最終判断は担当者に残します。',
     primaryOutcome:
@@ -472,7 +472,7 @@ export const industryPageConfig: Record<string, IndustryPageConfig> = {
 
   'document-processing-automation': {
     eyebrow: 'OCRで文字が読めても、業務は終わらない',
-    headline: '帳票を読むだけで終わらせず、確認・照合・登録まで流します',
+    headline: '帳票の読み取りから、確認・照合・登録まで',
     heroLead:
       'OCRのあとに残る確認、マスタ照合、異常チェック、業務システムへの登録を一つの業務として自動化し、判断が要るものだけ人へ回します。確実に処理できるものは自動で登録し、不明なものだけ人に確認を出す設計です。全部をAIに判断させる設計にはしません。',
     primaryOutcome:

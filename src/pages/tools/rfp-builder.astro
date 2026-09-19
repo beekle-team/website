@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Header } from '../../components/header';
 import { RfpBuilder } from '../../components/rfp-builder';
 import JsonLd from '../../components/seo/json-ld.astro';
@@ -91,7 +92,9 @@ import Layout from '../../layouts/layout.astro';
         });
       }
     </script>
-  </main>
+
+    <PageExplainer name="requirements-chain-v1" />
+</main>
   <FloatingCTA
     href="/contact?source=tool-rfp-builder&intent=floating-stuck&phase=mid"
     label="RFPレビューを依頼"

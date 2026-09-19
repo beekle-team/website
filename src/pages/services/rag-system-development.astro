@@ -3,11 +3,16 @@ import { AskAiButton } from '@/components/ask-ai-button';
 import { AskAiSection } from '@/components/ask-ai-section';
 import { Header } from '@/components/header';
 import JsonLd from '@/components/seo/json-ld.astro';
+import InformationMap from '@/components/services/information-map.astro';
+import SectionVisual from '@/components/services/section-visual.astro';
 import ServiceCaseStudies from '@/components/services/service-case-studies.astro';
 import ServiceFaq from '@/components/services/service-faq.astro';
+import ServiceFigure from '@/components/services/service-figure.astro';
 import ServiceHero from '@/components/services/service-hero.astro';
 import ServiceRagDeploymentModes from '@/components/services/service-rag-deployment-modes.astro';
+import ServiceScope from '@/components/services/service-scope.astro';
 import { Section, SectionHeader } from '@/components/ui';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
 import {
   ragAcceptanceChecks,
   ragDeliveryItems,
@@ -91,6 +96,17 @@ const relatedGuides = [
   <main class="bg-neutral-100 pt-20">
     <ServiceHero service={service} config={heroConfig} />
 
+    <nav aria-label="このページの内容" class="container mx-auto flex flex-wrap gap-x-6 px-6 py-5 text-sm font-bold text-primary-700">
+      <a href="#use-cases" class="inline-flex min-h-[44px] items-center underline underline-offset-4">活用例</a>
+      <a href="#search-flow" class="inline-flex min-h-[44px] items-center underline underline-offset-4">検索の仕組み</a>
+      <a href="#service-scope" class="inline-flex min-h-[44px] items-center underline underline-offset-4">費用と進め方</a>
+    </nav>
+    <section id="search-flow" class="scroll-mt-24 bg-white py-16">
+      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+        <h2 class="mb-6 text-3xl font-bold leading-snug text-accent-950">質問から、根拠を確認するまで</h2>
+        <ServiceFigure name="rag-answer-flow-v1" alt="質問、資料検索、回答と出典の表示、担当者の確認というRAGの4段階" caption="RAGは社内資料を検索し、見つかった情報を根拠に回答を作る仕組みです。Beekleは、質問する人の権限や文書の版を考慮し、担当者が回答と出典を確認できる検索システムを構築します。資料に根拠がない質問への対応も設計します。" />
+      </div>
+    </section>
     <Section id="use-cases" variant="light" padding="md" decoration="none">
       <div class="mx-auto max-w-6xl">
         <SectionHeader
@@ -98,12 +114,14 @@ const relatedGuides = [
           title="探す・聞く・読み比べる時間を、次の判断に使う"
           subtitle="同じ製品情報でも、営業・技術・サポートで必要な答えは違います"
         />
+        <ReadingVisual name="scattered-information-v1" />
+        <SectionVisual name="knowledge-relations-v1" />
         <p class="mx-auto max-w-4xl text-lg leading-relaxed text-neutral-700">
           RAGは、自社の資料や業務データを検索し、その根拠を使ってAIが回答する仕組みです。情報同士の関係をたどる必要があればGraphRAGも組み合わせ、たとえば次のような業務での活用を設計します。
         </p>
-        <div class="mt-10 grid border border-neutral-300 bg-white md:grid-cols-3">
+        <div class="mt-10 grid border border-neutral-300 bg-white">
           {ragUseCases.map((item) => (
-            <article class="min-w-0 border-b border-neutral-300 p-6 last:border-0 md:border-r md:border-b-0 md:p-8">
+            <article class="min-w-0 border-b border-neutral-300 p-6 last:border-0 md:border-b md:p-8">
               <p class="text-sm font-bold text-primary-600">{item.role}</p>
               <h3 class="mt-3 text-xl font-bold leading-relaxed text-navy-950">「{item.question}」</h3>
               <p class="mt-5 leading-relaxed text-neutral-700">{item.answer}</p>
@@ -127,39 +145,14 @@ const relatedGuides = [
 
         <div class="mx-auto max-w-4xl space-y-6 text-lg leading-relaxed text-neutral-700">
           <p>
-            例えば、「前にも同じ案件があったはず」と資料を探すことがありますよね。分からないので詳しい人を探します。質問を送って返事を待つとしましょう。新人に、前にも誰かに説明した内容をもう一度教える。こうした時間は、一つひとつは小さくても、毎日何人もの社員が繰り返せば大きな人件費になります。
+            過去の案件資料を探す、詳しい担当者に質問して返事を待つ、新人に同じ手順を繰り返し説明する。こうした時間は、一つひとつは小さくても、毎日何人もの社員が繰り返せば大きな人件費になります。
           </p>
           <p>
             しかも止まるのは、質問する側だけではありません。<strong class="text-navy-950">聞かれる側の時間も同時に使われます。</strong>知識が人に集中している会社ほど、詳しい人ほど本来の仕事に集中しにくくなります。
           </p>
         </div>
 
-        <div class="mx-auto mt-12 grid max-w-6xl gap-6 md:grid-cols-2">
-          <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            <h3 class="text-xl font-bold text-navy-950">専門家の時間を、本来の仕事へ戻せる</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              製品に詳しい人、過去案件を知る人、社内ルールを知る人には質問が集まります。利用者が社内の知識から自分で答えを探せれば、詳しい人は例外判断、設計、改善、顧客対応など経験が必要な仕事へ時間を使えます。
-            </p>
-          </article>
-          <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            <h3 class="text-xl font-bold text-navy-950">新人が自分で調べられる範囲を増やせる</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              資料の場所や基本ルールを毎回教えるのではなく、回答と根拠を自分で確認できるようにします。教育をなくすのではなく、同じ説明を繰り返す時間を減らし、判断が必要な部分の教育に時間を使えます。
-            </p>
-          </article>
-          <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            <h3 class="text-xl font-bold text-navy-950">過去の失敗や判断を、次の仕事で使える</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              過去の設計、問い合わせ、トラブル、顧客ごとの情報を探せれば、同じ判断をゼロからやり直す必要がありません。時短だけでなく、見落としや手戻りを減らし、判断の質を上げることにもつながります。
-            </p>
-          </article>
-          <article class="border border-neutral-200 bg-neutral-50 p-6 md:p-8">
-            <h3 class="text-xl font-bold text-navy-950">生成AIに任せられる仕事を増やせる</h3>
-            <p class="mt-4 leading-relaxed text-neutral-700">
-              ChatGPTやClaudeは、自社の製品、顧客、規程、過去対応の知識がモデルに入っているわけではありません。社内の知識をAIから使えるようにして初めて、自社固有の問い合わせや判断支援まで自動化しやすくなります。
-            </p>
-          </article>
-        </div>
+        <div class="mt-10"><InformationMap label="社内の知識を使って改善すること" items={[{"title": "専門家の時間を、本来の仕事へ戻せる", "description": "製品に詳しい人、過去案件を知る人、社内ルールを知る人には質問が集まります。利用者が社内の知識から自分で答えを探せれば、詳しい人は例外判断、設計、改善、顧客対応など経験が必要な仕事へ時間を使えます。"}, {"title": "新人が自分で調べられる範囲を増やせる", "description": "資料の場所や基本ルールを毎回教えるのではなく、回答と根拠を自分で確認できるようにします。教育をなくすのではなく、同じ説明を繰り返す時間を減らし、判断が必要な部分の教育に時間を使えます。"}, {"title": "過去の失敗や判断を、次の仕事で使える", "description": "過去の設計、問い合わせ、トラブル、顧客ごとの情報を探せれば、同じ判断をゼロからやり直す必要がありません。時短だけでなく、見落としや手戻りを減らし、判断の質を上げることにもつながります。"}, {"title": "生成AIに任せられる仕事を増やせる", "description": "ChatGPTやClaudeは、自社の製品、顧客、規程、過去対応の知識がモデルに入っているわけではありません。社内の知識をAIから使えるようにして初めて、自社固有の問い合わせや判断支援まで自動化しやすくなります。"}]} caption="社内ナレッジ活用で目指す変化です。効果は、対象業務での検索時間・確認工数・利用状況を測って確認します。" /></div>
 
         <div class="mx-auto mt-12 max-w-5xl border-y border-neutral-300 py-8">
           <p class="text-sm font-bold text-primary-600">実際の導入事例でも、利益は「検索が便利になった」で終わっていません</p>
@@ -227,6 +220,7 @@ const relatedGuides = [
           title={whyBeekle.title}
           subtitle="現場から要件を作り、必要な検証を絞り、本番で使うところまで担います"
         />
+        <SectionVisual name="delivery-handoff-v1" />
         <p class="mx-auto max-w-4xl text-lg leading-relaxed text-neutral-700">{whyBeekle.lead}</p>
         <div class="mt-10 divide-y divide-neutral-300 border-y border-neutral-300">
           {whyBeekle.items.map((item, index) => (
@@ -341,6 +335,7 @@ const relatedGuides = [
           title="業務画面も、運用を続けるための設計も残します"
           subtitle="依頼範囲に応じて、設計・システム・評価結果・運用手順を納品します"
         />
+        <SectionVisual name="evaluation-loop-v1" />
         <dl class="divide-y divide-neutral-300 border-y border-neutral-300">
           {ragDeliveryItems.map((item) => (
             <div class="grid gap-3 py-6 md:grid-cols-[1fr_2fr] md:gap-8">
@@ -354,7 +349,7 @@ const relatedGuides = [
           <p class="mt-4 leading-relaxed text-neutral-700">
             新しい質問に答えられない、資料の更新で回答が変わる、費用が想定を超える。こうした変化をログから拾い、原因をデータ・検索・回答ルールに分けて改善します。
           </p>
-          <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <ol class="mt-6 grid gap-3 sm:grid-cols-2">
             {['失敗例をログから集める', '評価データに追加する', '原因を直して再評価する', 'AIに任せる範囲を見直す'].map((step, index) => (
               <li class="flex gap-3 border-t border-neutral-300 pt-4 font-bold leading-relaxed text-navy-950">
                 <span class="font-Poppins text-primary-600">{index + 1}</span><span>{step}</span>
@@ -368,6 +363,7 @@ const relatedGuides = [
       </div>
     </Section>
 
+    <ServiceScope />
     <ServiceRagDeploymentModes />
 
     <div id="faq">

@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 // 「資料置き場」ではなく、購買段階ごとに必要な判断材料へ案内するHub (tasks-v3 TASK-P1-02 / [B2B-1])。
 // 発注準備キットは主役にしない（Hero・先頭カテゴリに置かない）。
 import { Header } from '../components/header';
@@ -197,6 +198,8 @@ const pageDescription =
       title="資料・判断材料"
       subtitle="いま検討がどの段階かに合わせて、必要な材料へ案内します。課題の整理から、技術の理解、進め方の確認、社内での比較・稟議まで。"
     />
+    <PageExplainer name="requirements-chain-v1" />
+
 
     <section class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
       {categories.map((category) => (

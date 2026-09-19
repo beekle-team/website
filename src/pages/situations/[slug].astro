@@ -3,6 +3,7 @@ import { Header } from '@/components/header';
 import PmOnRailsSection from '@/components/pm-on-rails-section.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import SituationDecisionContent from '@/components/situations/situation-decision-content.astro';
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { consultationHub, getConsultationSituation } from '@/data/consultation-situations';
 import { resolveSituationHeroCopy } from '@/data/outcome-led-copy';
 import { getSituationLpContent, resolveSituationCaseStudies } from '@/data/situation-lp-content';
@@ -29,6 +30,15 @@ const situationHero = resolveSituationHeroCopy(situation.slug, {
   lead: situation.lead,
   contactLabel: '実現可否を相談する',
 });
+const situationVisuals: Record<string, string> = {
+  'requirements-unclear': 'requirements-chain-v1',
+  'ai-adoption': 'mvp-decision-v1',
+  'business-systemization': 'business-redesign-v1',
+  'legacy-system-modernization': 'delivery-handoff-v1',
+  'internal-document-search': 'rag-answer-flow-v1',
+  'customer-data-foundation': 'customer-data-v1',
+  'stalled-project': 'scenario-evidence-v1',
+};
 const siteUrl = 'https://beekle.jp';
 const pageUrl = `${siteUrl}${situation.href}`;
 ---
@@ -107,6 +117,7 @@ const pageUrl = `${siteUrl}${situation.href}`;
         </div>
       </div>
     </section>
+    <PageExplainer name={situationVisuals[situation.slug]} />
 
     <section class="py-14 md:py-16">
       <div class="container mx-auto px-8 lg:px-12">

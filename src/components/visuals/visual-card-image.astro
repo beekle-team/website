@@ -1,0 +1,12 @@
+---
+import explanations from '@/data/visual-explanations.json';
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+const entry = (explanations as Record<string, string[]>)[name];
+---
+{entry && <figure class="overflow-hidden rounded-lg border border-neutral-200 bg-white">
+  <img src={`/images/services/${name}.webp`} srcset={`/images/services/${name}-768.webp 768w, /images/services/${name}.webp 1536w`} sizes="(max-width: 767px) calc(100vw - 48px), 640px" alt={entry[0]} width="1536" height="1024" loading="lazy" decoding="async" class="h-auto w-full" />
+  <figcaption class="border-t border-neutral-200 px-4 py-3 text-sm leading-relaxed text-neutral-700">{entry[1]}</figcaption>
+</figure>}

@@ -1,0 +1,18 @@
+---
+import ServiceFigure from '@/components/services/service-figure.astro';
+import explanations from '@/data/visual-explanations.json';
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+const entry = (explanations as Record<string, string[]>)[name];
+const portrait =
+  /^(estimate-structure|scenario-evidence|scope-priority|data-quality|business-redesign|roi-decision|cash-states|sales-next-action|role-design|choice-evidence|email-routing|system-layers|search-benchmark|data-action|knowledge-handover|ai-role-context)-/.test(
+    name
+  );
+---
+{entry && <div class="border-b border-neutral-200 bg-neutral-50 px-6 py-10 md:py-14" data-page-explainer={name}>
+  <div class:list={['mx-auto', portrait ? 'max-w-lg' : 'max-w-3xl']}>
+    <ServiceFigure name={name} alt={entry[0]} caption={entry[1]} width={portrait ? 1024 : 1536} height={portrait ? 1536 : 1024} />
+  </div>
+</div>}

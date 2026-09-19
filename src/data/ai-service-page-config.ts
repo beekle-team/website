@@ -89,7 +89,7 @@ export const aiServicePageConfig = {
         {
           title: 'AIだけでなく、業務システム全体まで実装できる',
           description:
-            'データ、権限、画面、API、人の確認導線、実行ログ、既存システム連携、インフラまで一体で作ります。LLMを呼ぶ部分だけ作って、業務に載せる工程で止まることがありません。',
+            'データ、権限、画面、API、人の確認導線、実行ログ、既存システム連携、インフラまで一体で作ります。AIの回答を実際の業務で使うための連携と確認手順まで設計します。',
         },
         {
           title: '専門ロジックが必要なら、自前で実装できる',
@@ -106,7 +106,7 @@ export const aiServicePageConfig = {
   },
   'internal-document-ai-search': {
     eyebrow: '文書を探す時間を減らしたい企業へ',
-    headline: '社内文書AIの失敗を、質問と根拠の設計で防ぐ',
+    headline: '社内資料を探し、根拠を確認できるAI検索',
     heroLead:
       'PDF、マニュアル、規程集をただ検索対象に入れるだけでは不十分です。どんな質問に、どの根拠で答え、どこから人が確認するかを整理してから実装します。',
     primaryOutcome:
@@ -383,9 +383,9 @@ export const aiServicePageConfig = {
   },
   'ocr-ai-development': {
     eyebrow: 'OCRを入れたのに、結局すべて目視している',
-    headline: '全件入力する仕事を、例外だけ確認する仕事へ',
+    headline: '帳票の手入力を減らし、確認しやすくする',
     heroLead:
-      '請求書、申込書、レシート、商品カタログ。AIが必要項目を読み取り、業務で使えるデータへ構造化します。判断に迷う箇所だけ人に戻し、確認後はそのまま既存システムへ連携します。',
+      '請求書、申込書、レシート、商品カタログ。AIが必要項目を読み取り、業務で使えるデータへ構造化します。重要項目や読み取りが不確かな箇所を担当者が確認し、既存システムに登録する流れを設計します。',
     primaryOutcome:
       'OCRの精度を上げることではなく、人に残る入力・確認作業を減らすことがゴールです。',
     contactIntent: 'ocr-ai-development',
@@ -393,9 +393,9 @@ export const aiServicePageConfig = {
     visualTitle: '入力作業がどう変わるか',
     visualSubtitle: 'お客さま側の変化',
     visualItems: [
-      '転記そのものがなくなる',
+      '転記の手間を減らせる',
       '確認は迷う箇所だけ',
-      '月末の山がならされる',
+      '月末の入力負荷を減らす',
       'そのまま基幹へ渡せる',
     ],
     illustration: {
@@ -466,7 +466,7 @@ export const aiServicePageConfig = {
         {
           title: 'AIが迷った箇所だけ人に戻せる',
           description:
-            '全件確認を前提にしません。確信度が低い項目だけをレビュー対象としてハイライトし、修正の結果を次の精度改善に回します。確認の手間が読み取り件数に比例して増えません。',
+            '全件確認を前提にしません。確信度が低い項目だけをレビュー対象としてハイライトし、修正の結果を次の精度改善に回します。確認が必要な項目と、その判断基準を検証して運用します。',
         },
         {
           title: '異なる2種類のOCR業務でPoC済み',
@@ -476,7 +476,7 @@ export const aiServicePageConfig = {
         {
           title: '読み取った後の業務までつなげられる',
           description:
-            'CSVを出して終わりではなく、APIで会計・基幹・業務システムへ接続します。読み取り結果を人が別システムへ入力し直す、という作業が残りません。',
+            'CSVを出して終わりではなく、APIで会計・基幹・業務システムへ接続します。読み取り結果を人が別システムへ入力し直す、という作業を減らせます。',
         },
       ],
       note: {
@@ -490,20 +490,20 @@ export const aiServicePageConfig = {
   },
   'ai-agent-development': {
     eyebrow: '複数システムの手作業を減らしたい企業へ',
-    headline: 'AIエージェントの失敗を、任せる範囲と止め方の設計で防ぐ',
+    headline: '定型作業はAIへ。重要な操作は人が承認',
     heroLead:
       '調査、判断、入力、通知など複数システムをまたぐ作業は、ユースケース確定が最重要です。任せる範囲、権限、承認、例外、ログを決めてから実装します。',
     primaryOutcome:
       'エージェント設計の核は、できることを増やすより、安全に任せる範囲を決めることです。',
     contactIntent: 'ai-agent-development',
     contactLabel: 'AIエージェントの失敗を防ぐ相談をする',
-    visualTitle: '手作業を前へ進める',
+    visualTitle: '手作業を減らす流れ',
     visualSubtitle: 'お客さま側のメリット',
     visualItems: ['定型作業を削減', '複数システムを連携', '承認でリスクを抑制', '実行ログを残す'],
     illustration: {
       src: '/images/services/ai-agent-workflow-approval.webp',
       alt: 'AIエージェントが複数システムの作業を進め、人が承認する業務画面',
-      stages: ['情報を集める', '下書き実行', '人が承認', 'ログを残す'],
+      stages: ['情報を集める', '実行内容を準備', '人が承認', 'ログを残す'],
     },
     flow: {
       eyebrow: 'BEFORE / AFTER',
@@ -531,7 +531,7 @@ export const aiServicePageConfig = {
     rootCause: {
       eyebrow: 'なぜ、自動化が進まないのか',
       title: 'AIエージェントが失敗する原因は、任せる範囲と止め方が曖昧だから',
-      lead: '自動化が進まない、暴走が怖い。この2つは裏表で、「どこまで任せ、どこで人が承認するか」の設計が無いことに根があります。',
+      lead: '自動化が進まない、暴走が怖い。どちらも、「どこまで任せ、どこで人が承認するか」の設計が不十分なことが一因です。',
       causes: [
         {
           title: '人が「つなぎ役」になっている',
@@ -558,7 +558,7 @@ export const aiServicePageConfig = {
   },
   'requirements-definition-support': {
     eyebrow: '要件が固まっていなくても、速く始められる',
-    headline: '爆速の要件定義と開発は、PM on Railsがあるからできる',
+    headline: 'PM on Railsで要件を整理し、決まった範囲から開発',
     heroLead:
       'PM on Railsとは、打ち合わせで話した内容を、AIがそのまま実装できる形に整理し続ける自社の仕組みです。決まっていないことを洗い出して確認し、「何ができたら完成か」まで書くので、要件定義の途中でも開発が止まりません。',
     primaryOutcome:
@@ -580,13 +580,13 @@ export const aiServicePageConfig = {
       steps: [
         {
           label: 'よくある進め方',
-          title: '文書が厚くなって、実装が待つ',
+          title: '文書作成が長引き、開発が始まらない',
           description:
             '要望を議事録と要件定義書に書き写し、全部固まってから開発会社へ渡します。途中で変わると、最初から説明し直します。',
         },
         {
           label: 'Beekleの設計',
-          title: '会話を、役割ごとの正本に分ける',
+          title: '要望・要件・完成条件を整理する',
           description:
             '「こうしたい」は要求、「システムが満たす条件」は要件、「完了の確認」は受入条件として残します。同じ文章をコピーして回しません。',
         },
@@ -630,7 +630,7 @@ export const aiServicePageConfig = {
     rtb: {
       eyebrow: 'WHY BEEKLE',
       title: '速さの理由は、PM on Railsのプロセスにある',
-      lead: '会話が実装と確認まで届く流れを、順に見ていきます。名前より先に、何が残るかを見てもらうための説明です。',
+      lead: '会話が実装と確認まで届く流れを、順に見ていきます。要望・仕様・テスト結果を対応づけて管理します。',
       items: [
         {
           title: 'まず、話を役割ごとに分けて残す',

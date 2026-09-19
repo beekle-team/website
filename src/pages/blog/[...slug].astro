@@ -1,4 +1,6 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
+import blogVisuals from '@/data/blog-visuals.json';
 import { Renderer, marked } from 'marked';
 import BlogShare from '../../components/blog/blog-share.astro';
 import { Header } from '../../components/header';
@@ -20,6 +22,7 @@ export const prerender = false;
 
 const { slug } = Astro.params;
 const blogId = slug as string;
+const visualName = (blogVisuals as Record<string, string>)[blogId];
 
 const runtime = (Astro.locals as { runtime?: { env?: MicroCMSEnv } }).runtime;
 const env = runtime?.env;
@@ -217,6 +220,8 @@ const tags = normalizeTags(blog.tags);
           </div>
         )}
       </header>
+      {!imageUrl && visualName && <PageExplainer name={visualName} />}
+
 
       {toc.length > 0 && (
         <section class="border-b border-neutral-300 bg-neutral-100 py-8">

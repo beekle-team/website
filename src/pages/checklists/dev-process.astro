@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 import { Renderer, marked } from 'marked';
 import { Header } from '../../components/header';
 import JsonLd from '../../components/seo/json-ld.astro';
@@ -85,6 +86,8 @@ const canonical = 'https://beekle.jp/checklists/dev-process';
         </nav>
       </div>
     </section>
+    <PageExplainer name="scenario-evidence-v1" />
+
 
     {/* Hero */}
     <section class="border-b border-neutral-300 bg-neutral-100 py-12 md:py-16">

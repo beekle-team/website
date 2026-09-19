@@ -2,8 +2,11 @@
 import { AskAiButton } from '@/components/ask-ai-button';
 import { Header } from '@/components/header';
 import JsonLd from '@/components/seo/json-ld.astro';
+import SectionVisual from '@/components/services/section-visual.astro';
+import ServiceFigure from '@/components/services/service-figure.astro';
 import { testimonialData } from '@/components/testimonial-section';
 import { Section } from '@/components/ui';
+import ReadingVisual from '@/components/visuals/reading-visual.astro';
 import { AI_PAIR, PROJECT_MONTHS, pocEstimate, projectEstimate } from '@/data/engagement-pricing';
 import { services } from '@/data/service';
 import Layout from '@/layouts/layout.astro';
@@ -115,7 +118,7 @@ const process = [
   {
     title: '稟議・ご判断',
     body: 'デモ、狙う効果、PoCの範囲と体制で社内検討。',
-    output: '望みがあればPoCへ',
+    output: '実現の見込みがあればPoCへ',
   },
   {
     title: 'PoC・開発・運用',
@@ -177,12 +180,12 @@ const pricePlans = [
   {
     title: '検証用の叩き台（ゼロスタート）',
     price: '0円',
-    body: 'NDAを結び、実際の業務データをお預かりして確認したうえで、1業務の代表データでコアのAI機能が動く叩き台を作ります。営業として成立するかを双方で判断できるところまでが範囲で、全量データ、権限、連携、確認画面、評価セットの整備は含めません。合わなければ、双方ここで終了。費用は発生しません。',
+    body: 'NDAを結び、実際の業務データをお預かりして確認したうえで、1業務の代表データでコアのAI機能が動く叩き台を作ります。開発を進める価値があるかを双方で判断できるところまでが範囲で、全量データ、権限、連携、確認画面、評価セットの整備は含めません。合わなければ、双方ここで終了。費用は発生しません。',
   },
   {
     title: 'PoC（実データで業務として成立するか）',
     price: '準委任（月額）',
-    body: `叩き台で望みが見えた場合だけ進みます。モデルケースの体制と費用の目安は${aiPocEstimate}。叩き台で分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりします。単価は職種別に公開しています。`,
+    body: `叩き台で実現の見込みを確認できた場合だけ進みます。モデルケースの体制と費用の目安は${aiPocEstimate}。叩き台で分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりします。単価は職種別に公開しています。`,
   },
   {
     title: 'MVP・本番開発・運用',
@@ -221,7 +224,7 @@ const faq = [
   {
     question: '商談のデモと、有償のPoCは何が違いますか？',
     answer:
-      'デモは0円です。NDA締結後に実データを確認し、対象業務を絞って動くものを作り、AIを業務に使えそうかを双方で見極めます。見込みがなければ、そこで終了でき、費用はかかりません。望みがあれば、デモで分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりし、準委任（月額）でPoCへ進みます。デモだけで本番の品質を保証するものではありません。',
+      'デモは0円です。NDA締結後に実データを確認し、対象業務を絞って動くものを作り、AIを業務に使えそうかを双方で見極めます。見込みがなければ、そこで終了でき、費用はかかりません。実現の見込みがあれば、デモで分かったデータの状態と難しさをもとに、確かめる範囲と体制を再見積もりし、準委任（月額）でPoCへ進みます。デモだけで本番の品質を保証するものではありません。',
   },
   {
     question: 'まだ何を作るか決まっていなくても相談できますか？',
@@ -337,6 +340,8 @@ const faq = [
     <Section id="why-beekle" className="scroll-mt-20" padding="sm" variant="light" decoration="none" containerClass="mx-auto max-w-6xl">
       <p class="eyebrow">WHY BEEKLE — AI DXを成果へ</p>
       <h2 class="section-title">AI開発は、ビジネス目線で<br class="hidden sm:block" />要件を決められる会社へ。</h2>
+      <ReadingVisual name="unclear-scope-v1" />
+      <SectionVisual name="requirements-chain-v1" />
       <p class="copy mt-5 max-w-3xl">Beekleは「どの業務を、どれだけ減らすか」から設計します。動くデモで業務に使える見込みを早く確かめ、難しければ変更・撤退を判断。大きく投資する前に、不確実性を減らします。</p>
 
       <div class="mt-8 overflow-hidden rounded-lg border border-neutral-300 bg-white">
@@ -413,9 +418,17 @@ const faq = [
       </div>
     </Section>
 
+    <section class="bg-neutral-50 py-16">
+      <div class="container mx-auto max-w-5xl px-6 lg:px-12">
+        <h2 class="mb-6 text-3xl font-bold leading-snug text-accent-950">AIに任せる作業と、人が確認する作業</h2>
+        <ServiceFigure name="document-review-v2" alt="帳票をAIで読み取り、担当者が原本と照合して登録する業務の流れ" caption="生成AI開発の一例が帳票処理です。Beekleは、項目の読み取りだけでなく、確認が必要な項目の表示と既存システムへの登録まで設計します。自動化できる範囲は実データで確かめます。" />
+      </div>
+    </section>
+
     <Section id="how" className="scroll-mt-20" padding="sm" variant="white" decoration="none" containerClass="mx-auto max-w-6xl">
       <p class="eyebrow">HOW — 相談から本番まで</p>
       <h2 class="section-title">商談が進むほど、<br class="sm:hidden" />完成像が見えてくる。</h2>
+      <SectionVisual name="home-decision-v1" />
       <ol class="mt-10 grid gap-0 md:grid-cols-5">
         {process.map((item, index) => (
           <li class="relative border-l-2 border-primary-200 pb-7 pl-6 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pr-6 md:pt-6">
@@ -428,14 +441,15 @@ const faq = [
         ))}
       </ol>
       <div class="mt-8 flex flex-col gap-3 border-y border-neutral-200 py-5 md:flex-row md:items-center md:gap-8">
-        <p class="shrink-0 font-bold text-accent-950">0円のデモで早く見極める。<br class="hidden md:block" />望みがあれば、準委任でPoCへ。</p>
-        <p class="max-w-3xl text-sm leading-7 text-neutral-600">NDA締結後に実データでデモを作り、業務に使える見込みを双方で確認。難しければ、その段階で終了でき、費用はかかりません。望みがあれば、デモで見えた不確実性だけを範囲にしてPoCを再見積もりし、準委任で進めます。精度・確認工数・運用費を見て、続行・変更・中止を決めます。</p>
+        <p class="shrink-0 font-bold text-accent-950">0円のデモで早く見極める。<br class="hidden md:block" />実現の見込みがあれば、準委任でPoCへ。</p>
+        <p class="max-w-3xl text-sm leading-7 text-neutral-600">NDA締結後に実データでデモを作り、業務に使える見込みを双方で確認。難しければ、その段階で終了でき、費用はかかりません。実現の見込みがあれば、デモで見えた不確実性だけを範囲にしてPoCを再見積もりし、準委任で進めます。精度・確認工数・運用費を見て、続行・変更・中止を決めます。</p>
       </div>
     </Section>
 
     <Section id="proof" className="scroll-mt-20" padding="sm" variant="navy" decoration="none" containerClass="mx-auto max-w-6xl">
       <p class="eyebrow text-primary-200">PROOF — 開発実績とお客様の声</p>
       <h2 class="section-title text-white">動くものと、<br class="sm:hidden" />任せられる根拠を。</h2>
+      <SectionVisual name="evaluation-loop-v1" />
       <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
         {proofs.map((item) => (
           <article class="border-t border-white/30 pt-6">
@@ -462,6 +476,7 @@ const faq = [
     <Section id="plan-pricing" padding="sm" variant="white" decoration="none" containerClass="mx-auto max-w-6xl">
       <p class="eyebrow">費用と契約の流れ</p>
       <h2 class="section-title">0円のデモで確かめてから、<br class="sm:hidden" />準委任で進める。</h2>
+      <div class="mx-auto my-8 max-w-3xl"><ServiceFigure name="delivery-scope-v2" alt="無料デモで入力・保存、業務ロジック、結果の確認を実装し、確認後に有料の検証・本開発へ進む流れ" caption="Beekleのゼロスタートでは、対象業務に必要な画面と業務ロジックを実装し、動くデモで開発を進めるか判断します。AI DXはまず1業務から始めます。本番向けの品質・精度の検証、連携や機能の拡張、運用の整備は、範囲と費用を合意して進めます。" /></div>
       <p class="copy mb-8 mt-5 max-w-2xl">まずお金を払って確かめる進め方はとりません。NDA締結後に実データでデモを作り、双方が判断してから、望みのある案件だけPoCへ。範囲を狭める・方式を変える・見送る判断も、その都度できます。</p>
       <div class="divide-y divide-neutral-200 border-y border-neutral-300">
         {pricePlans.map((item) => (
@@ -491,6 +506,7 @@ const faq = [
         <div>
           <p class="eyebrow">対応範囲</p>
           <h2 class="section-title">検索から、<br />業務の自動化まで。</h2>
+      <SectionVisual name="knowledge-relations-v1" />
           <p class="copy mt-5">今の業務へのAI組み込みも、AIを使う新規プロダクトも。用途に合わせて、必要な技術と構成を選びます。</p>
           <p class="mt-5 text-sm leading-7 text-neutral-600">RAG / GraphRAG / AIエージェント / AI OCR</p>
           <div class="mt-6 flex flex-col items-start">
@@ -571,6 +587,7 @@ const faq = [
         </div>
       </div>
     </Section>
+
   </main>
 </Layout>
 

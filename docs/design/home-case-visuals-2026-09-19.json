@@ -1,0 +1,110 @@
+[
+  {
+    "id": "case-demo-one-day-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case infographic-diagram. Beekle Japanese B2B case study, landscape1536x1024. White #fff background, dark navy #001738 text, purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat illustration with very large Japanese typography 60px minimum, no gradients shadows glow tiny text. Show top-to-bottom 3 large rows, each row icon at left and exact short Japanese label at right, downward arrows between rows. No photo, no fabricated actual screenshot, no logos, no extra text or invented metrics. Title 「完成イメージを、実物で合わせる」. Row1 meeting notes 「ヒアリング議事録」. Row2 screen design and code 「画面と操作にする」. Row3 two people reviewing one screen 「1日で動くデモへ」. These are one actual case, not guarantees.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 201,
+      "completion_tokens": 5488,
+      "total_tokens": 5689,
+      "cost": 0.165645,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165645,
+        "upstream_inference_prompt_cost": 0.001005,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:30:27.767Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/case-demo-one-day-v1.webp",
+    "alt": "ヒアリング議事録を画面と操作に変え、1日で動くデモを確認した事例",
+    "caption": "ヒアリング議事録を画面と操作へ落とし、1日で動くデモを作った案件です。発注側と完成イメージを確認し、次に検討する要件を具体化しました。期間はこの案件での実績です。",
+    "tool": "OpenRouter Images API",
+    "usedBy": ["/"],
+    "review": "本文の実績と図の文言を照合済み"
+  },
+  {
+    "id": "case-new-business-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case infographic-diagram. Beekle Japanese B2B case study, landscape1536x1024. White #fff background, dark navy #001738 text, purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat illustration with very large Japanese typography 60px minimum, no gradients shadows glow tiny text. Show top-to-bottom 3 large rows, each row icon at left and exact short Japanese label at right, downward arrows between rows. No photo, no fabricated actual screenshot, no logos, no extra text or invented metrics. Title 「構想を、判断できる形に」. Row1 person with lightbulb and question mark 「構想はある。判断材料がない」. Row2 connected screen, database and server 「最小限の利用体験を作る」. Row3 hand testing screen and checklist 「約1週間で触れる形へ」. These are one actual case, not guarantees.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 214,
+      "completion_tokens": 5488,
+      "total_tokens": 5702,
+      "cost": 0.16571,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16571,
+        "upstream_inference_prompt_cost": 0.00107,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:29:12.542Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/case-new-business-v1.webp",
+    "alt": "構想段階の新規事業を約1週間で触れる形にし、本開発の範囲を判断した事例",
+    "caption": "画面・API・データ・インフラを最小限の利用体験へまとめ、約1週間で触れる形にした案件です。動作を確認しながら本開発の範囲を議論できる状態にしました。期間はこの案件での実績です。",
+    "tool": "OpenRouter Images API",
+    "usedBy": ["/"],
+    "review": "本文の実績と図の文言を照合済み"
+  },
+  {
+    "id": "case-recovery-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case infographic-diagram. Beekle Japanese B2B case study, landscape1536x1024. White #fff background, dark navy #001738 text, purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat illustration with very large Japanese typography 60px minimum, no gradients shadows glow tiny text. Show top-to-bottom 3 large rows, each row icon at left and exact short Japanese label at right, downward arrows between rows. No photo, no fabricated actual screenshot, no logos, no extra text or invented metrics. Title 「難航案件の立て直し」. Row1 stalled calendar and documents 「約3ヶ月、開発が停滞」. Row2 engineer and code inspection 「要件・実装を読み直す」. Row3 functioning screen with checkmark 「引き継ぎから3週間で動作」. These are outcomes of one actual case, not service guarantees.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 213,
+      "completion_tokens": 5488,
+      "total_tokens": 5701,
+      "cost": 0.165705,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165705,
+        "upstream_inference_prompt_cost": 0.001065,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:29:09.999Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/case-recovery-v1.webp",
+    "alt": "約3ヶ月停滞した開発を、要件・既存実装の確認から引き継ぎ、3週間で動作状態へ戻した事例",
+    "caption": "先行ベンダーで約3ヶ月停滞していた案件を引き継ぎ、要件・既存実装・インフラ・優先順位を読み直しました。3週間で動作状態へ戻した個別案件の実績で、すべての案件の期間を保証するものではありません。",
+    "tool": "OpenRouter Images API",
+    "usedBy": ["/"],
+    "review": "本文の実績と図の文言を照合済み"
+  }
+]

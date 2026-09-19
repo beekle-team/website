@@ -1,0 +1,282 @@
+[
+  {
+    "id": "ai-evaluation-before-after-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B website. Landscape1536x1024. Two rows TOP THEN BOTTOM (not two columns): top before light neutral panel, bottom after pale purple. Large illustrations communicate without text. Exact short Japanese labels, 56px+ sans serif. Pure white background, #001738 navy outlines/text, #3D4DB7 purple main, #00c4cc cyan accents, #f0f1fb panels. Flat vector no shadows gradients glow texture 3D. No numeric results, no real product screenshot, no logo. Title 「動くAIから、業務で使えるAIへ」. Top label 「デモは動く。判断材料がない」 person looking at chatbot speech bubble with question mark on nearby checklist. Bottom label 「実データ・評価・人の確認」 document stack into system, measurable checklist and human approving. Do not show actual numerical metrics or guarantee.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 204,
+      "completion_tokens": 5488,
+      "total_tokens": 5692,
+      "cost": 0.16566,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16566,
+        "upstream_inference_prompt_cost": 0.00102,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:25:42.297Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/ai-evaluation-before-after-v1.webp",
+    "alt": "動くデモを、実データ・評価・人の確認を備えた業務用AIへ進める図",
+    "caption": "AIのデモが動くことと、業務で使えることは別に確認します。実データで評価し、人が確認する条件と運用方法を整理して、本番化を判断します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "decision-materials-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Beekle Japanese B2B website, portrait 1024x1536, exceptionally legible on 390px mobile. Solid white canvas, dark navy #001738 text, Beekle purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat vector style, single vertical reading flow, large 52px+ Japanese sans serif labels, generous whitespace, no gradient, shadow, glow, haze, texture, watermark, logos, fabricated claims, numeric results. Only specified Japanese text. Title 「発注前に、判断材料を揃える」. Three vertically stacked large illustrated rows with icons: interactive monitor 「動くプロトタイプ」; checklist 「作る範囲・完成条件」; document with small calculator 「概算費用・残るリスク」. Lines from these three rows converge at bottom into a simple decision signpost labelled 「進める・見直す・見送る」. These are three parallel decision materials, not sequential delivery stages.",
+    "aspect_ratio": "2:3",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 230,
+      "completion_tokens": 5488,
+      "total_tokens": 5718,
+      "cost": 0.16579,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16579,
+        "upstream_inference_prompt_cost": 0.00115,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:23:15.353Z",
+    "width": 1024,
+    "height": 1536,
+    "source": "public/images/services/decision-materials-v1.webp",
+    "alt": "動くプロトタイプ、作る範囲と完成条件、概算費用とリスクを揃えて発注判断する図",
+    "caption": "動くプロトタイプ、作る範囲と完成条件、概算費用と残るリスクを揃えます。その材料をもとに、進める・範囲を見直す・見送るを判断します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "demo-business-logic-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Beekle Japanese B2B website, portrait 1024x1536, exceptionally legible on 390px mobile. Solid white canvas, dark navy #001738 text, Beekle purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat vector style, single vertical reading flow, large 52px+ Japanese sans serif labels, generous whitespace, no gradient, shadow, glow, haze, texture, watermark, logos, fabricated claims, numeric results. Only specified Japanese text. Title 「画面だけでなく、処理も確かめる」. Three vertically stacked large stages: input form and database icon 「入力・保存」; branch/condition and gear icon 「業務のルールで処理」; person inspecting output screen 「結果を確認」. Down arrows. Bottom exact label 「対象業務に必要な範囲で実装」. No AI brain or chatbot icons: this explains regular software business logic.",
+    "aspect_ratio": "2:3",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 223,
+      "completion_tokens": 5488,
+      "total_tokens": 5711,
+      "cost": 0.165755,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165755,
+        "upstream_inference_prompt_cost": 0.001115,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:24:34.127Z",
+    "width": 1024,
+    "height": 1536,
+    "source": "public/images/services/demo-business-logic-v1.webp",
+    "alt": "入力と保存、業務ルールによる処理、結果の確認まで動かすデモの図",
+    "caption": "ゼロスタートでは、画面の見た目だけでなく、対象業務に必要な入力・保存・業務ロジック・結果の確認まで実装します。実装する範囲は事前に合意します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "manual-transfer-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B website. Landscape1536x1024. Two rows TOP THEN BOTTOM (not two columns): top before light neutral panel, bottom after pale purple. Large illustrations communicate without text. Exact short Japanese labels, 56px+ sans serif. Pure white background, #001738 navy outlines/text, #3D4DB7 purple main, #00c4cc cyan accents, #f0f1fb panels. Flat vector no shadows gradients glow texture 3D. No numeric results, no real product screenshot, no logo. Title 「転記から、確認中心の業務へ」. Top label 「手入力・転記・照合」 person copying from paper to spreadsheet to another screen. Bottom label 「読み取り・確認・登録」 scanner document, human checkmark, database connected by arrows. Human review visible, no full automation promise.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 195,
+      "completion_tokens": 5488,
+      "total_tokens": 5683,
+      "cost": 0.165615,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165615,
+        "upstream_inference_prompt_cost": 0.000975,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:25:38.675Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/manual-transfer-v1.webp",
+    "alt": "手入力と転記が中心の処理を、読み取り・人の確認・登録へつなぐ図",
+    "caption": "手入力や転記が多い業務を、読み取り・担当者の確認・登録へつなぎます。自動化できる範囲と人が確認する条件は、実際の帳票で決めます。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "prototype-feedback-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Beekle Japanese B2B website, portrait 1024x1536, exceptionally legible on 390px mobile. Solid white canvas, dark navy #001738 text, Beekle purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat vector style, single vertical reading flow, large 52px+ Japanese sans serif labels, generous whitespace, no gradient, shadow, glow, haze, texture, watermark, logos, fabricated claims, numeric results. Only specified Japanese text. Title 「触って確かめ、要件に戻す」. Three large vertically stacked stages: document 「要件を整理」; monitor and developer 「動くものを作る」; person pointing at screen with comment bubble 「現場で確かめる」. Down arrows connect. A very clear return arrow along left from final stage back to first, labelled 「ズレを反映」. Large icons, no actual screenshot.",
+    "aspect_ratio": "2:3",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 219,
+      "completion_tokens": 5488,
+      "total_tokens": 5707,
+      "cost": 0.165735,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165735,
+        "upstream_inference_prompt_cost": 0.001095,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:24:30.529Z",
+    "width": 1024,
+    "height": 1536,
+    "source": "public/images/services/prototype-feedback-v1.webp",
+    "alt": "要件を整理して試作し、現場で確かめたズレを要件へ戻す図",
+    "caption": "要件を整理し、動くものを作って現場で確認します。見つかったズレを要件と完成条件へ戻し、次の実装に反映します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "reuse-foundation-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Beekle Japanese B2B website, portrait 1024x1536, exceptionally legible on 390px mobile. Solid white canvas, dark navy #001738 text, Beekle purple #3D4DB7 main, cyan #00c4cc accents, pale #f0f1fb panels. Flat vector style, single vertical reading flow, large 52px+ Japanese sans serif labels, generous whitespace, no gradient, shadow, glow, haze, texture, watermark, logos, fabricated claims, numeric results. Only specified Japanese text. Title 「必要な開発に集中する」. Top block illustrated reusable code building blocks 「既存の仕組みを活用」. Down arrow to middle block engineer modifying business process on screen 「業務に必要な部分を作る」. Down arrow to bottom block screen with checklist 「早く確認し、手戻りを減らす」. No amounts, no promises of speed, no percentages.",
+    "aspect_ratio": "2:3",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 214,
+      "completion_tokens": 5488,
+      "total_tokens": 5702,
+      "cost": 0.16571,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16571,
+        "upstream_inference_prompt_cost": 0.00107,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:23:15.825Z",
+    "width": 1024,
+    "height": 1536,
+    "source": "public/images/services/reuse-foundation-v1.webp",
+    "alt": "既存の仕組みを活用し、業務に必要な開発と早期確認に集中する図",
+    "caption": "既存コードや構築済みの仕組みを活用し、業務に必要な部分へ開発を集中します。早い段階で動作を確認し、作り直しと開発工数を抑えます。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "scattered-information-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B website. Landscape1536x1024. Two rows TOP THEN BOTTOM (not two columns): top before light neutral panel, bottom after pale purple. Large illustrations communicate without text. Exact short Japanese labels, 56px+ sans serif. Pure white background, #001738 navy outlines/text, #3D4DB7 purple main, #00c4cc cyan accents, #f0f1fb panels. Flat vector no shadows gradients glow texture 3D. No numeric results, no real product screenshot, no logo. Title 「探す前に、情報をつなぐ」. Top label 「資料が別々」 with person confused between folder, email and spreadsheet disconnected. Bottom label 「必要な情報と根拠を確認」 person at single search screen linked to clearly identifiable original document. Arrows demonstrate linking documents, never AI magical perfect answer.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 198,
+      "completion_tokens": 5488,
+      "total_tokens": 5686,
+      "cost": 0.16563,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16563,
+        "upstream_inference_prompt_cost": 0.00099,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:24:17.868Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/scattered-information-v1.webp",
+    "alt": "別々の資料を探す状態から、必要な情報と参照元を確認できる状態へ整理する図",
+    "caption": "資料や記録が分散した状態から、業務に必要な情報と根拠を確認できる状態へ整理します。どの資料を対象にするか、更新方法や利用権限も確認します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  },
+  {
+    "id": "unclear-scope-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B website. Landscape1536x1024. Two rows TOP THEN BOTTOM (not two columns): top before light neutral panel, bottom after pale purple. Large illustrations communicate without text. Exact short Japanese labels, 56px+ sans serif. Pure white background, #001738 navy outlines/text, #3D4DB7 purple main, #00c4cc cyan accents, #f0f1fb panels. Flat vector no shadows gradients glow texture 3D. No numeric results, no real product screenshot, no logo. Title 「曖昧な要望を、確認できる形に」. Top label 「言葉だけでは、ずれる」 two people holding differing imagined screen sketches in thought bubbles, papers between. Bottom label 「動く画面と完成条件で合意」 same two people pointing at one screen and acceptance checklist together.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 197,
+      "completion_tokens": 5488,
+      "total_tokens": 5685,
+      "cost": 0.165625,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.165625,
+        "upstream_inference_prompt_cost": 0.000985,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:24:21.119Z",
+    "width": 1536,
+    "height": 1024,
+    "source": "public/images/services/unclear-scope-v1.webp",
+    "alt": "言葉だけでずれる完成イメージを、動く画面と完成条件で合わせる図",
+    "caption": "言葉だけでは伝わりにくい完成イメージを、動く画面と完成条件で確認します。見つかった認識の違いを、作る範囲と優先順位へ反映します。",
+    "tool": "OpenRouter Images API",
+    "review": "文字・配色・矢印の意味を目視確認"
+  }
+]

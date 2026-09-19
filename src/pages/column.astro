@@ -1,4 +1,5 @@
 ---
+import ArticleThumbnail from '@/components/visuals/article-thumbnail.astro';
 import { Header } from '../components/header';
 import JsonLd from '../components/seo/json-ld.astro';
 import { PageHero } from '../components/ui/page-hero';
@@ -192,6 +193,7 @@ const columnCategories = categories
                     href={`/column/${article.slug}`}
                     class="group rounded-lg border border-neutral-200 bg-white p-6 transition-colors hover:border-primary-300 md:p-8"
                   >
+                    <ArticleThumbnail id={article.slug} />
                     <div class="flex items-start gap-6">
                       {/* Article Number */}
                       <div class="flex-shrink-0">

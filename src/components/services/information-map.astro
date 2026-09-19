@@ -1,0 +1,30 @@
+---
+interface Props {
+  label: string;
+  items: readonly { title: string; description: string; results?: string[] }[];
+  caption: string;
+  layout?: 'branches' | 'steps';
+}
+const { label, items, caption, layout = 'branches' } = Astro.props;
+---
+
+<figure class="information-map mx-auto max-w-5xl text-accent-950" data-layout={layout}>
+  <div class="mx-auto w-fit max-w-full rounded-md bg-primary-500 px-6 py-3 text-center text-lg font-bold text-white">{label}</div>
+  <div class="mx-auto h-6 w-px bg-primary-300" aria-hidden="true"></div>
+  <ol class:list={['map-nodes grid gap-x-8', layout === 'branches' && 'md:grid-cols-2']}>
+    {items.map((item, index) => (
+      <li class="map-node relative min-w-0 border-t border-primary-300 pt-6 pb-5">
+        <span class="absolute left-6 top-0 h-6 w-px bg-primary-300" aria-hidden="true"></span>
+        <div class="h-full rounded-md border border-neutral-200 bg-white p-5 md:p-6">
+          <div class="flex items-start gap-3">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary-50 text-sm font-bold text-primary-700" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <h3 class="pt-0.5 text-lg font-bold leading-snug">{item.title}</h3>
+          </div>
+          {item.description && <p class="mt-4 text-base leading-relaxed text-neutral-700">{item.description}</p>}
+          {item.results?.length && <ul class="mt-4 space-y-2 border-t border-neutral-200 pt-4">{item.results.map((result) => <li class="flex gap-2 text-sm leading-relaxed text-neutral-700"><span class="font-bold text-primary-600" aria-hidden="true">✓</span><span>{result}</span></li>)}</ul>}
+        </div>
+      </li>
+    ))}
+  </ol>
+  <figcaption class="border-t border-neutral-200 pt-4 text-sm leading-relaxed text-neutral-600">{caption}</figcaption>
+</figure>

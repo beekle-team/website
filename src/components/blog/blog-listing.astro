@@ -1,4 +1,5 @@
 ---
+import blogVisuals from '@/data/blog-visuals.json';
 import type { Blog, BlogTag } from '../../lib/microcms';
 
 type PageItem = number | 'ellipsis';
@@ -80,7 +81,15 @@ function getExcerpt(blog: Blog): string {
 }
 
 function getImageUrl(blog: Blog): string | undefined {
-  return blog.eyecatch?.url || blog.thumbnail?.url || blog.cover?.url || blog.image?.url;
+  return (
+    blog.eyecatch?.url ||
+    blog.thumbnail?.url ||
+    blog.cover?.url ||
+    blog.image?.url ||
+    ((blogVisuals as Record<string, string>)[blog.id]
+      ? `/images/services/${(blogVisuals as Record<string, string>)[blog.id]}-768.webp`
+      : undefined)
+  );
 }
 
 function normalizeTags(tags: Blog['tags']): string[] {
@@ -125,7 +134,7 @@ function normalizeTags(tags: Blog['tags']): string[] {
                       src={imageUrl}
                       alt=""
                       loading="lazy"
-                      class="h-full w-full object-cover"
+                      class="h-full w-full object-contain"
                     />
                   ) : (
                     <div class="flex h-full w-full items-center justify-center bg-neutral-100">

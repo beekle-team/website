@@ -17,6 +17,7 @@ import ServiceHero from '@/components/services/service-hero.astro';
 import ServicePainPoints from '@/components/services/service-pain-points.astro';
 import ServiceProductPackage from '@/components/services/service-product-package.astro';
 import ServiceRootCause from '@/components/services/service-root-cause.astro';
+import ServiceScope from '@/components/services/service-scope.astro';
 import ServiceSolutions from '@/components/services/service-solutions.astro';
 import ServiceWhyBeekle from '@/components/services/service-why-beekle.astro';
 import { Section, SectionHeader } from '@/components/ui';
@@ -51,7 +52,7 @@ const FINAL_CTA_HEADINGS: Record<string, string> = {
   'requirements-definition-support': '要件が固まっていなくても、進め方から相談できます',
   'sales-data-coaching': '営業データの現状を、まず棚卸ししませんか',
   'manufacturing-parts-knowledge-search': 'いま来ている問い合わせを、まず分類してみませんか',
-  'technical-manual-knowledge-search': 'いま担当者が手順を探している手順を、一度たどってみませんか',
+  'technical-manual-knowledge-search': '担当者が手順を探す流れを、一緒に確認しませんか',
   'internal-it-helpdesk-ai': 'まず、いまの問い合わせを分類してみませんか',
   'document-processing-automation': 'いま一番手間のかかっている帳票を、1種類教えてください',
 };
@@ -101,12 +102,12 @@ const faqNumber = rtb ? '07' : '05';
 
 const caseStudiesCopy: Record<string, { title: string; subtitle: string }> = {
   'requirements-definition-support': {
-    title: '会話から、動くものまで持っていった例',
+    title: '要件整理から試作まで進めた事例',
     subtitle: '要件が固まる前に入り、画面で確かめてから本開発へ進めた案件',
   },
   'ai-development': {
     title: '本当にできるのか、実案件で示します',
-    subtitle: 'AIをどの業務に載せ、何が変わったか',
+    subtitle: 'AIをどの業務に導入し、何が変わったか',
   },
   'rag-system-development': {
     title: '本当にできるのか、実案件で示します',
@@ -255,9 +256,15 @@ const featuresCopy = sectionCopy[service.id]?.features;
         最終更新: <time datetime={service.updatedAt}>{service.updatedAt}</time>
       </Section>
     )}
+    <nav aria-label="このページの内容" class="container mx-auto flex flex-wrap gap-x-6 gap-y-1 px-6 py-5 text-sm font-bold text-primary-700 lg:px-12">
+      {servicePageConfig?.flow && <a href="#service-example" class="inline-flex min-h-[44px] items-center underline underline-offset-4">業務の流れ</a>}
+      <a href="#service-cases" class="inline-flex min-h-[44px] items-center underline underline-offset-4">開発事例</a>
+      <a href="#service-scope" class="inline-flex min-h-[44px] items-center underline underline-offset-4">費用と進め方</a>
+      <a href="#service-faq" class="inline-flex min-h-[44px] items-center underline underline-offset-4">よくある質問</a>
+    </nav>
     <ServicePainPoints painPoints={service.painPoints} number={sectionNumbers.painPoints} />
     {!isAiDevelopment && <ServiceRootCause rootCause={servicePageConfig?.rootCause} />}
-    <ServiceBusinessFlow flow={servicePageConfig?.flow} />
+    <div id="service-example" class="scroll-mt-24"><ServiceBusinessFlow flow={servicePageConfig?.flow} /></div>
     {middleAdditionalSections.length > 0 && (
       <ServiceAdditionalSections sections={middleAdditionalSections} />
     )}
@@ -268,12 +275,14 @@ const featuresCopy = sectionCopy[service.id]?.features;
     )}
     {rtb && !isAiDevelopment && <ServiceWhyBeekle rtb={rtb} number={sectionNumbers.whyBeekle} />}
 
+    <div id="service-cases" class="scroll-mt-24">
     <ServiceCaseStudies
       caseStudies={service.caseStudies}
       number={sectionNumbers.caseStudies}
       title={caseStudiesTitle}
       subtitle={caseStudiesSubtitle}
     />
+    </div>
     {servicePageConfig && <ServiceContactCta serviceId={service.id} placement="cases" />}
     <ServiceSolutions
       solutions={service.solutions}
@@ -293,6 +302,7 @@ const featuresCopy = sectionCopy[service.id]?.features;
       <ServiceAdditionalSections sections={trailingAdditionalSections} />
     )}
 
+    <ServiceScope />
     {servicePageConfig && !isAiDevelopment && !isRequirementsSupport && <ServiceEngagementFlow />}
 
     {service.id === 'rag-system-development' && (
@@ -300,7 +310,7 @@ const featuresCopy = sectionCopy[service.id]?.features;
         <div class="max-w-5xl mx-auto relative z-10">
           <SectionHeader
             title="立場によって、始め方は変えられます"
-            subtitle="小さく試したい担当者にも、事故らせたくない情シスにも"
+            subtitle="業務への適合を確認したい方にも、権限・運用を確認したい方にも"
           />
           <div class="grid md:grid-cols-2 gap-6">
             <div class="flex flex-col rounded-lg border border-primary-200 bg-white p-6 md:p-8">
@@ -448,7 +458,7 @@ const featuresCopy = sectionCopy[service.id]?.features;
       </Section>
     )}
 
-    <ServiceFaq faq={service.faq} number={faqNumber} />
+    <div id="service-faq" class="scroll-mt-24"><ServiceFaq faq={service.faq} number={faqNumber} /></div>
 
     <AskAiSection
       client:visible

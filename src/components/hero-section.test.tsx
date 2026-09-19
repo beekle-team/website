@@ -11,7 +11,7 @@ describe('HeroSection', () => {
     const html = container.innerHTML;
     const text = visibleText(html);
 
-    expect(text).toContain('資料より、まず爆速デモ。見て決めたら、そのまま本番へ。');
+    expect(text).toContain('本開発の前に動くデモで確認。業務に合うか確かめてから開発。');
     expect(container.querySelectorAll('h1 br')).toHaveLength(3);
   });
 
@@ -27,13 +27,13 @@ describe('HeroSection', () => {
     const html = renderHeroHtml();
     const text = visibleText(html);
 
-    expect(text).toContain('爆速デモについて相談する');
+    expect(text).toContain('無料デモについて相談する');
     expect(text).not.toContain('爆速デモを相談する');
   });
 
   it('separates the CTA arrow into its own visual segment', () => {
     const { getByRole } = render(<HeroSection />);
-    const cta = getByRole('link', { name: '爆速デモについて相談する' });
+    const cta = getByRole('link', { name: '無料デモについて相談する' });
 
     expect(cta.children).toHaveLength(2);
     expect(cta.lastElementChild).toHaveAttribute('aria-hidden', 'true');

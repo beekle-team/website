@@ -158,7 +158,7 @@ describe('site-wide editorial design foundations', () => {
     }
     expect(serviceHero).toContain('border-b border-neutral-300 bg-neutral-100');
     expect(serviceHero).not.toContain('<img');
-    expect(serviceHero).toContain('判断メモ');
+    expect(serviceHero).toContain('<ServiceFigure');
     expect(aiDxServicePage).toContain('border-b border-neutral-300 bg-neutral-100');
     expect(aiDxServicePage).toContain('AI導入判断メモ');
     expect(aiDxServicePage).toContain('今やらない判断');

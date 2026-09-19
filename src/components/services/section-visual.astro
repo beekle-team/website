@@ -1,0 +1,10 @@
+---
+import ServiceFigure from '@/components/services/service-figure.astro';
+import { sectionVisuals } from '@/data/section-visuals';
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+const visual = sectionVisuals[name];
+---
+{visual && <div class:list={["mx-auto my-8 w-full", visual.height && visual.height > (visual.width ?? 1536) ? "max-w-xl" : "max-w-3xl"]} data-section-visual={name}><ServiceFigure {...visual} /></div>}

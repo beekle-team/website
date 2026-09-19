@@ -1,4 +1,5 @@
 ---
+import SectionVisual from '@/components/services/section-visual.astro';
 interface Props {
   serviceId: string;
 }
@@ -210,6 +211,7 @@ const config = configs[serviceId];
           </p>
         </div>
 
+        <SectionVisual name="risk-gates-v1" />
         <div class="mt-8 grid gap-4 md:grid-cols-2">
           {config.risks.map((item) => (
             <article

@@ -1,0 +1,154 @@
+[
+  {
+    "id": "estimate-structure-v1",
+    "prompt": "Use case: infographic-diagram. Japanese B2B explanatory diagram for Beekle. Portrait 1024x1536. Title exactly 「見積もりの比べ方」. Three vertically stacked illustrated rows: scope document and list 「作る範囲」; two engineers plus calendar 「体制と期間」; server with maintenance wrench 「公開後の費用」. Downward small arrows connect them. Bottom statement 「同じ条件で比較する」. Strict flat vector-like editorial style, large simple icons, very large Japanese sans-serif labels (minimum 48 pixels), generous whitespace, maximum two columns, read top to bottom. Solid white background #ffffff, navy text #001738, primary #3D4DB7, cyan #00c4cc accents, pale panels #f0f1fb, thin borders. No gradients, shadows, haze, glow, 3D, tiny text, invented labels, logo or watermark. Only the specified text. This is a explanatory presentation slide, readability on smartphone is essential.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-b9b6a204-0018-4dc5-a7b2-87b781743991.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "scenario-evidence-v1",
+    "prompt": "Use case: infographic-diagram. Japanese B2B explanatory diagram for Beekle. Portrait 1024x1536. Title exactly 「仕様から、動作の証拠へ」. Three vertical illustrated stages: document with three very large labels 「前提」「操作」「結果」 grouped under 「シナリオ」; code window with checkmark under 「実装・テスト」; screen next to evidence checklist under 「動作を確認」. Connect with downward arrows. Bottom 「仕様と結果を照合する」. Strict flat vector-like editorial style, large simple icons, very large Japanese sans-serif labels (minimum 48 pixels), generous whitespace, maximum two columns, read top to bottom. Solid white background #ffffff, navy text #001738, primary #3D4DB7, cyan #00c4cc accents, pale panels #f0f1fb, thin borders. No gradients, shadows, haze, glow, 3D, tiny text, invented labels, logo or watermark. Only the specified text. This is a explanatory presentation slide, readability on smartphone is essential.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-e8677b25-76c1-4a4c-ba7e-cdad5057a380.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "scope-priority-v1",
+    "prompt": "Create a replacement Beekle Japanese infographic, portrait1024x1536, title 「何を作るかを決める」. Top: requirement papers labelled 「要望を集める」. Middle: THREE VERTICALLY STACKED rows with large distinct icons and EXACT text 「ビジネス価値」「現場で使えるか」「技術コスト」. These are three parallel assessment axes, not sequential steps. Bottom three vertically stacked outcome labels reached from assessment group by branching arrows: 「作る」「後回し」「作らない」. No score or selection formulas. Large readable text minimum48px, simple flat icons, single column, generous white space. Solid white #ffffff background, dark navy #001738 type, purple #3D4DB7 primary, cyan #00c4cc accent, #f0f1fb pale panels. No gradients, glow, shadows, haze, 3D, extra wording or numeric claims.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-d97e4780-4ac2-4757-8f91-623da3aad172.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "data-quality-v1",
+    "prompt": "Use case: infographic-diagram. Japanese B2B explanatory diagram for Beekle. Portrait 1024x1536. Title exactly 「使えるデータに整える」. Three vertical illustrated steps: scattered documents and database 「所在を確認」; inspection funnel removes duplicates and fills missing cells 「品質を整える」; linked clean records with owner badge 「更新を続ける」. Down arrows. Bottom 「量だけでなく、内容と管理を見る」. Strict flat vector-like editorial style, large simple icons, very large Japanese sans-serif labels (minimum 48 pixels), generous whitespace, maximum two columns, read top to bottom. Solid white background #ffffff, navy text #001738, primary #3D4DB7, cyan #00c4cc accents, pale panels #f0f1fb, thin borders. No gradients, shadows, haze, glow, 3D, tiny text, invented labels, logo or watermark. Only the specified text. This is a explanatory presentation slide, readability on smartphone is essential.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-a648e5c9-e7df-4102-9402-bfef7feae937.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "business-redesign-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B explanatory presentation graphic. Portrait 1024x1536. Exact title 「システム化の前に、業務を整理」. Three vertical illustrated steps: person manually transferring between papers 「今の業務」; simple process diagram with unnecessary loop crossed out 「重複・待ち時間を見直す」; people plus clean single system 「目指す業務」. Clear down arrows; no fabricated improvement metrics. Flat clean editorial vector-like style. Simple large icons and large Japanese sans-serif labels (minimum 48 px). Read vertically, maximum 2 columns, generous whitespace. Solid white #ffffff canvas, #001738 navy text, #3D4DB7 main color, #00c4cc accent, solid pale #f0f1fb panels. No gradients, shadow, glow, haze, 3D or tiny text. Only specified text; no invented numerical data or guarantee. Must be readable on smartphone.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-efdfdbf3-94e0-4d54-af0d-3e5c33e1fa82.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "roi-decision-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B explanatory presentation graphic. Portrait 1024x1536. Exact title 「費用と効果を、同じ条件で比べる」. Top two big illustrated blocks stacked: stopwatch plus employee 「時間・確認作業」 and invoice plus server 「開発・運用費」. Bottom scale and checklist 「導入前後で測る」. A final loop arrow back to measurement label 「実データで確認」. No numbers or formulas. Flat clean editorial vector-like style. Simple large icons and large Japanese sans-serif labels (minimum 48 px). Read vertically, maximum 2 columns, generous whitespace. Solid white #ffffff canvas, #001738 navy text, #3D4DB7 main color, #00c4cc accent, solid pale #f0f1fb panels. No gradients, shadow, glow, haze, 3D or tiny text. Only specified text; no invented numerical data or guarantee. Must be readable on smartphone.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-015773c2-1ae3-43db-bb35-6491fdf020d6.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "cash-states-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B explanatory presentation graphic. Portrait 1024x1536. Exact title 「利益と入出金は分けて見る」. Two vertically stacked panels: first labeled 「案件の採算」 with budget document and actual effort clock labelled 「予算」「実績」. Second labelled 「資金繰り」 with large calendar and three connected tags 「予定」「確定」「済み」. Bottom 「入金・支払の時期を確認」. No money values. Flat clean editorial vector-like style. Simple large icons and large Japanese sans-serif labels (minimum 48 px). Read vertically, maximum 2 columns, generous whitespace. Solid white #ffffff canvas, #001738 navy text, #3D4DB7 main color, #00c4cc accent, solid pale #f0f1fb panels. No gradients, shadow, glow, haze, 3D or tiny text. Only specified text; no invented numerical data or guarantee. Must be readable on smartphone.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-927650b4-6932-43fd-8a79-6fe2e34edbcb.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "sales-next-action-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle B2B explanatory presentation graphic. Portrait 1024x1536. Exact title 「商談記録を、次の行動へ」. Three vertical stages with line icons: conversation notes 「顧客の状況」; open checklist with blanks highlighted 「足りない情報」; person with date/calendar 「次の行動と担当」. Down arrows. Bottom 「記憶に頼らず、記録でつなぐ」. Flat clean editorial vector-like style. Simple large icons and large Japanese sans-serif labels (minimum 48 px). Read vertically, maximum 2 columns, generous whitespace. Solid white #ffffff canvas, #001738 navy text, #3D4DB7 main color, #00c4cc accent, solid pale #f0f1fb panels. No gradients, shadow, glow, haze, 3D or tiny text. Only specified text; no invented numerical data or guarantee. Must be readable on smartphone.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-0971ff32-ec2c-423a-ba2f-abb0d4a96ce8.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "role-design-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle explanatory presentation slide. Portrait 1024x1536. Exact title 「仕事を分けて、役割を決める」. Top work notes and briefcase label 「実際の仕事を整理」. Below four vertically stacked large rows with clear distinct icons and labels 「やめる」「自動化する」「外へ頼む」「採用する」. These are four parallel choices, not sequential steps; use branching tree connection on the left. No claims about psychometric accuracy. Flat clean editorial vector-like style. Simple large icons, large Japanese sans-serif labels (at least 48px), generous white space. Read vertically, no more than 2 columns. White #ffffff background, dark navy text #001738, primary #3D4DB7, cyan #00c4cc accent, solid pale #f0f1fb panels. No shadow, haze, glow, 3D, gradients or tiny print. Only specified text. No invented statistics, dates, prices or promises.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-c0df3a57-588d-4db3-a438-a4714563f3c8.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "choice-evidence-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle explanatory presentation slide. Portrait 1024x1536. Exact title 「選ばれる理由を伝える」. Three vertical stages: customer with question 「困っている場面」; comparison checklist 「選ぶときの条件」; actual work document and proof check 「自社の実績・根拠」. Down arrows connect. Bottom 「具体的なケースで説明する」. Do not promise SEO ranking. Flat clean editorial vector-like style. Simple large icons, large Japanese sans-serif labels (at least 48px), generous white space. Read vertically, no more than 2 columns. White #ffffff background, dark navy text #001738, primary #3D4DB7, cyan #00c4cc accent, solid pale #f0f1fb panels. No shadow, haze, glow, 3D, gradients or tiny print. Only specified text. No invented statistics, dates, prices or promises.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-03ad6df5-d34c-4dbc-952b-8117a7081f4b.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "email-routing-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle explanatory presentation slide. Portrait 1024x1536. Exact title 「メールの受信と送信を分ける」. Two vertical independent flow panels: heading 「受信」, envelope 「独自ドメイン」 downward arrow to 「Cloudflare」 downward arrow to inbox 「Gmail」. Second heading 「送信」, composing screen 「メール作成」 downward arrow to 「Resend」 downward arrow to envelope 「相手へ」. No logos, no dates, no claims about Gmail SMTP support. Flat clean editorial vector-like style. Simple large icons, large Japanese sans-serif labels (at least 48px), generous white space. Read vertically, no more than 2 columns. White #ffffff background, dark navy text #001738, primary #3D4DB7, cyan #00c4cc accent, solid pale #f0f1fb panels. No shadow, haze, glow, 3D, gradients or tiny print. Only specified text. No invented statistics, dates, prices or promises.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-67197383-b2d0-403f-9f04-c47f5f29e7a9.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "system-layers-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle explanatory presentation slide. Portrait 1024x1536. Exact title 「業務システムの役割を分ける」. Three vertical linked layers: UI screen 「画面・業務処理」; AI engine and API plug 「AI・外部サービス」; database and shield 「データ・権限」. Labels explain roles, not specific mandatory tech. Footer 「処理の境界と責任を決める」. Flat clean editorial vector-like style. Simple large icons, large Japanese sans-serif labels (at least 48px), generous white space. Read vertically, no more than 2 columns. White #ffffff background, dark navy text #001738, primary #3D4DB7, cyan #00c4cc accent, solid pale #f0f1fb panels. No shadow, haze, glow, 3D, gradients or tiny print. Only specified text. No invented statistics, dates, prices or promises.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-d7b15f0b-7363-4f00-abab-4f336c0985e8.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "search-benchmark-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle business diagram. Portrait 1024x1536. Title exactly 「検索速度だけで決めない」. Three vertical illustrated rows with exact labels: stopwatch 「検索性能」; target and search document 「検索品質」; two linked databases with wrench 「同期・運用」. Bottom 「測定条件と実装を合わせて確認」. No numbers, no bar chart, no product ranking. Clean flat illustration with large friendly line icons. Extremely readable Japanese sans serif text at least48px, large whitespace, top-to-bottom single column. White #ffffff background, navy #001738 text, #3D4DB7 primary, #00c4cc accent, pale #f0f1fb panels. No gradients shadows haze glows textures tinytext logos. Only specified text.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-58c7993d-6fff-4e45-a6e9-847786567f00.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "data-action-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle business diagram. Portrait 1024x1536. Title exactly 「データを、次の施策につなぐ」. Three vertical stages: customer transaction logs 「記録を集める」; magnifier over trends and groups 「傾向を見つける」; business action checklist with return arrow to logs 「施策と結果を確かめる」. Do not show numeric data, forecasts, or guarantees. Clean flat illustration with large friendly line icons. Extremely readable Japanese sans serif text at least48px, large whitespace, top-to-bottom single column. White #ffffff background, navy #001738 text, #3D4DB7 primary, #00c4cc accent, pale #f0f1fb panels. No gradients shadows haze glows textures tinytext logos. Only specified text.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-0009c4bf-fcef-4f67-af8c-8deb53eb8bd7.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "knowledge-handover-v1",
+    "prompt": "Use case: infographic-diagram. Japanese Beekle business diagram. Portrait 1024x1536. Title exactly 「経験を、共有できる知識へ」. Three vertical stages: experienced worker and colleague discussing actual work 「判断の理由を聞く」; work document with references and conditions 「条件と根拠を残す」; person searching and updating a document 「探して使い、更新する」. No guarantees of perfect knowledge capture. Clean flat illustration with large friendly line icons. Extremely readable Japanese sans serif text at least48px, large whitespace, top-to-bottom single column. White #ffffff background, navy #001738 text, #3D4DB7 primary, #00c4cc accent, pale #f0f1fb panels. No gradients shadows haze glows textures tinytext logos. Only specified text.",
+    "source": "/Users/kunio/.codex/generated_images/01a0b61e-60e1-7bd2-8684-b50f658314f2/exec-16e0fa60-1137-4ed7-9df6-88cab47bf068.png",
+    "tool": "built-in image_gen"
+  },
+  {
+    "id": "ai-experiment-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: illustration-story. A calm friendly conceptual Japanese editorial illustration about a developer experimenting with their own AI. Landscape1536x1024. One adult developer at a laptop on the left, simple small abstract AI node with a speech bubble on the right, iterations represented by two small curved arrows connecting laptop and AI. A notebook with simple abstract notes. No readable text, no numeric data, no logos, no robot babies, no exaggerated claims. Flat line drawing using only white background, navy #001738 outlines, purple #3D4DB7, cyan #00c4cc small accents and pale #f0f1fb. No gradients, shadows, glow, haze. Not a real product screenshot or real person portrait.",
+    "aspect_ratio": "3:2",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 154,
+      "completion_tokens": 5488,
+      "total_tokens": 5642,
+      "cost": 0.16541,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16541,
+        "upstream_inference_prompt_cost": 0.00077,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:15:58.265Z",
+    "source": "public/images/services/ai-experiment-v1.webp",
+    "tool": "OpenRouter Images API",
+    "review": "配色・図の意味・日本語を目視確認"
+  },
+  {
+    "id": "ai-role-context-v1",
+    "model": "openai/gpt-image-2",
+    "prompt": "Use case: infographic-diagram. Portrait1024x1536. Exact Japanese title 「役割に合う応答を設計する」. Three vertically stacked simple large illustrated rows: theatre role card 「役割・設定」; document with knowledge nodes 「知っていること」; dialogue bubble with boundary shield 「答えてよいこと」. Downward arrows. Bottom exact label 「応答を確かめて調整する」. No examples of crimes, violence, numeric data, or actual product UI. Extremely large48px+ Japanese sans serif labels. White #ffffff canvas, navy #001738 text, purple #3D4DB7 main, cyan #00c4cc accent, pale #f0f1fb panels. Clean flat vector-like editorial style, no glow haze gradients shadows.",
+    "aspect_ratio": "2:3",
+    "quality": "high",
+    "n": 1,
+    "usage": {
+      "prompt_tokens": 174,
+      "completion_tokens": 5488,
+      "total_tokens": 5662,
+      "cost": 0.16551,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.16551,
+        "upstream_inference_prompt_cost": 0.00087,
+        "upstream_inference_completions_cost": 0.16464
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 5488
+      }
+    },
+    "createdAt": "2026-09-19T03:17:14.298Z",
+    "source": "public/images/services/ai-role-context-v1.webp",
+    "tool": "OpenRouter Images API",
+    "review": "配色・図の意味・日本語を目視確認"
+  }
+]

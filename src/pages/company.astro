@@ -1,4 +1,5 @@
 ---
+import PageExplainer from '@/components/visuals/page-explainer.astro';
 // src/pages/company.astro
 
 import { companyInfo, companyPositioning } from '@/data/company';
@@ -40,6 +41,8 @@ const pageDescription = `株式会社Beekleの会社概要。${companyPositionin
       title="会社概要"
       subtitle="Beekleは、業務と課題を整理し、要件を実装可能な仕様へ変換し、その仕様をAIエージェントにつなぐ開発会社です。いきなり大きく作らず、まず動くプロトタイプで確かめ、フィードバックを要件へ戻しながら本開発へ進みます。"
     />
+    <PageExplainer name="delivery-handoff-v1" />
+
 
     <!-- About Section -->
     <section class="border-b border-neutral-300 bg-neutral-100 py-24 md:py-28">

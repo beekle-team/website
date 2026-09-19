@@ -1,4 +1,5 @@
 ---
+import InformationMap from '@/components/services/information-map.astro';
 import { SectionHeader } from '@/components/ui';
 import { ragDeploymentModes } from '@/data/rag-service-page';
 ---
@@ -13,23 +14,7 @@ import { ragDeploymentModes } from '@/data/rag-service-page';
         label="CLOUD DEPLOYMENT"
       />
 
-      <div class="grid gap-4 md:grid-cols-2">
-        {ragDeploymentModes.map((mode, index) => (
-          <article class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 md:p-7">
-            <div class="flex items-start gap-4">
-              <span class="font-Poppins text-sm font-bold text-primary-500">
-                {String(index + 1).padStart(2, '0')}
-              </span>
-              <div>
-                <h3 class="text-xl font-bold leading-snug text-navy-950">{mode.title}</h3>
-                <p class="mt-3 text-sm leading-relaxed text-neutral-700 md:text-base">
-                  {mode.description}
-                </p>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
+      <InformationMap label="業務と運用条件に合う構成を選ぶ" items={ragDeploymentModes} caption="クラウド環境の選択肢です。現在の契約、データ保管方針、認証、利用量を確認して選定します。" />
 
       <div class="mt-8 flex flex-col items-start justify-between gap-5 rounded-lg border border-primary-200 bg-primary-50 p-6 md:flex-row md:items-center md:p-8">
         <div class="max-w-3xl">

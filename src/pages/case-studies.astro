@@ -1365,7 +1365,7 @@ const hasPrevPage = currentPage > 1;
                 </div>
 
                 {/* 課題と解決策 */}
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-12">
                   <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-900 mb-4">{case_study.challenge.title}</h3>
                     <p class="text-gray-600 mb-4">{case_study.challenge.description}</p>
@@ -1384,7 +1384,7 @@ const hasPrevPage = currentPage > 1;
                   </div>
                 </div>
 
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-12">
                   <div class="mb-8">
                     <h3 class="text-xl font-bold text-gray-900 mb-4">{case_study.solution.title}</h3>
                     <p class="text-gray-600 mb-4">{case_study.solution.description}</p>
@@ -1413,12 +1413,7 @@ const hasPrevPage = currentPage > 1;
                       </p>
                     )}
                     <div
-                      class:list={[
-                        'grid grid-cols-1 gap-4',
-                        case_study.results.length === 4
-                          ? 'md:grid-cols-2 lg:grid-cols-4'
-                          : 'md:grid-cols-3',
-                      ]}
+                      class="grid grid-cols-1 gap-4 md:grid-cols-2"
                     >
                       {case_study.results.map((result) => (
                         <div class="rounded-lg border border-neutral-200 bg-neutral-50 p-5">

@@ -1,0 +1,36 @@
+---
+import {
+  BookOpen,
+  ChartNoAxesCombined,
+  ClipboardCheck,
+  Database,
+  FileText,
+  GitBranch,
+  Handshake,
+  Layers,
+  MessageSquare,
+  MonitorCheck,
+  ShieldCheck,
+  Users,
+} from 'lucide-react';
+interface Props {
+  name?: string;
+  class?: string;
+}
+const icons = {
+  book: BookOpen,
+  chart: ChartNoAxesCombined,
+  check: ClipboardCheck,
+  data: Database,
+  document: FileText,
+  flow: GitBranch,
+  handshake: Handshake,
+  layers: Layers,
+  message: MessageSquare,
+  demo: MonitorCheck,
+  shield: ShieldCheck,
+  people: Users,
+};
+const Icon = icons[Astro.props.name as keyof typeof icons] || BookOpen;
+---
+<span class:list={['inline-flex shrink-0 items-center justify-center rounded-md bg-primary-50 p-3 text-primary-600', Astro.props.class]} aria-hidden="true"><Icon size={28} strokeWidth={1.75} /></span>

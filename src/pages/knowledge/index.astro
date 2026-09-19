@@ -1,4 +1,5 @@
 ---
+import ArticleThumbnail from '@/components/visuals/article-thumbnail.astro';
 import { Header } from '../../components/header';
 import JsonLd from '../../components/seo/json-ld.astro';
 import { PageHero } from '../../components/ui/page-hero';
@@ -68,6 +69,7 @@ const articles = allColumns.map((c) => ({
               <time class="text-sm text-gray-500">
                 {new Date(article.publishedAt).toLocaleDateString('ja-JP')}
               </time>
+              <ArticleThumbnail id={article.id} />
               <h2 class="text-lg md:text-xl font-bold text-gray-900 group-hover:text-primary-500 transition-colors mt-1 mb-2 leading-tight">
                 {article.title}
               </h2>
