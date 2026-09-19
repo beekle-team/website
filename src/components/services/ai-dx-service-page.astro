@@ -93,15 +93,15 @@ const pageConfigs = {
     breadcrumb: '経営DX・AI導入支援',
     eyebrow: '経営者・経営企画・事業責任者へ',
     heading: '経営数字と業務データを、毎週判断できる状態へ。',
-    lead: '経営数字と業務データをどこから整えるか、毎月の判断を支援します。AIレポート、アラート、RAGなどが必要になったら、データ連携と実装まで同じチームで進めます。',
+    lead: '経営課題を整理し、AI・DXで何に取り組むか、どの順番で進めるかを決めるコンサルティングです。まずは90分の壁打ちから。継続的な判断支援や開発が必要になったら、顧問・伴走支援や実装をご提案します。',
     heroNote: '90分の壁打ち 35,000円（税別） / 単発相談可 / AI実装まで一貫支援',
-    heroCta: '経営課題とデータの状況を相談する',
+    heroCta: '90分の壁打ちを申し込む',
     memoTitle: '経営DX判断メモ',
-    memoSubtitle: '相談前ドラフト',
+    memoSubtitle: '壁打ちで整理すること',
     memoRows: [
       ['誰向け', '経営者 / 経営企画 / 事業責任者'],
       ['見る数字', '売上、案件、利益、資金、顧客'],
-      ['返すもの', '課題マップ、接続案、優先順位'],
+      ['返すもの', '導入検討メモ（課題、導入候補、優先順位）'],
       ['実装例', 'AIレポート、アラート、検索、エージェント'],
     ],
     issueTitle: '経営DXは、システム導入だけでは進みません',
@@ -128,16 +128,17 @@ const pageConfigs = {
           '情報の場所と判断基準が共有されておらず、確認や承認が特定の人に集まり続けている。',
       },
     ],
-    finalTitle: '経営会議で毎週見る情報から、AIにつなぎませんか',
+    finalTitle: 'AI・DXで何から始めるか、90分で整理しませんか',
     finalLead:
-      '現在使っている会計、CRM、メール、資料を伺い、最初に整理すべき課題とデータをご案内します。',
+      '経営課題・導入候補・優先順位を整理し、次のアクションを導入検討メモにまとめます。オンライン90分・35,000円（税別）。単発で完結でき、継続契約や開発発注は必須ではありません。',
     source: 'services-management-dx',
   },
 } as const;
 
 const page = pageConfigs[mode];
 const pageUrl = `${siteUrl}${page.path}`;
-const contactHref = `/contact?source=${page.source}&intent=genai-adoption`;
+const entryIntent = mode === 'management-dx' ? 'management-dx-session' : 'genai-adoption';
+const contactHref = `/contact?source=${page.source}&intent=${entryIntent}`;
 
 const spotPlan: Plan = {
   no: 'SPOT',
@@ -251,37 +252,66 @@ const outputs = [
   },
 ];
 
-const steps = [
-  {
-    no: '01',
-    title: '無料相談・NDA締結',
-    description:
-      'NDAを締結し、課題、体制、利用中のツールを伺ったうえで、実際の業務データをお預かりして確認します。',
-  },
-  {
-    no: '02',
-    title: '実データで検証デモを作る',
-    description:
-      '対象業務を絞り、実データで動くデモを作って、AIが業務に使える見込みを双方で確認します。費用はかかりません。',
-  },
-  {
-    no: '03',
-    title: '進めるかを判断し、体制を提案',
-    description:
-      '合わなければここで終了し、費用は発生しません。望みがあれば、着手するテーマ、見送るテーマ、体制、費用を準委任で提案します。',
-  },
-  {
-    no: '04',
-    title: '判断支援、または簡易PoC・データ連携',
-    description:
-      'AI顧問は判断と次のアクションを月次メモに残します。実装プランは小さく動かし、精度、業務効果、権限、ログ、費用を評価します。',
-  },
-  {
-    no: '05',
-    title: '本番化・定着・継続改善',
-    description: '本番化する場合は運用ルールと担当を決め、利用状況と効果を見ながら改善します。',
-  },
-];
+const steps =
+  mode === 'management-dx'
+    ? [
+        {
+          no: '01',
+          title: '壁打ちのお申し込み・相談テーマの確認',
+          description:
+            'オンライン90分・35,000円（税別）の単発相談です。お申し込み後に日程と相談テーマを確認します。必要に応じて、資料共有前にNDAを締結します。',
+        },
+        {
+          no: '02',
+          title: '90分の壁打ち・導入検討メモのお渡し',
+          description:
+            '経営・業務の課題、AI・DXの導入候補、優先順位、次のアクションを整理します。導入検討メモをお渡しして単発相談は完了します。',
+        },
+        {
+          no: '03',
+          title: '必要に応じて、顧問・伴走支援をご提案',
+          description:
+            '継続的な判断支援が必要ならAI顧問、実行まで一緒に進めるなら伴走支援をご提案します。支援範囲・体制・料金を確認してから契約します。',
+        },
+        {
+          no: '04',
+          title: '開発が必要な場合は、検証・実装を個別に相談',
+          description:
+            'Beekleへの開発発注を前提に検討する案件では、実現性や動作を確かめるPoC・デモをご相談いただけます。対象業務・検証範囲・費用条件を事前に合意し、本開発は別途ご提案します。',
+        },
+      ]
+    : [
+        {
+          no: '01',
+          title: '無料相談・NDA締結',
+          description:
+            'NDAを締結し、課題、体制、利用中のツールを伺ったうえで、実際の業務データをお預かりして確認します。',
+        },
+        {
+          no: '02',
+          title: '実データで検証デモを作る',
+          description:
+            '対象業務を絞り、実データで動くデモを作って、AIが業務に使える見込みを双方で確認します。費用はかかりません。',
+        },
+        {
+          no: '03',
+          title: '進めるかを判断し、体制を提案',
+          description:
+            '合わなければここで終了し、費用は発生しません。望みがあれば、着手するテーマ、見送るテーマ、体制、費用を準委任で提案します。',
+        },
+        {
+          no: '04',
+          title: '判断支援、または簡易PoC・データ連携',
+          description:
+            'AI顧問は判断と次のアクションを月次メモに残します。実装プランは小さく動かし、精度、業務効果、権限、ログ、費用を評価します。',
+        },
+        {
+          no: '05',
+          title: '本番化・定着・継続改善',
+          description:
+            '本番化する場合は運用ルールと担当を決め、利用状況と効果を見ながら改善します。',
+        },
+      ];
 
 const faqs = [
   ...(mode === 'management-dx'
@@ -292,9 +322,9 @@ const faqs = [
             '経営導入プラン壁打ちは、オンライン90分・35,000円（税別）の単発相談です。経営・業務の課題からAI・DXの導入候補と優先順位を整理し、次のアクションを導入検討メモにまとめます。要件書がなくても相談できます。詳細な要件定義・データ調査・開発は含みません。',
         },
         {
-          question: '壁打ちと無料相談・無料検証デモはどう違いますか？',
+          question: '有料の壁打ちと、開発商談でのPoC・デモはどう違いますか？',
           answer:
-            '無料相談はサービスの適合や支援範囲の確認、無料検証デモは対象業務を絞って実データで使えるかを確かめるものです。有料の壁打ちは、90分を使って経営課題・導入候補・優先順位を整理し、導入検討メモをお返しします。単発で完結でき、月額契約や開発の発注は必須ではありません。無料検証へ進む場合も、実施済みの壁打ち料金は発生します。',
+            '壁打ちは、経営課題・導入候補・優先順位を整理する有料のコンサルティングです。開発発注なしで完結します。PoC・デモは、Beekleへの開発発注を前提とした具体的な案件で、実現性や動作を確認するために行います。無料で対応する範囲は案件ごとに事前合意します。経営課題の整理や導入方針の策定を無料で提供するサービスではありません。',
         },
       ]
     : []),
@@ -304,9 +334,14 @@ const faqs = [
       '月額プランの体制と料金は共通です。AI導入支援は業務担当者・DX担当者の課題から、経営DX支援は経営数字と意思決定の課題から入ります。相談内容に応じて同じチームが支援します。',
   },
   {
-    question: '診断だけ依頼し、実装は他社に任せてもよいですか？',
+    question:
+      mode === 'management-dx'
+        ? 'コンサルティングだけ依頼し、実装は他社に任せてもよいですか？'
+        : '診断だけ依頼し、実装は他社に任せてもよいですか？',
     answer:
-      '可能です。NDA締結後に実データで検証用デモを作り、結果と投資判断の条件をお返しします。進めない場合も費用はかかりません。',
+      mode === 'management-dx'
+        ? '可能です。壁打ちやAI顧問は、コンサルティングとして単独でご依頼いただけます。Beekleへの開発発注は必須ではありません。実装先にかかわらず、ご利用いただいたコンサルティングの料金は発生します。'
+        : '可能です。NDA締結後に実データで検証用デモを作り、結果と投資判断の条件をお返しします。進めない場合も費用はかかりません。',
   },
   {
     question: '月額料金に本番システムの開発費も含まれますか？',
@@ -321,7 +356,9 @@ const faqs = [
   {
     question: '最低契約期間はありますか？',
     answer:
-      '検証用デモは無料で、契約期間はありません。本開発へ進む場合は準委任（月額）で、職種別に公開している単価をもとに、デモの結果から範囲と体制をご提案します。月額プランは最低3ヶ月、以降は月単位です。',
+      mode === 'management-dx'
+        ? '壁打ちはオンライン90分・35,000円（税別）の単発相談です。継続契約は必須ではありません。AI顧問・伴走支援・AI・DX推進室の月額プランは最低3ヶ月、以降は月単位です。開発は対象範囲・体制・費用を別途ご提案します。'
+        : '検証用デモは無料で、契約期間はありません。本開発へ進む場合は準委任（月額）で、職種別に公開している単価をもとに、デモの結果から範囲と体制をご提案します。月額プランは最低3ヶ月、以降は月単位です。',
   },
   {
     question: 'オンプレミスや完全閉域環境に対応していますか？',
@@ -336,7 +373,9 @@ const faqs = [
   {
     question: 'PoC後に本番化しない判断もできますか？',
     answer:
-      'できます。検証用デモを触って、精度、業務適合、利用者、データ、運用負荷を確認します。進めない場合は費用はかからず、見送り理由と再検討条件を残します。',
+      mode === 'management-dx'
+        ? 'できます。開発発注を前提に検討する案件でも、検証結果から見送る判断ができます。検証範囲と費用条件は着手前に合意します。壁打ちや月額支援の実施分は、本番化の有無にかかわらず有料です。'
+        : 'できます。検証用デモを触って、精度、業務適合、利用者、データ、運用負荷を確認します。進めない場合は費用はかからず、見送り理由と再検討条件を残します。',
   },
 ];
 ---
@@ -445,13 +484,14 @@ const faqs = [
     <Section variant="white" padding="lg" id="plans">
       <SectionHeader
         title={mode === 'management-dx' ? '90分の壁打ちから、実装・継続支援まで' : 'デモの後に選ぶ、準委任の3つの月額プラン'}
-        subtitle={mode === 'management-dx' ? '導入方針を整理したい方は単発の壁打ちから。実データでの検証や継続支援も、必要な段階に合わせて選べます' : 'まず0円の検証デモで判断し、進める場合に相談役だけ、伴走、専任チームのどれが要るかを選びます'}
+        subtitle={mode === 'management-dx' ? '経営課題と導入方針を整理する有料コンサルティングです。単発の壁打ちから、必要に応じて顧問・伴走支援へ進めます' : 'まず0円の検証デモで判断し、進める場合に相談役だけ、伴走、専任チームのどれが要るかを選びます'}
         number="02"
         label="PLANS"
       />
 
       {mode === 'management-dx' && <ManagementDxSession />}
 
+      {mode === 'ai-adoption' && (
       <aside class="mx-auto mb-8 max-w-5xl border-y border-neutral-300 bg-neutral-50 px-6 py-6 md:px-8">
         <div class="grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
           <div>
@@ -483,6 +523,7 @@ const faqs = [
           </div>
         </div>
       </aside>
+      )}
 
       <div class="space-y-6 md:hidden">
         {plans.map((plan) => (
@@ -666,13 +707,13 @@ const faqs = [
     <Section variant="light" padding="lg">
       <SectionHeader
         title="ご相談から運用までの流れ"
-        subtitle="プランを決める前の段階から無料でご相談いただけます"
+        subtitle={mode === 'management-dx' ? '単発の壁打ちから始め、必要に応じて継続支援・開発へ進みます' : 'プランを決める前の段階から無料でご相談いただけます'}
         number="05"
         label="FLOW"
       />
       {mode === 'management-dx' && (
         <p class="mx-auto mb-8 max-w-4xl border-l-4 border-primary-500 bg-white p-6 text-base leading-relaxed text-neutral-700">
-          単発の壁打ちは、お申し込み → 日程・相談テーマの確認 → オンライン90分 → 導入検討メモのお渡しで完結します。以下は、無料検証から継続支援・開発へ進む場合の流れです。壁打ちの実施料金は、継続の有無にかかわらず35,000円（税別）です。
+          壁打ちは導入検討メモのお渡しで完結します。顧問・伴走支援や開発は、ご希望と課題に応じて別途ご提案します。継続契約や開発発注は必須ではありません。
         </p>
       )}
       <div class="mx-auto max-w-4xl space-y-5">
@@ -721,12 +762,12 @@ const faqs = [
         <h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">{page.finalTitle}</h2>
         <p class="mb-10 text-lg leading-relaxed text-white/90 md:text-xl">{page.finalLead}</p>
         <a
-          href={`/contact?source=${page.source}-final&intent=genai-adoption`}
+          href={`/contact?source=${page.source}-final&intent=${entryIntent}`}
           data-cta-source={`${page.source}-final`}
           data-cta-id="contact"
           class="inline-flex min-h-[56px] items-center justify-center rounded-md bg-white px-6 py-4 text-center text-base font-semibold leading-snug text-accent-950 transition hover:bg-neutral-100 md:px-10 md:text-lg"
         >
-          無料相談で状況を整理する
+          {mode === 'management-dx' ? '90分の壁打ちを申し込む' : '無料相談で状況を整理する'}
           <svg class="ml-3 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
           </svg>
