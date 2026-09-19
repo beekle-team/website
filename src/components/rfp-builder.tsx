@@ -264,12 +264,14 @@ export function RfpBuilder() {
           社内・上長への共有なら「テキスト(.txt)」または「HTMLで開く（PDF印刷用）」がおすすめ。開発会社に渡すなら「Markdown」。
         </p>
         {preview && (
-          <details open className="mt-4">
-            <summary className="text-sm text-gray-600 cursor-pointer">プレビュー</summary>
+          <section className="mt-4" aria-labelledby="rfp-preview-heading">
+            <h3 id="rfp-preview-heading" className="text-sm font-semibold text-gray-700">
+              プレビュー
+            </h3>
             <pre className="mt-2 p-4 bg-gray-50 border border-gray-200 rounded-md text-xs overflow-x-auto whitespace-pre-wrap font-mono leading-relaxed">
               {preview}
             </pre>
-          </details>
+          </section>
         )}
       </section>
 

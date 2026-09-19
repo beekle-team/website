@@ -214,11 +214,8 @@ const CareersContactForm = ({ sitekey }: CareersContactFormProps) => {
           />
         </div>
 
-        <details className="group">
-          <summary className="cursor-pointer text-base font-medium text-foreground/70 hover:text-primary-500 select-none list-none flex items-center gap-2">
-            <span className="text-primary-500 group-open:rotate-90 transition-transform">▶</span>
-            電話番号も記入する（任意）
-          </summary>
+        <div>
+          <p className="text-base font-medium text-foreground/70">電話番号（任意）</p>
           <div className="mt-4 pl-4 border-l-2 border-primary-100">
             <label className="block text-base font-medium text-foreground/80 mb-2" htmlFor="phone">
               電話番号
@@ -233,7 +230,7 @@ const CareersContactForm = ({ sitekey }: CareersContactFormProps) => {
               placeholder="090-1234-5678"
             />
           </div>
-        </details>
+        </div>
 
         <p className="text-sm text-muted-foreground">
           送信することで

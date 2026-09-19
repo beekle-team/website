@@ -186,10 +186,8 @@ export const ProcessSteps = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => 
                       <p className="text-lg font-bold leading-relaxed text-accent-950">
                         {step.decision}
                       </p>
-                      <details className="mt-4 border-t border-neutral-200 pt-3">
-                        <summary className="cursor-pointer py-2 font-bold text-primary-700">
-                          役割分担・確認内容を詳しく見る
-                        </summary>
+                      <div className="mt-4 border-t border-neutral-200 pt-3">
+                        <p className="py-2 font-bold text-primary-700">役割分担・確認内容</p>
                         <p className="mt-2 text-gray-700 leading-relaxed">{step.description}</p>
 
                         <div className="mt-5 grid gap-4">
@@ -234,7 +232,7 @@ export const ProcessSteps = ({ headingLevel = 2 }: { headingLevel?: 2 | 3 }) => 
                             <p className="text-sm leading-relaxed text-gray-700">{step.evidence}</p>
                           </div>
                         )}
-                      </details>
+                      </div>
                     </div>
                   </div>
                 </div>

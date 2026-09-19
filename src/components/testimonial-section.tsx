@@ -90,8 +90,6 @@ export const testimonialData: Testimonial[] = [
 ];
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
-  const [expanded, setExpanded] = useState(false);
-
   return (
     <div className="bg-white rounded-lg p-6 md:p-8 flex flex-col h-full transition-colors">
       <div className="flex flex-wrap gap-2 mb-4">
@@ -114,32 +112,11 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         <p className="text-sm text-neutral-700 leading-relaxed">{testimonial.meaning}</p>
       </div>
 
-      <div className="mt-4 flex-grow">
-        {expanded && (
-          <p className="text-sm text-neutral-600 leading-relaxed border-t border-neutral-100 pt-4">
-            {testimonial.fullQuote}
-          </p>
-        )}
-      </div>
+      <p className="mt-4 flex-grow border-t border-neutral-100 pt-4 text-sm leading-relaxed text-neutral-600">
+        {testimonial.fullQuote}
+      </p>
 
       <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2">
-        <button
-          type="button"
-          onClick={() => setExpanded(!expanded)}
-          aria-expanded={expanded}
-          className="inline-flex min-h-[44px] items-center text-sm font-semibold text-primary-500 hover:text-primary-600"
-        >
-          {expanded ? '全文を閉じる' : '全文を見る'}
-          <svg
-            className={`w-4 h-4 ml-1 transition-transform ${expanded ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
         {testimonial.caseHref && (
           <a
             href={testimonial.caseHref}
@@ -206,7 +183,7 @@ const TestimonialSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-5">
           {visible.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}

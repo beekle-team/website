@@ -210,10 +210,10 @@ try {
                   <p class="mt-1 text-lg leading-relaxed text-accent-950">{item.before}</p>
                   <p class="mt-4 text-sm font-bold text-primary-700">After</p>
                   <p class="mt-1 text-xl font-bold leading-relaxed text-primary-700">{item.after}</p>
-                  <details class="mt-5 border-t border-neutral-200 pt-4">
-                    <summary class="cursor-pointer py-2 font-bold text-accent-950">Beekleがしたこと</summary>
+                  <div class="mt-5 border-t border-neutral-200 pt-4">
+                    <h4 class="py-2 font-bold text-accent-950">Beekleがしたこと</h4>
                     <p class="mt-3 text-sm leading-relaxed text-neutral-700">{item.did}</p>
-                  </details>
+                  </div>
                   <a href="/case-studies" class="mt-4 inline-flex min-h-[44px] items-center font-bold text-primary-600">実案件を詳しく見る →</a>
                 </div>
               </article>
@@ -235,15 +235,15 @@ try {
               <br class="hidden lg:block" />
               <span class="text-primary-500">相談できます。</span>
             </h2>
-            <details class="mt-6 border-b border-neutral-200 pb-4">
-              <summary class="cursor-pointer py-2 font-bold text-primary-700">相談から判断までの考え方</summary>
+            <div class="mt-6 border-b border-neutral-200 pb-4">
+              <h3 class="py-2 font-bold text-primary-700">相談から判断までの考え方</h3>
             <p class="mt-6 text-lg leading-relaxed text-neutral-700">
               「何を作るべきか」が曖昧なまま見積もりや開発に入ると、作った後に認識のズレが出ます。Beekleは、業務の困りごとを聞き、検証すべき範囲を絞り、動くものを見ながら社内で説明できる判断材料へ変えます。
             </p>
             <p class="mt-4 text-lg leading-relaxed text-neutral-700">
               作る価値が薄い場合は、作らない判断も選択肢に含めます。開発契約を取ることより先に、成立可能性と投資範囲を確認するためです。
             </p>
-            </details>
+            </div>
             <div class="mt-7 grid gap-8">
               {decisionMessages.map((message, index) => (
                 <div class="grid items-center gap-6 rounded-lg border border-neutral-200 bg-white p-5 lg:grid-cols-2">
@@ -312,8 +312,8 @@ try {
           </div>
 
           <SectionVisual name="delivery-handoff-v1" />
-          <details class="rounded-lg border border-neutral-300 bg-white p-5">
-            <summary class="cursor-pointer py-2 text-lg font-bold text-accent-950">比較条件と各社の違いを詳しく見る</summary>
+          <div class="rounded-lg border border-neutral-300 bg-white p-5">
+            <h3 class="py-2 text-lg font-bold text-accent-950">比較条件と各社の違い</h3>
           <div class="border-y border-neutral-300 bg-white md:hidden">
             {comparisonRows.map((row) => (
               <section class="border-b border-neutral-200 px-4 py-4 last:border-b-0">
@@ -362,7 +362,7 @@ try {
               </tbody>
             </table>
           </div>
-          </details>
+          </div>
         </div>
       </div>
     </section>
