@@ -162,6 +162,12 @@ htmlContent = htmlContent.replace(
 
 // 退避しておいた <pre> ブロックを最後に戻す
 htmlContent = restorePreBlocks(htmlContent, preBlocks);
+
+// 記事内の最初の図をリード図として目次より前へ移す。
+// 本文からは取り除き、同じ画像を二重表示しない。
+const leadFigureMatch = htmlContent.match(/<figure\b[^>]*>[\s\S]*?<\/figure>/i);
+const leadFigureHtml = leadFigureMatch?.[0] ?? '';
+if (leadFigureHtml) htmlContent = htmlContent.replace(leadFigureHtml, '');
 // 日付が欠落・不正な場合に "Invalid Date" を出さない安全フォーマッタ。
 // publishedAt が無ければ updatedAt にフォールバックし、どちらも不正なら空文字を返す。
 function formatJaDate(...values: (string | undefined)[]): string {
@@ -320,7 +326,7 @@ const reviewerId =
     />
   )}
   <Header />
-  <main class="bg-neutral-100 pt-20">
+  <main class="overflow-x-clip bg-neutral-100 pt-20">
     {/* Breadcrumb */}
     <section class="py-6 bg-gray-50 border-b border-gray-200">
       <div class="container mx-auto px-6 md:px-8">
@@ -371,6 +377,16 @@ const reviewerId =
       </div>
     </aside>
 
+    {leadFigureHtml && (
+      <section class="border-b border-neutral-200 bg-neutral-50 pb-8">
+        <div class="container mx-auto max-w-3xl px-6 md:px-12">
+          <div class="markdown-content lead-figure">
+            <Fragment set:html={leadFigureHtml} />
+          </div>
+        </div>
+      </section>
+    )}
+
     {/* Table of Contents */}
     {toc.length > 0 && (
       <section class="border-b border-neutral-300 bg-neutral-50 py-8">
@@ -414,7 +430,7 @@ const reviewerId =
     <article class="bg-neutral-50 py-16 md:py-20">
       <div class="container mx-auto px-6 md:px-12 max-w-3xl">
         <div class="markdown-content min-w-0 [overflow-wrap:anywhere]">
-          {!/<img\b/i.test(htmlContent) && visualName && <PageExplainer name={visualName} />}
+          {!leadFigureHtml && !/<img\b/i.test(htmlContent) && visualName && <PageExplainer name={visualName} />}
           <Fragment set:html={htmlContent} />
         </div>
       </div>

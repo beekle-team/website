@@ -103,6 +103,12 @@ export const sectionVisuals: Record<string, ServiceVisual> = {
     caption:
       '相談役は方針や判断への助言、伴走支援は担当者と進める実行支援、実行チームは合意した範囲の開発を担います。必要な役割と体制を確認して契約します。',
   },
+  'management-data-flow-v1': {
+    name: 'management-data-flow-v1',
+    alt: '営業・会計・顧客対応のデータを集約し、経営判断と次の施策へつなげる流れ',
+    caption:
+      '営業・会計・顧客対応に分かれたデータを同じ基準で整理し、売上や顧客の状況を確認します。Beekleは、集計だけで終わらず、経営会議で次の施策を決められる状態まで設計します。',
+  },
   'management-priorities-v1': {
     width: 1024,
     height: 1536,

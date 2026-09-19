@@ -310,7 +310,7 @@ const faq = [
           <p class="mt-5 max-w-md text-base leading-8 text-white/90">資料探し、転記、同じ問い合わせへの回答。繰り返す作業をAIに任せて、現場の負担と対応コストを減らします。</p>
         </div>
       </div>
-      <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:gap-8">
         {businessBenefits.map(({ icon: Icon, ...item }) => (
           <article class="border-t border-neutral-300 pt-5">
             <Icon size={30} strokeWidth={1.5} className="text-primary-600" aria-hidden="true" />
@@ -374,7 +374,7 @@ const faq = [
       </div>
 
       <p class="mt-10 text-xl font-bold leading-relaxed text-accent-950">小さく試して、早く見極める。<br class="sm:hidden" />ダメなら、そこで止められる。</p>
-      <div class="mt-10 grid gap-8 md:grid-cols-3">
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
         {strengths.map(({ icon: Icon, ...item }) => (
           <article class="border-t border-neutral-300 pt-6">
             <Icon size={32} strokeWidth={1.5} className="text-primary-600" aria-hidden="true" />
@@ -391,7 +391,7 @@ const faq = [
             <h3 class="mt-3 text-xl font-bold leading-relaxed text-accent-950">業務の目的を、<br />実装・テストまでつなぐ。</h3>
           </div>
           <div>
-            <ol aria-label="Beekleの開発の仕組み" class="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <ol aria-label="Beekleの開発の仕組み" class="grid gap-2 sm:grid-cols-2">
               {['業務の目的', '要件・合格条件', '実装・テスト', '本番の業務へ'].map((step, index) => <li class="border-l-2 border-primary-300 bg-neutral-50 px-3 py-3"><span class="block text-sm font-bold text-primary-600">0{index + 1}</span><span class="mt-1 block text-sm font-semibold leading-6 text-accent-950">{step}</span></li>)}
             </ol>
             <p class="mt-4 text-sm leading-7 text-neutral-700">自社開発の「PM on Rails」で、「なぜ作るか」と「何ができたら完成か」を仕様・実装・テストに結びつけます。デモで見つかった認識のズレも要件に戻し、同じチームが画面・システム連携・本番運用まで引き継ぎます。</p>
@@ -429,7 +429,7 @@ const faq = [
       <p class="eyebrow">HOW — 相談から本番まで</p>
       <h2 class="section-title">商談が進むほど、<br class="sm:hidden" />完成像が見えてくる。</h2>
       <SectionVisual name="home-decision-v1" />
-      <ol class="mt-10 grid gap-0 md:grid-cols-5">
+      <ol class="mt-10 grid gap-x-10 md:grid-cols-2">
         {process.map((item, index) => (
           <li class="relative border-l-2 border-primary-200 pb-7 pl-6 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pr-6 md:pt-6">
             <span class="absolute -left-[7px] top-0 h-3 w-3 rounded-full bg-primary-500 md:-top-[7px] md:left-0" aria-hidden="true" />
@@ -450,7 +450,7 @@ const faq = [
       <p class="eyebrow text-primary-200">PROOF — 開発実績とお客様の声</p>
       <h2 class="section-title text-white">動くものと、<br class="sm:hidden" />任せられる根拠を。</h2>
       <SectionVisual name="evaluation-loop-v1" />
-      <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-10">
+      <div class="mt-10 grid gap-8 md:grid-cols-2 md:gap-10">
         {proofs.map((item) => (
           <article class="border-t border-white/30 pt-6">
             <p class="text-sm font-semibold text-primary-200">{item.label}</p>

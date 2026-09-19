@@ -1,4 +1,5 @@
 ---
+import SectionVisual from '@/components/services/section-visual.astro';
 import { services } from '@/data/service';
 
 const cdpService = services.find((service) => service.id === 'cdp-development');
@@ -24,7 +25,9 @@ const caseStudies = cdpService?.caseStudies.slice(0, 3) ?? [];
         </p>
       </div>
 
-      <div class="mt-10 grid gap-6 lg:grid-cols-3">
+      <SectionVisual name="management-data-flow-v1" />
+
+      <div class="mt-10 grid gap-6 lg:grid-cols-2">
         {caseStudies.map((caseStudy) => (
           <article class="rounded-lg border border-neutral-200 bg-neutral-50 p-6 md:p-7">
             <p class="text-xs font-bold tracking-wide text-primary-600">顧客・売上データ基盤</p>

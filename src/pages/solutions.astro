@@ -127,7 +127,7 @@ const cards = industryServices.map((service) => {
                 </h3>
                 <p class="mt-4 leading-relaxed text-neutral-700">{card.description}</p>
                 {card.metrics.length > 0 && (
-                  <div class="mt-5 grid gap-3 border-t border-neutral-200 pt-5 sm:grid-cols-3">
+                  <div class="mt-5 grid gap-3 border-t border-neutral-200 pt-5 sm:grid-cols-2">
                     {card.metrics.map((metric) => (
                       <div>
                         <p class="text-xs font-bold text-primary-700">{metric.label}</p>
